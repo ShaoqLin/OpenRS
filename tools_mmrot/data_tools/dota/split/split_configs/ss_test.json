@@ -1,5 +1,5 @@
 {
-  "nproc": 10,
+  "nproc": 30,
   "img_dirs": [
     "/mnt/bee9bc2f-b897-4648-b8c4-909715332cb4/linshaoqing/data/datasets/DOTA/test/images/"
   ],

@@ -1,6 +1,6 @@
 # dataset settings
 dataset_type = 'DOTADataset'
-data_root = '/mnt/bee9bc2f-b897-4648-b8c4-909715332cb4/linshaoqing/data/datasets/DOTA_split_1024/'
+data_root = '/mnt/bee9bc2f-b897-4648-b8c4-909715332cb4/linshaoqing/data/datasets/DOTA1024/'
 backend_args = None
 
 train_pipeline = [
@@ -13,7 +13,6 @@ train_pipeline = [
 test_pipeline = [
     dict(type='LoadImageFromFile', backend_args=backend_args),
     dict(type='Resize', scale=(1024, 1024), keep_ratio=True),
-    # If you don't have a gt annotation, delete the pipeline
     dict(type='LoadAnnotations', with_bbox=True),
     dict(
         type='PackDetInputs',
@@ -29,8 +28,8 @@ train_dataloader = dict(
     dataset=dict(
         type=dataset_type,
         data_root=data_root,
-        ann_file=data_root + 'trainval1024/DOTA_trainval1024.json',
-        data_prefix=dict(img = data_root + 'trainval1024/images/'),
+        ann_file=data_root + 'trainval/DOTA_trainval1024.json',
+        data_prefix=dict(img = data_root + 'trainval/images/'),
         filter_cfg=dict(filter_empty_gt=True, min_size=32),
         pipeline=train_pipeline,
         backend_args=backend_args))
@@ -43,8 +42,8 @@ val_dataloader = dict(
     dataset=dict(
         type=dataset_type,
         data_root=data_root,
-        ann_file=data_root + 'trainval1024/DOTA_trainval1024.json',
-        data_prefix=dict(img = data_root + 'trainval1024/images'),
+        ann_file=data_root + 'trainval/DOTA_trainval1024.json',
+        data_prefix=dict(img = data_root + 'trainval/images'),
         test_mode=True,
         pipeline=test_pipeline,
         backend_args=backend_args))
@@ -57,7 +56,7 @@ test_dataloader = dict(
     dataset=dict(
         type=dataset_type,
         data_root=data_root,
-        ann_file=data_root + 'test1024/DOTA_test1024.json',
+        ann_file=data_root + 'test/DOTA_test1024.json',
         data_prefix=dict(img = data_root + 'test1024/images'),
         test_mode=True,
         pipeline=test_pipeline,
@@ -65,14 +64,14 @@ test_dataloader = dict(
 
 val_evaluator = dict(
     type='CocoMetric',
-    ann_file=data_root + 'trainval1024/DOTA_trainval1024.json',
+    ann_file=data_root + 'trainval/DOTA_trainval1024.json',
     metric='bbox',
     format_only=False,
     backend_args=backend_args)
 
 test_evaluator = dict(
     type='CocoMetric',
-    ann_file=data_root + 'test1024/DOTA_test1024.json',
+    ann_file=data_root + 'test/DOTA_test1024.json',
     metric='bbox',
     format_only=False,
     backend_args=backend_args)

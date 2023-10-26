@@ -4,15 +4,22 @@ from mmdet.registry import DATASETS
 
 @DATASETS.register_module()
 class DOTADataset(CocoDataset):
+    METAINFO = {
+        'classes': ('plane', 'baseball-diamond',
+                    'bridge', 'ground-track-field',
+                    'small-vehicle', 'large-vehicle',
+                    'ship', 'tennis-court',
+                    'basketball-court', 'storage-tank',
+                    'soccer-ball-field', 'roundabout',
+                    'harbor', 'swimming-pool',
+                    'helicopter'),
+        
+        'palette': [(0, 0, 63), (0, 63, 63), (0, 63, 0), (0, 63, 127),
+                    (0, 63, 191), (0, 63, 255), (0, 127, 63), (0, 127, 127),
+                    (0, 0, 127), (0, 0, 191), (0, 0, 255), (0, 191, 127),
+                    (0, 127, 191), (0, 127, 255), (0, 100, 155)]
+    }
 
-    CLASSES = ('plane', 'baseball-diamond',
-                'bridge', 'ground-track-field',
-                'small-vehicle', 'large-vehicle',
-                'ship', 'tennis-court',
-                'basketball-court', 'storage-tank',
-                'soccer-ball-field', 'roundabout',
-                'harbor', 'swimming-pool',
-                'helicopter')
 
 @DATASETS.register_module()
 class DOTADataset_v3(CocoDataset):

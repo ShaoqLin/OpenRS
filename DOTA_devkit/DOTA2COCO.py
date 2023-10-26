@@ -2,8 +2,8 @@ import dota_utils as util
 import os
 import cv2
 import json
-from tqdm import tqdm
 from PIL import Image
+from tqdm import tqdm
 
 wordname_15 = ['plane', 'baseball-diamond', 'bridge', 'ground-track-field', 'small-vehicle', 'large-vehicle', 'ship', 'tennis-court',
                'basketball-court', 'storage-tank',  'soccer-ball-field', 'roundabout', 'harbor', 'swimming-pool', 'helicopter']
@@ -29,7 +29,7 @@ def DOTA2COCOTrain(srcpath, destfile, cls_names, difficult='2'):
     image_id = 1
     with open(destfile, 'w') as f_out:
         filenames = util.GetFileFromThisRootDir(labelparent)
-        filenames = tqdm(filenames, ncols=60)
+        filenames = tqdm(filenames, ncols=100)
         for file in filenames:
             basename = util.custombasename(file)
             # image_id = int(basename[1:])
@@ -49,7 +49,7 @@ def DOTA2COCOTrain(srcpath, destfile, cls_names, difficult='2'):
             objects = util.parse_dota_poly2(file)
             for obj in objects:
                 if obj['difficult'] == difficult:
-                    print('difficult: ', difficult)
+                    # print('difficult: ', difficult)
                     continue
                 single_obj = {}
                 single_obj['area'] = obj['area']
@@ -66,6 +66,7 @@ def DOTA2COCOTrain(srcpath, destfile, cls_names, difficult='2'):
                 data_dict['annotations'].append(single_obj)
                 single_obj['id'] = inst_count
                 inst_count = inst_count + 1
+                # print(f'file {file.split("/")[-1]} - object {obj["name"]} has beed added')
             image_id = image_id + 1
         json.dump(data_dict, f_out)
 
@@ -82,7 +83,7 @@ def DOTA2COCOTest(srcpath, destfile, cls_names):
     image_id = 1
     with open(destfile, 'w') as f_out:
         filenames = util.GetFileFromThisRootDir(imageparent)
-        filenames = tqdm(filenames, ncols=60)
+        filenames = tqdm(filenames, ncols=100)
         for file in filenames:
             basename = util.custombasename(file)
             imagepath = os.path.join(imageparent, basename + '.png')
@@ -98,18 +99,19 @@ def DOTA2COCOTest(srcpath, destfile, cls_names):
             data_dict['images'].append(single_image)
 
             image_id = image_id + 1
+            # print(f'test file {file.split("/")[-1]} has beed added')
         json.dump(data_dict, f_out)
 
 if __name__ == '__main__':
     print('converting training dataset from DOTA style to coco style...')
-    DOTA2COCOTrain(r'/mnt/bee9bc2f-b897-4648-b8c4-909715332cb4/linshaoqing/data/datasets/DOTA1024/trainval',
+    DOTA2COCOTrain(r'/mnt/bee9bc2f-b897-4648-b8c4-909715332cb4/linshaoqing/data/datasets/DOTA1024/trainval/',
                    r'/mnt/bee9bc2f-b897-4648-b8c4-909715332cb4/linshaoqing/data/datasets/DOTA1024/trainval/DOTA_trainval1024.json',
                    wordname_15)
     # DOTA2COCOTrain(r'/home/dj/code/mmdetection_DOTA/data/dota1_1024_v2/trainval1024_ms',
     #                r'/home/dj/code/mmdetection_DOTA/data/dota1_1024_v2/trainval1024_ms/DOTA_trainval1024_ms.json',
     #                wordname_15)
     print('converting testing dataset from DOTA style to coco style...')
-    DOTA2COCOTest(r'/mnt/bee9bc2f-b897-4648-b8c4-909715332cb4/linshaoqing/data/datasets/DOTA1024/test',
+    DOTA2COCOTest(r'/mnt/bee9bc2f-b897-4648-b8c4-909715332cb4/linshaoqing/data/datasets/DOTA1024/test/',
                   r'/mnt/bee9bc2f-b897-4648-b8c4-909715332cb4/linshaoqing/data/datasets/DOTA1024/test/DOTA_test1024.json',
                   wordname_15)
     # DOTA2COCOTest(r'/home/dj/code/mmdetection_DOTA/data/dota1_1024_v2/test1024_ms',
