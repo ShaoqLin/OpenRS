@@ -25,6 +25,6 @@
     116,
     124
   ],
-  "save_dir": "data/split_ss_dota/trainval/",
+  "save_dir": "/mnt/bee9bc2f-b897-4648-b8c4-909715332cb4/linshaoqing/data/datasets/DOTA1024/trainval/",
   "save_ext": ".png"
 }

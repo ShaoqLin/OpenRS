@@ -2,6 +2,7 @@ import dota_utils as util
 import os
 import cv2
 import json
+from tqdm import tqdm
 from PIL import Image
 
 wordname_15 = ['plane', 'baseball-diamond', 'bridge', 'ground-track-field', 'small-vehicle', 'large-vehicle', 'ship', 'tennis-court',
@@ -14,7 +15,7 @@ def DOTA2COCOTrain(srcpath, destfile, cls_names, difficult='2'):
     # set difficult to filter '2', '1', or do not filter, set '-1'
 
     imageparent = os.path.join(srcpath, 'images')
-    labelparent = os.path.join(srcpath, 'labelTxt')
+    labelparent = os.path.join(srcpath, 'annfiles')
 
     data_dict = {}
     data_dict['images'] = []
@@ -28,6 +29,7 @@ def DOTA2COCOTrain(srcpath, destfile, cls_names, difficult='2'):
     image_id = 1
     with open(destfile, 'w') as f_out:
         filenames = util.GetFileFromThisRootDir(labelparent)
+        filenames = tqdm(filenames, ncols=60)
         for file in filenames:
             basename = util.custombasename(file)
             # image_id = int(basename[1:])
@@ -80,6 +82,7 @@ def DOTA2COCOTest(srcpath, destfile, cls_names):
     image_id = 1
     with open(destfile, 'w') as f_out:
         filenames = util.GetFileFromThisRootDir(imageparent)
+        filenames = tqdm(filenames, ncols=60)
         for file in filenames:
             basename = util.custombasename(file)
             imagepath = os.path.join(imageparent, basename + '.png')
@@ -98,16 +101,17 @@ def DOTA2COCOTest(srcpath, destfile, cls_names):
         json.dump(data_dict, f_out)
 
 if __name__ == '__main__':
-
-    DOTA2COCOTrain(r'/home/dj/code/mmdetection_DOTA/data/dota1_1024_v2/trainval1024',
-                   r'/home/dj/code/mmdetection_DOTA/data/dota1_1024_v2/trainval1024/DOTA_trainval1024.json',
+    print('converting training dataset from DOTA style to coco style...')
+    DOTA2COCOTrain(r'/mnt/bee9bc2f-b897-4648-b8c4-909715332cb4/linshaoqing/data/datasets/DOTA1024/trainval',
+                   r'/mnt/bee9bc2f-b897-4648-b8c4-909715332cb4/linshaoqing/data/datasets/DOTA1024/trainval/DOTA_trainval1024.json',
                    wordname_15)
-    DOTA2COCOTrain(r'/home/dj/code/mmdetection_DOTA/data/dota1_1024_v2/trainval1024_ms',
-                   r'/home/dj/code/mmdetection_DOTA/data/dota1_1024_v2/trainval1024_ms/DOTA_trainval1024_ms.json',
-                   wordname_15)
-    DOTA2COCOTest(r'/home/dj/code/mmdetection_DOTA/data/dota1_1024_v2/test1024',
-                  r'/home/dj/code/mmdetection_DOTA/data/dota1_1024_v2/test1024/DOTA_test1024.json',
+    # DOTA2COCOTrain(r'/home/dj/code/mmdetection_DOTA/data/dota1_1024_v2/trainval1024_ms',
+    #                r'/home/dj/code/mmdetection_DOTA/data/dota1_1024_v2/trainval1024_ms/DOTA_trainval1024_ms.json',
+    #                wordname_15)
+    print('converting testing dataset from DOTA style to coco style...')
+    DOTA2COCOTest(r'/mnt/bee9bc2f-b897-4648-b8c4-909715332cb4/linshaoqing/data/datasets/DOTA1024/test',
+                  r'/mnt/bee9bc2f-b897-4648-b8c4-909715332cb4/linshaoqing/data/datasets/DOTA1024/test/DOTA_test1024.json',
                   wordname_15)
-    DOTA2COCOTest(r'/home/dj/code/mmdetection_DOTA/data/dota1_1024_v2/test1024_ms',
-                  r'/home/dj/code/mmdetection_DOTA/data/dota1_1024_v2/test1024_ms/DOTA_test1024_ms.json',
-                  wordname_15)
+    # DOTA2COCOTest(r'/home/dj/code/mmdetection_DOTA/data/dota1_1024_v2/test1024_ms',
+    #               r'/home/dj/code/mmdetection_DOTA/data/dota1_1024_v2/test1024_ms/DOTA_test1024_ms.json',
+    #               wordname_15)
