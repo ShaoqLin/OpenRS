@@ -52,7 +52,7 @@ coverage.xml
 *.pot
 
 # Django stuff:
-*.log
+# *.log
 local_settings.py
 db.sqlite3
 
@@ -115,7 +115,12 @@ data
 *.log.json
 docs/modelzoo_statistics.md
 mmdet/.mim
-work_dirs/
+
+
+# work_dirs/
+*.jpg
+*.png
+*.dell
 
 # Pytorch
 *.pth

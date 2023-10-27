@@ -57,7 +57,7 @@ test_dataloader = dict(
         type=dataset_type,
         data_root=data_root,
         ann_file=data_root + 'test/DOTA_test1024.json',
-        data_prefix=dict(img = data_root + 'test1024/images'),
+        data_prefix=dict(img = data_root + 'test/images'),
         test_mode=True,
         pipeline=test_pipeline,
         backend_args=backend_args))

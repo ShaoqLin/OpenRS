@@ -2,6 +2,7 @@
 import argparse
 import os
 import os.path as osp
+os.environ["CUDA_VISIBLE_DEVICES"] = "1,2"
 import warnings
 from copy import deepcopy
 
