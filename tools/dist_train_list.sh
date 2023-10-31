@@ -14,7 +14,7 @@ python -m torch.distributed.launch \
     --nproc_per_node=$GPUS \
     --master_port=$PORT \
     $(dirname "$0")/train.py \
-    '/mnt/bee9bc2f-b897-4648-b8c4-909715332cb4/linshaoqing/projects/OpenRS/configs/dota/faster-rcnn_r50_fpn_1x_lr1e-3_dotav1_0_clipgrad.py' \
+    '/mnt/bee9bc2f-b897-4648-b8c4-909715332cb4/linshaoqing/projects/OpenRS/configs/dota/benchmark/benchmark_faster-rcnn_r50_fpn_1x_lr1e-2_dotav1_0.py' \
     --launcher pytorch ${@:2}
 
 sleep 100
@@ -27,7 +27,7 @@ python -m torch.distributed.launch \
     --nproc_per_node=$GPUS \
     --master_port=$PORT \
     $(dirname "$0")/train.py \
-    '/mnt/bee9bc2f-b897-4648-b8c4-909715332cb4/linshaoqing/projects/OpenRS/configs/dota/faster-rcnn_r50_fpn_1x_lr2e-3_dotav1_0_clipgrad.py' \
+    '/mnt/bee9bc2f-b897-4648-b8c4-909715332cb4/linshaoqing/projects/OpenRS/configs/dota/benchmark/benchmark_faster-rcnn_r50_fpn_1x_lr1e-3_dotav1_0.py' \
     --launcher pytorch ${@:2}
 
 sleep 100
@@ -40,7 +40,7 @@ python -m torch.distributed.launch \
     --nproc_per_node=$GPUS \
     --master_port=$PORT \
     $(dirname "$0")/train.py \
-    '/mnt/bee9bc2f-b897-4648-b8c4-909715332cb4/linshaoqing/projects/OpenRS/configs/dota/faster-rcnn_r50_fpn_1x_lr5e-3_dotav1_0_clipgrad.py' \
+    '/mnt/bee9bc2f-b897-4648-b8c4-909715332cb4/linshaoqing/projects/OpenRS/configs/dota/benchmark/benchmark_faster-rcnn_r50_fpn_1x_lr1e-4_dotav1_0.py' \
     --launcher pytorch ${@:2}
 
 sleep 100
@@ -53,7 +53,20 @@ python -m torch.distributed.launch \
     --nproc_per_node=$GPUS \
     --master_port=$PORT \
     $(dirname "$0")/train.py \
-    '/mnt/bee9bc2f-b897-4648-b8c4-909715332cb4/linshaoqing/projects/OpenRS/configs/dota/faster-rcnn_r50_fpn_1x_lr25e-4_dotav1_0_clipgrad.py' \
+    '/mnt/bee9bc2f-b897-4648-b8c4-909715332cb4/linshaoqing/projects/OpenRS/configs/dota/benchmark/benchmark_faster-rcnn_r50_fpn_1x_lr2e-3_dotav1_0.py' \
+    --launcher pytorch ${@:2}
+
+sleep 100
+
+PYTHONPATH="$(dirname $0)/..":$PYTHONPATH \
+python -m torch.distributed.launch \
+    --nnodes=$NNODES \
+    --node_rank=$NODE_RANK \
+    --master_addr=$MASTER_ADDR \
+    --nproc_per_node=$GPUS \
+    --master_port=$PORT \
+    $(dirname "$0")/train.py \
+    '/mnt/bee9bc2f-b897-4648-b8c4-909715332cb4/linshaoqing/projects/OpenRS/configs/dota/benchmark/benchmark_faster-rcnn_r50_fpn_1x_lr5e-3_dotav1_0.py' \
     --launcher pytorch ${@:2}
 
 sleep 50
