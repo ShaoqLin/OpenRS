@@ -5653,3 +5653,692 @@ XavierInit: gain=1, distribution=uniform, bias=0
 2023/11/04 20:44:54 - mmengine - INFO - Epoch(train) [11][1100/1529]  lr: 1.0000e-02  eta: 0:34:23  time: 1.1135  data_time: 0.0208  memory: 13299  loss: 0.1753  loss_rpn_cls: 0.0089  loss_rpn_bbox: 0.0180  loss_cls: 0.0846  acc: 95.7520  loss_bbox: 0.0637
 2023/11/04 20:45:50 - mmengine - INFO - Epoch(train) [11][1150/1529]  lr: 1.0000e-02  eta: 0:33:31  time: 1.1228  data_time: 0.0238  memory: 13299  loss: 0.1611  loss_rpn_cls: 0.0083  loss_rpn_bbox: 0.0161  loss_cls: 0.0780  acc: 96.9238  loss_bbox: 0.0588
 2023/11/04 20:46:48 - mmengine - INFO - Epoch(train) [11][1200/1529]  lr: 1.0000e-02  eta: 0:32:39  time: 1.1465  data_time: 0.0248  memory: 13299  loss: 0.1498  loss_rpn_cls: 0.0076  loss_rpn_bbox: 0.0144  loss_cls: 0.0743  acc: 96.9482  loss_bbox: 0.0536
+2023/11/04 20:47:44 - mmengine - INFO - Epoch(train) [11][1250/1529]  lr: 1.0000e-02  eta: 0:31:46  time: 1.1360  data_time: 0.0248  memory: 13299  loss: 0.1691  loss_rpn_cls: 0.0084  loss_rpn_bbox: 0.0180  loss_cls: 0.0794  acc: 97.4365  loss_bbox: 0.0633
+2023/11/04 20:48:42 - mmengine - INFO - Epoch(train) [11][1300/1529]  lr: 1.0000e-02  eta: 0:30:54  time: 1.1477  data_time: 0.0222  memory: 13299  loss: 0.1554  loss_rpn_cls: 0.0077  loss_rpn_bbox: 0.0151  loss_cls: 0.0764  acc: 95.0928  loss_bbox: 0.0562
+2023/11/04 20:49:37 - mmengine - INFO - Epoch(train) [11][1350/1529]  lr: 1.0000e-02  eta: 0:30:02  time: 1.1137  data_time: 0.0218  memory: 15346  loss: 0.1616  loss_rpn_cls: 0.0072  loss_rpn_bbox: 0.0153  loss_cls: 0.0808  acc: 96.9238  loss_bbox: 0.0583
+2023/11/04 20:50:33 - mmengine - INFO - Epoch(train) [11][1400/1529]  lr: 1.0000e-02  eta: 0:29:09  time: 1.1053  data_time: 0.0222  memory: 13299  loss: 0.1533  loss_rpn_cls: 0.0066  loss_rpn_bbox: 0.0151  loss_cls: 0.0769  acc: 98.1445  loss_bbox: 0.0547
+2023/11/04 20:51:30 - mmengine - INFO - Epoch(train) [11][1450/1529]  lr: 1.0000e-02  eta: 0:28:17  time: 1.1491  data_time: 0.0424  memory: 13597  loss: 0.1597  loss_rpn_cls: 0.0066  loss_rpn_bbox: 0.0142  loss_cls: 0.0816  acc: 96.2646  loss_bbox: 0.0572
+2023/11/04 20:52:27 - mmengine - INFO - Epoch(train) [11][1500/1529]  lr: 1.0000e-02  eta: 0:27:24  time: 1.1314  data_time: 0.0220  memory: 13636  loss: 0.1693  loss_rpn_cls: 0.0081  loss_rpn_bbox: 0.0180  loss_cls: 0.0817  acc: 98.5107  loss_bbox: 0.0616
+2023/11/04 20:52:59 - mmengine - INFO - Exp name: benchmark_faster-rcnn_1gpu_r50_fpn_2x_lr5e-3_dotav1_0_20231104_105442
+2023/11/04 20:52:59 - mmengine - INFO - Saving checkpoint at 11 epochs
+2023/11/04 20:53:05 - mmengine - INFO - Epoch(val) [11][   50/21046]    eta: 0:27:46  time: 0.0794  data_time: 0.0123  memory: 13989  
+2023/11/04 20:53:09 - mmengine - INFO - Epoch(val) [11][  100/21046]    eta: 0:26:16  time: 0.0711  data_time: 0.0035  memory: 680  
+2023/11/04 20:53:13 - mmengine - INFO - Epoch(val) [11][  150/21046]    eta: 0:25:59  time: 0.0734  data_time: 0.0054  memory: 680  
+2023/11/04 20:53:16 - mmengine - INFO - Epoch(val) [11][  200/21046]    eta: 0:25:48  time: 0.0732  data_time: 0.0052  memory: 680  
+2023/11/04 20:53:20 - mmengine - INFO - Epoch(val) [11][  250/21046]    eta: 0:26:00  time: 0.0780  data_time: 0.0079  memory: 680  
+2023/11/04 20:53:24 - mmengine - INFO - Epoch(val) [11][  300/21046]    eta: 0:25:46  time: 0.0721  data_time: 0.0037  memory: 680  
+2023/11/04 20:53:28 - mmengine - INFO - Epoch(val) [11][  350/21046]    eta: 0:26:01  time: 0.0808  data_time: 0.0102  memory: 680  
+2023/11/04 20:53:32 - mmengine - INFO - Epoch(val) [11][  400/21046]    eta: 0:25:38  time: 0.0681  data_time: 0.0030  memory: 680  
+2023/11/04 20:53:36 - mmengine - INFO - Epoch(val) [11][  450/21046]    eta: 0:25:46  time: 0.0797  data_time: 0.0080  memory: 680  
+2023/11/04 20:53:39 - mmengine - INFO - Epoch(val) [11][  500/21046]    eta: 0:25:41  time: 0.0745  data_time: 0.0051  memory: 680  
+2023/11/04 20:53:43 - mmengine - INFO - Epoch(val) [11][  550/21046]    eta: 0:25:31  time: 0.0715  data_time: 0.0030  memory: 680  
+2023/11/04 20:53:47 - mmengine - INFO - Epoch(val) [11][  600/21046]    eta: 0:25:16  time: 0.0682  data_time: 0.0034  memory: 680  
+2023/11/04 20:53:50 - mmengine - INFO - Epoch(val) [11][  650/21046]    eta: 0:25:08  time: 0.0715  data_time: 0.0054  memory: 680  
+2023/11/04 20:53:54 - mmengine - INFO - Epoch(val) [11][  700/21046]    eta: 0:25:01  time: 0.0718  data_time: 0.0036  memory: 680  
+2023/11/04 20:53:58 - mmengine - INFO - Epoch(val) [11][  750/21046]    eta: 0:24:58  time: 0.0743  data_time: 0.0057  memory: 680  
+2023/11/04 20:54:01 - mmengine - INFO - Epoch(val) [11][  800/21046]    eta: 0:24:55  time: 0.0744  data_time: 0.0047  memory: 680  
+2023/11/04 20:54:05 - mmengine - INFO - Epoch(val) [11][  850/21046]    eta: 0:24:57  time: 0.0786  data_time: 0.0076  memory: 680  
+2023/11/04 20:54:09 - mmengine - INFO - Epoch(val) [11][  900/21046]    eta: 0:24:56  time: 0.0764  data_time: 0.0051  memory: 680  
+2023/11/04 20:54:13 - mmengine - INFO - Epoch(val) [11][  950/21046]    eta: 0:24:54  time: 0.0761  data_time: 0.0060  memory: 680  
+2023/11/04 20:54:17 - mmengine - INFO - Epoch(val) [11][ 1000/21046]    eta: 0:24:45  time: 0.0686  data_time: 0.0032  memory: 680  
+2023/11/04 20:54:20 - mmengine - INFO - Epoch(val) [11][ 1050/21046]    eta: 0:24:41  time: 0.0743  data_time: 0.0046  memory: 680  
+2023/11/04 20:54:24 - mmengine - INFO - Epoch(val) [11][ 1100/21046]    eta: 0:24:37  time: 0.0738  data_time: 0.0026  memory: 680  
+2023/11/04 20:54:28 - mmengine - INFO - Epoch(val) [11][ 1150/21046]    eta: 0:24:34  time: 0.0745  data_time: 0.0051  memory: 680  
+2023/11/04 20:54:31 - mmengine - INFO - Epoch(val) [11][ 1200/21046]    eta: 0:24:25  time: 0.0684  data_time: 0.0049  memory: 680  
+2023/11/04 20:54:35 - mmengine - INFO - Epoch(val) [11][ 1250/21046]    eta: 0:24:19  time: 0.0698  data_time: 0.0032  memory: 680  
+2023/11/04 20:54:38 - mmengine - INFO - Epoch(val) [11][ 1300/21046]    eta: 0:24:13  time: 0.0710  data_time: 0.0033  memory: 680  
+2023/11/04 20:54:42 - mmengine - INFO - Epoch(val) [11][ 1350/21046]    eta: 0:24:14  time: 0.0799  data_time: 0.0056  memory: 680  
+2023/11/04 20:54:46 - mmengine - INFO - Epoch(val) [11][ 1400/21046]    eta: 0:24:10  time: 0.0744  data_time: 0.0065  memory: 680  
+2023/11/04 20:54:50 - mmengine - INFO - Epoch(val) [11][ 1450/21046]    eta: 0:24:03  time: 0.0688  data_time: 0.0028  memory: 680  
+2023/11/04 20:54:54 - mmengine - INFO - Epoch(val) [11][ 1500/21046]    eta: 0:24:02  time: 0.0769  data_time: 0.0053  memory: 680  
+2023/11/04 20:54:57 - mmengine - INFO - Epoch(val) [11][ 1550/21046]    eta: 0:23:55  time: 0.0681  data_time: 0.0029  memory: 680  
+2023/11/04 20:55:01 - mmengine - INFO - Epoch(val) [11][ 1600/21046]    eta: 0:23:49  time: 0.0706  data_time: 0.0034  memory: 680  
+2023/11/04 20:55:04 - mmengine - INFO - Epoch(val) [11][ 1650/21046]    eta: 0:23:44  time: 0.0714  data_time: 0.0035  memory: 680  
+2023/11/04 20:55:08 - mmengine - INFO - Epoch(val) [11][ 1700/21046]    eta: 0:23:38  time: 0.0686  data_time: 0.0047  memory: 680  
+2023/11/04 20:55:12 - mmengine - INFO - Epoch(val) [11][ 1750/21046]    eta: 0:23:35  time: 0.0756  data_time: 0.0046  memory: 680  
+2023/11/04 20:55:16 - mmengine - INFO - Epoch(val) [11][ 1800/21046]    eta: 0:23:37  time: 0.0832  data_time: 0.0076  memory: 680  
+2023/11/04 20:55:20 - mmengine - INFO - Epoch(val) [11][ 1850/21046]    eta: 0:23:36  time: 0.0782  data_time: 0.0059  memory: 680  
+2023/11/04 20:55:24 - mmengine - INFO - Epoch(val) [11][ 1900/21046]    eta: 0:23:33  time: 0.0753  data_time: 0.0075  memory: 680  
+2023/11/04 20:55:27 - mmengine - INFO - Epoch(val) [11][ 1950/21046]    eta: 0:23:30  time: 0.0753  data_time: 0.0051  memory: 680  
+2023/11/04 20:55:31 - mmengine - INFO - Epoch(val) [11][ 2000/21046]    eta: 0:23:28  time: 0.0786  data_time: 0.0061  memory: 680  
+2023/11/04 20:55:35 - mmengine - INFO - Epoch(val) [11][ 2050/21046]    eta: 0:23:27  time: 0.0786  data_time: 0.0071  memory: 680  
+2023/11/04 20:55:39 - mmengine - INFO - Epoch(val) [11][ 2100/21046]    eta: 0:23:26  time: 0.0816  data_time: 0.0085  memory: 680  
+2023/11/04 20:55:43 - mmengine - INFO - Epoch(val) [11][ 2150/21046]    eta: 0:23:25  time: 0.0787  data_time: 0.0071  memory: 680  
+2023/11/04 20:55:48 - mmengine - INFO - Epoch(val) [11][ 2200/21046]    eta: 0:23:23  time: 0.0791  data_time: 0.0080  memory: 680  
+2023/11/04 20:55:51 - mmengine - INFO - Epoch(val) [11][ 2250/21046]    eta: 0:23:18  time: 0.0710  data_time: 0.0036  memory: 680  
+2023/11/04 20:55:55 - mmengine - INFO - Epoch(val) [11][ 2300/21046]    eta: 0:23:17  time: 0.0808  data_time: 0.0062  memory: 680  
+2023/11/04 20:55:59 - mmengine - INFO - Epoch(val) [11][ 2350/21046]    eta: 0:23:13  time: 0.0755  data_time: 0.0047  memory: 680  
+2023/11/04 20:56:03 - mmengine - INFO - Epoch(val) [11][ 2400/21046]    eta: 0:23:09  time: 0.0739  data_time: 0.0057  memory: 680  
+2023/11/04 20:56:06 - mmengine - INFO - Epoch(val) [11][ 2450/21046]    eta: 0:23:05  time: 0.0723  data_time: 0.0054  memory: 680  
+2023/11/04 20:56:10 - mmengine - INFO - Epoch(val) [11][ 2500/21046]    eta: 0:23:01  time: 0.0757  data_time: 0.0061  memory: 680  
+2023/11/04 20:56:14 - mmengine - INFO - Epoch(val) [11][ 2550/21046]    eta: 0:22:55  time: 0.0672  data_time: 0.0027  memory: 680  
+2023/11/04 20:56:18 - mmengine - INFO - Epoch(val) [11][ 2600/21046]    eta: 0:22:53  time: 0.0799  data_time: 0.0104  memory: 680  
+2023/11/04 20:56:22 - mmengine - INFO - Epoch(val) [11][ 2650/21046]    eta: 0:22:49  time: 0.0735  data_time: 0.0066  memory: 680  
+2023/11/04 20:56:25 - mmengine - INFO - Epoch(val) [11][ 2700/21046]    eta: 0:22:46  time: 0.0760  data_time: 0.0069  memory: 680  
+2023/11/04 20:56:29 - mmengine - INFO - Epoch(val) [11][ 2750/21046]    eta: 0:22:42  time: 0.0736  data_time: 0.0045  memory: 680  
+2023/11/04 20:56:33 - mmengine - INFO - Epoch(val) [11][ 2800/21046]    eta: 0:22:38  time: 0.0742  data_time: 0.0058  memory: 680  
+2023/11/04 20:56:36 - mmengine - INFO - Epoch(val) [11][ 2850/21046]    eta: 0:22:32  time: 0.0681  data_time: 0.0030  memory: 680  
+2023/11/04 20:56:40 - mmengine - INFO - Epoch(val) [11][ 2900/21046]    eta: 0:22:29  time: 0.0769  data_time: 0.0069  memory: 680  
+2023/11/04 20:56:44 - mmengine - INFO - Epoch(val) [11][ 2950/21046]    eta: 0:22:25  time: 0.0731  data_time: 0.0053  memory: 680  
+2023/11/04 20:56:48 - mmengine - INFO - Epoch(val) [11][ 3000/21046]    eta: 0:22:23  time: 0.0796  data_time: 0.0089  memory: 680  
+2023/11/04 20:56:52 - mmengine - INFO - Epoch(val) [11][ 3050/21046]    eta: 0:22:20  time: 0.0773  data_time: 0.0057  memory: 680  
+2023/11/04 20:56:56 - mmengine - INFO - Epoch(val) [11][ 3100/21046]    eta: 0:22:18  time: 0.0795  data_time: 0.0052  memory: 680  
+2023/11/04 20:57:00 - mmengine - INFO - Epoch(val) [11][ 3150/21046]    eta: 0:22:16  time: 0.0791  data_time: 0.0063  memory: 680  
+2023/11/04 20:57:04 - mmengine - INFO - Epoch(val) [11][ 3200/21046]    eta: 0:22:13  time: 0.0772  data_time: 0.0078  memory: 680  
+2023/11/04 20:57:08 - mmengine - INFO - Epoch(val) [11][ 3250/21046]    eta: 0:22:11  time: 0.0823  data_time: 0.0058  memory: 680  
+2023/11/04 20:57:12 - mmengine - INFO - Epoch(val) [11][ 3300/21046]    eta: 0:22:06  time: 0.0697  data_time: 0.0027  memory: 680  
+2023/11/04 20:57:15 - mmengine - INFO - Epoch(val) [11][ 3350/21046]    eta: 0:22:02  time: 0.0727  data_time: 0.0043  memory: 680  
+2023/11/04 20:57:19 - mmengine - INFO - Epoch(val) [11][ 3400/21046]    eta: 0:21:56  time: 0.0670  data_time: 0.0027  memory: 680  
+2023/11/04 20:57:22 - mmengine - INFO - Epoch(val) [11][ 3450/21046]    eta: 0:21:52  time: 0.0745  data_time: 0.0051  memory: 680  
+2023/11/04 20:57:26 - mmengine - INFO - Epoch(val) [11][ 3500/21046]    eta: 0:21:48  time: 0.0716  data_time: 0.0052  memory: 680  
+2023/11/04 20:57:30 - mmengine - INFO - Epoch(val) [11][ 3550/21046]    eta: 0:21:44  time: 0.0730  data_time: 0.0055  memory: 680  
+2023/11/04 20:57:33 - mmengine - INFO - Epoch(val) [11][ 3600/21046]    eta: 0:21:39  time: 0.0711  data_time: 0.0053  memory: 680  
+2023/11/04 20:57:37 - mmengine - INFO - Epoch(val) [11][ 3650/21046]    eta: 0:21:34  time: 0.0712  data_time: 0.0030  memory: 680  
+2023/11/04 20:57:41 - mmengine - INFO - Epoch(val) [11][ 3700/21046]    eta: 0:21:31  time: 0.0751  data_time: 0.0051  memory: 680  
+2023/11/04 20:57:45 - mmengine - INFO - Epoch(val) [11][ 3750/21046]    eta: 0:21:27  time: 0.0735  data_time: 0.0054  memory: 680  
+2023/11/04 20:57:48 - mmengine - INFO - Epoch(val) [11][ 3800/21046]    eta: 0:21:23  time: 0.0750  data_time: 0.0056  memory: 680  
+2023/11/04 20:57:52 - mmengine - INFO - Epoch(val) [11][ 3850/21046]    eta: 0:21:21  time: 0.0793  data_time: 0.0103  memory: 680  
+2023/11/04 20:57:56 - mmengine - INFO - Epoch(val) [11][ 3900/21046]    eta: 0:21:17  time: 0.0766  data_time: 0.0067  memory: 680  
+2023/11/04 20:58:00 - mmengine - INFO - Epoch(val) [11][ 3950/21046]    eta: 0:21:15  time: 0.0812  data_time: 0.0082  memory: 680  
+2023/11/04 20:58:04 - mmengine - INFO - Epoch(val) [11][ 4000/21046]    eta: 0:21:11  time: 0.0747  data_time: 0.0061  memory: 680  
+2023/11/04 20:58:08 - mmengine - INFO - Epoch(val) [11][ 4050/21046]    eta: 0:21:07  time: 0.0717  data_time: 0.0040  memory: 680  
+2023/11/04 20:58:12 - mmengine - INFO - Epoch(val) [11][ 4100/21046]    eta: 0:21:04  time: 0.0782  data_time: 0.0072  memory: 680  
+2023/11/04 20:58:16 - mmengine - INFO - Epoch(val) [11][ 4150/21046]    eta: 0:21:01  time: 0.0775  data_time: 0.0079  memory: 680  
+2023/11/04 20:58:19 - mmengine - INFO - Epoch(val) [11][ 4200/21046]    eta: 0:20:57  time: 0.0741  data_time: 0.0070  memory: 680  
+2023/11/04 20:58:23 - mmengine - INFO - Epoch(val) [11][ 4250/21046]    eta: 0:20:53  time: 0.0727  data_time: 0.0049  memory: 680  
+2023/11/04 20:58:27 - mmengine - INFO - Epoch(val) [11][ 4300/21046]    eta: 0:20:48  time: 0.0697  data_time: 0.0027  memory: 680  
+2023/11/04 20:58:30 - mmengine - INFO - Epoch(val) [11][ 4350/21046]    eta: 0:20:44  time: 0.0705  data_time: 0.0037  memory: 680  
+2023/11/04 20:58:34 - mmengine - INFO - Epoch(val) [11][ 4400/21046]    eta: 0:20:40  time: 0.0755  data_time: 0.0057  memory: 680  
+2023/11/04 20:58:38 - mmengine - INFO - Epoch(val) [11][ 4450/21046]    eta: 0:20:37  time: 0.0756  data_time: 0.0064  memory: 680  
+2023/11/04 20:58:42 - mmengine - INFO - Epoch(val) [11][ 4500/21046]    eta: 0:20:34  time: 0.0799  data_time: 0.0066  memory: 680  
+2023/11/04 20:58:46 - mmengine - INFO - Epoch(val) [11][ 4550/21046]    eta: 0:20:30  time: 0.0715  data_time: 0.0053  memory: 680  
+2023/11/04 20:58:49 - mmengine - INFO - Epoch(val) [11][ 4600/21046]    eta: 0:20:26  time: 0.0743  data_time: 0.0039  memory: 680  
+2023/11/04 20:58:53 - mmengine - INFO - Epoch(val) [11][ 4650/21046]    eta: 0:20:21  time: 0.0681  data_time: 0.0032  memory: 680  
+2023/11/04 20:58:57 - mmengine - INFO - Epoch(val) [11][ 4700/21046]    eta: 0:20:17  time: 0.0747  data_time: 0.0049  memory: 680  
+2023/11/04 20:59:00 - mmengine - INFO - Epoch(val) [11][ 4750/21046]    eta: 0:20:13  time: 0.0735  data_time: 0.0080  memory: 680  
+2023/11/04 20:59:04 - mmengine - INFO - Epoch(val) [11][ 4800/21046]    eta: 0:20:10  time: 0.0742  data_time: 0.0058  memory: 680  
+2023/11/04 20:59:08 - mmengine - INFO - Epoch(val) [11][ 4850/21046]    eta: 0:20:06  time: 0.0740  data_time: 0.0067  memory: 680  
+2023/11/04 20:59:11 - mmengine - INFO - Epoch(val) [11][ 4900/21046]    eta: 0:20:01  time: 0.0686  data_time: 0.0047  memory: 680  
+2023/11/04 20:59:15 - mmengine - INFO - Epoch(val) [11][ 4950/21046]    eta: 0:19:57  time: 0.0728  data_time: 0.0046  memory: 680  
+2023/11/04 20:59:19 - mmengine - INFO - Epoch(val) [11][ 5000/21046]    eta: 0:19:53  time: 0.0716  data_time: 0.0037  memory: 680  
+2023/11/04 20:59:22 - mmengine - INFO - Epoch(val) [11][ 5050/21046]    eta: 0:19:48  time: 0.0687  data_time: 0.0030  memory: 680  
+2023/11/04 20:59:26 - mmengine - INFO - Epoch(val) [11][ 5100/21046]    eta: 0:19:45  time: 0.0757  data_time: 0.0059  memory: 680  
+2023/11/04 20:59:30 - mmengine - INFO - Epoch(val) [11][ 5150/21046]    eta: 0:19:41  time: 0.0716  data_time: 0.0047  memory: 680  
+2023/11/04 20:59:33 - mmengine - INFO - Epoch(val) [11][ 5200/21046]    eta: 0:19:37  time: 0.0746  data_time: 0.0064  memory: 680  
+2023/11/04 20:59:37 - mmengine - INFO - Epoch(val) [11][ 5250/21046]    eta: 0:19:33  time: 0.0750  data_time: 0.0061  memory: 680  
+2023/11/04 20:59:41 - mmengine - INFO - Epoch(val) [11][ 5300/21046]    eta: 0:19:31  time: 0.0825  data_time: 0.0108  memory: 680  
+2023/11/04 20:59:45 - mmengine - INFO - Epoch(val) [11][ 5350/21046]    eta: 0:19:27  time: 0.0746  data_time: 0.0080  memory: 680  
+2023/11/04 20:59:49 - mmengine - INFO - Epoch(val) [11][ 5400/21046]    eta: 0:19:24  time: 0.0765  data_time: 0.0055  memory: 680  
+2023/11/04 20:59:53 - mmengine - INFO - Epoch(val) [11][ 5450/21046]    eta: 0:19:20  time: 0.0741  data_time: 0.0065  memory: 680  
+2023/11/04 20:59:57 - mmengine - INFO - Epoch(val) [11][ 5500/21046]    eta: 0:19:17  time: 0.0765  data_time: 0.0076  memory: 680  
+2023/11/04 21:00:00 - mmengine - INFO - Epoch(val) [11][ 5550/21046]    eta: 0:19:13  time: 0.0728  data_time: 0.0049  memory: 680  
+2023/11/04 21:00:04 - mmengine - INFO - Epoch(val) [11][ 5600/21046]    eta: 0:19:09  time: 0.0748  data_time: 0.0045  memory: 680  
+2023/11/04 21:00:08 - mmengine - INFO - Epoch(val) [11][ 5650/21046]    eta: 0:19:05  time: 0.0698  data_time: 0.0040  memory: 680  
+2023/11/04 21:00:11 - mmengine - INFO - Epoch(val) [11][ 5700/21046]    eta: 0:19:01  time: 0.0716  data_time: 0.0055  memory: 680  
+2023/11/04 21:00:15 - mmengine - INFO - Epoch(val) [11][ 5750/21046]    eta: 0:18:57  time: 0.0760  data_time: 0.0056  memory: 680  
+2023/11/04 21:00:19 - mmengine - INFO - Epoch(val) [11][ 5800/21046]    eta: 0:18:54  time: 0.0755  data_time: 0.0047  memory: 680  
+2023/11/04 21:00:23 - mmengine - INFO - Epoch(val) [11][ 5850/21046]    eta: 0:18:51  time: 0.0801  data_time: 0.0093  memory: 680  
+2023/11/04 21:00:27 - mmengine - INFO - Epoch(val) [11][ 5900/21046]    eta: 0:18:47  time: 0.0774  data_time: 0.0076  memory: 680  
+2023/11/04 21:00:31 - mmengine - INFO - Epoch(val) [11][ 5950/21046]    eta: 0:18:44  time: 0.0759  data_time: 0.0080  memory: 680  
+2023/11/04 21:00:35 - mmengine - INFO - Epoch(val) [11][ 6000/21046]    eta: 0:18:40  time: 0.0749  data_time: 0.0056  memory: 680  
+2023/11/04 21:00:39 - mmengine - INFO - Epoch(val) [11][ 6050/21046]    eta: 0:18:37  time: 0.0779  data_time: 0.0061  memory: 680  
+2023/11/04 21:00:43 - mmengine - INFO - Epoch(val) [11][ 6100/21046]    eta: 0:18:34  time: 0.0795  data_time: 0.0054  memory: 680  
+2023/11/04 21:00:46 - mmengine - INFO - Epoch(val) [11][ 6150/21046]    eta: 0:18:30  time: 0.0741  data_time: 0.0051  memory: 680  
+2023/11/04 21:00:50 - mmengine - INFO - Epoch(val) [11][ 6200/21046]    eta: 0:18:26  time: 0.0742  data_time: 0.0051  memory: 680  
+2023/11/04 21:00:54 - mmengine - INFO - Epoch(val) [11][ 6250/21046]    eta: 0:18:23  time: 0.0797  data_time: 0.0094  memory: 680  
+2023/11/04 21:00:58 - mmengine - INFO - Epoch(val) [11][ 6300/21046]    eta: 0:18:19  time: 0.0698  data_time: 0.0027  memory: 680  
+2023/11/04 21:01:01 - mmengine - INFO - Epoch(val) [11][ 6350/21046]    eta: 0:18:15  time: 0.0760  data_time: 0.0056  memory: 680  
+2023/11/04 21:01:05 - mmengine - INFO - Epoch(val) [11][ 6400/21046]    eta: 0:18:11  time: 0.0724  data_time: 0.0045  memory: 680  
+2023/11/04 21:01:09 - mmengine - INFO - Epoch(val) [11][ 6450/21046]    eta: 0:18:08  time: 0.0766  data_time: 0.0042  memory: 680  
+2023/11/04 21:01:13 - mmengine - INFO - Epoch(val) [11][ 6500/21046]    eta: 0:18:04  time: 0.0727  data_time: 0.0060  memory: 680  
+2023/11/04 21:01:16 - mmengine - INFO - Epoch(val) [11][ 6550/21046]    eta: 0:17:59  time: 0.0690  data_time: 0.0030  memory: 680  
+2023/11/04 21:01:20 - mmengine - INFO - Epoch(val) [11][ 6600/21046]    eta: 0:17:57  time: 0.0834  data_time: 0.0109  memory: 680  
+2023/11/04 21:01:24 - mmengine - INFO - Epoch(val) [11][ 6650/21046]    eta: 0:17:53  time: 0.0764  data_time: 0.0049  memory: 680  
+2023/11/04 21:01:28 - mmengine - INFO - Epoch(val) [11][ 6700/21046]    eta: 0:17:49  time: 0.0702  data_time: 0.0027  memory: 680  
+2023/11/04 21:01:31 - mmengine - INFO - Epoch(val) [11][ 6750/21046]    eta: 0:17:44  time: 0.0661  data_time: 0.0031  memory: 680  
+2023/11/04 21:01:35 - mmengine - INFO - Epoch(val) [11][ 6800/21046]    eta: 0:17:41  time: 0.0772  data_time: 0.0070  memory: 680  
+2023/11/04 21:01:39 - mmengine - INFO - Epoch(val) [11][ 6850/21046]    eta: 0:17:37  time: 0.0764  data_time: 0.0073  memory: 680  
+2023/11/04 21:01:43 - mmengine - INFO - Epoch(val) [11][ 6900/21046]    eta: 0:17:33  time: 0.0712  data_time: 0.0045  memory: 680  
+2023/11/04 21:01:46 - mmengine - INFO - Epoch(val) [11][ 6950/21046]    eta: 0:17:29  time: 0.0704  data_time: 0.0032  memory: 680  
+2023/11/04 21:01:50 - mmengine - INFO - Epoch(val) [11][ 7000/21046]    eta: 0:17:25  time: 0.0754  data_time: 0.0052  memory: 680  
+2023/11/04 21:01:54 - mmengine - INFO - Epoch(val) [11][ 7050/21046]    eta: 0:17:22  time: 0.0771  data_time: 0.0067  memory: 680  
+2023/11/04 21:01:58 - mmengine - INFO - Epoch(val) [11][ 7100/21046]    eta: 0:17:18  time: 0.0711  data_time: 0.0046  memory: 680  
+2023/11/04 21:02:02 - mmengine - INFO - Epoch(val) [11][ 7150/21046]    eta: 0:17:15  time: 0.0786  data_time: 0.0070  memory: 680  
+2023/11/04 21:02:05 - mmengine - INFO - Epoch(val) [11][ 7200/21046]    eta: 0:17:11  time: 0.0731  data_time: 0.0037  memory: 680  
+2023/11/04 21:02:09 - mmengine - INFO - Epoch(val) [11][ 7250/21046]    eta: 0:17:07  time: 0.0716  data_time: 0.0034  memory: 680  
+2023/11/04 21:02:13 - mmengine - INFO - Epoch(val) [11][ 7300/21046]    eta: 0:17:04  time: 0.0849  data_time: 0.0114  memory: 680  
+2023/11/04 21:02:17 - mmengine - INFO - Epoch(val) [11][ 7350/21046]    eta: 0:17:00  time: 0.0726  data_time: 0.0052  memory: 680  
+2023/11/04 21:02:21 - mmengine - INFO - Epoch(val) [11][ 7400/21046]    eta: 0:16:57  time: 0.0765  data_time: 0.0056  memory: 680  
+2023/11/04 21:02:25 - mmengine - INFO - Epoch(val) [11][ 7450/21046]    eta: 0:16:53  time: 0.0815  data_time: 0.0063  memory: 680  
+2023/11/04 21:02:29 - mmengine - INFO - Epoch(val) [11][ 7500/21046]    eta: 0:16:50  time: 0.0774  data_time: 0.0067  memory: 680  
+2023/11/04 21:02:33 - mmengine - INFO - Epoch(val) [11][ 7550/21046]    eta: 0:16:47  time: 0.0805  data_time: 0.0100  memory: 680  
+2023/11/04 21:02:37 - mmengine - INFO - Epoch(val) [11][ 7600/21046]    eta: 0:16:43  time: 0.0711  data_time: 0.0042  memory: 680  
+2023/11/04 21:02:41 - mmengine - INFO - Epoch(val) [11][ 7650/21046]    eta: 0:16:39  time: 0.0799  data_time: 0.0096  memory: 680  
+2023/11/04 21:02:44 - mmengine - INFO - Epoch(val) [11][ 7700/21046]    eta: 0:16:36  time: 0.0738  data_time: 0.0049  memory: 680  
+2023/11/04 21:02:48 - mmengine - INFO - Epoch(val) [11][ 7750/21046]    eta: 0:16:32  time: 0.0769  data_time: 0.0071  memory: 680  
+2023/11/04 21:02:52 - mmengine - INFO - Epoch(val) [11][ 7800/21046]    eta: 0:16:28  time: 0.0728  data_time: 0.0068  memory: 680  
+2023/11/04 21:02:56 - mmengine - INFO - Epoch(val) [11][ 7850/21046]    eta: 0:16:25  time: 0.0784  data_time: 0.0066  memory: 680  
+2023/11/04 21:03:00 - mmengine - INFO - Epoch(val) [11][ 7900/21046]    eta: 0:16:21  time: 0.0754  data_time: 0.0060  memory: 680  
+2023/11/04 21:03:03 - mmengine - INFO - Epoch(val) [11][ 7950/21046]    eta: 0:16:17  time: 0.0740  data_time: 0.0049  memory: 680  
+2023/11/04 21:03:07 - mmengine - INFO - Epoch(val) [11][ 8000/21046]    eta: 0:16:13  time: 0.0704  data_time: 0.0052  memory: 680  
+2023/11/04 21:03:11 - mmengine - INFO - Epoch(val) [11][ 8050/21046]    eta: 0:16:10  time: 0.0746  data_time: 0.0047  memory: 680  
+2023/11/04 21:03:14 - mmengine - INFO - Epoch(val) [11][ 8100/21046]    eta: 0:16:05  time: 0.0695  data_time: 0.0035  memory: 680  
+2023/11/04 21:03:18 - mmengine - INFO - Epoch(val) [11][ 8150/21046]    eta: 0:16:02  time: 0.0726  data_time: 0.0070  memory: 680  
+2023/11/04 21:03:22 - mmengine - INFO - Epoch(val) [11][ 8200/21046]    eta: 0:15:58  time: 0.0726  data_time: 0.0047  memory: 680  
+2023/11/04 21:03:26 - mmengine - INFO - Epoch(val) [11][ 8250/21046]    eta: 0:15:54  time: 0.0792  data_time: 0.0088  memory: 680  
+2023/11/04 21:03:30 - mmengine - INFO - Epoch(val) [11][ 8300/21046]    eta: 0:15:51  time: 0.0759  data_time: 0.0065  memory: 680  
+2023/11/04 21:03:33 - mmengine - INFO - Epoch(val) [11][ 8350/21046]    eta: 0:15:47  time: 0.0698  data_time: 0.0041  memory: 680  
+2023/11/04 21:03:37 - mmengine - INFO - Epoch(val) [11][ 8400/21046]    eta: 0:15:43  time: 0.0731  data_time: 0.0037  memory: 680  
+2023/11/04 21:03:41 - mmengine - INFO - Epoch(val) [11][ 8450/21046]    eta: 0:15:39  time: 0.0770  data_time: 0.0072  memory: 680  
+2023/11/04 21:03:45 - mmengine - INFO - Epoch(val) [11][ 8500/21046]    eta: 0:15:36  time: 0.0795  data_time: 0.0078  memory: 680  
+2023/11/04 21:03:48 - mmengine - INFO - Epoch(val) [11][ 8550/21046]    eta: 0:15:32  time: 0.0730  data_time: 0.0041  memory: 680  
+2023/11/04 21:03:52 - mmengine - INFO - Epoch(val) [11][ 8600/21046]    eta: 0:15:28  time: 0.0715  data_time: 0.0034  memory: 680  
+2023/11/04 21:03:56 - mmengine - INFO - Epoch(val) [11][ 8650/21046]    eta: 0:15:24  time: 0.0692  data_time: 0.0030  memory: 680  
+2023/11/04 21:03:59 - mmengine - INFO - Epoch(val) [11][ 8700/21046]    eta: 0:15:20  time: 0.0765  data_time: 0.0083  memory: 680  
+2023/11/04 21:04:03 - mmengine - INFO - Epoch(val) [11][ 8750/21046]    eta: 0:15:17  time: 0.0787  data_time: 0.0069  memory: 680  
+2023/11/04 21:04:07 - mmengine - INFO - Epoch(val) [11][ 8800/21046]    eta: 0:15:13  time: 0.0761  data_time: 0.0062  memory: 680  
+2023/11/04 21:04:11 - mmengine - INFO - Epoch(val) [11][ 8850/21046]    eta: 0:15:10  time: 0.0809  data_time: 0.0068  memory: 680  
+2023/11/04 21:04:15 - mmengine - INFO - Epoch(val) [11][ 8900/21046]    eta: 0:15:06  time: 0.0724  data_time: 0.0041  memory: 680  
+2023/11/04 21:04:19 - mmengine - INFO - Epoch(val) [11][ 8950/21046]    eta: 0:15:03  time: 0.0780  data_time: 0.0109  memory: 680  
+2023/11/04 21:04:23 - mmengine - INFO - Epoch(val) [11][ 9000/21046]    eta: 0:14:59  time: 0.0703  data_time: 0.0038  memory: 680  
+2023/11/04 21:04:26 - mmengine - INFO - Epoch(val) [11][ 9050/21046]    eta: 0:14:54  time: 0.0702  data_time: 0.0029  memory: 680  
+2023/11/04 21:04:30 - mmengine - INFO - Epoch(val) [11][ 9100/21046]    eta: 0:14:50  time: 0.0705  data_time: 0.0030  memory: 680  
+2023/11/04 21:04:34 - mmengine - INFO - Epoch(val) [11][ 9150/21046]    eta: 0:14:47  time: 0.0737  data_time: 0.0043  memory: 680  
+2023/11/04 21:04:38 - mmengine - INFO - Epoch(val) [11][ 9200/21046]    eta: 0:14:43  time: 0.0784  data_time: 0.0071  memory: 680  
+2023/11/04 21:04:41 - mmengine - INFO - Epoch(val) [11][ 9250/21046]    eta: 0:14:40  time: 0.0779  data_time: 0.0081  memory: 680  
+2023/11/04 21:04:45 - mmengine - INFO - Epoch(val) [11][ 9300/21046]    eta: 0:14:36  time: 0.0783  data_time: 0.0067  memory: 680  
+2023/11/04 21:04:50 - mmengine - INFO - Epoch(val) [11][ 9350/21046]    eta: 0:14:33  time: 0.0828  data_time: 0.0112  memory: 680  
+2023/11/04 21:04:54 - mmengine - INFO - Epoch(val) [11][ 9400/21046]    eta: 0:14:30  time: 0.0796  data_time: 0.0083  memory: 680  
+2023/11/04 21:04:58 - mmengine - INFO - Epoch(val) [11][ 9450/21046]    eta: 0:14:26  time: 0.0825  data_time: 0.0088  memory: 680  
+2023/11/04 21:05:02 - mmengine - INFO - Epoch(val) [11][ 9500/21046]    eta: 0:14:23  time: 0.0864  data_time: 0.0098  memory: 680  
+2023/11/04 21:05:06 - mmengine - INFO - Epoch(val) [11][ 9550/21046]    eta: 0:14:20  time: 0.0814  data_time: 0.0098  memory: 680  
+2023/11/04 21:05:10 - mmengine - INFO - Epoch(val) [11][ 9600/21046]    eta: 0:14:16  time: 0.0772  data_time: 0.0046  memory: 680  
+2023/11/04 21:05:14 - mmengine - INFO - Epoch(val) [11][ 9650/21046]    eta: 0:14:13  time: 0.0796  data_time: 0.0081  memory: 680  
+2023/11/04 21:05:18 - mmengine - INFO - Epoch(val) [11][ 9700/21046]    eta: 0:14:09  time: 0.0690  data_time: 0.0027  memory: 680  
+2023/11/04 21:05:22 - mmengine - INFO - Epoch(val) [11][ 9750/21046]    eta: 0:14:05  time: 0.0780  data_time: 0.0096  memory: 680  
+2023/11/04 21:05:25 - mmengine - INFO - Epoch(val) [11][ 9800/21046]    eta: 0:14:01  time: 0.0706  data_time: 0.0045  memory: 680  
+2023/11/04 21:05:29 - mmengine - INFO - Epoch(val) [11][ 9850/21046]    eta: 0:13:57  time: 0.0710  data_time: 0.0039  memory: 680  
+2023/11/04 21:05:33 - mmengine - INFO - Epoch(val) [11][ 9900/21046]    eta: 0:13:53  time: 0.0701  data_time: 0.0055  memory: 680  
+2023/11/04 21:05:36 - mmengine - INFO - Epoch(val) [11][ 9950/21046]    eta: 0:13:50  time: 0.0761  data_time: 0.0046  memory: 680  
+2023/11/04 21:05:40 - mmengine - INFO - Epoch(val) [11][10000/21046]    eta: 0:13:46  time: 0.0776  data_time: 0.0071  memory: 680  
+2023/11/04 21:05:45 - mmengine - INFO - Epoch(val) [11][10050/21046]    eta: 0:13:43  time: 0.0838  data_time: 0.0090  memory: 680  
+2023/11/04 21:05:48 - mmengine - INFO - Epoch(val) [11][10100/21046]    eta: 0:13:39  time: 0.0768  data_time: 0.0098  memory: 680  
+2023/11/04 21:05:52 - mmengine - INFO - Epoch(val) [11][10150/21046]    eta: 0:13:35  time: 0.0762  data_time: 0.0056  memory: 680  
+2023/11/04 21:05:56 - mmengine - INFO - Epoch(val) [11][10200/21046]    eta: 0:13:32  time: 0.0741  data_time: 0.0057  memory: 680  
+2023/11/04 21:06:00 - mmengine - INFO - Epoch(val) [11][10250/21046]    eta: 0:13:28  time: 0.0793  data_time: 0.0077  memory: 680  
+2023/11/04 21:06:04 - mmengine - INFO - Epoch(val) [11][10300/21046]    eta: 0:13:24  time: 0.0747  data_time: 0.0065  memory: 680  
+2023/11/04 21:06:08 - mmengine - INFO - Epoch(val) [11][10350/21046]    eta: 0:13:21  time: 0.0810  data_time: 0.0092  memory: 680  
+2023/11/04 21:06:12 - mmengine - INFO - Epoch(val) [11][10400/21046]    eta: 0:13:17  time: 0.0692  data_time: 0.0048  memory: 680  
+2023/11/04 21:06:16 - mmengine - INFO - Epoch(val) [11][10450/21046]    eta: 0:13:13  time: 0.0800  data_time: 0.0052  memory: 680  
+2023/11/04 21:06:19 - mmengine - INFO - Epoch(val) [11][10500/21046]    eta: 0:13:10  time: 0.0757  data_time: 0.0041  memory: 680  
+2023/11/04 21:06:23 - mmengine - INFO - Epoch(val) [11][10550/21046]    eta: 0:13:06  time: 0.0771  data_time: 0.0067  memory: 680  
+2023/11/04 21:06:27 - mmengine - INFO - Epoch(val) [11][10600/21046]    eta: 0:13:02  time: 0.0715  data_time: 0.0039  memory: 680  
+2023/11/04 21:06:31 - mmengine - INFO - Epoch(val) [11][10650/21046]    eta: 0:12:59  time: 0.0777  data_time: 0.0044  memory: 680  
+2023/11/04 21:06:35 - mmengine - INFO - Epoch(val) [11][10700/21046]    eta: 0:12:55  time: 0.0733  data_time: 0.0059  memory: 680  
+2023/11/04 21:06:38 - mmengine - INFO - Epoch(val) [11][10750/21046]    eta: 0:12:51  time: 0.0692  data_time: 0.0039  memory: 680  
+2023/11/04 21:06:42 - mmengine - INFO - Epoch(val) [11][10800/21046]    eta: 0:12:47  time: 0.0739  data_time: 0.0053  memory: 680  
+2023/11/04 21:06:46 - mmengine - INFO - Epoch(val) [11][10850/21046]    eta: 0:12:43  time: 0.0770  data_time: 0.0064  memory: 680  
+2023/11/04 21:06:50 - mmengine - INFO - Epoch(val) [11][10900/21046]    eta: 0:12:40  time: 0.0749  data_time: 0.0033  memory: 680  
+2023/11/04 21:06:53 - mmengine - INFO - Epoch(val) [11][10950/21046]    eta: 0:12:36  time: 0.0757  data_time: 0.0038  memory: 680  
+2023/11/04 21:06:57 - mmengine - INFO - Epoch(val) [11][11000/21046]    eta: 0:12:32  time: 0.0777  data_time: 0.0075  memory: 680  
+2023/11/04 21:07:01 - mmengine - INFO - Epoch(val) [11][11050/21046]    eta: 0:12:29  time: 0.0761  data_time: 0.0052  memory: 680  
+2023/11/04 21:07:05 - mmengine - INFO - Epoch(val) [11][11100/21046]    eta: 0:12:25  time: 0.0729  data_time: 0.0053  memory: 680  
+2023/11/04 21:07:09 - mmengine - INFO - Epoch(val) [11][11150/21046]    eta: 0:12:21  time: 0.0822  data_time: 0.0124  memory: 680  
+2023/11/04 21:07:13 - mmengine - INFO - Epoch(val) [11][11200/21046]    eta: 0:12:18  time: 0.0778  data_time: 0.0070  memory: 680  
+2023/11/04 21:07:17 - mmengine - INFO - Epoch(val) [11][11250/21046]    eta: 0:12:14  time: 0.0747  data_time: 0.0072  memory: 680  
+2023/11/04 21:07:21 - mmengine - INFO - Epoch(val) [11][11300/21046]    eta: 0:12:10  time: 0.0741  data_time: 0.0044  memory: 680  
+2023/11/04 21:07:24 - mmengine - INFO - Epoch(val) [11][11350/21046]    eta: 0:12:06  time: 0.0745  data_time: 0.0062  memory: 680  
+2023/11/04 21:07:28 - mmengine - INFO - Epoch(val) [11][11400/21046]    eta: 0:12:02  time: 0.0716  data_time: 0.0039  memory: 680  
+2023/11/04 21:07:32 - mmengine - INFO - Epoch(val) [11][11450/21046]    eta: 0:11:59  time: 0.0775  data_time: 0.0075  memory: 680  
+2023/11/04 21:07:36 - mmengine - INFO - Epoch(val) [11][11500/21046]    eta: 0:11:55  time: 0.0725  data_time: 0.0054  memory: 680  
+2023/11/04 21:07:39 - mmengine - INFO - Epoch(val) [11][11550/21046]    eta: 0:11:51  time: 0.0699  data_time: 0.0038  memory: 680  
+2023/11/04 21:07:43 - mmengine - INFO - Epoch(val) [11][11600/21046]    eta: 0:11:47  time: 0.0748  data_time: 0.0062  memory: 680  
+2023/11/04 21:07:47 - mmengine - INFO - Epoch(val) [11][11650/21046]    eta: 0:11:43  time: 0.0749  data_time: 0.0056  memory: 680  
+2023/11/04 21:07:51 - mmengine - INFO - Epoch(val) [11][11700/21046]    eta: 0:11:40  time: 0.0755  data_time: 0.0055  memory: 680  
+2023/11/04 21:07:54 - mmengine - INFO - Epoch(val) [11][11750/21046]    eta: 0:11:36  time: 0.0724  data_time: 0.0045  memory: 680  
+2023/11/04 21:07:58 - mmengine - INFO - Epoch(val) [11][11800/21046]    eta: 0:11:32  time: 0.0673  data_time: 0.0035  memory: 680  
+2023/11/04 21:08:01 - mmengine - INFO - Epoch(val) [11][11850/21046]    eta: 0:11:28  time: 0.0675  data_time: 0.0029  memory: 680  
+2023/11/04 21:08:05 - mmengine - INFO - Epoch(val) [11][11900/21046]    eta: 0:11:24  time: 0.0743  data_time: 0.0038  memory: 680  
+2023/11/04 21:08:09 - mmengine - INFO - Epoch(val) [11][11950/21046]    eta: 0:11:20  time: 0.0756  data_time: 0.0078  memory: 680  
+2023/11/04 21:08:13 - mmengine - INFO - Epoch(val) [11][12000/21046]    eta: 0:11:17  time: 0.0777  data_time: 0.0071  memory: 680  
+2023/11/04 21:08:16 - mmengine - INFO - Epoch(val) [11][12050/21046]    eta: 0:11:13  time: 0.0709  data_time: 0.0042  memory: 680  
+2023/11/04 21:08:20 - mmengine - INFO - Epoch(val) [11][12100/21046]    eta: 0:11:09  time: 0.0695  data_time: 0.0033  memory: 680  
+2023/11/04 21:08:24 - mmengine - INFO - Epoch(val) [11][12150/21046]    eta: 0:11:05  time: 0.0843  data_time: 0.0122  memory: 680  
+2023/11/04 21:08:28 - mmengine - INFO - Epoch(val) [11][12200/21046]    eta: 0:11:02  time: 0.0795  data_time: 0.0095  memory: 680  
+2023/11/04 21:08:32 - mmengine - INFO - Epoch(val) [11][12250/21046]    eta: 0:10:58  time: 0.0686  data_time: 0.0033  memory: 680  
+2023/11/04 21:08:35 - mmengine - INFO - Epoch(val) [11][12300/21046]    eta: 0:10:54  time: 0.0724  data_time: 0.0031  memory: 680  
+2023/11/04 21:08:39 - mmengine - INFO - Epoch(val) [11][12350/21046]    eta: 0:10:50  time: 0.0703  data_time: 0.0034  memory: 680  
+2023/11/04 21:08:43 - mmengine - INFO - Epoch(val) [11][12400/21046]    eta: 0:10:46  time: 0.0751  data_time: 0.0075  memory: 680  
+2023/11/04 21:08:46 - mmengine - INFO - Epoch(val) [11][12450/21046]    eta: 0:10:43  time: 0.0739  data_time: 0.0069  memory: 680  
+2023/11/04 21:08:50 - mmengine - INFO - Epoch(val) [11][12500/21046]    eta: 0:10:39  time: 0.0765  data_time: 0.0056  memory: 680  
+2023/11/04 21:08:54 - mmengine - INFO - Epoch(val) [11][12550/21046]    eta: 0:10:35  time: 0.0776  data_time: 0.0059  memory: 680  
+2023/11/04 21:08:58 - mmengine - INFO - Epoch(val) [11][12600/21046]    eta: 0:10:32  time: 0.0726  data_time: 0.0047  memory: 680  
+2023/11/04 21:09:02 - mmengine - INFO - Epoch(val) [11][12650/21046]    eta: 0:10:28  time: 0.0769  data_time: 0.0050  memory: 680  
+2023/11/04 21:09:05 - mmengine - INFO - Epoch(val) [11][12700/21046]    eta: 0:10:24  time: 0.0679  data_time: 0.0041  memory: 680  
+2023/11/04 21:09:09 - mmengine - INFO - Epoch(val) [11][12750/21046]    eta: 0:10:20  time: 0.0694  data_time: 0.0039  memory: 680  
+2023/11/04 21:09:13 - mmengine - INFO - Epoch(val) [11][12800/21046]    eta: 0:10:16  time: 0.0758  data_time: 0.0048  memory: 680  
+2023/11/04 21:09:16 - mmengine - INFO - Epoch(val) [11][12850/21046]    eta: 0:10:12  time: 0.0701  data_time: 0.0038  memory: 680  
+2023/11/04 21:09:20 - mmengine - INFO - Epoch(val) [11][12900/21046]    eta: 0:10:09  time: 0.0760  data_time: 0.0035  memory: 680  
+2023/11/04 21:09:24 - mmengine - INFO - Epoch(val) [11][12950/21046]    eta: 0:10:05  time: 0.0815  data_time: 0.0113  memory: 680  
+2023/11/04 21:09:28 - mmengine - INFO - Epoch(val) [11][13000/21046]    eta: 0:10:01  time: 0.0716  data_time: 0.0036  memory: 680  
+2023/11/04 21:09:32 - mmengine - INFO - Epoch(val) [11][13050/21046]    eta: 0:09:58  time: 0.0793  data_time: 0.0120  memory: 680  
+2023/11/04 21:09:36 - mmengine - INFO - Epoch(val) [11][13100/21046]    eta: 0:09:54  time: 0.0836  data_time: 0.0085  memory: 680  
+2023/11/04 21:09:40 - mmengine - INFO - Epoch(val) [11][13150/21046]    eta: 0:09:51  time: 0.0796  data_time: 0.0055  memory: 680  
+2023/11/04 21:09:43 - mmengine - INFO - Epoch(val) [11][13200/21046]    eta: 0:09:47  time: 0.0675  data_time: 0.0037  memory: 680  
+2023/11/04 21:09:47 - mmengine - INFO - Epoch(val) [11][13250/21046]    eta: 0:09:43  time: 0.0703  data_time: 0.0028  memory: 680  
+2023/11/04 21:09:51 - mmengine - INFO - Epoch(val) [11][13300/21046]    eta: 0:09:39  time: 0.0709  data_time: 0.0031  memory: 680  
+2023/11/04 21:09:55 - mmengine - INFO - Epoch(val) [11][13350/21046]    eta: 0:09:35  time: 0.0803  data_time: 0.0117  memory: 680  
+2023/11/04 21:09:58 - mmengine - INFO - Epoch(val) [11][13400/21046]    eta: 0:09:32  time: 0.0717  data_time: 0.0035  memory: 680  
+2023/11/04 21:10:02 - mmengine - INFO - Epoch(val) [11][13450/21046]    eta: 0:09:28  time: 0.0684  data_time: 0.0035  memory: 680  
+2023/11/04 21:10:06 - mmengine - INFO - Epoch(val) [11][13500/21046]    eta: 0:09:24  time: 0.0758  data_time: 0.0042  memory: 680  
+2023/11/04 21:10:09 - mmengine - INFO - Epoch(val) [11][13550/21046]    eta: 0:09:20  time: 0.0700  data_time: 0.0034  memory: 680  
+2023/11/04 21:10:13 - mmengine - INFO - Epoch(val) [11][13600/21046]    eta: 0:09:16  time: 0.0722  data_time: 0.0048  memory: 680  
+2023/11/04 21:10:16 - mmengine - INFO - Epoch(val) [11][13650/21046]    eta: 0:09:12  time: 0.0709  data_time: 0.0049  memory: 680  
+2023/11/04 21:10:20 - mmengine - INFO - Epoch(val) [11][13700/21046]    eta: 0:09:09  time: 0.0725  data_time: 0.0047  memory: 680  
+2023/11/04 21:10:24 - mmengine - INFO - Epoch(val) [11][13750/21046]    eta: 0:09:05  time: 0.0776  data_time: 0.0051  memory: 680  
+2023/11/04 21:10:28 - mmengine - INFO - Epoch(val) [11][13800/21046]    eta: 0:09:01  time: 0.0703  data_time: 0.0037  memory: 680  
+2023/11/04 21:10:32 - mmengine - INFO - Epoch(val) [11][13850/21046]    eta: 0:08:57  time: 0.0778  data_time: 0.0065  memory: 680  
+2023/11/04 21:10:35 - mmengine - INFO - Epoch(val) [11][13900/21046]    eta: 0:08:54  time: 0.0774  data_time: 0.0048  memory: 680  
+2023/11/04 21:10:39 - mmengine - INFO - Epoch(val) [11][13950/21046]    eta: 0:08:50  time: 0.0714  data_time: 0.0043  memory: 680  
+2023/11/04 21:10:43 - mmengine - INFO - Epoch(val) [11][14000/21046]    eta: 0:08:46  time: 0.0708  data_time: 0.0040  memory: 680  
+2023/11/04 21:10:46 - mmengine - INFO - Epoch(val) [11][14050/21046]    eta: 0:08:42  time: 0.0734  data_time: 0.0048  memory: 680  
+2023/11/04 21:10:50 - mmengine - INFO - Epoch(val) [11][14100/21046]    eta: 0:08:38  time: 0.0708  data_time: 0.0052  memory: 680  
+2023/11/04 21:10:54 - mmengine - INFO - Epoch(val) [11][14150/21046]    eta: 0:08:35  time: 0.0788  data_time: 0.0054  memory: 680  
+2023/11/04 21:10:58 - mmengine - INFO - Epoch(val) [11][14200/21046]    eta: 0:08:31  time: 0.0760  data_time: 0.0079  memory: 680  
+2023/11/04 21:11:01 - mmengine - INFO - Epoch(val) [11][14250/21046]    eta: 0:08:27  time: 0.0676  data_time: 0.0029  memory: 680  
+2023/11/04 21:11:05 - mmengine - INFO - Epoch(val) [11][14300/21046]    eta: 0:08:23  time: 0.0706  data_time: 0.0047  memory: 680  
+2023/11/04 21:11:09 - mmengine - INFO - Epoch(val) [11][14350/21046]    eta: 0:08:20  time: 0.0755  data_time: 0.0046  memory: 680  
+2023/11/04 21:11:12 - mmengine - INFO - Epoch(val) [11][14400/21046]    eta: 0:08:16  time: 0.0744  data_time: 0.0054  memory: 680  
+2023/11/04 21:11:16 - mmengine - INFO - Epoch(val) [11][14450/21046]    eta: 0:08:12  time: 0.0778  data_time: 0.0063  memory: 680  
+2023/11/04 21:11:20 - mmengine - INFO - Epoch(val) [11][14500/21046]    eta: 0:08:09  time: 0.0759  data_time: 0.0084  memory: 680  
+2023/11/04 21:11:24 - mmengine - INFO - Epoch(val) [11][14550/21046]    eta: 0:08:05  time: 0.0771  data_time: 0.0085  memory: 680  
+2023/11/04 21:11:28 - mmengine - INFO - Epoch(val) [11][14600/21046]    eta: 0:08:01  time: 0.0734  data_time: 0.0043  memory: 680  
+2023/11/04 21:11:32 - mmengine - INFO - Epoch(val) [11][14650/21046]    eta: 0:07:57  time: 0.0738  data_time: 0.0046  memory: 680  
+2023/11/04 21:11:35 - mmengine - INFO - Epoch(val) [11][14700/21046]    eta: 0:07:54  time: 0.0709  data_time: 0.0036  memory: 680  
+2023/11/04 21:11:39 - mmengine - INFO - Epoch(val) [11][14750/21046]    eta: 0:07:50  time: 0.0701  data_time: 0.0039  memory: 680  
+2023/11/04 21:11:43 - mmengine - INFO - Epoch(val) [11][14800/21046]    eta: 0:07:46  time: 0.0722  data_time: 0.0038  memory: 680  
+2023/11/04 21:11:46 - mmengine - INFO - Epoch(val) [11][14850/21046]    eta: 0:07:42  time: 0.0680  data_time: 0.0029  memory: 680  
+2023/11/04 21:11:50 - mmengine - INFO - Epoch(val) [11][14900/21046]    eta: 0:07:39  time: 0.0835  data_time: 0.0135  memory: 680  
+2023/11/04 21:11:54 - mmengine - INFO - Epoch(val) [11][14950/21046]    eta: 0:07:35  time: 0.0795  data_time: 0.0091  memory: 680  
+2023/11/04 21:11:58 - mmengine - INFO - Epoch(val) [11][15000/21046]    eta: 0:07:31  time: 0.0744  data_time: 0.0071  memory: 680  
+2023/11/04 21:12:01 - mmengine - INFO - Epoch(val) [11][15050/21046]    eta: 0:07:27  time: 0.0675  data_time: 0.0027  memory: 680  
+2023/11/04 21:12:05 - mmengine - INFO - Epoch(val) [11][15100/21046]    eta: 0:07:24  time: 0.0753  data_time: 0.0057  memory: 680  
+2023/11/04 21:12:09 - mmengine - INFO - Epoch(val) [11][15150/21046]    eta: 0:07:20  time: 0.0754  data_time: 0.0073  memory: 680  
+2023/11/04 21:12:13 - mmengine - INFO - Epoch(val) [11][15200/21046]    eta: 0:07:16  time: 0.0729  data_time: 0.0066  memory: 680  
+2023/11/04 21:12:17 - mmengine - INFO - Epoch(val) [11][15250/21046]    eta: 0:07:12  time: 0.0767  data_time: 0.0078  memory: 680  
+2023/11/04 21:12:20 - mmengine - INFO - Epoch(val) [11][15300/21046]    eta: 0:07:09  time: 0.0745  data_time: 0.0080  memory: 680  
+2023/11/04 21:12:24 - mmengine - INFO - Epoch(val) [11][15350/21046]    eta: 0:07:05  time: 0.0705  data_time: 0.0052  memory: 680  
+2023/11/04 21:12:27 - mmengine - INFO - Epoch(val) [11][15400/21046]    eta: 0:07:01  time: 0.0671  data_time: 0.0030  memory: 680  
+2023/11/04 21:12:31 - mmengine - INFO - Epoch(val) [11][15450/21046]    eta: 0:06:57  time: 0.0682  data_time: 0.0032  memory: 680  
+2023/11/04 21:12:35 - mmengine - INFO - Epoch(val) [11][15500/21046]    eta: 0:06:53  time: 0.0769  data_time: 0.0043  memory: 680  
+2023/11/04 21:12:38 - mmengine - INFO - Epoch(val) [11][15550/21046]    eta: 0:06:50  time: 0.0685  data_time: 0.0037  memory: 680  
+2023/11/04 21:12:42 - mmengine - INFO - Epoch(val) [11][15600/21046]    eta: 0:06:46  time: 0.0746  data_time: 0.0055  memory: 680  
+2023/11/04 21:12:46 - mmengine - INFO - Epoch(val) [11][15650/21046]    eta: 0:06:42  time: 0.0753  data_time: 0.0070  memory: 680  
+2023/11/04 21:12:50 - mmengine - INFO - Epoch(val) [11][15700/21046]    eta: 0:06:38  time: 0.0749  data_time: 0.0071  memory: 680  
+2023/11/04 21:12:53 - mmengine - INFO - Epoch(val) [11][15750/21046]    eta: 0:06:35  time: 0.0733  data_time: 0.0030  memory: 680  
+2023/11/04 21:12:57 - mmengine - INFO - Epoch(val) [11][15800/21046]    eta: 0:06:31  time: 0.0774  data_time: 0.0084  memory: 680  
+2023/11/04 21:13:01 - mmengine - INFO - Epoch(val) [11][15850/21046]    eta: 0:06:27  time: 0.0730  data_time: 0.0058  memory: 680  
+2023/11/04 21:13:05 - mmengine - INFO - Epoch(val) [11][15900/21046]    eta: 0:06:23  time: 0.0692  data_time: 0.0032  memory: 680  
+2023/11/04 21:13:08 - mmengine - INFO - Epoch(val) [11][15950/21046]    eta: 0:06:20  time: 0.0698  data_time: 0.0034  memory: 680  
+2023/11/04 21:13:12 - mmengine - INFO - Epoch(val) [11][16000/21046]    eta: 0:06:16  time: 0.0688  data_time: 0.0034  memory: 680  
+2023/11/04 21:13:16 - mmengine - INFO - Epoch(val) [11][16050/21046]    eta: 0:06:12  time: 0.0770  data_time: 0.0068  memory: 680  
+2023/11/04 21:13:19 - mmengine - INFO - Epoch(val) [11][16100/21046]    eta: 0:06:08  time: 0.0691  data_time: 0.0031  memory: 680  
+2023/11/04 21:13:23 - mmengine - INFO - Epoch(val) [11][16150/21046]    eta: 0:06:04  time: 0.0705  data_time: 0.0039  memory: 680  
+2023/11/04 21:13:26 - mmengine - INFO - Epoch(val) [11][16200/21046]    eta: 0:06:01  time: 0.0704  data_time: 0.0025  memory: 680  
+2023/11/04 21:13:30 - mmengine - INFO - Epoch(val) [11][16250/21046]    eta: 0:05:57  time: 0.0710  data_time: 0.0034  memory: 680  
+2023/11/04 21:13:34 - mmengine - INFO - Epoch(val) [11][16300/21046]    eta: 0:05:53  time: 0.0755  data_time: 0.0069  memory: 680  
+2023/11/04 21:13:37 - mmengine - INFO - Epoch(val) [11][16350/21046]    eta: 0:05:49  time: 0.0730  data_time: 0.0034  memory: 680  
+2023/11/04 21:13:41 - mmengine - INFO - Epoch(val) [11][16400/21046]    eta: 0:05:46  time: 0.0757  data_time: 0.0043  memory: 680  
+2023/11/04 21:13:45 - mmengine - INFO - Epoch(val) [11][16450/21046]    eta: 0:05:42  time: 0.0747  data_time: 0.0072  memory: 680  
+2023/11/04 21:13:49 - mmengine - INFO - Epoch(val) [11][16500/21046]    eta: 0:05:38  time: 0.0730  data_time: 0.0045  memory: 680  
+2023/11/04 21:13:53 - mmengine - INFO - Epoch(val) [11][16550/21046]    eta: 0:05:35  time: 0.0777  data_time: 0.0091  memory: 680  
+2023/11/04 21:13:57 - mmengine - INFO - Epoch(val) [11][16600/21046]    eta: 0:05:31  time: 0.0814  data_time: 0.0051  memory: 680  
+2023/11/04 21:14:00 - mmengine - INFO - Epoch(val) [11][16650/21046]    eta: 0:05:27  time: 0.0660  data_time: 0.0045  memory: 680  
+2023/11/04 21:14:03 - mmengine - INFO - Epoch(val) [11][16700/21046]    eta: 0:05:23  time: 0.0662  data_time: 0.0050  memory: 680  
+2023/11/04 21:14:07 - mmengine - INFO - Epoch(val) [11][16750/21046]    eta: 0:05:19  time: 0.0651  data_time: 0.0035  memory: 680  
+2023/11/04 21:14:10 - mmengine - INFO - Epoch(val) [11][16800/21046]    eta: 0:05:16  time: 0.0681  data_time: 0.0054  memory: 680  
+2023/11/04 21:14:14 - mmengine - INFO - Epoch(val) [11][16850/21046]    eta: 0:05:12  time: 0.0651  data_time: 0.0037  memory: 680  
+2023/11/04 21:14:17 - mmengine - INFO - Epoch(val) [11][16900/21046]    eta: 0:05:08  time: 0.0661  data_time: 0.0045  memory: 680  
+2023/11/04 21:14:20 - mmengine - INFO - Epoch(val) [11][16950/21046]    eta: 0:05:04  time: 0.0667  data_time: 0.0049  memory: 680  
+2023/11/04 21:14:24 - mmengine - INFO - Epoch(val) [11][17000/21046]    eta: 0:05:00  time: 0.0689  data_time: 0.0067  memory: 680  
+2023/11/04 21:14:27 - mmengine - INFO - Epoch(val) [11][17050/21046]    eta: 0:04:57  time: 0.0668  data_time: 0.0041  memory: 680  
+2023/11/04 21:14:31 - mmengine - INFO - Epoch(val) [11][17100/21046]    eta: 0:04:53  time: 0.0674  data_time: 0.0045  memory: 680  
+2023/11/04 21:14:34 - mmengine - INFO - Epoch(val) [11][17150/21046]    eta: 0:04:49  time: 0.0655  data_time: 0.0036  memory: 680  
+2023/11/04 21:14:37 - mmengine - INFO - Epoch(val) [11][17200/21046]    eta: 0:04:45  time: 0.0677  data_time: 0.0061  memory: 680  
+2023/11/04 21:14:41 - mmengine - INFO - Epoch(val) [11][17250/21046]    eta: 0:04:41  time: 0.0651  data_time: 0.0035  memory: 680  
+2023/11/04 21:14:44 - mmengine - INFO - Epoch(val) [11][17300/21046]    eta: 0:04:38  time: 0.0659  data_time: 0.0037  memory: 680  
+2023/11/04 21:14:47 - mmengine - INFO - Epoch(val) [11][17350/21046]    eta: 0:04:34  time: 0.0662  data_time: 0.0042  memory: 680  
+2023/11/04 21:14:51 - mmengine - INFO - Epoch(val) [11][17400/21046]    eta: 0:04:30  time: 0.0665  data_time: 0.0041  memory: 680  
+2023/11/04 21:14:54 - mmengine - INFO - Epoch(val) [11][17450/21046]    eta: 0:04:26  time: 0.0665  data_time: 0.0047  memory: 680  
+2023/11/04 21:14:57 - mmengine - INFO - Epoch(val) [11][17500/21046]    eta: 0:04:22  time: 0.0673  data_time: 0.0055  memory: 680  
+2023/11/04 21:15:01 - mmengine - INFO - Epoch(val) [11][17550/21046]    eta: 0:04:19  time: 0.0658  data_time: 0.0041  memory: 680  
+2023/11/04 21:15:04 - mmengine - INFO - Epoch(val) [11][17600/21046]    eta: 0:04:15  time: 0.0650  data_time: 0.0036  memory: 680  
+2023/11/04 21:15:07 - mmengine - INFO - Epoch(val) [11][17650/21046]    eta: 0:04:11  time: 0.0657  data_time: 0.0047  memory: 680  
+2023/11/04 21:15:11 - mmengine - INFO - Epoch(val) [11][17700/21046]    eta: 0:04:07  time: 0.0650  data_time: 0.0031  memory: 680  
+2023/11/04 21:15:14 - mmengine - INFO - Epoch(val) [11][17750/21046]    eta: 0:04:03  time: 0.0643  data_time: 0.0028  memory: 680  
+2023/11/04 21:15:17 - mmengine - INFO - Epoch(val) [11][17800/21046]    eta: 0:04:00  time: 0.0654  data_time: 0.0034  memory: 680  
+2023/11/04 21:15:21 - mmengine - INFO - Epoch(val) [11][17850/21046]    eta: 0:03:56  time: 0.0652  data_time: 0.0032  memory: 680  
+2023/11/04 21:15:24 - mmengine - INFO - Epoch(val) [11][17900/21046]    eta: 0:03:52  time: 0.0683  data_time: 0.0058  memory: 680  
+2023/11/04 21:15:27 - mmengine - INFO - Epoch(val) [11][17950/21046]    eta: 0:03:48  time: 0.0661  data_time: 0.0040  memory: 680  
+2023/11/04 21:15:31 - mmengine - INFO - Epoch(val) [11][18000/21046]    eta: 0:03:45  time: 0.0683  data_time: 0.0059  memory: 680  
+2023/11/04 21:15:34 - mmengine - INFO - Epoch(val) [11][18050/21046]    eta: 0:03:41  time: 0.0675  data_time: 0.0052  memory: 680  
+2023/11/04 21:15:38 - mmengine - INFO - Epoch(val) [11][18100/21046]    eta: 0:03:37  time: 0.0681  data_time: 0.0062  memory: 680  
+2023/11/04 21:15:41 - mmengine - INFO - Epoch(val) [11][18150/21046]    eta: 0:03:33  time: 0.0667  data_time: 0.0047  memory: 680  
+2023/11/04 21:15:45 - mmengine - INFO - Epoch(val) [11][18200/21046]    eta: 0:03:30  time: 0.0663  data_time: 0.0043  memory: 680  
+2023/11/04 21:15:48 - mmengine - INFO - Epoch(val) [11][18250/21046]    eta: 0:03:26  time: 0.0650  data_time: 0.0029  memory: 680  
+2023/11/04 21:15:51 - mmengine - INFO - Epoch(val) [11][18300/21046]    eta: 0:03:22  time: 0.0665  data_time: 0.0045  memory: 680  
+2023/11/04 21:15:55 - mmengine - INFO - Epoch(val) [11][18350/21046]    eta: 0:03:18  time: 0.0652  data_time: 0.0029  memory: 680  
+2023/11/04 21:15:58 - mmengine - INFO - Epoch(val) [11][18400/21046]    eta: 0:03:15  time: 0.0639  data_time: 0.0034  memory: 680  
+2023/11/04 21:16:01 - mmengine - INFO - Epoch(val) [11][18450/21046]    eta: 0:03:11  time: 0.0662  data_time: 0.0035  memory: 680  
+2023/11/04 21:16:04 - mmengine - INFO - Epoch(val) [11][18500/21046]    eta: 0:03:07  time: 0.0663  data_time: 0.0047  memory: 680  
+2023/11/04 21:16:08 - mmengine - INFO - Epoch(val) [11][18550/21046]    eta: 0:03:03  time: 0.0683  data_time: 0.0066  memory: 680  
+2023/11/04 21:16:11 - mmengine - INFO - Epoch(val) [11][18600/21046]    eta: 0:03:00  time: 0.0672  data_time: 0.0047  memory: 680  
+2023/11/04 21:16:15 - mmengine - INFO - Epoch(val) [11][18650/21046]    eta: 0:02:56  time: 0.0665  data_time: 0.0043  memory: 680  
+2023/11/04 21:16:18 - mmengine - INFO - Epoch(val) [11][18700/21046]    eta: 0:02:52  time: 0.0636  data_time: 0.0021  memory: 680  
+2023/11/04 21:16:21 - mmengine - INFO - Epoch(val) [11][18750/21046]    eta: 0:02:48  time: 0.0672  data_time: 0.0045  memory: 680  
+2023/11/04 21:16:25 - mmengine - INFO - Epoch(val) [11][18800/21046]    eta: 0:02:45  time: 0.0662  data_time: 0.0044  memory: 680  
+2023/11/04 21:16:28 - mmengine - INFO - Epoch(val) [11][18850/21046]    eta: 0:02:41  time: 0.0669  data_time: 0.0036  memory: 680  
+2023/11/04 21:16:31 - mmengine - INFO - Epoch(val) [11][18900/21046]    eta: 0:02:37  time: 0.0665  data_time: 0.0048  memory: 680  
+2023/11/04 21:16:35 - mmengine - INFO - Epoch(val) [11][18950/21046]    eta: 0:02:34  time: 0.0671  data_time: 0.0034  memory: 680  
+2023/11/04 21:16:38 - mmengine - INFO - Epoch(val) [11][19000/21046]    eta: 0:02:30  time: 0.0643  data_time: 0.0025  memory: 680  
+2023/11/04 21:16:41 - mmengine - INFO - Epoch(val) [11][19050/21046]    eta: 0:02:26  time: 0.0649  data_time: 0.0024  memory: 680  
+2023/11/04 21:16:45 - mmengine - INFO - Epoch(val) [11][19100/21046]    eta: 0:02:22  time: 0.0659  data_time: 0.0042  memory: 680  
+2023/11/04 21:16:48 - mmengine - INFO - Epoch(val) [11][19150/21046]    eta: 0:02:19  time: 0.0674  data_time: 0.0048  memory: 680  
+2023/11/04 21:16:52 - mmengine - INFO - Epoch(val) [11][19200/21046]    eta: 0:02:15  time: 0.0656  data_time: 0.0037  memory: 680  
+2023/11/04 21:16:55 - mmengine - INFO - Epoch(val) [11][19250/21046]    eta: 0:02:11  time: 0.0660  data_time: 0.0054  memory: 680  
+2023/11/04 21:16:58 - mmengine - INFO - Epoch(val) [11][19300/21046]    eta: 0:02:08  time: 0.0674  data_time: 0.0051  memory: 680  
+2023/11/04 21:17:02 - mmengine - INFO - Epoch(val) [11][19350/21046]    eta: 0:02:04  time: 0.0655  data_time: 0.0031  memory: 680  
+2023/11/04 21:17:05 - mmengine - INFO - Epoch(val) [11][19400/21046]    eta: 0:02:00  time: 0.0662  data_time: 0.0047  memory: 680  
+2023/11/04 21:17:08 - mmengine - INFO - Epoch(val) [11][19450/21046]    eta: 0:01:57  time: 0.0666  data_time: 0.0037  memory: 680  
+2023/11/04 21:17:12 - mmengine - INFO - Epoch(val) [11][19500/21046]    eta: 0:01:53  time: 0.0671  data_time: 0.0045  memory: 680  
+2023/11/04 21:17:15 - mmengine - INFO - Epoch(val) [11][19550/21046]    eta: 0:01:49  time: 0.0671  data_time: 0.0041  memory: 680  
+2023/11/04 21:17:18 - mmengine - INFO - Epoch(val) [11][19600/21046]    eta: 0:01:45  time: 0.0657  data_time: 0.0040  memory: 680  
+2023/11/04 21:17:22 - mmengine - INFO - Epoch(val) [11][19650/21046]    eta: 0:01:42  time: 0.0651  data_time: 0.0032  memory: 680  
+2023/11/04 21:17:25 - mmengine - INFO - Epoch(val) [11][19700/21046]    eta: 0:01:38  time: 0.0646  data_time: 0.0032  memory: 680  
+2023/11/04 21:17:28 - mmengine - INFO - Epoch(val) [11][19750/21046]    eta: 0:01:34  time: 0.0668  data_time: 0.0025  memory: 680  
+2023/11/04 21:17:32 - mmengine - INFO - Epoch(val) [11][19800/21046]    eta: 0:01:31  time: 0.0654  data_time: 0.0033  memory: 680  
+2023/11/04 21:17:35 - mmengine - INFO - Epoch(val) [11][19850/21046]    eta: 0:01:27  time: 0.0658  data_time: 0.0030  memory: 680  
+2023/11/04 21:17:38 - mmengine - INFO - Epoch(val) [11][19900/21046]    eta: 0:01:23  time: 0.0642  data_time: 0.0023  memory: 680  
+2023/11/04 21:17:42 - mmengine - INFO - Epoch(val) [11][19950/21046]    eta: 0:01:20  time: 0.0664  data_time: 0.0037  memory: 680  
+2023/11/04 21:17:45 - mmengine - INFO - Epoch(val) [11][20000/21046]    eta: 0:01:16  time: 0.0643  data_time: 0.0028  memory: 680  
+2023/11/04 21:17:48 - mmengine - INFO - Epoch(val) [11][20050/21046]    eta: 0:01:12  time: 0.0656  data_time: 0.0043  memory: 680  
+2023/11/04 21:17:52 - mmengine - INFO - Epoch(val) [11][20100/21046]    eta: 0:01:09  time: 0.0666  data_time: 0.0045  memory: 680  
+2023/11/04 21:17:55 - mmengine - INFO - Epoch(val) [11][20150/21046]    eta: 0:01:05  time: 0.0668  data_time: 0.0042  memory: 680  
+2023/11/04 21:17:58 - mmengine - INFO - Epoch(val) [11][20200/21046]    eta: 0:01:01  time: 0.0671  data_time: 0.0045  memory: 680  
+2023/11/04 21:18:02 - mmengine - INFO - Epoch(val) [11][20250/21046]    eta: 0:00:58  time: 0.0664  data_time: 0.0056  memory: 680  
+2023/11/04 21:18:05 - mmengine - INFO - Epoch(val) [11][20300/21046]    eta: 0:00:54  time: 0.0654  data_time: 0.0038  memory: 680  
+2023/11/04 21:18:09 - mmengine - INFO - Epoch(val) [11][20350/21046]    eta: 0:00:50  time: 0.0669  data_time: 0.0037  memory: 680  
+2023/11/04 21:18:12 - mmengine - INFO - Epoch(val) [11][20400/21046]    eta: 0:00:47  time: 0.0691  data_time: 0.0062  memory: 680  
+2023/11/04 21:18:15 - mmengine - INFO - Epoch(val) [11][20450/21046]    eta: 0:00:43  time: 0.0655  data_time: 0.0035  memory: 680  
+2023/11/04 21:18:19 - mmengine - INFO - Epoch(val) [11][20500/21046]    eta: 0:00:39  time: 0.0659  data_time: 0.0035  memory: 680  
+2023/11/04 21:18:22 - mmengine - INFO - Epoch(val) [11][20550/21046]    eta: 0:00:36  time: 0.0669  data_time: 0.0052  memory: 680  
+2023/11/04 21:18:26 - mmengine - INFO - Epoch(val) [11][20600/21046]    eta: 0:00:32  time: 0.0685  data_time: 0.0054  memory: 680  
+2023/11/04 21:18:29 - mmengine - INFO - Epoch(val) [11][20650/21046]    eta: 0:00:28  time: 0.0661  data_time: 0.0032  memory: 680  
+2023/11/04 21:18:32 - mmengine - INFO - Epoch(val) [11][20700/21046]    eta: 0:00:25  time: 0.0649  data_time: 0.0036  memory: 680  
+2023/11/04 21:18:36 - mmengine - INFO - Epoch(val) [11][20750/21046]    eta: 0:00:21  time: 0.0643  data_time: 0.0024  memory: 680  
+2023/11/04 21:18:39 - mmengine - INFO - Epoch(val) [11][20800/21046]    eta: 0:00:17  time: 0.0661  data_time: 0.0045  memory: 680  
+2023/11/04 21:18:42 - mmengine - INFO - Epoch(val) [11][20850/21046]    eta: 0:00:14  time: 0.0668  data_time: 0.0044  memory: 680  
+2023/11/04 21:18:46 - mmengine - INFO - Epoch(val) [11][20900/21046]    eta: 0:00:10  time: 0.0679  data_time: 0.0049  memory: 680  
+2023/11/04 21:18:49 - mmengine - INFO - Epoch(val) [11][20950/21046]    eta: 0:00:06  time: 0.0644  data_time: 0.0024  memory: 680  
+2023/11/04 21:18:52 - mmengine - INFO - Epoch(val) [11][21000/21046]    eta: 0:00:03  time: 0.0667  data_time: 0.0050  memory: 680  
+2023/11/04 21:19:04 - mmengine - INFO - Evaluating bbox...
+2023/11/04 21:25:03 - mmengine - INFO - bbox_mAP_copypaste: 0.588 0.901 0.716 0.510 0.616 0.640
+2023/11/04 21:25:04 - mmengine - INFO - Epoch(val) [11][21046/21046]    coco/bbox_mAP: 0.5880  coco/bbox_mAP_50: 0.9010  coco/bbox_mAP_75: 0.7160  coco/bbox_mAP_s: 0.5100  coco/bbox_mAP_m: 0.6160  coco/bbox_mAP_l: 0.6400  data_time: 0.0053  time: 0.0728
+2023/11/04 21:25:54 - mmengine - INFO - Epoch(train) [12][  50/1529]  lr: 1.0000e-02  eta: 0:26:01  time: 1.0102  data_time: 0.0714  memory: 13987  loss: 0.1449  loss_rpn_cls: 0.0059  loss_rpn_bbox: 0.0142  loss_cls: 0.0702  acc: 96.3379  loss_bbox: 0.0546
+2023/11/04 21:26:43 - mmengine - INFO - Epoch(train) [12][ 100/1529]  lr: 1.0000e-02  eta: 0:25:08  time: 0.9610  data_time: 0.0140  memory: 13299  loss: 0.1546  loss_rpn_cls: 0.0058  loss_rpn_bbox: 0.0146  loss_cls: 0.0788  acc: 98.8525  loss_bbox: 0.0555
+2023/11/04 21:27:34 - mmengine - INFO - Epoch(train) [12][ 150/1529]  lr: 1.0000e-02  eta: 0:24:15  time: 1.0200  data_time: 0.0143  memory: 13299  loss: 0.1432  loss_rpn_cls: 0.0062  loss_rpn_bbox: 0.0131  loss_cls: 0.0701  acc: 98.5352  loss_bbox: 0.0538
+2023/11/04 21:28:07 - mmengine - INFO - Exp name: benchmark_faster-rcnn_1gpu_r50_fpn_2x_lr5e-3_dotav1_0_20231104_105442
+2023/11/04 21:28:27 - mmengine - INFO - Epoch(train) [12][ 200/1529]  lr: 1.0000e-02  eta: 0:23:22  time: 1.0779  data_time: 0.0184  memory: 13299  loss: 0.1460  loss_rpn_cls: 0.0069  loss_rpn_bbox: 0.0146  loss_cls: 0.0713  acc: 97.5342  loss_bbox: 0.0532
+2023/11/04 21:29:22 - mmengine - INFO - Epoch(train) [12][ 250/1529]  lr: 1.0000e-02  eta: 0:22:30  time: 1.0959  data_time: 0.0166  memory: 14131  loss: 0.1491  loss_rpn_cls: 0.0052  loss_rpn_bbox: 0.0149  loss_cls: 0.0744  acc: 96.9727  loss_bbox: 0.0546
+2023/11/04 21:30:18 - mmengine - INFO - Epoch(train) [12][ 300/1529]  lr: 1.0000e-02  eta: 0:21:37  time: 1.1078  data_time: 0.0193  memory: 13299  loss: 0.1521  loss_rpn_cls: 0.0073  loss_rpn_bbox: 0.0142  loss_cls: 0.0754  acc: 97.8516  loss_bbox: 0.0552
+2023/11/04 21:31:13 - mmengine - INFO - Epoch(train) [12][ 350/1529]  lr: 1.0000e-02  eta: 0:20:44  time: 1.1005  data_time: 0.0199  memory: 13299  loss: 0.1506  loss_rpn_cls: 0.0070  loss_rpn_bbox: 0.0156  loss_cls: 0.0729  acc: 96.9971  loss_bbox: 0.0551
+2023/11/04 21:32:08 - mmengine - INFO - Epoch(train) [12][ 400/1529]  lr: 1.0000e-02  eta: 0:19:52  time: 1.0992  data_time: 0.0190  memory: 14140  loss: 0.1504  loss_rpn_cls: 0.0070  loss_rpn_bbox: 0.0148  loss_cls: 0.0752  acc: 96.4111  loss_bbox: 0.0534
+2023/11/04 21:33:03 - mmengine - INFO - Epoch(train) [12][ 450/1529]  lr: 1.0000e-02  eta: 0:18:59  time: 1.1043  data_time: 0.0237  memory: 13299  loss: 0.1617  loss_rpn_cls: 0.0073  loss_rpn_bbox: 0.0177  loss_cls: 0.0792  acc: 96.5088  loss_bbox: 0.0575
+2023/11/04 21:33:58 - mmengine - INFO - Epoch(train) [12][ 500/1529]  lr: 1.0000e-02  eta: 0:18:06  time: 1.0975  data_time: 0.0238  memory: 15357  loss: 0.1670  loss_rpn_cls: 0.0089  loss_rpn_bbox: 0.0179  loss_cls: 0.0798  acc: 96.9727  loss_bbox: 0.0604
+2023/11/04 21:34:52 - mmengine - INFO - Epoch(train) [12][ 550/1529]  lr: 1.0000e-02  eta: 0:17:14  time: 1.0886  data_time: 0.0196  memory: 13299  loss: 0.1668  loss_rpn_cls: 0.0086  loss_rpn_bbox: 0.0171  loss_cls: 0.0804  acc: 97.4854  loss_bbox: 0.0607
+2023/11/04 21:35:47 - mmengine - INFO - Epoch(train) [12][ 600/1529]  lr: 1.0000e-02  eta: 0:16:21  time: 1.1030  data_time: 0.0216  memory: 13377  loss: 0.1545  loss_rpn_cls: 0.0061  loss_rpn_bbox: 0.0153  loss_cls: 0.0744  acc: 98.0957  loss_bbox: 0.0587
+2023/11/04 21:36:42 - mmengine - INFO - Epoch(train) [12][ 650/1529]  lr: 1.0000e-02  eta: 0:15:28  time: 1.0900  data_time: 0.0231  memory: 13390  loss: 0.1475  loss_rpn_cls: 0.0068  loss_rpn_bbox: 0.0153  loss_cls: 0.0710  acc: 97.3389  loss_bbox: 0.0544
+2023/11/04 21:37:37 - mmengine - INFO - Epoch(train) [12][ 700/1529]  lr: 1.0000e-02  eta: 0:14:35  time: 1.1008  data_time: 0.0195  memory: 13299  loss: 0.1577  loss_rpn_cls: 0.0081  loss_rpn_bbox: 0.0155  loss_cls: 0.0773  acc: 97.2412  loss_bbox: 0.0568
+2023/11/04 21:38:32 - mmengine - INFO - Epoch(train) [12][ 750/1529]  lr: 1.0000e-02  eta: 0:13:43  time: 1.1018  data_time: 0.0236  memory: 14285  loss: 0.1640  loss_rpn_cls: 0.0075  loss_rpn_bbox: 0.0176  loss_cls: 0.0779  acc: 97.7295  loss_bbox: 0.0610
+2023/11/04 21:39:26 - mmengine - INFO - Epoch(train) [12][ 800/1529]  lr: 1.0000e-02  eta: 0:12:50  time: 1.0914  data_time: 0.0208  memory: 13299  loss: 0.1524  loss_rpn_cls: 0.0071  loss_rpn_bbox: 0.0154  loss_cls: 0.0757  acc: 97.2412  loss_bbox: 0.0543
+2023/11/04 21:40:22 - mmengine - INFO - Epoch(train) [12][ 850/1529]  lr: 1.0000e-02  eta: 0:11:57  time: 1.1003  data_time: 0.0235  memory: 13299  loss: 0.1569  loss_rpn_cls: 0.0085  loss_rpn_bbox: 0.0166  loss_cls: 0.0758  acc: 96.4111  loss_bbox: 0.0561
+2023/11/04 21:41:16 - mmengine - INFO - Epoch(train) [12][ 900/1529]  lr: 1.0000e-02  eta: 0:11:04  time: 1.0929  data_time: 0.0218  memory: 13299  loss: 0.1503  loss_rpn_cls: 0.0083  loss_rpn_bbox: 0.0158  loss_cls: 0.0723  acc: 96.1182  loss_bbox: 0.0540
+2023/11/04 21:42:11 - mmengine - INFO - Epoch(train) [12][ 950/1529]  lr: 1.0000e-02  eta: 0:10:12  time: 1.1039  data_time: 0.0209  memory: 14200  loss: 0.1581  loss_rpn_cls: 0.0083  loss_rpn_bbox: 0.0150  loss_cls: 0.0782  acc: 95.2881  loss_bbox: 0.0566
+2023/11/04 21:43:06 - mmengine - INFO - Epoch(train) [12][1000/1529]  lr: 1.0000e-02  eta: 0:09:19  time: 1.0973  data_time: 0.0220  memory: 13299  loss: 0.1672  loss_rpn_cls: 0.0070  loss_rpn_bbox: 0.0182  loss_cls: 0.0804  acc: 96.9727  loss_bbox: 0.0616
+2023/11/04 21:44:01 - mmengine - INFO - Epoch(train) [12][1050/1529]  lr: 1.0000e-02  eta: 0:08:26  time: 1.0904  data_time: 0.0215  memory: 15007  loss: 0.1634  loss_rpn_cls: 0.0078  loss_rpn_bbox: 0.0183  loss_cls: 0.0767  acc: 94.1895  loss_bbox: 0.0606
+2023/11/04 21:44:56 - mmengine - INFO - Epoch(train) [12][1100/1529]  lr: 1.0000e-02  eta: 0:07:33  time: 1.1100  data_time: 0.0231  memory: 13299  loss: 0.1692  loss_rpn_cls: 0.0086  loss_rpn_bbox: 0.0167  loss_cls: 0.0871  acc: 96.0205  loss_bbox: 0.0569
+2023/11/04 21:45:51 - mmengine - INFO - Epoch(train) [12][1150/1529]  lr: 1.0000e-02  eta: 0:06:40  time: 1.1000  data_time: 0.0206  memory: 15455  loss: 0.1704  loss_rpn_cls: 0.0083  loss_rpn_bbox: 0.0160  loss_cls: 0.0867  acc: 95.7520  loss_bbox: 0.0593
+2023/11/04 21:46:25 - mmengine - INFO - Exp name: benchmark_faster-rcnn_1gpu_r50_fpn_2x_lr5e-3_dotav1_0_20231104_105442
+2023/11/04 21:46:46 - mmengine - INFO - Epoch(train) [12][1200/1529]  lr: 1.0000e-02  eta: 0:05:48  time: 1.0956  data_time: 0.0199  memory: 13299  loss: 0.1549  loss_rpn_cls: 0.0071  loss_rpn_bbox: 0.0138  loss_cls: 0.0783  acc: 97.9004  loss_bbox: 0.0558
+2023/11/04 21:47:42 - mmengine - INFO - Epoch(train) [12][1250/1529]  lr: 1.0000e-02  eta: 0:04:55  time: 1.1144  data_time: 0.0215  memory: 13299  loss: 0.1628  loss_rpn_cls: 0.0071  loss_rpn_bbox: 0.0169  loss_cls: 0.0798  acc: 97.6074  loss_bbox: 0.0591
+2023/11/04 21:48:37 - mmengine - INFO - Epoch(train) [12][1300/1529]  lr: 1.0000e-02  eta: 0:04:02  time: 1.0993  data_time: 0.0222  memory: 13299  loss: 0.1571  loss_rpn_cls: 0.0066  loss_rpn_bbox: 0.0167  loss_cls: 0.0754  acc: 96.6064  loss_bbox: 0.0583
+2023/11/04 21:49:32 - mmengine - INFO - Epoch(train) [12][1350/1529]  lr: 1.0000e-02  eta: 0:03:09  time: 1.1052  data_time: 0.0219  memory: 13299  loss: 0.1599  loss_rpn_cls: 0.0074  loss_rpn_bbox: 0.0155  loss_cls: 0.0791  acc: 96.8994  loss_bbox: 0.0578
+2023/11/04 21:50:27 - mmengine - INFO - Epoch(train) [12][1400/1529]  lr: 1.0000e-02  eta: 0:02:16  time: 1.0927  data_time: 0.0215  memory: 13968  loss: 0.1618  loss_rpn_cls: 0.0085  loss_rpn_bbox: 0.0164  loss_cls: 0.0793  acc: 96.3379  loss_bbox: 0.0577
+2023/11/04 21:51:21 - mmengine - INFO - Epoch(train) [12][1450/1529]  lr: 1.0000e-02  eta: 0:01:23  time: 1.0947  data_time: 0.0216  memory: 13299  loss: 0.1584  loss_rpn_cls: 0.0069  loss_rpn_bbox: 0.0161  loss_cls: 0.0771  acc: 96.4600  loss_bbox: 0.0583
+2023/11/04 21:52:16 - mmengine - INFO - Epoch(train) [12][1500/1529]  lr: 1.0000e-02  eta: 0:00:30  time: 1.1023  data_time: 0.0204  memory: 13299  loss: 0.1592  loss_rpn_cls: 0.0073  loss_rpn_bbox: 0.0155  loss_cls: 0.0778  acc: 96.9238  loss_bbox: 0.0586
+2023/11/04 21:52:48 - mmengine - INFO - Exp name: benchmark_faster-rcnn_1gpu_r50_fpn_2x_lr5e-3_dotav1_0_20231104_105442
+2023/11/04 21:52:48 - mmengine - INFO - Saving checkpoint at 12 epochs
+2023/11/04 21:52:54 - mmengine - INFO - Epoch(val) [12][   50/21046]    eta: 0:27:04  time: 0.0774  data_time: 0.0049  memory: 13670  
+2023/11/04 21:52:58 - mmengine - INFO - Epoch(val) [12][  100/21046]    eta: 0:27:08  time: 0.0781  data_time: 0.0086  memory: 680  
+2023/11/04 21:53:02 - mmengine - INFO - Epoch(val) [12][  150/21046]    eta: 0:26:23  time: 0.0718  data_time: 0.0044  memory: 680  
+2023/11/04 21:53:06 - mmengine - INFO - Epoch(val) [12][  200/21046]    eta: 0:26:18  time: 0.0755  data_time: 0.0054  memory: 680  
+2023/11/04 21:53:10 - mmengine - INFO - Epoch(val) [12][  250/21046]    eta: 0:26:15  time: 0.0761  data_time: 0.0030  memory: 680  
+2023/11/04 21:53:13 - mmengine - INFO - Epoch(val) [12][  300/21046]    eta: 0:25:58  time: 0.0717  data_time: 0.0032  memory: 680  
+2023/11/04 21:53:17 - mmengine - INFO - Epoch(val) [12][  350/21046]    eta: 0:25:44  time: 0.0717  data_time: 0.0065  memory: 680  
+2023/11/04 21:53:21 - mmengine - INFO - Epoch(val) [12][  400/21046]    eta: 0:25:35  time: 0.0726  data_time: 0.0042  memory: 680  
+2023/11/04 21:53:24 - mmengine - INFO - Epoch(val) [12][  450/21046]    eta: 0:25:26  time: 0.0723  data_time: 0.0045  memory: 680  
+2023/11/04 21:53:28 - mmengine - INFO - Epoch(val) [12][  500/21046]    eta: 0:25:23  time: 0.0741  data_time: 0.0054  memory: 680  
+2023/11/04 21:53:32 - mmengine - INFO - Epoch(val) [12][  550/21046]    eta: 0:25:15  time: 0.0720  data_time: 0.0045  memory: 680  
+2023/11/04 21:53:36 - mmengine - INFO - Epoch(val) [12][  600/21046]    eta: 0:25:23  time: 0.0808  data_time: 0.0089  memory: 680  
+2023/11/04 21:53:40 - mmengine - INFO - Epoch(val) [12][  650/21046]    eta: 0:25:26  time: 0.0791  data_time: 0.0092  memory: 680  
+2023/11/04 21:53:44 - mmengine - INFO - Epoch(val) [12][  700/21046]    eta: 0:25:16  time: 0.0704  data_time: 0.0039  memory: 680  
+2023/11/04 21:53:47 - mmengine - INFO - Epoch(val) [12][  750/21046]    eta: 0:25:13  time: 0.0753  data_time: 0.0047  memory: 680  
+2023/11/04 21:53:51 - mmengine - INFO - Epoch(val) [12][  800/21046]    eta: 0:25:02  time: 0.0689  data_time: 0.0027  memory: 680  
+2023/11/04 21:53:55 - mmengine - INFO - Epoch(val) [12][  850/21046]    eta: 0:24:56  time: 0.0717  data_time: 0.0053  memory: 680  
+2023/11/04 21:53:59 - mmengine - INFO - Epoch(val) [12][  900/21046]    eta: 0:25:00  time: 0.0815  data_time: 0.0072  memory: 680  
+2023/11/04 21:54:02 - mmengine - INFO - Epoch(val) [12][  950/21046]    eta: 0:24:56  time: 0.0738  data_time: 0.0051  memory: 680  
+2023/11/04 21:54:06 - mmengine - INFO - Epoch(val) [12][ 1000/21046]    eta: 0:24:54  time: 0.0760  data_time: 0.0063  memory: 680  
+2023/11/04 21:54:10 - mmengine - INFO - Epoch(val) [12][ 1050/21046]    eta: 0:24:47  time: 0.0719  data_time: 0.0030  memory: 680  
+2023/11/04 21:54:14 - mmengine - INFO - Epoch(val) [12][ 1100/21046]    eta: 0:24:42  time: 0.0721  data_time: 0.0036  memory: 680  
+2023/11/04 21:54:17 - mmengine - INFO - Epoch(val) [12][ 1150/21046]    eta: 0:24:38  time: 0.0745  data_time: 0.0066  memory: 680  
+2023/11/04 21:54:21 - mmengine - INFO - Epoch(val) [12][ 1200/21046]    eta: 0:24:29  time: 0.0683  data_time: 0.0031  memory: 680  
+2023/11/04 21:54:25 - mmengine - INFO - Epoch(val) [12][ 1250/21046]    eta: 0:24:24  time: 0.0719  data_time: 0.0049  memory: 680  
+2023/11/04 21:54:29 - mmengine - INFO - Epoch(val) [12][ 1300/21046]    eta: 0:24:24  time: 0.0792  data_time: 0.0070  memory: 680  
+2023/11/04 21:54:32 - mmengine - INFO - Epoch(val) [12][ 1350/21046]    eta: 0:24:22  time: 0.0761  data_time: 0.0066  memory: 680  
+2023/11/04 21:54:36 - mmengine - INFO - Epoch(val) [12][ 1400/21046]    eta: 0:24:21  time: 0.0781  data_time: 0.0091  memory: 680  
+2023/11/04 21:54:41 - mmengine - INFO - Epoch(val) [12][ 1450/21046]    eta: 0:24:23  time: 0.0825  data_time: 0.0098  memory: 680  
+2023/11/04 21:54:45 - mmengine - INFO - Epoch(val) [12][ 1500/21046]    eta: 0:24:22  time: 0.0792  data_time: 0.0048  memory: 680  
+2023/11/04 21:54:49 - mmengine - INFO - Epoch(val) [12][ 1550/21046]    eta: 0:24:22  time: 0.0806  data_time: 0.0078  memory: 680  
+2023/11/04 21:54:53 - mmengine - INFO - Epoch(val) [12][ 1600/21046]    eta: 0:24:18  time: 0.0751  data_time: 0.0055  memory: 680  
+2023/11/04 21:54:56 - mmengine - INFO - Epoch(val) [12][ 1650/21046]    eta: 0:24:12  time: 0.0711  data_time: 0.0049  memory: 680  
+2023/11/04 21:55:00 - mmengine - INFO - Epoch(val) [12][ 1700/21046]    eta: 0:24:11  time: 0.0789  data_time: 0.0061  memory: 680  
+2023/11/04 21:55:04 - mmengine - INFO - Epoch(val) [12][ 1750/21046]    eta: 0:24:08  time: 0.0768  data_time: 0.0058  memory: 680  
+2023/11/04 21:55:08 - mmengine - INFO - Epoch(val) [12][ 1800/21046]    eta: 0:24:03  time: 0.0732  data_time: 0.0034  memory: 680  
+2023/11/04 21:55:11 - mmengine - INFO - Epoch(val) [12][ 1850/21046]    eta: 0:23:58  time: 0.0731  data_time: 0.0065  memory: 680  
+2023/11/04 21:55:15 - mmengine - INFO - Epoch(val) [12][ 1900/21046]    eta: 0:23:57  time: 0.0800  data_time: 0.0080  memory: 680  
+2023/11/04 21:55:19 - mmengine - INFO - Epoch(val) [12][ 1950/21046]    eta: 0:23:55  time: 0.0787  data_time: 0.0084  memory: 680  
+2023/11/04 21:55:23 - mmengine - INFO - Epoch(val) [12][ 2000/21046]    eta: 0:23:53  time: 0.0776  data_time: 0.0045  memory: 680  
+2023/11/04 21:55:27 - mmengine - INFO - Epoch(val) [12][ 2050/21046]    eta: 0:23:51  time: 0.0791  data_time: 0.0071  memory: 680  
+2023/11/04 21:55:31 - mmengine - INFO - Epoch(val) [12][ 2100/21046]    eta: 0:23:45  time: 0.0721  data_time: 0.0056  memory: 680  
+2023/11/04 21:55:36 - mmengine - INFO - Epoch(val) [12][ 2150/21046]    eta: 0:23:47  time: 0.0880  data_time: 0.0061  memory: 680  
+2023/11/04 21:55:39 - mmengine - INFO - Epoch(val) [12][ 2200/21046]    eta: 0:23:42  time: 0.0711  data_time: 0.0044  memory: 680  
+2023/11/04 21:55:43 - mmengine - INFO - Epoch(val) [12][ 2250/21046]    eta: 0:23:38  time: 0.0770  data_time: 0.0069  memory: 680  
+2023/11/04 21:55:46 - mmengine - INFO - Epoch(val) [12][ 2300/21046]    eta: 0:23:30  time: 0.0644  data_time: 0.0032  memory: 680  
+2023/11/04 21:55:50 - mmengine - INFO - Epoch(val) [12][ 2350/21046]    eta: 0:23:22  time: 0.0637  data_time: 0.0027  memory: 680  
+2023/11/04 21:55:53 - mmengine - INFO - Epoch(val) [12][ 2400/21046]    eta: 0:23:14  time: 0.0643  data_time: 0.0026  memory: 680  
+2023/11/04 21:55:56 - mmengine - INFO - Epoch(val) [12][ 2450/21046]    eta: 0:23:07  time: 0.0654  data_time: 0.0027  memory: 680  
+2023/11/04 21:56:00 - mmengine - INFO - Epoch(val) [12][ 2500/21046]    eta: 0:23:00  time: 0.0668  data_time: 0.0037  memory: 680  
+2023/11/04 21:56:03 - mmengine - INFO - Epoch(val) [12][ 2550/21046]    eta: 0:22:53  time: 0.0643  data_time: 0.0026  memory: 680  
+2023/11/04 21:56:06 - mmengine - INFO - Epoch(val) [12][ 2600/21046]    eta: 0:22:46  time: 0.0661  data_time: 0.0036  memory: 680  
+2023/11/04 21:56:09 - mmengine - INFO - Epoch(val) [12][ 2650/21046]    eta: 0:22:39  time: 0.0654  data_time: 0.0028  memory: 680  
+2023/11/04 21:56:13 - mmengine - INFO - Epoch(val) [12][ 2700/21046]    eta: 0:22:33  time: 0.0652  data_time: 0.0033  memory: 680  
+2023/11/04 21:56:16 - mmengine - INFO - Epoch(val) [12][ 2750/21046]    eta: 0:22:27  time: 0.0675  data_time: 0.0043  memory: 680  
+2023/11/04 21:56:20 - mmengine - INFO - Epoch(val) [12][ 2800/21046]    eta: 0:22:20  time: 0.0652  data_time: 0.0033  memory: 680  
+2023/11/04 21:56:23 - mmengine - INFO - Epoch(val) [12][ 2850/21046]    eta: 0:22:14  time: 0.0664  data_time: 0.0040  memory: 680  
+2023/11/04 21:56:26 - mmengine - INFO - Epoch(val) [12][ 2900/21046]    eta: 0:22:08  time: 0.0659  data_time: 0.0038  memory: 680  
+2023/11/04 21:56:30 - mmengine - INFO - Epoch(val) [12][ 2950/21046]    eta: 0:22:02  time: 0.0646  data_time: 0.0027  memory: 680  
+2023/11/04 21:56:33 - mmengine - INFO - Epoch(val) [12][ 3000/21046]    eta: 0:21:56  time: 0.0635  data_time: 0.0022  memory: 680  
+2023/11/04 21:56:36 - mmengine - INFO - Epoch(val) [12][ 3050/21046]    eta: 0:21:50  time: 0.0653  data_time: 0.0028  memory: 680  
+2023/11/04 21:56:39 - mmengine - INFO - Epoch(val) [12][ 3100/21046]    eta: 0:21:44  time: 0.0655  data_time: 0.0036  memory: 680  
+2023/11/04 21:56:43 - mmengine - INFO - Epoch(val) [12][ 3150/21046]    eta: 0:21:38  time: 0.0635  data_time: 0.0023  memory: 680  
+2023/11/04 21:56:46 - mmengine - INFO - Epoch(val) [12][ 3200/21046]    eta: 0:21:32  time: 0.0645  data_time: 0.0026  memory: 680  
+2023/11/04 21:56:49 - mmengine - INFO - Epoch(val) [12][ 3250/21046]    eta: 0:21:26  time: 0.0649  data_time: 0.0029  memory: 680  
+2023/11/04 21:56:53 - mmengine - INFO - Epoch(val) [12][ 3300/21046]    eta: 0:21:21  time: 0.0669  data_time: 0.0045  memory: 680  
+2023/11/04 21:56:56 - mmengine - INFO - Epoch(val) [12][ 3350/21046]    eta: 0:21:15  time: 0.0645  data_time: 0.0029  memory: 680  
+2023/11/04 21:56:59 - mmengine - INFO - Epoch(val) [12][ 3400/21046]    eta: 0:21:10  time: 0.0663  data_time: 0.0038  memory: 680  
+2023/11/04 21:57:02 - mmengine - INFO - Epoch(val) [12][ 3450/21046]    eta: 0:21:05  time: 0.0646  data_time: 0.0026  memory: 680  
+2023/11/04 21:57:06 - mmengine - INFO - Epoch(val) [12][ 3500/21046]    eta: 0:20:59  time: 0.0647  data_time: 0.0025  memory: 680  
+2023/11/04 21:57:09 - mmengine - INFO - Epoch(val) [12][ 3550/21046]    eta: 0:20:54  time: 0.0647  data_time: 0.0031  memory: 680  
+2023/11/04 21:57:12 - mmengine - INFO - Epoch(val) [12][ 3600/21046]    eta: 0:20:49  time: 0.0661  data_time: 0.0033  memory: 680  
+2023/11/04 21:57:16 - mmengine - INFO - Epoch(val) [12][ 3650/21046]    eta: 0:20:44  time: 0.0648  data_time: 0.0025  memory: 680  
+2023/11/04 21:57:19 - mmengine - INFO - Epoch(val) [12][ 3700/21046]    eta: 0:20:39  time: 0.0645  data_time: 0.0025  memory: 680  
+2023/11/04 21:57:22 - mmengine - INFO - Epoch(val) [12][ 3750/21046]    eta: 0:20:34  time: 0.0647  data_time: 0.0025  memory: 680  
+2023/11/04 21:57:26 - mmengine - INFO - Epoch(val) [12][ 3800/21046]    eta: 0:20:28  time: 0.0643  data_time: 0.0023  memory: 680  
+2023/11/04 21:57:29 - mmengine - INFO - Epoch(val) [12][ 3850/21046]    eta: 0:20:24  time: 0.0661  data_time: 0.0030  memory: 680  
+2023/11/04 21:57:32 - mmengine - INFO - Epoch(val) [12][ 3900/21046]    eta: 0:20:19  time: 0.0650  data_time: 0.0028  memory: 680  
+2023/11/04 21:57:36 - mmengine - INFO - Epoch(val) [12][ 3950/21046]    eta: 0:20:14  time: 0.0662  data_time: 0.0037  memory: 680  
+2023/11/04 21:57:39 - mmengine - INFO - Epoch(val) [12][ 4000/21046]    eta: 0:20:09  time: 0.0649  data_time: 0.0027  memory: 680  
+2023/11/04 21:57:42 - mmengine - INFO - Epoch(val) [12][ 4050/21046]    eta: 0:20:05  time: 0.0651  data_time: 0.0024  memory: 680  
+2023/11/04 21:57:45 - mmengine - INFO - Epoch(val) [12][ 4100/21046]    eta: 0:20:00  time: 0.0658  data_time: 0.0037  memory: 680  
+2023/11/04 21:57:49 - mmengine - INFO - Epoch(val) [12][ 4150/21046]    eta: 0:19:55  time: 0.0643  data_time: 0.0024  memory: 680  
+2023/11/04 21:57:52 - mmengine - INFO - Epoch(val) [12][ 4200/21046]    eta: 0:19:50  time: 0.0637  data_time: 0.0023  memory: 680  
+2023/11/04 21:57:55 - mmengine - INFO - Epoch(val) [12][ 4250/21046]    eta: 0:19:46  time: 0.0663  data_time: 0.0047  memory: 680  
+2023/11/04 21:57:59 - mmengine - INFO - Epoch(val) [12][ 4300/21046]    eta: 0:19:41  time: 0.0637  data_time: 0.0023  memory: 680  
+2023/11/04 21:58:02 - mmengine - INFO - Epoch(val) [12][ 4350/21046]    eta: 0:19:36  time: 0.0657  data_time: 0.0039  memory: 680  
+2023/11/04 21:58:05 - mmengine - INFO - Epoch(val) [12][ 4400/21046]    eta: 0:19:32  time: 0.0676  data_time: 0.0049  memory: 680  
+2023/11/04 21:58:09 - mmengine - INFO - Epoch(val) [12][ 4450/21046]    eta: 0:19:28  time: 0.0656  data_time: 0.0042  memory: 680  
+2023/11/04 21:58:12 - mmengine - INFO - Epoch(val) [12][ 4500/21046]    eta: 0:19:23  time: 0.0650  data_time: 0.0025  memory: 680  
+2023/11/04 21:58:15 - mmengine - INFO - Epoch(val) [12][ 4550/21046]    eta: 0:19:19  time: 0.0650  data_time: 0.0029  memory: 680  
+2023/11/04 21:58:19 - mmengine - INFO - Epoch(val) [12][ 4600/21046]    eta: 0:19:15  time: 0.0666  data_time: 0.0030  memory: 680  
+2023/11/04 21:58:22 - mmengine - INFO - Epoch(val) [12][ 4650/21046]    eta: 0:19:10  time: 0.0652  data_time: 0.0029  memory: 680  
+2023/11/04 21:58:25 - mmengine - INFO - Epoch(val) [12][ 4700/21046]    eta: 0:19:06  time: 0.0658  data_time: 0.0036  memory: 680  
+2023/11/04 21:58:29 - mmengine - INFO - Epoch(val) [12][ 4750/21046]    eta: 0:19:02  time: 0.0645  data_time: 0.0024  memory: 680  
+2023/11/04 21:58:32 - mmengine - INFO - Epoch(val) [12][ 4800/21046]    eta: 0:18:57  time: 0.0653  data_time: 0.0025  memory: 680  
+2023/11/04 21:58:35 - mmengine - INFO - Epoch(val) [12][ 4850/21046]    eta: 0:18:53  time: 0.0672  data_time: 0.0047  memory: 680  
+2023/11/04 21:58:39 - mmengine - INFO - Epoch(val) [12][ 4900/21046]    eta: 0:18:49  time: 0.0665  data_time: 0.0030  memory: 680  
+2023/11/04 21:58:42 - mmengine - INFO - Epoch(val) [12][ 4950/21046]    eta: 0:18:45  time: 0.0658  data_time: 0.0027  memory: 680  
+2023/11/04 21:58:45 - mmengine - INFO - Epoch(val) [12][ 5000/21046]    eta: 0:18:41  time: 0.0652  data_time: 0.0027  memory: 680  
+2023/11/04 21:58:49 - mmengine - INFO - Epoch(val) [12][ 5050/21046]    eta: 0:18:37  time: 0.0674  data_time: 0.0047  memory: 680  
+2023/11/04 21:58:52 - mmengine - INFO - Epoch(val) [12][ 5100/21046]    eta: 0:18:33  time: 0.0646  data_time: 0.0031  memory: 680  
+2023/11/04 21:58:55 - mmengine - INFO - Epoch(val) [12][ 5150/21046]    eta: 0:18:28  time: 0.0645  data_time: 0.0024  memory: 680  
+2023/11/04 21:58:59 - mmengine - INFO - Epoch(val) [12][ 5200/21046]    eta: 0:18:24  time: 0.0650  data_time: 0.0027  memory: 680  
+2023/11/04 21:59:02 - mmengine - INFO - Epoch(val) [12][ 5250/21046]    eta: 0:18:20  time: 0.0670  data_time: 0.0042  memory: 680  
+2023/11/04 21:59:05 - mmengine - INFO - Epoch(val) [12][ 5300/21046]    eta: 0:18:16  time: 0.0655  data_time: 0.0040  memory: 680  
+2023/11/04 21:59:09 - mmengine - INFO - Epoch(val) [12][ 5350/21046]    eta: 0:18:12  time: 0.0651  data_time: 0.0030  memory: 680  
+2023/11/04 21:59:12 - mmengine - INFO - Epoch(val) [12][ 5400/21046]    eta: 0:18:08  time: 0.0642  data_time: 0.0024  memory: 680  
+2023/11/04 21:59:15 - mmengine - INFO - Epoch(val) [12][ 5450/21046]    eta: 0:18:03  time: 0.0646  data_time: 0.0023  memory: 680  
+2023/11/04 21:59:18 - mmengine - INFO - Epoch(val) [12][ 5500/21046]    eta: 0:17:59  time: 0.0651  data_time: 0.0025  memory: 680  
+2023/11/04 21:59:22 - mmengine - INFO - Epoch(val) [12][ 5550/21046]    eta: 0:17:55  time: 0.0642  data_time: 0.0023  memory: 680  
+2023/11/04 21:59:25 - mmengine - INFO - Epoch(val) [12][ 5600/21046]    eta: 0:17:51  time: 0.0650  data_time: 0.0029  memory: 680  
+2023/11/04 21:59:28 - mmengine - INFO - Epoch(val) [12][ 5650/21046]    eta: 0:17:47  time: 0.0655  data_time: 0.0027  memory: 680  
+2023/11/04 21:59:32 - mmengine - INFO - Epoch(val) [12][ 5700/21046]    eta: 0:17:43  time: 0.0663  data_time: 0.0041  memory: 680  
+2023/11/04 21:59:35 - mmengine - INFO - Epoch(val) [12][ 5750/21046]    eta: 0:17:39  time: 0.0658  data_time: 0.0030  memory: 680  
+2023/11/04 21:59:38 - mmengine - INFO - Epoch(val) [12][ 5800/21046]    eta: 0:17:35  time: 0.0652  data_time: 0.0028  memory: 680  
+2023/11/04 21:59:42 - mmengine - INFO - Epoch(val) [12][ 5850/21046]    eta: 0:17:31  time: 0.0659  data_time: 0.0033  memory: 680  
+2023/11/04 21:59:45 - mmengine - INFO - Epoch(val) [12][ 5900/21046]    eta: 0:17:28  time: 0.0666  data_time: 0.0044  memory: 680  
+2023/11/04 21:59:48 - mmengine - INFO - Epoch(val) [12][ 5950/21046]    eta: 0:17:24  time: 0.0651  data_time: 0.0031  memory: 680  
+2023/11/04 21:59:52 - mmengine - INFO - Epoch(val) [12][ 6000/21046]    eta: 0:17:20  time: 0.0667  data_time: 0.0034  memory: 680  
+2023/11/04 21:59:55 - mmengine - INFO - Epoch(val) [12][ 6050/21046]    eta: 0:17:16  time: 0.0656  data_time: 0.0038  memory: 680  
+2023/11/04 21:59:58 - mmengine - INFO - Epoch(val) [12][ 6100/21046]    eta: 0:17:12  time: 0.0668  data_time: 0.0028  memory: 680  
+2023/11/04 22:00:02 - mmengine - INFO - Epoch(val) [12][ 6150/21046]    eta: 0:17:08  time: 0.0652  data_time: 0.0025  memory: 680  
+2023/11/04 22:00:05 - mmengine - INFO - Epoch(val) [12][ 6200/21046]    eta: 0:17:04  time: 0.0661  data_time: 0.0036  memory: 680  
+2023/11/04 22:00:08 - mmengine - INFO - Epoch(val) [12][ 6250/21046]    eta: 0:17:01  time: 0.0650  data_time: 0.0034  memory: 680  
+2023/11/04 22:00:12 - mmengine - INFO - Epoch(val) [12][ 6300/21046]    eta: 0:16:57  time: 0.0673  data_time: 0.0045  memory: 680  
+2023/11/04 22:00:15 - mmengine - INFO - Epoch(val) [12][ 6350/21046]    eta: 0:16:53  time: 0.0655  data_time: 0.0030  memory: 680  
+2023/11/04 22:00:18 - mmengine - INFO - Epoch(val) [12][ 6400/21046]    eta: 0:16:49  time: 0.0661  data_time: 0.0036  memory: 680  
+2023/11/04 22:00:22 - mmengine - INFO - Epoch(val) [12][ 6450/21046]    eta: 0:16:45  time: 0.0649  data_time: 0.0025  memory: 680  
+2023/11/04 22:00:25 - mmengine - INFO - Epoch(val) [12][ 6500/21046]    eta: 0:16:42  time: 0.0665  data_time: 0.0033  memory: 680  
+2023/11/04 22:00:29 - mmengine - INFO - Epoch(val) [12][ 6550/21046]    eta: 0:16:38  time: 0.0660  data_time: 0.0031  memory: 680  
+2023/11/04 22:00:32 - mmengine - INFO - Epoch(val) [12][ 6600/21046]    eta: 0:16:34  time: 0.0649  data_time: 0.0032  memory: 680  
+2023/11/04 22:00:35 - mmengine - INFO - Epoch(val) [12][ 6650/21046]    eta: 0:16:30  time: 0.0669  data_time: 0.0033  memory: 680  
+2023/11/04 22:00:38 - mmengine - INFO - Epoch(val) [12][ 6700/21046]    eta: 0:16:26  time: 0.0644  data_time: 0.0031  memory: 680  
+2023/11/04 22:00:42 - mmengine - INFO - Epoch(val) [12][ 6750/21046]    eta: 0:16:23  time: 0.0646  data_time: 0.0027  memory: 680  
+2023/11/04 22:00:45 - mmengine - INFO - Epoch(val) [12][ 6800/21046]    eta: 0:16:19  time: 0.0648  data_time: 0.0029  memory: 680  
+2023/11/04 22:00:48 - mmengine - INFO - Epoch(val) [12][ 6850/21046]    eta: 0:16:15  time: 0.0658  data_time: 0.0027  memory: 680  
+2023/11/04 22:00:52 - mmengine - INFO - Epoch(val) [12][ 6900/21046]    eta: 0:16:11  time: 0.0659  data_time: 0.0035  memory: 680  
+2023/11/04 22:00:55 - mmengine - INFO - Epoch(val) [12][ 6950/21046]    eta: 0:16:07  time: 0.0655  data_time: 0.0030  memory: 680  
+2023/11/04 22:00:58 - mmengine - INFO - Epoch(val) [12][ 7000/21046]    eta: 0:16:04  time: 0.0665  data_time: 0.0031  memory: 680  
+2023/11/04 22:01:02 - mmengine - INFO - Epoch(val) [12][ 7050/21046]    eta: 0:16:00  time: 0.0655  data_time: 0.0031  memory: 680  
+2023/11/04 22:01:05 - mmengine - INFO - Epoch(val) [12][ 7100/21046]    eta: 0:15:56  time: 0.0640  data_time: 0.0021  memory: 680  
+2023/11/04 22:01:08 - mmengine - INFO - Epoch(val) [12][ 7150/21046]    eta: 0:15:52  time: 0.0654  data_time: 0.0030  memory: 680  
+2023/11/04 22:01:12 - mmengine - INFO - Epoch(val) [12][ 7200/21046]    eta: 0:15:49  time: 0.0650  data_time: 0.0026  memory: 680  
+2023/11/04 22:01:15 - mmengine - INFO - Epoch(val) [12][ 7250/21046]    eta: 0:15:45  time: 0.0643  data_time: 0.0024  memory: 680  
+2023/11/04 22:01:18 - mmengine - INFO - Epoch(val) [12][ 7300/21046]    eta: 0:15:41  time: 0.0652  data_time: 0.0024  memory: 680  
+2023/11/04 22:01:22 - mmengine - INFO - Epoch(val) [12][ 7350/21046]    eta: 0:15:37  time: 0.0659  data_time: 0.0028  memory: 680  
+2023/11/04 22:01:25 - mmengine - INFO - Epoch(val) [12][ 7400/21046]    eta: 0:15:34  time: 0.0658  data_time: 0.0039  memory: 680  
+2023/11/04 22:01:28 - mmengine - INFO - Epoch(val) [12][ 7450/21046]    eta: 0:15:30  time: 0.0659  data_time: 0.0031  memory: 680  
+2023/11/04 22:01:32 - mmengine - INFO - Epoch(val) [12][ 7500/21046]    eta: 0:15:27  time: 0.0673  data_time: 0.0040  memory: 680  
+2023/11/04 22:01:35 - mmengine - INFO - Epoch(val) [12][ 7550/21046]    eta: 0:15:23  time: 0.0649  data_time: 0.0034  memory: 680  
+2023/11/04 22:01:38 - mmengine - INFO - Epoch(val) [12][ 7600/21046]    eta: 0:15:19  time: 0.0648  data_time: 0.0032  memory: 680  
+2023/11/04 22:01:41 - mmengine - INFO - Epoch(val) [12][ 7650/21046]    eta: 0:15:15  time: 0.0647  data_time: 0.0023  memory: 680  
+2023/11/04 22:01:45 - mmengine - INFO - Epoch(val) [12][ 7700/21046]    eta: 0:15:12  time: 0.0667  data_time: 0.0035  memory: 680  
+2023/11/04 22:01:48 - mmengine - INFO - Epoch(val) [12][ 7750/21046]    eta: 0:15:08  time: 0.0663  data_time: 0.0041  memory: 680  
+2023/11/04 22:01:52 - mmengine - INFO - Epoch(val) [12][ 7800/21046]    eta: 0:15:05  time: 0.0659  data_time: 0.0025  memory: 680  
+2023/11/04 22:01:55 - mmengine - INFO - Epoch(val) [12][ 7850/21046]    eta: 0:15:01  time: 0.0676  data_time: 0.0039  memory: 680  
+2023/11/04 22:01:58 - mmengine - INFO - Epoch(val) [12][ 7900/21046]    eta: 0:14:57  time: 0.0649  data_time: 0.0025  memory: 680  
+2023/11/04 22:02:02 - mmengine - INFO - Epoch(val) [12][ 7950/21046]    eta: 0:14:54  time: 0.0654  data_time: 0.0034  memory: 680  
+2023/11/04 22:02:05 - mmengine - INFO - Epoch(val) [12][ 8000/21046]    eta: 0:14:50  time: 0.0646  data_time: 0.0025  memory: 680  
+2023/11/04 22:02:08 - mmengine - INFO - Epoch(val) [12][ 8050/21046]    eta: 0:14:46  time: 0.0637  data_time: 0.0022  memory: 680  
+2023/11/04 22:02:11 - mmengine - INFO - Epoch(val) [12][ 8100/21046]    eta: 0:14:43  time: 0.0645  data_time: 0.0022  memory: 680  
+2023/11/04 22:02:15 - mmengine - INFO - Epoch(val) [12][ 8150/21046]    eta: 0:14:39  time: 0.0651  data_time: 0.0026  memory: 680  
+2023/11/04 22:02:18 - mmengine - INFO - Epoch(val) [12][ 8200/21046]    eta: 0:14:35  time: 0.0653  data_time: 0.0024  memory: 680  
+2023/11/04 22:02:21 - mmengine - INFO - Epoch(val) [12][ 8250/21046]    eta: 0:14:32  time: 0.0651  data_time: 0.0027  memory: 680  
+2023/11/04 22:02:25 - mmengine - INFO - Epoch(val) [12][ 8300/21046]    eta: 0:14:28  time: 0.0645  data_time: 0.0024  memory: 680  
+2023/11/04 22:02:28 - mmengine - INFO - Epoch(val) [12][ 8350/21046]    eta: 0:14:24  time: 0.0664  data_time: 0.0030  memory: 680  
+2023/11/04 22:02:31 - mmengine - INFO - Epoch(val) [12][ 8400/21046]    eta: 0:14:21  time: 0.0642  data_time: 0.0023  memory: 680  
+2023/11/04 22:02:35 - mmengine - INFO - Epoch(val) [12][ 8450/21046]    eta: 0:14:17  time: 0.0649  data_time: 0.0026  memory: 680  
+2023/11/04 22:02:38 - mmengine - INFO - Epoch(val) [12][ 8500/21046]    eta: 0:14:14  time: 0.0664  data_time: 0.0030  memory: 680  
+2023/11/04 22:02:41 - mmengine - INFO - Epoch(val) [12][ 8550/21046]    eta: 0:14:10  time: 0.0662  data_time: 0.0036  memory: 680  
+2023/11/04 22:02:45 - mmengine - INFO - Epoch(val) [12][ 8600/21046]    eta: 0:14:06  time: 0.0646  data_time: 0.0025  memory: 680  
+2023/11/04 22:02:48 - mmengine - INFO - Epoch(val) [12][ 8650/21046]    eta: 0:14:03  time: 0.0658  data_time: 0.0033  memory: 680  
+2023/11/04 22:02:51 - mmengine - INFO - Epoch(val) [12][ 8700/21046]    eta: 0:13:59  time: 0.0650  data_time: 0.0028  memory: 680  
+2023/11/04 22:02:54 - mmengine - INFO - Epoch(val) [12][ 8750/21046]    eta: 0:13:56  time: 0.0657  data_time: 0.0026  memory: 680  
+2023/11/04 22:02:58 - mmengine - INFO - Epoch(val) [12][ 8800/21046]    eta: 0:13:52  time: 0.0644  data_time: 0.0024  memory: 680  
+2023/11/04 22:03:01 - mmengine - INFO - Epoch(val) [12][ 8850/21046]    eta: 0:13:48  time: 0.0672  data_time: 0.0034  memory: 680  
+2023/11/04 22:03:04 - mmengine - INFO - Epoch(val) [12][ 8900/21046]    eta: 0:13:45  time: 0.0646  data_time: 0.0036  memory: 680  
+2023/11/04 22:03:08 - mmengine - INFO - Epoch(val) [12][ 8950/21046]    eta: 0:13:41  time: 0.0660  data_time: 0.0028  memory: 680  
+2023/11/04 22:03:11 - mmengine - INFO - Epoch(val) [12][ 9000/21046]    eta: 0:13:38  time: 0.0646  data_time: 0.0025  memory: 680  
+2023/11/04 22:03:14 - mmengine - INFO - Epoch(val) [12][ 9050/21046]    eta: 0:13:34  time: 0.0651  data_time: 0.0025  memory: 680  
+2023/11/04 22:03:18 - mmengine - INFO - Epoch(val) [12][ 9100/21046]    eta: 0:13:31  time: 0.0650  data_time: 0.0029  memory: 680  
+2023/11/04 22:03:21 - mmengine - INFO - Epoch(val) [12][ 9150/21046]    eta: 0:13:27  time: 0.0680  data_time: 0.0057  memory: 680  
+2023/11/04 22:03:24 - mmengine - INFO - Epoch(val) [12][ 9200/21046]    eta: 0:13:24  time: 0.0650  data_time: 0.0028  memory: 680  
+2023/11/04 22:03:28 - mmengine - INFO - Epoch(val) [12][ 9250/21046]    eta: 0:13:20  time: 0.0651  data_time: 0.0030  memory: 680  
+2023/11/04 22:03:31 - mmengine - INFO - Epoch(val) [12][ 9300/21046]    eta: 0:13:16  time: 0.0636  data_time: 0.0025  memory: 680  
+2023/11/04 22:03:34 - mmengine - INFO - Epoch(val) [12][ 9350/21046]    eta: 0:13:13  time: 0.0677  data_time: 0.0037  memory: 680  
+2023/11/04 22:03:38 - mmengine - INFO - Epoch(val) [12][ 9400/21046]    eta: 0:13:09  time: 0.0657  data_time: 0.0038  memory: 680  
+2023/11/04 22:03:41 - mmengine - INFO - Epoch(val) [12][ 9450/21046]    eta: 0:13:06  time: 0.0667  data_time: 0.0047  memory: 680  
+2023/11/04 22:03:44 - mmengine - INFO - Epoch(val) [12][ 9500/21046]    eta: 0:13:02  time: 0.0648  data_time: 0.0024  memory: 680  
+2023/11/04 22:03:48 - mmengine - INFO - Epoch(val) [12][ 9550/21046]    eta: 0:12:59  time: 0.0696  data_time: 0.0061  memory: 680  
+2023/11/04 22:03:51 - mmengine - INFO - Epoch(val) [12][ 9600/21046]    eta: 0:12:56  time: 0.0654  data_time: 0.0028  memory: 680  
+2023/11/04 22:03:55 - mmengine - INFO - Epoch(val) [12][ 9650/21046]    eta: 0:12:52  time: 0.0647  data_time: 0.0028  memory: 680  
+2023/11/04 22:03:58 - mmengine - INFO - Epoch(val) [12][ 9700/21046]    eta: 0:12:49  time: 0.0671  data_time: 0.0036  memory: 680  
+2023/11/04 22:04:01 - mmengine - INFO - Epoch(val) [12][ 9750/21046]    eta: 0:12:45  time: 0.0661  data_time: 0.0029  memory: 680  
+2023/11/04 22:04:05 - mmengine - INFO - Epoch(val) [12][ 9800/21046]    eta: 0:12:42  time: 0.0654  data_time: 0.0024  memory: 680  
+2023/11/04 22:04:08 - mmengine - INFO - Epoch(val) [12][ 9850/21046]    eta: 0:12:38  time: 0.0644  data_time: 0.0024  memory: 680  
+2023/11/04 22:04:11 - mmengine - INFO - Epoch(val) [12][ 9900/21046]    eta: 0:12:34  time: 0.0654  data_time: 0.0030  memory: 680  
+2023/11/04 22:04:15 - mmengine - INFO - Epoch(val) [12][ 9950/21046]    eta: 0:12:31  time: 0.0667  data_time: 0.0036  memory: 680  
+2023/11/04 22:04:18 - mmengine - INFO - Epoch(val) [12][10000/21046]    eta: 0:12:28  time: 0.0664  data_time: 0.0048  memory: 680  
+2023/11/04 22:04:21 - mmengine - INFO - Epoch(val) [12][10050/21046]    eta: 0:12:24  time: 0.0675  data_time: 0.0055  memory: 680  
+2023/11/04 22:04:25 - mmengine - INFO - Epoch(val) [12][10100/21046]    eta: 0:12:21  time: 0.0660  data_time: 0.0042  memory: 680  
+2023/11/04 22:04:28 - mmengine - INFO - Epoch(val) [12][10150/21046]    eta: 0:12:17  time: 0.0654  data_time: 0.0034  memory: 680  
+2023/11/04 22:04:31 - mmengine - INFO - Epoch(val) [12][10200/21046]    eta: 0:12:14  time: 0.0663  data_time: 0.0028  memory: 680  
+2023/11/04 22:04:35 - mmengine - INFO - Epoch(val) [12][10250/21046]    eta: 0:12:10  time: 0.0652  data_time: 0.0032  memory: 680  
+2023/11/04 22:04:38 - mmengine - INFO - Epoch(val) [12][10300/21046]    eta: 0:12:07  time: 0.0656  data_time: 0.0030  memory: 680  
+2023/11/04 22:04:41 - mmengine - INFO - Epoch(val) [12][10350/21046]    eta: 0:12:03  time: 0.0650  data_time: 0.0027  memory: 680  
+2023/11/04 22:04:45 - mmengine - INFO - Epoch(val) [12][10400/21046]    eta: 0:12:00  time: 0.0648  data_time: 0.0024  memory: 680  
+2023/11/04 22:04:48 - mmengine - INFO - Epoch(val) [12][10450/21046]    eta: 0:11:56  time: 0.0655  data_time: 0.0024  memory: 680  
+2023/11/04 22:04:51 - mmengine - INFO - Epoch(val) [12][10500/21046]    eta: 0:11:53  time: 0.0646  data_time: 0.0026  memory: 680  
+2023/11/04 22:04:55 - mmengine - INFO - Epoch(val) [12][10550/21046]    eta: 0:11:49  time: 0.0671  data_time: 0.0042  memory: 680  
+2023/11/04 22:04:58 - mmengine - INFO - Epoch(val) [12][10600/21046]    eta: 0:11:46  time: 0.0657  data_time: 0.0028  memory: 680  
+2023/11/04 22:05:01 - mmengine - INFO - Epoch(val) [12][10650/21046]    eta: 0:11:42  time: 0.0677  data_time: 0.0043  memory: 680  
+2023/11/04 22:05:05 - mmengine - INFO - Epoch(val) [12][10700/21046]    eta: 0:11:39  time: 0.0658  data_time: 0.0027  memory: 680  
+2023/11/04 22:05:08 - mmengine - INFO - Epoch(val) [12][10750/21046]    eta: 0:11:36  time: 0.0683  data_time: 0.0067  memory: 680  
+2023/11/04 22:05:12 - mmengine - INFO - Epoch(val) [12][10800/21046]    eta: 0:11:33  time: 0.0774  data_time: 0.0065  memory: 680  
+2023/11/04 22:05:16 - mmengine - INFO - Epoch(val) [12][10850/21046]    eta: 0:11:30  time: 0.0782  data_time: 0.0032  memory: 680  
+2023/11/04 22:05:20 - mmengine - INFO - Epoch(val) [12][10900/21046]    eta: 0:11:27  time: 0.0739  data_time: 0.0024  memory: 680  
+2023/11/04 22:05:24 - mmengine - INFO - Epoch(val) [12][10950/21046]    eta: 0:11:24  time: 0.0764  data_time: 0.0029  memory: 680  
+2023/11/04 22:05:28 - mmengine - INFO - Epoch(val) [12][11000/21046]    eta: 0:11:21  time: 0.0865  data_time: 0.0058  memory: 680  
+2023/11/04 22:05:32 - mmengine - INFO - Epoch(val) [12][11050/21046]    eta: 0:11:18  time: 0.0822  data_time: 0.0078  memory: 680  
+2023/11/04 22:05:36 - mmengine - INFO - Epoch(val) [12][11100/21046]    eta: 0:11:15  time: 0.0761  data_time: 0.0038  memory: 680  
+2023/11/04 22:05:40 - mmengine - INFO - Epoch(val) [12][11150/21046]    eta: 0:11:13  time: 0.0811  data_time: 0.0069  memory: 680  
+2023/11/04 22:05:44 - mmengine - INFO - Epoch(val) [12][11200/21046]    eta: 0:11:10  time: 0.0778  data_time: 0.0070  memory: 680  
