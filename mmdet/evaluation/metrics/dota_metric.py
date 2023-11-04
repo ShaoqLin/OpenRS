@@ -167,6 +167,9 @@ class DOTAMetric(BaseMetric):
                     elif self.predict_box_type == 'qbox':
                         nms_dets, _ = nms_quadri(cls_dets[:, :8],
                                                  cls_dets[:, -1], self.iou_thr)
+                    elif self.predict_box_type == 'hbox':
+                        nms_dets, _ = nms_quadri(cls_dets[:, :4],
+                                                 cls_dets[:, -1], self.iou_thr)
                     else:
                         raise NotImplementedError
                     big_img_results.append(nms_dets.cpu().numpy())
@@ -194,6 +197,8 @@ class DOTAMetric(BaseMetric):
                     qboxes = rbox2qbox(rboxes)
                 elif self.predict_box_type == 'qbox':
                     qboxes, scores = torch.split(th_dets, (8, 1), dim=-1)
+                elif self.predict_box_type == 'hbox':
+                        qboxes, scores = torch.split(th_dets, (4, 1), dim=-1)
                 else:
                     raise NotImplementedError
                 for qbox, score in zip(qboxes, scores):
