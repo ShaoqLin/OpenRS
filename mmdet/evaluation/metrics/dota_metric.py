@@ -67,7 +67,7 @@ class DOTAMetric(BaseMetric):
                  iou_thrs: Union[float, List[float]] = 0.5,
                  scale_ranges: Optional[List[tuple]] = None,
                  metric: Union[str, List[str]] = 'mAP',
-                 predict_box_type: str = 'rbox',
+                 predict_box_type: str = 'hbox',
                  format_only: bool = False,
                  outfile_prefix: Optional[str] = None,
                  merge_patches: bool = False,
@@ -137,6 +137,9 @@ class DOTAMetric(BaseMetric):
             elif self.predict_box_type == 'qbox':
                 ori_bboxes[..., :] = ori_bboxes[..., :] + np.array(
                     [x, y, x, y, x, y, x, y], dtype=np.float32)
+            elif self.predict_box_type == 'hbox':
+                ori_bboxes[..., :] = ori_bboxes[..., :4] + np.array(
+                    [x, y, x, y], dtype=np.float32)                
             else:
                 raise NotImplementedError
             label_dets = np.concatenate(

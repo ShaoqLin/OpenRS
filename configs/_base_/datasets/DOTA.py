@@ -71,7 +71,8 @@ val_evaluator = dict(
 
 test_evaluator = dict(
     type='DOTAMetric',\
-    metric='mAP')
+    metric='mAP',
+    predict_box_type='hbox')
 
 # inference on test dataset and
 # format the output results for submission.
