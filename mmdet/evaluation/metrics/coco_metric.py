@@ -1,9 +1,12 @@
 # Copyright (c) OpenMMLab. All rights reserved.
+import os
 import datetime
 import itertools
 import os.path as osp
 import tempfile
-from collections import OrderedDict
+import re
+import zipfile
+from collections import OrderedDict, defaultdict
 from typing import Dict, List, Optional, Sequence, Union
 
 import numpy as np
@@ -426,6 +429,9 @@ class CocoMetric(BaseMetric):
         if self.format_only:
             logger.info('results are saved in '
                         f'{osp.dirname(outfile_prefix)}')
+                        # convert predictions to txt format and dump to zip file
+            zip_path = self.merge_results(preds, outfile_prefix)
+            logger.info(f'The submission file save at {zip_path}')
             return eval_results
 
         for metric in self.metrics:

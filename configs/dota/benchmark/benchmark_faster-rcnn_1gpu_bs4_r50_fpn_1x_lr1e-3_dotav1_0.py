@@ -37,12 +37,12 @@ param_scheduler = [
 test_pipeline = [
     dict(type='LoadImageFromFile', backend_args=backend_args),
     dict(type='Resize', scale=(1024, 1024), keep_ratio=True),
-    dict(type='LoadAnnotations', with_bbox=True),
     dict(
         type='PackDetInputs',
         meta_keys=('img_id', 'img_path', 'ori_shape', 'img_shape',
                    'scale_factor'))
 ]
+
 test_dataloader = dict(
     batch_size=1,
     num_workers=2,
@@ -52,11 +52,11 @@ test_dataloader = dict(
     dataset=dict(
         type=dataset_type,
         data_root=data_root,
-        ann_file=data_root + 'test/DOTA_test1024.json',
         data_prefix=dict(img = data_root + 'test/images'),
         test_mode=True,
         pipeline=test_pipeline))
 test_evaluator = dict(
+    type='DOTAMetric',
     format_only=True,
-    ann_file=data_root + 'test/DOTA_test1024.json',
-    outfile_prefix='/mnt/bee9bc2f-b897-4648-b8c4-909715332cb4/linshaoqing/projects/OpenRS/work_dirs/benchmark_faster-rcnn_1gpu_bs4_r50_fpn_1x_lr1e-3_dotav1_0')
+    merge_patches=True,
+    outfile_prefix='/mnt/bee9bc2f-b897-4648-b8c4-909715332cb4/linshaoqing/projects/OpenRS/work_dirs/benchmark_faster-rcnn_1gpu_bs4_r50_fpn_1x_lr1e-3_dotav1_0/output')

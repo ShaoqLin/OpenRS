@@ -13,7 +13,6 @@ train_pipeline = [
 test_pipeline = [
     dict(type='LoadImageFromFile', backend_args=backend_args),
     dict(type='Resize', scale=(1024, 1024), keep_ratio=True),
-    dict(type='LoadAnnotations', with_bbox=True),
     dict(
         type='PackDetInputs',
         meta_keys=('img_id', 'img_path', 'ori_shape', 'img_shape',
@@ -28,7 +27,7 @@ train_dataloader = dict(
     dataset=dict(
         type=dataset_type,
         data_root=data_root,
-        ann_file=data_root + 'trainval/DOTA_trainval1024.json',
+        ann_file=data_root + 'trainval/annfiles/',
         data_prefix=dict(img = data_root + 'trainval/images/'),
         filter_cfg=dict(filter_empty_gt=True, min_size=32),
         pipeline=train_pipeline,
@@ -42,11 +41,13 @@ val_dataloader = dict(
     dataset=dict(
         type=dataset_type,
         data_root=data_root,
-        ann_file=data_root + 'trainval/DOTA_trainval1024.json',
+        ann_file=data_root + 'trainval/annfiles/',
         data_prefix=dict(img = data_root + 'trainval/images'),
         test_mode=True,
         pipeline=test_pipeline,
         backend_args=backend_args))
+
+
 test_dataloader = dict(
     batch_size=1,
     num_workers=2,
@@ -56,7 +57,6 @@ test_dataloader = dict(
     dataset=dict(
         type=dataset_type,
         data_root=data_root,
-        ann_file=data_root + 'test/DOTA_test1024.json',
         data_prefix=dict(img = data_root + 'test/images'),
         test_mode=True,
         pipeline=test_pipeline,
@@ -64,17 +64,14 @@ test_dataloader = dict(
 
 val_evaluator = dict(
     type='CocoMetric',
-    ann_file=data_root + 'trainval/DOTA_trainval1024.json',
+    ann_file=data_root + 'trainval/annfiles/',
     metric='bbox',
     format_only=False,
     backend_args=backend_args)
 
 test_evaluator = dict(
-    type='CocoMetric',
-    ann_file=data_root + 'test/DOTA_test1024.json',
-    metric='bbox',
-    format_only=False,
-    backend_args=backend_args)
+    type='DOTAMetric',\
+    metric='mAP')
 
 # inference on test dataset and
 # format the output results for submission.
