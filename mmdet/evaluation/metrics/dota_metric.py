@@ -10,7 +10,7 @@ from typing import List, Optional, Sequence, Union
 
 import numpy as np
 import torch
-from mmcv.ops import nms_quadri, nms_rotated
+from mmcv.ops import nms_quadri, nms_rotated, nms
 from mmengine.evaluator import BaseMetric
 from mmengine.fileio import dump
 from mmengine.logging import MMLogger
@@ -168,8 +168,8 @@ class DOTAMetric(BaseMetric):
                         nms_dets, _ = nms_quadri(cls_dets[:, :8],
                                                  cls_dets[:, -1], self.iou_thr)
                     elif self.predict_box_type == 'hbox':
-                        nms_dets, _ = nms_quadri(cls_dets[:, :4],
-                                                 cls_dets[:, -1], self.iou_thr)
+                        nms_dets, _ = nms(cls_dets[:, :4].float(),
+                                                 cls_dets[:, -1].float(), self.iou_thr)
                     else:
                         raise NotImplementedError
                     big_img_results.append(nms_dets.cpu().numpy())

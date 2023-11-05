@@ -89,6 +89,39 @@ class DOTADataset(CocoDataset):
                 data_list.append(data_info)
 
             return data_list
+        
+    def filter_data(self) -> List[dict]:
+        """Filter annotations according to filter_cfg.
+
+        Returns:
+            List[dict]: Filtered results.
+        """
+        if self.test_mode:
+            return self.data_list
+
+        filter_empty_gt = self.filter_cfg.get('filter_empty_gt', False) \
+            if self.filter_cfg is not None else False
+
+        valid_data_infos = []
+        for i, data_info in enumerate(self.data_list):
+            if filter_empty_gt and len(data_info['instances']) == 0:
+                continue
+            valid_data_infos.append(data_info)
+
+        return valid_data_infos
+
+    def get_cat_ids(self, idx: int) -> List[int]:
+        """Get DOTA category ids by index.
+
+        Args:
+            idx (int): Index of data.
+        Returns:
+            List[int]: All categories in the image of specified index.
+        """
+
+        instances = self.get_data_info(idx)['instances']
+        return [instance['bbox_label'] for instance in instances]
+
 
 @DATASETS.register_module()
 class DOTADataset_v3(CocoDataset):
