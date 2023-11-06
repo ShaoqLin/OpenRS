@@ -15,7 +15,7 @@ optim_wrapper = dict(
 # dataset
 train_dataloader = dict(
     batch_size=4,
-    num_workers=16,
+    num_workers=8,
 )
 
 # scheduler

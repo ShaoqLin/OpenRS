@@ -1,0 +1,2 @@
+{"lr": 0.0010721442885771545, "data_time": 0.07191060543060303, "loss": NaN, "loss_rpn_cls": NaN, "loss_rpn_bbox": NaN, "loss_cls": NaN, "acc": 0.0, "loss_bbox": NaN, "time": 0.5201526832580566, "epoch": 1, "iter": 50, "memory": 9307, "step": 50}
+{"lr": 0.0020641282565130245, "data_time": 0.010070366859436035, "loss": NaN, "loss_rpn_cls": NaN, "loss_rpn_bbox": NaN, "loss_cls": NaN, "acc": 0.0, "loss_bbox": NaN, "time": 0.4224326515197754, "epoch": 1, "iter": 100, "memory": 7519, "step": 100}

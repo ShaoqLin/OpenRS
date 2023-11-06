@@ -1,0 +1,642 @@
+2023/11/05 09:04:50 - mmengine - INFO - 
+------------------------------------------------------------
+System environment:
+    sys.platform: linux
+    Python: 3.8.16 (default, Mar  2 2023, 03:21:46) [GCC 11.2.0]
+    CUDA available: True
+    numpy_random_seed: 1264717410
+    GPU 0: NVIDIA TITAN RTX
+    CUDA_HOME: /usr/local/cuda-10.2
+    NVCC: Cuda compilation tools, release 10.2, V10.2.8
+    GCC: gcc (Ubuntu 7.5.0-3ubuntu1~18.04) 7.5.0
+    PyTorch: 2.0.0
+    PyTorch compiling details: PyTorch built with:
+  - GCC 9.3
+  - C++ Version: 201703
+  - Intel(R) oneAPI Math Kernel Library Version 2023.1-Product Build 20230303 for Intel(R) 64 architecture applications
+  - Intel(R) MKL-DNN v2.7.3 (Git Hash 6dbeffbae1f23cbbeae17adb7b5b13f1f37c080e)
+  - OpenMP 201511 (a.k.a. OpenMP 4.5)
+  - LAPACK is enabled (usually provided by MKL)
+  - NNPACK is enabled
+  - CPU capability usage: AVX2
+  - CUDA Runtime 11.7
+  - NVCC architecture flags: -gencode;arch=compute_37,code=sm_37;-gencode;arch=compute_50,code=sm_50;-gencode;arch=compute_60,code=sm_60;-gencode;arch=compute_61,code=sm_61;-gencode;arch=compute_70,code=sm_70;-gencode;arch=compute_75,code=sm_75;-gencode;arch=compute_80,code=sm_80;-gencode;arch=compute_86,code=sm_86;-gencode;arch=compute_37,code=compute_37
+  - CuDNN 8.5
+  - Magma 2.6.1
+  - Build settings: BLAS_INFO=mkl, BUILD_TYPE=Release, CUDA_VERSION=11.7, CUDNN_VERSION=8.5.0, CXX_COMPILER=/opt/rh/devtoolset-9/root/usr/bin/c++, CXX_FLAGS= -D_GLIBCXX_USE_CXX11_ABI=0 -fabi-version=11 -Wno-deprecated -fvisibility-inlines-hidden -DUSE_PTHREADPOOL -DNDEBUG -DUSE_KINETO -DLIBKINETO_NOROCTRACER -DUSE_FBGEMM -DUSE_QNNPACK -DUSE_PYTORCH_QNNPACK -DUSE_XNNPACK -DSYMBOLICATE_MOBILE_DEBUG_HANDLE -O2 -fPIC -Wall -Wextra -Werror=return-type -Werror=non-virtual-dtor -Werror=bool-operation -Wnarrowing -Wno-missing-field-initializers -Wno-type-limits -Wno-array-bounds -Wno-unknown-pragmas -Wunused-local-typedefs -Wno-unused-parameter -Wno-unused-function -Wno-unused-result -Wno-strict-overflow -Wno-strict-aliasing -Wno-error=deprecated-declarations -Wno-stringop-overflow -Wno-psabi -Wno-error=pedantic -Wno-error=redundant-decls -Wno-error=old-style-cast -fdiagnostics-color=always -faligned-new -Wno-unused-but-set-variable -Wno-maybe-uninitialized -fno-math-errno -fno-trapping-math -Werror=format -Werror=cast-function-type -Wno-stringop-overflow, LAPACK_INFO=mkl, PERF_WITH_AVX=1, PERF_WITH_AVX2=1, PERF_WITH_AVX512=1, TORCH_DISABLE_GPU_ASSERTS=ON, TORCH_VERSION=2.0.0, USE_CUDA=ON, USE_CUDNN=ON, USE_EXCEPTION_PTR=1, USE_GFLAGS=OFF, USE_GLOG=OFF, USE_MKL=ON, USE_MKLDNN=ON, USE_MPI=OFF, USE_NCCL=ON, USE_NNPACK=ON, USE_OPENMP=ON, USE_ROCM=OFF, 
+
+    TorchVision: 0.15.0
+    OpenCV: 4.7.0
+    MMEngine: 0.9.0
+
+Runtime environment:
+    cudnn_benchmark: False
+    mp_cfg: {'mp_start_method': 'fork', 'opencv_num_threads': 0}
+    dist_cfg: {'backend': 'nccl'}
+    seed: 1264717410
+    Distributed launcher: none
+    Distributed training: False
+    GPU number: 1
+------------------------------------------------------------
+
+2023/11/05 09:04:51 - mmengine - INFO - Config:
+auto_scale_lr = dict(base_batch_size=16, enable=False)
+backend_args = None
+data_root = '/mnt/bee9bc2f-b897-4648-b8c4-909715332cb4/linshaoqing/data/datasets/DOTA1024/'
+dataset_type = 'DOTADataset'
+default_hooks = dict(
+    checkpoint=dict(interval=1, type='CheckpointHook'),
+    logger=dict(interval=50, type='LoggerHook'),
+    param_scheduler=dict(type='ParamSchedulerHook'),
+    sampler_seed=dict(type='DistSamplerSeedHook'),
+    timer=dict(type='IterTimerHook'),
+    visualization=dict(type='DetVisualizationHook'))
+default_scope = 'mmdet'
+env_cfg = dict(
+    cudnn_benchmark=False,
+    dist_cfg=dict(backend='nccl'),
+    mp_cfg=dict(mp_start_method='fork', opencv_num_threads=0))
+launcher = 'none'
+load_from = 'work_dirs/benchmark_faster-rcnn_1gpu_bs4_r50_fpn_1x_lr1e-3_dotav1_0/epoch_12.pth'
+log_level = 'INFO'
+log_processor = dict(by_epoch=True, type='LogProcessor', window_size=50)
+model = dict(
+    backbone=dict(
+        depth=50,
+        frozen_stages=1,
+        init_cfg=dict(checkpoint='torchvision://resnet50', type='Pretrained'),
+        norm_cfg=dict(requires_grad=True, type='BN'),
+        norm_eval=True,
+        num_stages=4,
+        out_indices=(
+            0,
+            1,
+            2,
+            3,
+        ),
+        style='pytorch',
+        type='ResNet'),
+    data_preprocessor=dict(
+        bgr_to_rgb=True,
+        mean=[
+            123.675,
+            116.28,
+            103.53,
+        ],
+        pad_size_divisor=32,
+        std=[
+            58.395,
+            57.12,
+            57.375,
+        ],
+        type='DetDataPreprocessor'),
+    neck=dict(
+        in_channels=[
+            256,
+            512,
+            1024,
+            2048,
+        ],
+        num_outs=5,
+        out_channels=256,
+        type='FPN'),
+    roi_head=dict(
+        bbox_head=dict(
+            bbox_coder=dict(
+                target_means=[
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                ],
+                target_stds=[
+                    0.1,
+                    0.1,
+                    0.2,
+                    0.2,
+                ],
+                type='DeltaXYWHBBoxCoder'),
+            fc_out_channels=1024,
+            in_channels=256,
+            loss_bbox=dict(beta=1.0, loss_weight=1.0, type='SmoothL1Loss'),
+            loss_cls=dict(
+                loss_weight=1.0, type='CrossEntropyLoss', use_sigmoid=False),
+            num_classes=15,
+            reg_class_agnostic=False,
+            roi_feat_size=7,
+            type='Shared2FCBBoxHead'),
+        bbox_roi_extractor=dict(
+            featmap_strides=[
+                4,
+                8,
+                16,
+                32,
+            ],
+            out_channels=256,
+            roi_layer=dict(output_size=7, sampling_ratio=0, type='RoIAlign'),
+            type='SingleRoIExtractor'),
+        type='StandardRoIHead'),
+    rpn_head=dict(
+        anchor_generator=dict(
+            ratios=[
+                0.5,
+                1.0,
+                2.0,
+            ],
+            scales=[
+                8,
+            ],
+            strides=[
+                4,
+                8,
+                16,
+                32,
+                64,
+            ],
+            type='AnchorGenerator'),
+        bbox_coder=dict(
+            target_means=[
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+            ],
+            target_stds=[
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+            ],
+            type='DeltaXYWHBBoxCoder'),
+        feat_channels=256,
+        in_channels=256,
+        loss_bbox=dict(
+            beta=0.1111111111111111, loss_weight=1.0, type='SmoothL1Loss'),
+        loss_cls=dict(
+            loss_weight=1.0, type='CrossEntropyLoss', use_sigmoid=True),
+        type='RPNHead'),
+    test_cfg=dict(
+        rcnn=dict(
+            max_per_img=2000,
+            nms=dict(iou_thr=0.5, type='nms'),
+            score_thr=0.05),
+        rpn=dict(
+            max_per_img=2000,
+            min_bbox_size=0,
+            nms=dict(iou_threshold=0.7, type='nms'),
+            nms_across_levels=False,
+            nms_post=2000,
+            nms_pre=2000)),
+    train_cfg=dict(
+        rcnn=dict(
+            assigner=dict(
+                ignore_iof_thr=-1,
+                match_low_quality=False,
+                min_pos_iou=0.5,
+                neg_iou_thr=0.5,
+                pos_iou_thr=0.5,
+                type='MaxIoUAssigner'),
+            debug=False,
+            pos_weight=-1,
+            sampler=dict(
+                add_gt_as_proposals=True,
+                neg_pos_ub=-1,
+                num=512,
+                pos_fraction=0.25,
+                type='RandomSampler')),
+        rpn=dict(
+            allowed_border=0,
+            assigner=dict(
+                ignore_iof_thr=-1,
+                min_pos_iou=0.3,
+                neg_iou_thr=0.3,
+                pos_iou_thr=0.7,
+                type='MaxIoUAssigner'),
+            debug=False,
+            pos_weight=-1,
+            sampler=dict(
+                add_gt_as_proposals=False,
+                neg_pos_ub=-1,
+                num=256,
+                pos_fraction=0.5,
+                type='RandomSampler')),
+        rpn_proposal=dict(
+            max_per_img=2000,
+            min_bbox_size=0,
+            nms=dict(iou_threshold=0.7, type='nms'),
+            nms_across_levels=False,
+            nms_post=2000,
+            nms_pre=2000)),
+    type='FasterRCNN')
+optim_wrapper = dict(
+    optimizer=dict(lr=0.01, momentum=0.9, type='SGD', weight_decay=0.0001),
+    type='OptimWrapper')
+param_scheduler = [
+    dict(
+        begin=0, by_epoch=False, end=500, start_factor=0.001, type='LinearLR'),
+    dict(
+        begin=0,
+        by_epoch=True,
+        end=12,
+        gamma=0.1,
+        milestones=[
+            8,
+            11,
+        ],
+        type='MultiStepLR'),
+]
+resume = False
+test_cfg = dict(type='TestLoop')
+test_dataloader = dict(
+    batch_size=1,
+    dataset=dict(
+        backend_args=None,
+        data_prefix=dict(
+            img=
+            '/mnt/bee9bc2f-b897-4648-b8c4-909715332cb4/linshaoqing/data/datasets/DOTA1024/test/images'
+        ),
+        data_root=
+        '/mnt/bee9bc2f-b897-4648-b8c4-909715332cb4/linshaoqing/data/datasets/DOTA1024/',
+        pipeline=[
+            dict(backend_args=None, type='LoadImageFromFile'),
+            dict(keep_ratio=True, scale=(
+                1024,
+                1024,
+            ), type='Resize'),
+            dict(
+                meta_keys=(
+                    'img_id',
+                    'img_path',
+                    'ori_shape',
+                    'img_shape',
+                    'scale_factor',
+                ),
+                type='PackDetInputs'),
+        ],
+        test_mode=True,
+        type='DOTADataset'),
+    drop_last=False,
+    num_workers=2,
+    persistent_workers=True,
+    sampler=dict(shuffle=False, type='DefaultSampler'))
+test_evaluator = dict(
+    format_only=True,
+    merge_patches=True,
+    metric='mAP',
+    outfile_prefix=
+    '/mnt/bee9bc2f-b897-4648-b8c4-909715332cb4/linshaoqing/projects/OpenRS/work_dirs/benchmark_faster-rcnn_1gpu_bs4_r50_fpn_1x_lr1e-3_dotav1_0/output123',
+    predict_box_type='hbox',
+    type='DOTAMetric')
+test_pipeline = [
+    dict(backend_args=None, type='LoadImageFromFile'),
+    dict(keep_ratio=True, scale=(
+        1024,
+        1024,
+    ), type='Resize'),
+    dict(
+        meta_keys=(
+            'img_id',
+            'img_path',
+            'ori_shape',
+            'img_shape',
+            'scale_factor',
+        ),
+        type='PackDetInputs'),
+]
+train_cfg = dict(max_epochs=12, type='EpochBasedTrainLoop', val_interval=1)
+train_dataloader = dict(
+    batch_sampler=dict(type='AspectRatioBatchSampler'),
+    batch_size=4,
+    dataset=dict(
+        ann_file=
+        '/mnt/bee9bc2f-b897-4648-b8c4-909715332cb4/linshaoqing/data/datasets/DOTA1024/trainval/annfiles/',
+        backend_args=None,
+        data_prefix=dict(
+            img=
+            '/mnt/bee9bc2f-b897-4648-b8c4-909715332cb4/linshaoqing/data/datasets/DOTA1024/trainval/images/'
+        ),
+        data_root=
+        '/mnt/bee9bc2f-b897-4648-b8c4-909715332cb4/linshaoqing/data/datasets/DOTA1024/',
+        filter_cfg=dict(filter_empty_gt=True, min_size=32),
+        pipeline=[
+            dict(backend_args=None, type='LoadImageFromFile'),
+            dict(type='LoadAnnotations', with_bbox=True),
+            dict(keep_ratio=True, scale=(
+                1024,
+                1024,
+            ), type='Resize'),
+            dict(prob=0.5, type='RandomFlip'),
+            dict(type='PackDetInputs'),
+        ],
+        type='DOTADataset'),
+    num_workers=16,
+    persistent_workers=True,
+    sampler=dict(shuffle=True, type='DefaultSampler'))
+train_pipeline = [
+    dict(backend_args=None, type='LoadImageFromFile'),
+    dict(type='LoadAnnotations', with_bbox=True),
+    dict(keep_ratio=True, scale=(
+        1024,
+        1024,
+    ), type='Resize'),
+    dict(prob=0.5, type='RandomFlip'),
+    dict(type='PackDetInputs'),
+]
+val_cfg = dict(type='ValLoop')
+val_dataloader = dict(
+    batch_size=1,
+    dataset=dict(
+        ann_file=
+        '/mnt/bee9bc2f-b897-4648-b8c4-909715332cb4/linshaoqing/data/datasets/DOTA1024/trainval/annfiles/',
+        backend_args=None,
+        data_prefix=dict(
+            img=
+            '/mnt/bee9bc2f-b897-4648-b8c4-909715332cb4/linshaoqing/data/datasets/DOTA1024/trainval/images'
+        ),
+        data_root=
+        '/mnt/bee9bc2f-b897-4648-b8c4-909715332cb4/linshaoqing/data/datasets/DOTA1024/',
+        pipeline=[
+            dict(backend_args=None, type='LoadImageFromFile'),
+            dict(keep_ratio=True, scale=(
+                1024,
+                1024,
+            ), type='Resize'),
+            dict(
+                meta_keys=(
+                    'img_id',
+                    'img_path',
+                    'ori_shape',
+                    'img_shape',
+                    'scale_factor',
+                ),
+                type='PackDetInputs'),
+        ],
+        test_mode=True,
+        type='DOTADataset'),
+    drop_last=False,
+    num_workers=2,
+    persistent_workers=True,
+    sampler=dict(shuffle=False, type='DefaultSampler'))
+val_evaluator = dict(
+    ann_file=
+    '/mnt/bee9bc2f-b897-4648-b8c4-909715332cb4/linshaoqing/data/datasets/DOTA1024/trainval/annfiles/',
+    backend_args=None,
+    format_only=False,
+    metric='bbox',
+    type='CocoMetric')
+vis_backends = [
+    dict(type='LocalVisBackend'),
+    dict(type='TensorboardVisBackend'),
+]
+visualizer = dict(
+    name='visualizer',
+    type='DetLocalVisualizer',
+    vis_backends=[
+        dict(type='LocalVisBackend'),
+        dict(type='TensorboardVisBackend'),
+    ])
+work_dir = './work_dirs/benchmark_faster-rcnn_1gpu_bs4_r50_fpn_1x_lr1e-3_dotav1_0'
+
+2023/11/05 09:04:59 - mmengine - INFO - Distributed training is not used, all SyncBatchNorm (SyncBN) layers in the model will be automatically reverted to BatchNormXd layers if they are used.
+2023/11/05 09:04:59 - mmengine - INFO - Hooks will be executed in the following order:
+before_run:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(BELOW_NORMAL) LoggerHook                         
+ -------------------- 
+before_train:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(NORMAL      ) IterTimerHook                      
+(VERY_LOW    ) CheckpointHook                     
+ -------------------- 
+before_train_epoch:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(NORMAL      ) IterTimerHook                      
+(NORMAL      ) DistSamplerSeedHook                
+ -------------------- 
+before_train_iter:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(NORMAL      ) IterTimerHook                      
+ -------------------- 
+after_train_iter:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(NORMAL      ) IterTimerHook                      
+(BELOW_NORMAL) LoggerHook                         
+(LOW         ) ParamSchedulerHook                 
+(VERY_LOW    ) CheckpointHook                     
+ -------------------- 
+after_train_epoch:
+(NORMAL      ) IterTimerHook                      
+(LOW         ) ParamSchedulerHook                 
+(VERY_LOW    ) CheckpointHook                     
+ -------------------- 
+before_val:
+(VERY_HIGH   ) RuntimeInfoHook                    
+ -------------------- 
+before_val_epoch:
+(NORMAL      ) IterTimerHook                      
+ -------------------- 
+before_val_iter:
+(NORMAL      ) IterTimerHook                      
+ -------------------- 
+after_val_iter:
+(NORMAL      ) IterTimerHook                      
+(NORMAL      ) DetVisualizationHook               
+(BELOW_NORMAL) LoggerHook                         
+ -------------------- 
+after_val_epoch:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(NORMAL      ) IterTimerHook                      
+(BELOW_NORMAL) LoggerHook                         
+(LOW         ) ParamSchedulerHook                 
+(VERY_LOW    ) CheckpointHook                     
+ -------------------- 
+after_val:
+(VERY_HIGH   ) RuntimeInfoHook                    
+ -------------------- 
+after_train:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(VERY_LOW    ) CheckpointHook                     
+ -------------------- 
+before_test:
+(VERY_HIGH   ) RuntimeInfoHook                    
+ -------------------- 
+before_test_epoch:
+(NORMAL      ) IterTimerHook                      
+ -------------------- 
+before_test_iter:
+(NORMAL      ) IterTimerHook                      
+ -------------------- 
+after_test_iter:
+(NORMAL      ) IterTimerHook                      
+(NORMAL      ) DetVisualizationHook               
+(BELOW_NORMAL) LoggerHook                         
+ -------------------- 
+after_test_epoch:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(NORMAL      ) IterTimerHook                      
+(BELOW_NORMAL) LoggerHook                         
+ -------------------- 
+after_test:
+(VERY_HIGH   ) RuntimeInfoHook                    
+ -------------------- 
+after_run:
+(BELOW_NORMAL) LoggerHook                         
+ -------------------- 
+2023/11/05 09:05:00 - mmengine - WARNING - The prefix is not set in metric class DumpDetResults.
+2023/11/05 09:05:02 - mmengine - INFO - Load checkpoint from work_dirs/benchmark_faster-rcnn_1gpu_bs4_r50_fpn_1x_lr1e-3_dotav1_0/epoch_12.pth
+2023/11/05 09:05:13 - mmengine - INFO - Epoch(test) [   50/10833]    eta: 0:41:23  time: 0.2303  data_time: 0.0089  memory: 515  
+2023/11/05 09:05:21 - mmengine - INFO - Epoch(test) [  100/10833]    eta: 0:34:09  time: 0.1516  data_time: 0.0022  memory: 515  
+2023/11/05 09:05:28 - mmengine - INFO - Epoch(test) [  150/10833]    eta: 0:31:39  time: 0.1517  data_time: 0.0022  memory: 515  
+2023/11/05 09:05:36 - mmengine - INFO - Epoch(test) [  200/10833]    eta: 0:30:22  time: 0.1519  data_time: 0.0023  memory: 515  
+2023/11/05 09:05:44 - mmengine - INFO - Epoch(test) [  250/10833]    eta: 0:29:30  time: 0.1509  data_time: 0.0020  memory: 515  
+2023/11/05 09:05:51 - mmengine - INFO - Epoch(test) [  300/10833]    eta: 0:28:53  time: 0.1513  data_time: 0.0020  memory: 515  
+2023/11/05 09:05:59 - mmengine - INFO - Epoch(test) [  350/10833]    eta: 0:28:26  time: 0.1520  data_time: 0.0029  memory: 515  
+2023/11/05 09:06:06 - mmengine - INFO - Epoch(test) [  400/10833]    eta: 0:28:05  time: 0.1524  data_time: 0.0020  memory: 515  
+2023/11/05 09:06:14 - mmengine - INFO - Epoch(test) [  450/10833]    eta: 0:27:45  time: 0.1516  data_time: 0.0019  memory: 515  
+2023/11/05 09:06:22 - mmengine - INFO - Epoch(test) [  500/10833]    eta: 0:27:28  time: 0.1515  data_time: 0.0021  memory: 515  
+2023/11/05 09:06:29 - mmengine - INFO - Epoch(test) [  550/10833]    eta: 0:27:12  time: 0.1514  data_time: 0.0019  memory: 515  
+2023/11/05 09:06:37 - mmengine - INFO - Epoch(test) [  600/10833]    eta: 0:26:59  time: 0.1525  data_time: 0.0029  memory: 515  
+2023/11/05 09:06:44 - mmengine - INFO - Epoch(test) [  650/10833]    eta: 0:26:46  time: 0.1520  data_time: 0.0027  memory: 515  
+2023/11/05 09:06:52 - mmengine - INFO - Epoch(test) [  700/10833]    eta: 0:26:34  time: 0.1524  data_time: 0.0030  memory: 515  
+2023/11/05 09:07:00 - mmengine - INFO - Epoch(test) [  750/10833]    eta: 0:26:22  time: 0.1511  data_time: 0.0019  memory: 515  
+2023/11/05 09:07:07 - mmengine - INFO - Epoch(test) [  800/10833]    eta: 0:26:11  time: 0.1513  data_time: 0.0020  memory: 515  
+2023/11/05 09:07:15 - mmengine - INFO - Epoch(test) [  850/10833]    eta: 0:26:00  time: 0.1520  data_time: 0.0025  memory: 515  
+2023/11/05 09:07:22 - mmengine - INFO - Epoch(test) [  900/10833]    eta: 0:25:49  time: 0.1497  data_time: 0.0020  memory: 515  
+2023/11/05 09:07:30 - mmengine - INFO - Epoch(test) [  950/10833]    eta: 0:25:39  time: 0.1518  data_time: 0.0022  memory: 515  
+2023/11/05 09:07:37 - mmengine - INFO - Epoch(test) [ 1000/10833]    eta: 0:25:30  time: 0.1525  data_time: 0.0020  memory: 515  
+2023/11/05 09:07:45 - mmengine - INFO - Epoch(test) [ 1050/10833]    eta: 0:25:21  time: 0.1535  data_time: 0.0031  memory: 515  
+2023/11/05 09:07:53 - mmengine - INFO - Epoch(test) [ 1100/10833]    eta: 0:25:11  time: 0.1516  data_time: 0.0020  memory: 515  
+2023/11/05 09:08:00 - mmengine - INFO - Epoch(test) [ 1150/10833]    eta: 0:25:02  time: 0.1520  data_time: 0.0021  memory: 515  
+2023/11/05 09:08:08 - mmengine - INFO - Epoch(test) [ 1200/10833]    eta: 0:24:53  time: 0.1515  data_time: 0.0021  memory: 515  
+2023/11/05 09:08:15 - mmengine - INFO - Epoch(test) [ 1250/10833]    eta: 0:24:44  time: 0.1516  data_time: 0.0029  memory: 515  
+2023/11/05 09:08:23 - mmengine - INFO - Epoch(test) [ 1300/10833]    eta: 0:24:35  time: 0.1509  data_time: 0.0022  memory: 515  
+2023/11/05 09:08:31 - mmengine - INFO - Epoch(test) [ 1350/10833]    eta: 0:24:26  time: 0.1517  data_time: 0.0027  memory: 515  
+2023/11/05 09:08:38 - mmengine - INFO - Epoch(test) [ 1400/10833]    eta: 0:24:17  time: 0.1514  data_time: 0.0023  memory: 515  
+2023/11/05 09:08:46 - mmengine - INFO - Epoch(test) [ 1450/10833]    eta: 0:24:08  time: 0.1522  data_time: 0.0020  memory: 515  
+2023/11/05 09:08:53 - mmengine - INFO - Epoch(test) [ 1500/10833]    eta: 0:24:01  time: 0.1539  data_time: 0.0020  memory: 515  
+2023/11/05 09:09:01 - mmengine - INFO - Epoch(test) [ 1550/10833]    eta: 0:23:52  time: 0.1510  data_time: 0.0020  memory: 515  
+2023/11/05 09:09:09 - mmengine - INFO - Epoch(test) [ 1600/10833]    eta: 0:23:43  time: 0.1501  data_time: 0.0022  memory: 515  
+2023/11/05 09:09:16 - mmengine - INFO - Epoch(test) [ 1650/10833]    eta: 0:23:35  time: 0.1526  data_time: 0.0025  memory: 515  
+2023/11/05 09:09:24 - mmengine - INFO - Epoch(test) [ 1700/10833]    eta: 0:23:26  time: 0.1517  data_time: 0.0024  memory: 515  
+2023/11/05 09:09:31 - mmengine - INFO - Epoch(test) [ 1750/10833]    eta: 0:23:18  time: 0.1525  data_time: 0.0027  memory: 515  
+2023/11/05 09:09:39 - mmengine - INFO - Epoch(test) [ 1800/10833]    eta: 0:23:10  time: 0.1528  data_time: 0.0029  memory: 515  
+2023/11/05 09:09:46 - mmengine - INFO - Epoch(test) [ 1850/10833]    eta: 0:23:02  time: 0.1493  data_time: 0.0019  memory: 515  
+2023/11/05 09:09:54 - mmengine - INFO - Epoch(test) [ 1900/10833]    eta: 0:22:54  time: 0.1535  data_time: 0.0032  memory: 515  
+2023/11/05 09:10:02 - mmengine - INFO - Epoch(test) [ 1950/10833]    eta: 0:22:46  time: 0.1527  data_time: 0.0022  memory: 515  
+2023/11/05 09:10:09 - mmengine - INFO - Epoch(test) [ 2000/10833]    eta: 0:22:38  time: 0.1526  data_time: 0.0025  memory: 515  
+2023/11/05 09:10:17 - mmengine - INFO - Epoch(test) [ 2050/10833]    eta: 0:22:30  time: 0.1529  data_time: 0.0023  memory: 515  
+2023/11/05 09:10:25 - mmengine - INFO - Epoch(test) [ 2100/10833]    eta: 0:22:21  time: 0.1492  data_time: 0.0024  memory: 515  
+2023/11/05 09:10:32 - mmengine - INFO - Epoch(test) [ 2150/10833]    eta: 0:22:13  time: 0.1516  data_time: 0.0019  memory: 515  
+2023/11/05 09:10:40 - mmengine - INFO - Epoch(test) [ 2200/10833]    eta: 0:22:05  time: 0.1511  data_time: 0.0019  memory: 515  
+2023/11/05 09:10:47 - mmengine - INFO - Epoch(test) [ 2250/10833]    eta: 0:21:57  time: 0.1521  data_time: 0.0026  memory: 515  
+2023/11/05 09:10:55 - mmengine - INFO - Epoch(test) [ 2300/10833]    eta: 0:21:49  time: 0.1531  data_time: 0.0027  memory: 515  
+2023/11/05 09:11:03 - mmengine - INFO - Epoch(test) [ 2350/10833]    eta: 0:21:41  time: 0.1525  data_time: 0.0026  memory: 515  
+2023/11/05 09:11:10 - mmengine - INFO - Epoch(test) [ 2400/10833]    eta: 0:21:34  time: 0.1528  data_time: 0.0024  memory: 515  
+2023/11/05 09:11:18 - mmengine - INFO - Epoch(test) [ 2450/10833]    eta: 0:21:26  time: 0.1511  data_time: 0.0019  memory: 515  
+2023/11/05 09:11:25 - mmengine - INFO - Epoch(test) [ 2500/10833]    eta: 0:21:18  time: 0.1519  data_time: 0.0023  memory: 515  
+2023/11/05 09:11:33 - mmengine - INFO - Epoch(test) [ 2550/10833]    eta: 0:21:10  time: 0.1518  data_time: 0.0026  memory: 515  
+2023/11/05 09:11:41 - mmengine - INFO - Epoch(test) [ 2600/10833]    eta: 0:21:02  time: 0.1542  data_time: 0.0025  memory: 515  
+2023/11/05 09:11:48 - mmengine - INFO - Epoch(test) [ 2650/10833]    eta: 0:20:54  time: 0.1510  data_time: 0.0019  memory: 515  
+2023/11/05 09:11:56 - mmengine - INFO - Epoch(test) [ 2700/10833]    eta: 0:20:46  time: 0.1503  data_time: 0.0026  memory: 515  
+2023/11/05 09:12:03 - mmengine - INFO - Epoch(test) [ 2750/10833]    eta: 0:20:38  time: 0.1527  data_time: 0.0020  memory: 515  
+2023/11/05 09:12:11 - mmengine - INFO - Epoch(test) [ 2800/10833]    eta: 0:20:30  time: 0.1512  data_time: 0.0019  memory: 515  
+2023/11/05 09:12:19 - mmengine - INFO - Epoch(test) [ 2850/10833]    eta: 0:20:22  time: 0.1516  data_time: 0.0020  memory: 515  
+2023/11/05 09:12:26 - mmengine - INFO - Epoch(test) [ 2900/10833]    eta: 0:20:15  time: 0.1520  data_time: 0.0023  memory: 515  
+2023/11/05 09:12:34 - mmengine - INFO - Epoch(test) [ 2950/10833]    eta: 0:20:07  time: 0.1514  data_time: 0.0026  memory: 515  
+2023/11/05 09:12:41 - mmengine - INFO - Epoch(test) [ 3000/10833]    eta: 0:19:59  time: 0.1509  data_time: 0.0025  memory: 515  
+2023/11/05 09:12:49 - mmengine - INFO - Epoch(test) [ 3050/10833]    eta: 0:19:51  time: 0.1515  data_time: 0.0019  memory: 515  
+2023/11/05 09:12:56 - mmengine - INFO - Epoch(test) [ 3100/10833]    eta: 0:19:43  time: 0.1516  data_time: 0.0020  memory: 515  
+2023/11/05 09:13:04 - mmengine - INFO - Epoch(test) [ 3150/10833]    eta: 0:19:35  time: 0.1521  data_time: 0.0021  memory: 515  
+2023/11/05 09:13:12 - mmengine - INFO - Epoch(test) [ 3200/10833]    eta: 0:19:28  time: 0.1515  data_time: 0.0019  memory: 515  
+2023/11/05 09:13:19 - mmengine - INFO - Epoch(test) [ 3250/10833]    eta: 0:19:20  time: 0.1534  data_time: 0.0030  memory: 515  
+2023/11/05 09:13:27 - mmengine - INFO - Epoch(test) [ 3300/10833]    eta: 0:19:12  time: 0.1512  data_time: 0.0019  memory: 515  
+2023/11/05 09:13:34 - mmengine - INFO - Epoch(test) [ 3350/10833]    eta: 0:19:04  time: 0.1517  data_time: 0.0020  memory: 515  
+2023/11/05 09:13:42 - mmengine - INFO - Epoch(test) [ 3400/10833]    eta: 0:18:56  time: 0.1512  data_time: 0.0019  memory: 515  
+2023/11/05 09:13:50 - mmengine - INFO - Epoch(test) [ 3450/10833]    eta: 0:18:49  time: 0.1515  data_time: 0.0018  memory: 515  
+2023/11/05 09:13:57 - mmengine - INFO - Epoch(test) [ 3500/10833]    eta: 0:18:41  time: 0.1544  data_time: 0.0033  memory: 515  
+2023/11/05 09:14:05 - mmengine - INFO - Epoch(test) [ 3550/10833]    eta: 0:18:33  time: 0.1509  data_time: 0.0019  memory: 515  
+2023/11/05 09:14:13 - mmengine - INFO - Epoch(test) [ 3600/10833]    eta: 0:18:26  time: 0.1538  data_time: 0.0051  memory: 515  
+2023/11/05 09:14:20 - mmengine - INFO - Epoch(test) [ 3650/10833]    eta: 0:18:18  time: 0.1538  data_time: 0.0031  memory: 515  
+2023/11/05 09:14:28 - mmengine - INFO - Epoch(test) [ 3700/10833]    eta: 0:18:11  time: 0.1532  data_time: 0.0020  memory: 515  
+2023/11/05 09:14:35 - mmengine - INFO - Epoch(test) [ 3750/10833]    eta: 0:18:03  time: 0.1514  data_time: 0.0021  memory: 515  
+2023/11/05 09:14:43 - mmengine - INFO - Epoch(test) [ 3800/10833]    eta: 0:17:55  time: 0.1516  data_time: 0.0022  memory: 515  
+2023/11/05 09:14:51 - mmengine - INFO - Epoch(test) [ 3850/10833]    eta: 0:17:47  time: 0.1511  data_time: 0.0020  memory: 515  
+2023/11/05 09:14:58 - mmengine - INFO - Epoch(test) [ 3900/10833]    eta: 0:17:39  time: 0.1508  data_time: 0.0020  memory: 515  
+2023/11/05 09:15:06 - mmengine - INFO - Epoch(test) [ 3950/10833]    eta: 0:17:31  time: 0.1491  data_time: 0.0018  memory: 515  
+2023/11/05 09:15:13 - mmengine - INFO - Epoch(test) [ 4000/10833]    eta: 0:17:24  time: 0.1519  data_time: 0.0027  memory: 515  
+2023/11/05 09:15:21 - mmengine - INFO - Epoch(test) [ 4050/10833]    eta: 0:17:16  time: 0.1529  data_time: 0.0030  memory: 515  
+2023/11/05 09:15:28 - mmengine - INFO - Epoch(test) [ 4100/10833]    eta: 0:17:08  time: 0.1516  data_time: 0.0018  memory: 515  
+2023/11/05 09:15:36 - mmengine - INFO - Epoch(test) [ 4150/10833]    eta: 0:17:01  time: 0.1519  data_time: 0.0019  memory: 515  
+2023/11/05 09:15:44 - mmengine - INFO - Epoch(test) [ 4200/10833]    eta: 0:16:53  time: 0.1515  data_time: 0.0019  memory: 515  
+2023/11/05 09:15:51 - mmengine - INFO - Epoch(test) [ 4250/10833]    eta: 0:16:45  time: 0.1537  data_time: 0.0032  memory: 515  
+2023/11/05 09:15:59 - mmengine - INFO - Epoch(test) [ 4300/10833]    eta: 0:16:38  time: 0.1529  data_time: 0.0030  memory: 515  
+2023/11/05 09:16:07 - mmengine - INFO - Epoch(test) [ 4350/10833]    eta: 0:16:30  time: 0.1522  data_time: 0.0019  memory: 515  
+2023/11/05 09:16:14 - mmengine - INFO - Epoch(test) [ 4400/10833]    eta: 0:16:22  time: 0.1524  data_time: 0.0025  memory: 515  
+2023/11/05 09:16:22 - mmengine - INFO - Epoch(test) [ 4450/10833]    eta: 0:16:14  time: 0.1509  data_time: 0.0020  memory: 515  
+2023/11/05 09:16:29 - mmengine - INFO - Epoch(test) [ 4500/10833]    eta: 0:16:07  time: 0.1506  data_time: 0.0024  memory: 515  
+2023/11/05 09:16:37 - mmengine - INFO - Epoch(test) [ 4550/10833]    eta: 0:16:00  time: 0.1607  data_time: 0.0019  memory: 515  
+2023/11/05 09:16:45 - mmengine - INFO - Epoch(test) [ 4600/10833]    eta: 0:15:52  time: 0.1524  data_time: 0.0032  memory: 515  
+2023/11/05 09:16:53 - mmengine - INFO - Epoch(test) [ 4650/10833]    eta: 0:15:44  time: 0.1518  data_time: 0.0034  memory: 515  
+2023/11/05 09:17:00 - mmengine - INFO - Epoch(test) [ 4700/10833]    eta: 0:15:36  time: 0.1512  data_time: 0.0024  memory: 515  
+2023/11/05 09:17:08 - mmengine - INFO - Epoch(test) [ 4750/10833]    eta: 0:15:29  time: 0.1527  data_time: 0.0019  memory: 515  
+2023/11/05 09:17:15 - mmengine - INFO - Epoch(test) [ 4800/10833]    eta: 0:15:21  time: 0.1496  data_time: 0.0019  memory: 515  
+2023/11/05 09:17:23 - mmengine - INFO - Epoch(test) [ 4850/10833]    eta: 0:15:13  time: 0.1512  data_time: 0.0020  memory: 515  
+2023/11/05 09:17:30 - mmengine - INFO - Epoch(test) [ 4900/10833]    eta: 0:15:06  time: 0.1524  data_time: 0.0028  memory: 515  
+2023/11/05 09:17:38 - mmengine - INFO - Epoch(test) [ 4950/10833]    eta: 0:14:58  time: 0.1517  data_time: 0.0024  memory: 515  
+2023/11/05 09:17:46 - mmengine - INFO - Epoch(test) [ 5000/10833]    eta: 0:14:50  time: 0.1512  data_time: 0.0024  memory: 515  
+2023/11/05 09:17:53 - mmengine - INFO - Epoch(test) [ 5050/10833]    eta: 0:14:42  time: 0.1496  data_time: 0.0020  memory: 515  
+2023/11/05 09:18:01 - mmengine - INFO - Epoch(test) [ 5100/10833]    eta: 0:14:35  time: 0.1517  data_time: 0.0019  memory: 515  
+2023/11/05 09:18:08 - mmengine - INFO - Epoch(test) [ 5150/10833]    eta: 0:14:27  time: 0.1525  data_time: 0.0019  memory: 515  
+2023/11/05 09:18:16 - mmengine - INFO - Epoch(test) [ 5200/10833]    eta: 0:14:19  time: 0.1522  data_time: 0.0021  memory: 515  
+2023/11/05 09:18:24 - mmengine - INFO - Epoch(test) [ 5250/10833]    eta: 0:14:12  time: 0.1550  data_time: 0.0058  memory: 515  
+2023/11/05 09:18:31 - mmengine - INFO - Epoch(test) [ 5300/10833]    eta: 0:14:04  time: 0.1510  data_time: 0.0019  memory: 515  
+2023/11/05 09:18:39 - mmengine - INFO - Epoch(test) [ 5350/10833]    eta: 0:13:57  time: 0.1519  data_time: 0.0025  memory: 515  
+2023/11/05 09:18:46 - mmengine - INFO - Epoch(test) [ 5400/10833]    eta: 0:13:49  time: 0.1512  data_time: 0.0026  memory: 515  
+2023/11/05 09:18:54 - mmengine - INFO - Epoch(test) [ 5450/10833]    eta: 0:13:41  time: 0.1508  data_time: 0.0026  memory: 515  
+2023/11/05 09:19:01 - mmengine - INFO - Epoch(test) [ 5500/10833]    eta: 0:13:33  time: 0.1505  data_time: 0.0022  memory: 515  
+2023/11/05 09:19:09 - mmengine - INFO - Epoch(test) [ 5550/10833]    eta: 0:13:26  time: 0.1501  data_time: 0.0019  memory: 515  
+2023/11/05 09:19:16 - mmengine - INFO - Epoch(test) [ 5600/10833]    eta: 0:13:18  time: 0.1511  data_time: 0.0020  memory: 515  
+2023/11/05 09:19:24 - mmengine - INFO - Epoch(test) [ 5650/10833]    eta: 0:13:10  time: 0.1526  data_time: 0.0029  memory: 515  
+2023/11/05 09:19:32 - mmengine - INFO - Epoch(test) [ 5700/10833]    eta: 0:13:03  time: 0.1516  data_time: 0.0019  memory: 515  
+2023/11/05 09:19:39 - mmengine - INFO - Epoch(test) [ 5750/10833]    eta: 0:12:55  time: 0.1515  data_time: 0.0028  memory: 515  
+2023/11/05 09:19:47 - mmengine - INFO - Epoch(test) [ 5800/10833]    eta: 0:12:47  time: 0.1521  data_time: 0.0025  memory: 515  
+2023/11/05 09:19:54 - mmengine - INFO - Epoch(test) [ 5850/10833]    eta: 0:12:40  time: 0.1510  data_time: 0.0027  memory: 515  
+2023/11/05 09:20:02 - mmengine - INFO - Epoch(test) [ 5900/10833]    eta: 0:12:32  time: 0.1499  data_time: 0.0019  memory: 515  
+2023/11/05 09:20:10 - mmengine - INFO - Epoch(test) [ 5950/10833]    eta: 0:12:24  time: 0.1520  data_time: 0.0023  memory: 515  
+2023/11/05 09:20:17 - mmengine - INFO - Epoch(test) [ 6000/10833]    eta: 0:12:17  time: 0.1514  data_time: 0.0021  memory: 515  
+2023/11/05 09:20:25 - mmengine - INFO - Epoch(test) [ 6050/10833]    eta: 0:12:09  time: 0.1511  data_time: 0.0023  memory: 515  
+2023/11/05 09:20:32 - mmengine - INFO - Epoch(test) [ 6100/10833]    eta: 0:12:01  time: 0.1511  data_time: 0.0019  memory: 515  
+2023/11/05 09:20:40 - mmengine - INFO - Epoch(test) [ 6150/10833]    eta: 0:11:54  time: 0.1522  data_time: 0.0028  memory: 515  
+2023/11/05 09:20:47 - mmengine - INFO - Epoch(test) [ 6200/10833]    eta: 0:11:46  time: 0.1518  data_time: 0.0024  memory: 515  
+2023/11/05 09:20:55 - mmengine - INFO - Epoch(test) [ 6250/10833]    eta: 0:11:38  time: 0.1507  data_time: 0.0020  memory: 515  
+2023/11/05 09:21:03 - mmengine - INFO - Epoch(test) [ 6300/10833]    eta: 0:11:31  time: 0.1508  data_time: 0.0022  memory: 515  
+2023/11/05 09:21:10 - mmengine - INFO - Epoch(test) [ 6350/10833]    eta: 0:11:23  time: 0.1511  data_time: 0.0034  memory: 515  
+2023/11/05 09:21:18 - mmengine - INFO - Epoch(test) [ 6400/10833]    eta: 0:11:15  time: 0.1509  data_time: 0.0018  memory: 515  
+2023/11/05 09:21:25 - mmengine - INFO - Epoch(test) [ 6450/10833]    eta: 0:11:08  time: 0.1524  data_time: 0.0019  memory: 515  
+2023/11/05 09:21:33 - mmengine - INFO - Epoch(test) [ 6500/10833]    eta: 0:11:00  time: 0.1515  data_time: 0.0023  memory: 515  
+2023/11/05 09:21:40 - mmengine - INFO - Epoch(test) [ 6550/10833]    eta: 0:10:52  time: 0.1513  data_time: 0.0024  memory: 515  
+2023/11/05 09:21:48 - mmengine - INFO - Epoch(test) [ 6600/10833]    eta: 0:10:45  time: 0.1521  data_time: 0.0021  memory: 515  
+2023/11/05 09:21:56 - mmengine - INFO - Epoch(test) [ 6650/10833]    eta: 0:10:37  time: 0.1495  data_time: 0.0022  memory: 515  
+2023/11/05 09:22:03 - mmengine - INFO - Epoch(test) [ 6700/10833]    eta: 0:10:29  time: 0.1535  data_time: 0.0031  memory: 515  
+2023/11/05 09:22:11 - mmengine - INFO - Epoch(test) [ 6750/10833]    eta: 0:10:22  time: 0.1522  data_time: 0.0022  memory: 515  
+2023/11/05 09:22:18 - mmengine - INFO - Epoch(test) [ 6800/10833]    eta: 0:10:14  time: 0.1532  data_time: 0.0027  memory: 515  
+2023/11/05 09:22:26 - mmengine - INFO - Epoch(test) [ 6850/10833]    eta: 0:10:06  time: 0.1525  data_time: 0.0027  memory: 515  
+2023/11/05 09:22:34 - mmengine - INFO - Epoch(test) [ 6900/10833]    eta: 0:09:59  time: 0.1534  data_time: 0.0025  memory: 515  
+2023/11/05 09:22:41 - mmengine - INFO - Epoch(test) [ 6950/10833]    eta: 0:09:51  time: 0.1509  data_time: 0.0022  memory: 515  
+2023/11/05 09:22:49 - mmengine - INFO - Epoch(test) [ 7000/10833]    eta: 0:09:44  time: 0.1531  data_time: 0.0026  memory: 515  
+2023/11/05 09:22:57 - mmengine - INFO - Epoch(test) [ 7050/10833]    eta: 0:09:36  time: 0.1540  data_time: 0.0039  memory: 515  
+2023/11/05 09:23:04 - mmengine - INFO - Epoch(test) [ 7100/10833]    eta: 0:09:28  time: 0.1518  data_time: 0.0019  memory: 515  
+2023/11/05 09:23:12 - mmengine - INFO - Epoch(test) [ 7150/10833]    eta: 0:09:21  time: 0.1505  data_time: 0.0019  memory: 515  
+2023/11/05 09:23:19 - mmengine - INFO - Epoch(test) [ 7200/10833]    eta: 0:09:13  time: 0.1523  data_time: 0.0040  memory: 515  
+2023/11/05 09:23:27 - mmengine - INFO - Epoch(test) [ 7250/10833]    eta: 0:09:05  time: 0.1508  data_time: 0.0018  memory: 515  
+2023/11/05 09:23:35 - mmengine - INFO - Epoch(test) [ 7300/10833]    eta: 0:08:58  time: 0.1510  data_time: 0.0018  memory: 515  
+2023/11/05 09:23:42 - mmengine - INFO - Epoch(test) [ 7350/10833]    eta: 0:08:50  time: 0.1574  data_time: 0.0026  memory: 515  
+2023/11/05 09:23:50 - mmengine - INFO - Epoch(test) [ 7400/10833]    eta: 0:08:43  time: 0.1523  data_time: 0.0019  memory: 515  
+2023/11/05 09:23:58 - mmengine - INFO - Epoch(test) [ 7450/10833]    eta: 0:08:35  time: 0.1508  data_time: 0.0023  memory: 515  
+2023/11/05 09:24:05 - mmengine - INFO - Epoch(test) [ 7500/10833]    eta: 0:08:27  time: 0.1517  data_time: 0.0020  memory: 515  
+2023/11/05 09:24:13 - mmengine - INFO - Epoch(test) [ 7550/10833]    eta: 0:08:20  time: 0.1524  data_time: 0.0024  memory: 515  
+2023/11/05 09:24:20 - mmengine - INFO - Epoch(test) [ 7600/10833]    eta: 0:08:12  time: 0.1516  data_time: 0.0018  memory: 515  
+2023/11/05 09:24:28 - mmengine - INFO - Epoch(test) [ 7650/10833]    eta: 0:08:05  time: 0.1527  data_time: 0.0023  memory: 515  
+2023/11/05 09:24:36 - mmengine - INFO - Epoch(test) [ 7700/10833]    eta: 0:07:57  time: 0.1510  data_time: 0.0019  memory: 515  
+2023/11/05 09:24:43 - mmengine - INFO - Epoch(test) [ 7750/10833]    eta: 0:07:49  time: 0.1509  data_time: 0.0020  memory: 515  
+2023/11/05 09:24:51 - mmengine - INFO - Epoch(test) [ 7800/10833]    eta: 0:07:42  time: 0.1502  data_time: 0.0023  memory: 515  
