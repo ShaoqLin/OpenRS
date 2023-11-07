@@ -9,10 +9,11 @@ from .sync_norm_hook import SyncNormHook
 from .utils import trigger_visualization_hook
 from .visualization_hook import DetVisualizationHook, TrackVisualizationHook
 from .yolox_mode_switch_hook import YOLOXModeSwitchHook
+from .set_iter_info_hook import SetIterInfoHook
 
 __all__ = [
     'YOLOXModeSwitchHook', 'SyncNormHook', 'CheckInvalidLossHook',
     'SetEpochInfoHook', 'MemoryProfilerHook', 'DetVisualizationHook',
     'NumClassCheckHook', 'MeanTeacherHook', 'trigger_visualization_hook',
-    'PipelineSwitchHook', 'TrackVisualizationHook'
+    'PipelineSwitchHook', 'TrackVisualizationHook', 'SetIterInfoHook'
 ]

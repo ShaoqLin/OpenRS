@@ -117,7 +117,7 @@ docs/modelzoo_statistics.md
 mmdet/.mim
 
 
-# work_dirs/
+work_dirs/
 *.jpg
 *.png
 *.dell

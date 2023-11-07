@@ -257,9 +257,10 @@ class OpendetSeparateBoxHead(ConvFCBBoxHead):
         self.scale = scale
         self.vis_iou_thr = vis_iou_thr
         self.ic_loss_out_dim = ic_loss_out_dim
-        self.mlp_encoder = MLP(input_dim=self.cls_fcs.in_features,
-                               hidden_dim=self.cls_fcs.in_features,
-                               output_dim=self.ic_loss_out_dim)
+        self.mlp_encoder = MLP(input_dim=self.fc_cls.in_features,
+                               hidden_dim=self.fc_cls.in_features,  # use in_dim as hidden_dim
+                               output_dim=self.ic_loss_out_dim,
+                               num_layers=2)
         
     def forward(self, x: Tuple[Tensor]) -> tuple:
         """opendet Forward features from the upstream network.
@@ -331,10 +332,11 @@ class OpendetSeparateBoxHead(ConvFCBBoxHead):
         cos_dist = self.fc_cls(x_normalized)
         cls_cos_scores = self.scale * cos_dist
         
+        mlp_feature = self.mlp_encoder(x_cls)
 
         cls_score = self.fc_cls(x_cls) if self.with_cls else None
         bbox_pred = self.fc_reg(x_reg) if self.with_reg else None
-        return cls_score, bbox_pred, cls_cos_scores
+        return cls_score, bbox_pred, cls_cos_scores, mlp_feature
 
 
 @MODELS.register_module()

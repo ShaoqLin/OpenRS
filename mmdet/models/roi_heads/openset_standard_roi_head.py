@@ -135,6 +135,9 @@ class OpenSetStandardRoIHead(BaseRoIHead):
             bbox_results = self.bbox_loss(x, sampling_results)
             losses.update(bbox_results['loss_bbox'])
 
+        # ic_loss and ce_loss
+        
+        
         # mask head forward and loss
         if self.with_mask:
             mask_results = self.mask_loss(x, sampling_results,
@@ -164,10 +167,11 @@ class OpenSetStandardRoIHead(BaseRoIHead):
             x[:self.bbox_roi_extractor.num_inputs], rois)
         if self.with_shared_head:
             bbox_feats = self.shared_head(bbox_feats)
-        cls_score, bbox_pred = self.bbox_head(bbox_feats)
+        cls_score, bbox_pred, cls_cos_scores, mlp_feature = self.bbox_head(bbox_feats)
 
         bbox_results = dict(
-            cls_score=cls_score, bbox_pred=bbox_pred, bbox_feats=bbox_feats)
+            cls_score=cls_score, bbox_pred=bbox_pred, bbox_feats=bbox_feats,
+            cls_cos_scores=cls_cos_scores, mlp_feature=mlp_feature)
         return bbox_results
 
     def bbox_loss(self, x: Tuple[Tensor],
