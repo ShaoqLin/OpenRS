@@ -25,7 +25,8 @@ from .smooth_l1_loss import L1Loss, SmoothL1Loss, l1_loss, smooth_l1_loss
 from .triplet_loss import TripletLoss
 from .utils import reduce_loss, weight_reduce_loss, weighted_loss
 from .varifocal_loss import VarifocalLoss
-from .opendet_up_loss import OpendetUPLoss
+from .opendet_up_loss import UPLoss
+from .opendet_ic_loss import ICLoss
 
 
 __all__ = [
@@ -40,5 +41,5 @@ __all__ = [
     'QualityFocalLoss', 'DistributionFocalLoss', 'VarifocalLoss',
     'KnowledgeDistillationKLDivLoss', 'SeesawLoss', 'DiceLoss', 'EQLV2Loss',
     'MarginL2Loss', 'MultiPosCrossEntropyLoss', 'L2Loss', 'TripletLoss',
-    'DDQAuxLoss', 'CrossEntropyCustomLoss', 'FocalCustomLoss', 'OpendetUPLoss'
+    'DDQAuxLoss', 'CrossEntropyCustomLoss', 'FocalCustomLoss', 'UPLoss', 'ICLoss'
 ]

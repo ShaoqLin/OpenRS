@@ -9,7 +9,7 @@ model = dict(
         bbox_head=dict(
             type='OpendetSeparateBoxHead',
             num_classes=15,
-            ic_loss_out_dim=128)))
+            num_known_classes=4)))
 
 
 # optimizer

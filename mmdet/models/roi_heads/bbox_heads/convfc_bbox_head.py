@@ -10,6 +10,7 @@ from torch import Tensor
 from mmdet.registry import MODELS
 from mmdet.models.layers import MLP
 from .bbox_head import BBoxHead
+from mmdet.utils import ConfigType
 
 
 @MODELS.register_module()
@@ -241,7 +242,25 @@ class OpendetSeparateBoxHead(ConvFCBBoxHead):
                  fc_out_channels: int = 1024, 
                  scale: int = 20,
                  vis_iou_thr: float = 1.0,
-                 ic_loss_out_dim: int = 128,
+                 up_loss: ConfigType = dict(
+                    type = 'UPLoss',
+                    up_loss_start_iter = 100,
+                    up_loss_sampling_metric = 'min_score',
+                    up_loss_topk = 3,
+                    up_loss_alpha = 1.0,
+                    up_loss_weight = 1.0,
+                 ),
+                 ic_loss: ConfigType = dict(
+                    type = 'ICLoss',
+                    ic_loss_out_dim = 128,
+                    ic_loss_queue_size = 256,
+                    ic_loss_in_queue_size = 16,
+                    ic_loss_batch_iou_thr = 0.5,
+                    ic_loss_queue_iou_thr = 0.7,
+                    ic_loss_queue_tau = 0.1,
+                    ic_loss_weight = 0.1,
+                 ),
+                 num_known_classes = 20,
                  *args, **kwargs) -> None:
         super().__init__(
             num_shared_convs=0,
@@ -256,11 +275,21 @@ class OpendetSeparateBoxHead(ConvFCBBoxHead):
         self.fc_out_channels = fc_out_channels
         self.scale = scale
         self.vis_iou_thr = vis_iou_thr
-        self.ic_loss_out_dim = ic_loss_out_dim
+        self.num_known_classes = num_known_classes
+        self.ic_loss = MODELS.build(ic_loss)
+        up_loss.update({'num_classes': self.num_classes})
+        self.up_loss = MODELS.build(up_loss)
         self.mlp_encoder = MLP(input_dim=self.fc_cls.in_features,
                                hidden_dim=self.fc_cls.in_features,  # use in_dim as hidden_dim
-                               output_dim=self.ic_loss_out_dim,
+                               output_dim=ic_loss['ic_loss_out_dim'],
                                num_layers=2)
+        self.register_buffer('queue', torch.zeros(
+            self.num_known_classes, self.ic_loss.ic_loss_queue_size, self.ic_loss.ic_loss_out_dim))
+        self.register_buffer('queue_label', torch.empty(
+            self.num_known_classes, self.ic_loss.ic_loss_queue_size).fill_(-1).long())
+        self.register_buffer('queue_ptr', torch.zeros(
+            self.num_known_classes, dtype=torch.long))
+        
         
     def forward(self, x: Tuple[Tensor]) -> tuple:
         """opendet Forward features from the upstream network.
@@ -337,7 +366,73 @@ class OpendetSeparateBoxHead(ConvFCBBoxHead):
         cls_score = self.fc_cls(x_cls) if self.with_cls else None
         bbox_pred = self.fc_reg(x_reg) if self.with_reg else None
         return cls_score, bbox_pred, cls_cos_scores, mlp_feature
+    
+    def get_up_loss(self, scores, gt_classes):
+        # start up loss after several warmup iters
+        if not self.up_loss.up_loss_start_iter:
+            loss_cls_up = self.up_loss(scores, gt_classes)
+        else:
+            loss_cls_up = scores.new_tensor(0.0)
+            self.up_loss.up_loss_start_iter = self.up_loss.up_loss_start_iter - 1
 
+        return {"loss_cls_up": self.up_loss.up_loss_weight * loss_cls_up}
+
+    def get_ic_loss(self, feat, gt_classes, ious):
+        # select foreground and iou > thr instance in a mini-batch
+        pos_inds = (ious > self.ic_loss.ic_loss_batch_iou_thr) & (
+            gt_classes != self.num_classes)
+        feat, gt_classes = feat[pos_inds], gt_classes[pos_inds]
+
+        queue = self.queue.reshape(-1, self.ic_loss_out_dim)
+        queue_label = self.queue_label.reshape(-1)
+        queue_inds = queue_label != -1  # filter empty queue
+        queue, queue_label = queue[queue_inds], queue_label[queue_inds]
+
+        loss_ic_loss = self.ic_loss_loss(feat, gt_classes, queue, queue_label)
+        # loss decay
+        decay_weight = 1.0 - storage.iter / self.max_iters
+        return {"loss_cls_ic": self.ic_loss_weight * decay_weight * loss_ic_loss}
+
+    @torch.no_grad()
+    def _dequeue_and_enqueue(self, feat, gt_classes, ious, iou_thr=0.7):
+        # 1. gather variable
+        feat = self.concat_all_gather(feat)
+        gt_classes = self.concat_all_gather(gt_classes)
+        ious = self.concat_all_gather(ious)
+        # 2. filter by iou and obj, remove bg
+        keep = (ious > iou_thr) & (gt_classes != self.num_classes)
+        feat, gt_classes = feat[keep], gt_classes[keep]
+
+        for i in range(self.num_known_classes):
+            ptr = int(self.queue_ptr[i])
+            cls_ind = gt_classes == i
+            cls_feat, cls_gt_classes = feat[cls_ind], gt_classes[cls_ind]
+            # 3. sort by similarity, low sim ranks first
+            cls_queue = self.queue[i, self.queue_label[i] != -1]
+            _, sim_inds = F.cosine_similarity(
+                cls_feat[:, None], cls_queue[None, :], dim=-1).mean(dim=1).sort()
+            top_sim_inds = sim_inds[:self.ic_loss_in_queue_size]
+            cls_feat, cls_gt_classes = cls_feat[top_sim_inds], cls_gt_classes[top_sim_inds]
+            # 4. in queue
+            batch_size = cls_feat.size(
+                0) if ptr + cls_feat.size(0) <= self.ic_loss_queue_size else self.ic_loss_queue_size - ptr
+            self.queue[i, ptr:ptr+batch_size] = cls_feat[:batch_size]
+            self.queue_label[i, ptr:ptr + batch_size] = cls_gt_classes[:batch_size]
+
+            ptr = ptr + batch_size if ptr + batch_size < self.ic_loss_queue_size else 0
+            self.queue_ptr[i] = ptr
+
+    @torch.no_grad()
+    def concat_all_gather(self, tensor):
+        world_size = comm.get_world_size()
+        # single GPU, directly return the tensor
+        if world_size == 1:
+            return tensor
+        # multiple GPUs, gather tensors
+        tensors_gather = [torch.ones_like(tensor) for _ in range(world_size)]
+        torch.distributed.all_gather(tensors_gather, tensor, async_op=False)
+        output = torch.cat(tensors_gather, dim=0)
+        return output
 
 @MODELS.register_module()
 class Shared4Conv1FCBBoxHead(ConvFCBBoxHead):

@@ -8,21 +8,25 @@ from torch import Tensor
 from mmdet.registry import MODELS
 
 @MODELS.register_module()
-class OpendetUPLoss(nn.Module):
+class UPLoss(nn.Module):
 
     def __init__(self,
-                 num_classes: int,
-                 sampling_metric: str = "min_score",
-                 topk: int = 3,
-                 alpha: float = 1.0):
+                 num_classes,
+                 up_loss_start_iter,
+                 up_loss_sampling_metric,
+                 up_loss_topk,
+                 up_loss_alpha,
+                 up_loss_weight):
 
-        super(OpendetUPLoss, self).__init__()
+        super(UPLoss, self).__init__()
         self.num_classes = num_classes
-        assert sampling_metric in ["min_score", "max_entropy", "random"]
-        self.sampling_metric = sampling_metric
+        assert up_loss_sampling_metric in ["min_score", "max_entropy", "random"]
+        self.up_loss_sampling_metric = up_loss_sampling_metric
         # if topk==-1, sample len(fg)*2 examples
-        self.topk = topk
-        self.alpha = alpha
+        self.up_loss_topk = up_loss_topk
+        self.up_loss_alpha = up_loss_alpha
+        self.up_loss_weight = up_loss_weight
+        self.up_loss_start_iter = up_loss_start_iter
 
     def _soft_cross_entropy(self, input: Tensor, target: Tensor):
         logprobs = F.log_softmax(input, dim=1)
@@ -40,22 +44,22 @@ class OpendetUPLoss(nn.Module):
             [bg_scores[:, :self.num_classes-1], bg_scores[:, -1:]], dim=1)
 
         num_fg = fg_scores.size(0)
-        topk = num_fg if (self.topk == -1) or (num_fg <
-                                               self.topk) else self.topk
+        topk = num_fg if (self.up_loss_topk == -1) or (num_fg <
+                                               self.up_loss_topk) else self.up_loss_topk
         # use maximum entropy as a metric for uncertainty
         # we select topk proposals with maximum entropy
-        if self.sampling_metric == "max_entropy":
+        if self.up_loss_sampling_metric == "max_entropy":
             pos_metric = dists.Categorical(
                 _fg_scores.softmax(dim=1)).entropy()
             neg_metric = dists.Categorical(
                 _bg_scores.softmax(dim=1)).entropy()
         # use minimum score as a metric for uncertainty
         # we select topk proposals with minimum max-score
-        elif self.sampling_metric == "min_score":
+        elif self.up_loss_sampling_metric == "min_score":
             pos_metric = -_fg_scores.max(dim=1)[0]
             neg_metric = -_bg_scores.max(dim=1)[0]
         # we randomly select topk proposals
-        elif self.sampling_metric == "random":
+        elif self.up_loss_sampling_metric == "random":
             pos_metric = torch.rand(_fg_scores.size(0),).to(scores.device)
             neg_metric = torch.rand(_bg_scores.size(0),).to(scores.device)
 
@@ -87,8 +91,8 @@ class OpendetUPLoss(nn.Module):
         targets = torch.zeros_like(mask_scores)
         num_fg = fg_scores.size(0)
         targets[:num_fg, self.num_classes-2] = gt_scores[:num_fg] * \
-            (1-gt_scores[:num_fg]).pow(self.alpha)
+            (1-gt_scores[:num_fg]).pow(self.up_loss_alpha)
         targets[num_fg:, self.num_classes-1] = gt_scores[num_fg:] * \
-            (1-gt_scores[num_fg:]).pow(self.alpha)
+            (1-gt_scores[num_fg:]).pow(self.up_loss_alpha)
 
         return self._soft_cross_entropy(mask_scores, targets.detach())

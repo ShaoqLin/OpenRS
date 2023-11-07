@@ -11,10 +11,22 @@ from mmdet.registry import MODELS
 class ICLoss(nn.Module):
 
     def __init__(self,
-                 tau=0.1):
+                 ic_loss_out_dim,
+                 ic_loss_queue_size,
+                 ic_loss_in_queue_size,
+                 ic_loss_batch_iou_thr,
+                 ic_loss_queue_iou_thr,
+                 ic_loss_queue_tau,
+                 ic_loss_weight):
 
         super(ICLoss, self).__init__()
-        self.tau = tau
+        self.ic_loss_out_dim = ic_loss_out_dim
+        self.ic_loss_queue_size = ic_loss_queue_size
+        self.ic_loss_in_queue_size = ic_loss_in_queue_size
+        self.ic_loss_batch_iou_thr = ic_loss_batch_iou_thr
+        self.ic_loss_queue_iou_thr = ic_loss_queue_iou_thr
+        self.ic_loss_queue_tau = ic_loss_queue_tau
+        self.ic_loss_weight = ic_loss_weight
 
     def forward(self, features, labels, queue_features, queue_labels):
         device = features.device
@@ -22,7 +34,7 @@ class ICLoss(nn.Module):
 
         # compute logits
         anchor_dot_contrast = torch.div(
-            torch.matmul(features, queue_features.T), self.tau)
+            torch.matmul(features, queue_features.T), self.ic_loss_queue_tau)
 
         # for numerical stability
         logits_max, _ = torch.max(anchor_dot_contrast, dim=1, keepdim=True)

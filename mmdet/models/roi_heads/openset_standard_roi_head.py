@@ -16,7 +16,7 @@ from .base_roi_head import BaseRoIHead
 @MODELS.register_module()
 class OpenSetStandardRoIHead(BaseRoIHead):
     """Openset Simplest base roi head including one bbox head and one mask head."""
-
+        
     def init_assigner_sampler(self) -> None:
         """Initialize assigner and sampler."""
         self.bbox_assigner = None
@@ -200,7 +200,11 @@ class OpenSetStandardRoIHead(BaseRoIHead):
             rois=rois,
             sampling_results=sampling_results,
             rcnn_train_cfg=self.train_cfg)
-
+        
+        
+        opendet_loss = dict()
+        opendet_loss.update(self.bbox_head.get_up_loss(bbox_results['cls_cos_scores'],
+                                                       bbox_loss_and_target['bbox_targets'][0]))
         bbox_results.update(loss_bbox=bbox_loss_and_target['loss_bbox'])
         return bbox_results
 
@@ -293,6 +297,7 @@ class OpenSetStandardRoIHead(BaseRoIHead):
         mask_preds = self.mask_head(mask_feats)
         mask_results = dict(mask_preds=mask_preds, mask_feats=mask_feats)
         return mask_results
+
 
     def predict_bbox(self,
                      x: Tuple[Tensor],

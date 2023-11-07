@@ -14,4 +14,6 @@ class SetIterInfoHook(Hook):
         iter = runner.iter
         runner.model.roi_head.epoch = epoch
         runner.model.roi_head.iter = iter
+        runner.model.roi_head.bbox_head.epoch = epoch
+        runner.model.roi_head.bbox_head.iter = iter
         
