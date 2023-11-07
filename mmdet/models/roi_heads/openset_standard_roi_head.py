@@ -15,7 +15,7 @@ from .base_roi_head import BaseRoIHead
 
 @MODELS.register_module()
 class OpenSetStandardRoIHead(BaseRoIHead):
-    """Simplest base roi head including one bbox head and one mask head."""
+    """Openset Simplest base roi head including one bbox head and one mask head."""
 
     def init_assigner_sampler(self) -> None:
         """Initialize assigner and sampler."""

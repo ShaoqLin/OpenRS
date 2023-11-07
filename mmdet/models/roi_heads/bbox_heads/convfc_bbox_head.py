@@ -1,12 +1,14 @@
 # Copyright (c) OpenMMLab. All rights reserved.
 from typing import Optional, Tuple, Union
 
+import torch
 import torch.nn as nn
 from mmcv.cnn import ConvModule
 from mmengine.config import ConfigDict
 from torch import Tensor
 
 from mmdet.registry import MODELS
+from mmdet.models.layers import MLP
 from .bbox_head import BBoxHead
 
 
@@ -231,6 +233,108 @@ class Shared2FCBBoxHead(ConvFCBBoxHead):
             fc_out_channels=fc_out_channels,
             *args,
             **kwargs)
+        
+@MODELS.register_module()
+class OpendetSeparateBoxHead(ConvFCBBoxHead):
+
+    def __init__(self, 
+                 fc_out_channels: int = 1024, 
+                 scale: int = 20,
+                 vis_iou_thr: float = 1.0,
+                 ic_loss_out_dim: int = 128,
+                 *args, **kwargs) -> None:
+        super().__init__(
+            num_shared_convs=0,
+            num_shared_fcs=0,
+            num_cls_convs=0,
+            num_cls_fcs=2,
+            num_reg_convs=0,
+            num_reg_fcs=2,
+            fc_out_channels=fc_out_channels,
+            *args,
+            **kwargs)
+        self.fc_out_channels = fc_out_channels
+        self.scale = scale
+        self.vis_iou_thr = vis_iou_thr
+        self.ic_loss_out_dim = ic_loss_out_dim
+        self.mlp_encoder = MLP(input_dim=self.cls_fcs.in_features,
+                               hidden_dim=self.cls_fcs.in_features,
+                               output_dim=self.ic_loss_out_dim)
+        
+    def forward(self, x: Tuple[Tensor]) -> tuple:
+        """opendet Forward features from the upstream network.
+
+        Args:
+            x (tuple[Tensor]): Features from the upstream network, each is
+                a 4D-tensor.
+
+        Returns:
+            tuple: A tuple of classification scores and bbox prediction.
+
+                - cls_score (Tensor): Classification scores for all \
+                    scale levels, each is a 4D-tensor, the channels number \
+                    is num_base_priors * num_classes.
+                - bbox_pred (Tensor): Box energies / deltas for all \
+                    scale levels, each is a 4D-tensor, the channels number \
+                    is num_base_priors * 4.
+        """
+        # shared part
+        if self.num_shared_convs > 0:
+            for conv in self.shared_convs:
+                x = conv(x)
+
+        if self.num_shared_fcs > 0:
+            if self.with_avg_pool:
+                x = self.avg_pool(x)
+
+            x = x.flatten(1)
+
+            for fc in self.shared_fcs:
+                x = self.relu(fc(x))
+        # separate branches
+        x_cls = x
+        x_reg = x
+
+        for conv in self.cls_convs:
+            x_cls = conv(x_cls)
+        if x_cls.dim() > 2:
+            if self.with_avg_pool:
+                x_cls = self.avg_pool(x_cls)
+            x_cls = x_cls.flatten(1)
+        for fc in self.cls_fcs:
+            x_cls = self.relu(fc(x_cls))
+
+        for conv in self.reg_convs:
+            x_reg = conv(x_reg)
+        if x_reg.dim() > 2:
+            if self.with_avg_pool:
+                x_reg = self.avg_pool(x_reg)
+            x_reg = x_reg.flatten(1)
+        for fc in self.reg_fcs:
+            x_reg = self.relu(fc(x_reg))
+            
+        # Normalize x_cls
+        x_norm = torch.norm(x_cls, p=2, dim=1).unsqueeze(1).expand_as(x_cls)
+        x_normalized = x_cls.div(x_norm + 1e-5)
+
+        # Normalize weight
+        temp_norm = (
+            torch.norm(self.fc_cls.weight.data, p=2, dim=1)
+            .unsqueeze(1)
+            .expand_as(self.fc_cls.weight.data)
+        )
+        self.fc_cls.weight.data = self.fc_cls.weight.data.div(
+            temp_norm + 1e-5
+        )
+        
+        # Cal cosine dist
+        cos_dist = self.fc_cls(x_normalized)
+        cls_cos_scores = self.scale * cos_dist
+        
+
+        cls_score = self.fc_cls(x_cls) if self.with_cls else None
+        bbox_pred = self.fc_reg(x_reg) if self.with_reg else None
+        return cls_score, bbox_pred, cls_cos_scores
 
 
 @MODELS.register_module()
