@@ -8,6 +8,7 @@ model = dict(
     roi_head=dict(
         bbox_head=dict(
             type='OpendetSeparateBoxHead',
+            reg_class_agnostic=True,
             num_classes=15,
             num_known_classes=4)))
 

@@ -127,6 +127,8 @@ class OpenSetStandardRoIHead(BaseRoIHead):
                 rpn_results,
                 batch_gt_instances[i],
                 feats=[lvl_feat[i][None] for lvl_feat in x])
+            ious = self.bbox_head.iou_calculator(rpn_results.priors, batch_gt_instances[i].bboxes)
+            ious, _ = ious.max(dim=0)
             sampling_results.append(sampling_result)
 
         losses = dict()
@@ -201,11 +203,17 @@ class OpenSetStandardRoIHead(BaseRoIHead):
             sampling_results=sampling_results,
             rcnn_train_cfg=self.train_cfg)
         
+        bbox_results.update(loss_bbox=bbox_loss_and_target['loss_bbox'])
         
+        # get opendet loss
         opendet_loss = dict()
+        # get up_loss
         opendet_loss.update(self.bbox_head.get_up_loss(bbox_results['cls_cos_scores'],
                                                        bbox_loss_and_target['bbox_targets'][0]))
-        bbox_results.update(loss_bbox=bbox_loss_and_target['loss_bbox'])
+        # get ic_loss
+        # self.iou_calculator()
+        opendet_loss.update(self.bbox_head.get_ic_loss())
+        
         return bbox_results
 
     def mask_loss(self, x: Tuple[Tensor],

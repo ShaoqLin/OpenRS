@@ -64,6 +64,7 @@ class BBoxHead(BaseModule):
         self.cls_predictor_cfg = cls_predictor_cfg
 
         self.bbox_coder = TASK_UTILS.build(bbox_coder)
+        self.iou_calculator = TASK_UTILS.build(dict(type='BboxOverlaps2D'))
         self.loss_cls = MODELS.build(loss_cls)
         self.loss_bbox = MODELS.build(loss_bbox)
 
