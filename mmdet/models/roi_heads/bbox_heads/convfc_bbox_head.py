@@ -377,13 +377,13 @@ class OpendetSeparateBoxHead(ConvFCBBoxHead):
 
         return {"loss_cls_up": self.up_loss.up_loss_weight * loss_cls_up}
 
-    def get_ic_loss(self, feat, gt_classes, ious):
+    def get_ic_loss(self, feat, gt_classes):
         # select foreground and iou > thr instance in a mini-batch
-        pos_inds = (ious > self.ic_loss.ic_loss_batch_iou_thr) & (
-            gt_classes != self.num_classes)
-        feat, gt_classes = feat[pos_inds], gt_classes[pos_inds]
+        # pos_inds = (ious > self.ic_loss.ic_loss_batch_iou_thr) & (
+        #     gt_classes != self.num_classes)
+        # feat, gt_classes = feat[pos_inds], gt_classes[pos_inds]
 
-        queue = self.queue.reshape(-1, self.ic_loss_out_dim)
+        queue = self.queue.reshape(-1, self.ic_loss.ic_loss_out_dim)
         queue_label = self.queue_label.reshape(-1)
         queue_inds = queue_label != -1  # filter empty queue
         queue, queue_label = queue[queue_inds], queue_label[queue_inds]

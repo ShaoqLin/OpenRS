@@ -24,7 +24,7 @@ train_dataloader = dict(
     num_workers=2,)
 
 train_pipeline = [
-    dict(type='Resize', scale=(512, 512), keep_ratio=True),
+    dict(type='Resize', scale=(256, 256), keep_ratio=True),
 ]
 
 # scheduler

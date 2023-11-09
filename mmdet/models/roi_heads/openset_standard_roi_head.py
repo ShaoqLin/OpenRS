@@ -122,13 +122,19 @@ class OpenSetStandardRoIHead(BaseRoIHead):
             assign_result = self.bbox_assigner.assign(
                 rpn_results, batch_gt_instances[i],
                 batch_gt_instances_ignore[i])
+            
+            # there's no need to cal iou to filter, sampler did this already.
+            
+            # ious = self.bbox_head.iou_calculator(rpn_results.priors, batch_gt_instances[i].bboxes)
+            # ious, _ = ious.max(dim=1)
+            # rpn_results.ious = ious
+            
             sampling_result = self.bbox_sampler.sample(
                 assign_result,
                 rpn_results,
                 batch_gt_instances[i],
                 feats=[lvl_feat[i][None] for lvl_feat in x])
-            ious = self.bbox_head.iou_calculator(rpn_results.priors, batch_gt_instances[i].bboxes)
-            ious, _ = ious.max(dim=0)
+
             sampling_results.append(sampling_result)
 
         losses = dict()
@@ -149,7 +155,7 @@ class OpenSetStandardRoIHead(BaseRoIHead):
 
         return losses
 
-    def _bbox_forward(self, x: Tuple[Tensor], rois: Tensor) -> dict:
+    def _bbox_forward(self, x: Tuple[Tensor], rois: Tensor, ) -> dict:
         """Box head forward function used in both training and testing.
 
         Args:
@@ -212,7 +218,15 @@ class OpenSetStandardRoIHead(BaseRoIHead):
                                                        bbox_loss_and_target['bbox_targets'][0]))
         # get ic_loss
         # self.iou_calculator()
-        opendet_loss.update(self.bbox_head.get_ic_loss())
+        mlp_index = torch.cat([torch.concatenate([torch.ones(sampling_results[i].num_pos), 
+                                                 torch.zeros(sampling_results[i].avg_factor-sampling_results[i].num_pos)]) 
+                                                 for i in range(len(sampling_results))])
+        mlp = bbox_results['mlp_feature'][mlp_index.bool()]
+        gt = torch.concatenate([sampling_results[i].pos_gt_labels[:sampling_results[i].num_pos]
+                               for i in range(len(sampling_results))])
+        opendet_loss.update(self.bbox_head.get_ic_loss(mlp,
+                                                       sampling_results,
+                                                       ))
         
         return bbox_results
 
