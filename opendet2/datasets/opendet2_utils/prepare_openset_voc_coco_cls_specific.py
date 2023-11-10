@@ -21,6 +21,8 @@ VOC_CLASS_NAMES = [
     "pottedplant", "sheep", "sofa", "train", "tvmonitor"
 ]
 
+DOTA_CLASS_NAMES=?
+
 T2_CLASS_NAMES = [
     "truck", "traffic light", "fire hydrant", "stop sign", "parking meter",
     "bench", "elephant", "bear", "zebra", "giraffe",
