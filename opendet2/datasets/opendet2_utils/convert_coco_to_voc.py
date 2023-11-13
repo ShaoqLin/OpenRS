@@ -1,5 +1,6 @@
 import xml.etree.cElementTree as ET
 import os
+import itertools
 import argparse
 from tqdm import tqdm
 from pycocotools.coco import COCO
@@ -13,6 +14,20 @@ COCO2VOC_CLASS_NAMES = {
     "tv": "tvmonitor",
 }
 
+DOTA2DIOR_CLASS_NAMES = {
+    "plane": "airplane",
+    "baseball-diamond": "baseballfield",
+    "ground-track-field": "groundtrackfield",
+    "small-vehiclevehicle": "vehicle",
+    "large-vehicle": "vehicle",
+    "tennis-court": "tenniscourt",
+    "basketball-court": "basketballcourt",
+    "storage-tank": "storagetank"
+}
+
+DOTA_IGNORE_CLASS_NAME = set(["soccer-ball-field", "roundabout", "swimming-pool", "helicopter"])
+
+
 def parse_args():
     parser = argparse.ArgumentParser(description='Convert COCO to VOC style')
     parser.add_argument("--dir", default="datasets/voc_coco", type=str, help="dataset dir")
@@ -23,7 +38,7 @@ def convert_coco_to_voc(coco_annotation_file, target_folder):
     os.makedirs(os.path.join(target_folder, 'Annotations'), exist_ok=True)
     coco_instance = COCO(coco_annotation_file)
     image_ids = []
-    for index, image_id in enumerate(tqdm(coco_instance.imgToAnns)):
+    for index, image_id in enumerate(tqdm(coco_instance.imgToAnns, ncols=80)):
         image_details = coco_instance.imgs[image_id]
         annotation_el = ET.Element('annotation')
         ET.SubElement(annotation_el, 'filename').text = image_details['file_name']
@@ -36,8 +51,11 @@ def convert_coco_to_voc(coco_annotation_file, target_folder):
         for annotation in coco_instance.imgToAnns[image_id]:
             object_el = ET.SubElement(annotation_el, 'object')
             cls_name = coco_instance.cats[annotation['category_id']]['name']
-            if cls_name in COCO2VOC_CLASS_NAMES.keys():
-                cls_name = COCO2VOC_CLASS_NAMES[cls_name]
+            if not set([cls_name]).isdisjoint(DOTA_IGNORE_CLASS_NAME):
+                print(f'ignoring class: {cls_name}')
+                continue
+            if cls_name in DOTA2DIOR_CLASS_NAMES.keys():
+                cls_name = DOTA2DIOR_CLASS_NAMES[cls_name]
             ET.SubElement(object_el,'name').text = cls_name
             # ET.SubElement(object_el, 'name').text = 'unknown'
             ET.SubElement(object_el, 'difficult').text = '0'

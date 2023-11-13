@@ -11,17 +11,50 @@ from collections import defaultdict
 import random
 import operator
 from functools import reduce
+from tqdm import tqdm
 
 from detectron2.utils.file_io import PathManager
 
+
+DIOR_CLASS_NAMES = [
+    'airplane', 'airport', 'baseballfield', 'basketballcourt',
+    'bridge', 'chimney', 'dam', 'Expressway-Service-area', 'Expressway-toll-station',
+    'golffield', 'groundtrackfield', 'harbor', 'overpass', 'ship', 'stadium', 'storagetank',
+    'tenniscourt', 'trainstation', 'vehicle', 'windmill'
+]
+
+DOTA_CLASS_NAMES=[
+    'plane', 'baseball-diamond', 'bridge', 'ground-track-field',
+    'small-vehicle', 'large-vehicle', 'ship', 'tennis-court',
+    'basketball-court', 'storage-tank', 'soccer-ball-field', 'roundabout',
+    'harbor', 'swimming-pool', 'helicopter']
+
+DOTA_BASE_CLASS_NAMES=[
+    'plane', 'baseball-diamond', 'bridge', 'ground-track-field',
+    'small-vehicle', 'large-vehicle', 'ship', 'tennis-court',
+    'basketball-court', 'storage-tank', 'harbor' 
+]
+
+DIOR_BASE_CLASS_NAMES=[
+    'airplane', 'baseballfield', 'basketballcourt', 'bridge',
+    'groundtrackfield', 'harbor', 'ship', 'stadium', 'tenniscourt',
+    'vehicle'
+]
+
+DIOR_NOVEL_CLASS_NAMES1=[
+    'airport', 'chimney', 'dam', 'golffield', 'overpass'
+]
+
+DIOR_NOVEL_CLASS_NAMES2=[
+    'Expressway-Service-area', 'Expressway-toll-station',
+    'stadium', 'trainstation', 'windmill'
+]
 
 VOC_CLASS_NAMES = [
     "aeroplane", "bicycle", "bird", "boat", "bottle", "bus", "car", "cat",
     "chair", "cow", "diningtable", "dog", "horse", "motorbike", "person",
     "pottedplant", "sheep", "sofa", "train", "tvmonitor"
 ]
-
-DOTA_CLASS_NAMES=?
 
 T2_CLASS_NAMES = [
     "truck", "traffic light", "fire hydrant", "stop sign", "parking meter",
@@ -45,12 +78,13 @@ T4_CLASS_NAMES = [
 ]
 
 VOC_COCO_CLASS_NAMES = tuple(itertools.chain(VOC_CLASS_NAMES, T2_CLASS_NAMES, T3_CLASS_NAMES, T4_CLASS_NAMES))
+DOTA_DIOR_CLASS_NAMES = tuple(itertools.chain(DIOR_BASE_CLASS_NAMES, DIOR_NOVEL_CLASS_NAMES1, DIOR_NOVEL_CLASS_NAMES2))
 
 def parse_args():
     parser = argparse.ArgumentParser(description='openset voc generator')
     parser.add_argument("--dir", default="datasets/voc_coco", type=str, help="dataset dir")
-    parser.add_argument("--in_split", default="instances_train2017", type=str, help="in split name")
-    parser.add_argument("--out_split", default="instances_train2017_openset_cls_spe_0_20", type=str, help="out split name")
+    parser.add_argument("--in_split", default="DIOR_train", type=str, help="in split name")
+    parser.add_argument("--out_split", default="dior_train_openset_cls_spe_0_20", type=str, help="out split name")
     parser.add_argument("--start_class", default="20", type=int)
     parser.add_argument("--end_class", default="40", type=int)
     parser.add_argument("--pre_num_sample", default="8000", type=int)
@@ -64,13 +98,14 @@ def prepare_openset(dirname: str, in_split: str, out_split: str, start_class: in
     annotation_dirname = PathManager.get_local_path(os.path.join(dirname, "Annotations/"))
 
     image_ids = defaultdict(list)
-    for fileid in fileids:
+    for fileid in tqdm(fileids, ncols=80):
         anno_file = os.path.join(annotation_dirname, fileid + ".xml")
         with PathManager.open(anno_file) as f:
             tree = ET.parse(f)
 
         classes = [obj.find("name").text for obj in tree.findall("object")]
-        if (not set(classes).isdisjoint(VOC_COCO_CLASS_NAMES[start_class:end_class])) and "person" not in classes and set(classes).isdisjoint(VOC_COCO_CLASS_NAMES[end_class:]):
+        if (not set(classes).isdisjoint(DOTA_DIOR_CLASS_NAMES[start_class:end_class])) and "person" not in classes and set(classes).isdisjoint(DOTA_DIOR_CLASS_NAMES[end_class:]):
+            print(f'pick out classes: {classes}')
             for cls in classes:
                 image_ids[cls].append(fileid)
     # count class stastics

@@ -11,9 +11,43 @@ from collections import defaultdict
 import random
 import operator
 from functools import reduce
+from tqdm import tqdm
 
 from detectron2.utils.file_io import PathManager
 
+DIOR_CLASS_NAMES = [
+    'airplane', 'airport', 'baseballfield', 'basketballcourt',
+    'bridge', 'chimney', 'dam', 'Expressway-Service-area', 'Expressway-toll-station',
+    'golffield', 'groundtrackfield', 'harbor', 'overpass', 'ship', 'stadium', 'storagetank',
+    'tenniscourt', 'trainstation', 'vehicle', 'windmill'
+]
+
+DOTA_CLASS_NAMES=[
+    'plane', 'baseball-diamond', 'bridge', 'ground-track-field',
+    'small-vehicle', 'large-vehicle', 'ship', 'tennis-court',
+    'basketball-court', 'storage-tank', 'soccer-ball-field', 'roundabout',
+    'harbor', 'swimming-pool', 'helicopter']
+
+DOTA_BASE_CLASS_NAMES=[
+    'plane', 'baseball-diamond', 'bridge', 'ground-track-field',
+    'small-vehicle', 'large-vehicle', 'ship', 'tennis-court',
+    'basketball-court', 'storage-tank', 'harbor' 
+]
+
+DIOR_BASE_CLASS_NAMES=[
+    'airplane', 'baseballfield', 'basketballcourt', 'bridge',
+    'groundtrackfield', 'harbor', 'ship', 'stadium', 'tenniscourt',
+    'vehicle'
+]
+
+DIOR_NOVEL_CLASS_NAMES1=[
+    'airport', 'chimney', 'dam', 'golffield', 'overpass'
+]
+
+DIOR_NOVEL_CLASS_NAMES2=[
+    'Expressway-Service-area', 'Expressway-toll-station',
+    'stadium', 'trainstation', 'windmill'
+]
 
 VOC_CLASS_NAMES = [
     "aeroplane", "bicycle", "bird", "boat", "bottle", "bus", "car", "cat",
@@ -43,6 +77,7 @@ T4_CLASS_NAMES = [
 ]
 
 VOC_COCO_CLASS_NAMES = tuple(itertools.chain(VOC_CLASS_NAMES, T2_CLASS_NAMES, T3_CLASS_NAMES, T4_CLASS_NAMES))
+DOTA_DIOR_CLASS_NAMES = tuple(itertools.chain(DIOR_BASE_CLASS_NAMES, DIOR_NOVEL_CLASS_NAMES1, DIOR_NOVEL_CLASS_NAMES2))
 
 def parse_args():
     parser = argparse.ArgumentParser(description='openset voc generator')
@@ -61,13 +96,13 @@ def prepare_openset(dirname: str, in_split: str, out_split: str, start_class: in
     annotation_dirname = PathManager.get_local_path(os.path.join(dirname, "Annotations/"))
 
     image_ids = []
-    for fileid in fileids:
+    for  fileid in tqdm(fileids, ncols=80):
         anno_file = os.path.join(annotation_dirname, fileid + ".xml")
         with PathManager.open(anno_file) as f:
             tree = ET.parse(f)
 
         classes = [obj.find("name").text for obj in tree.findall("object")]
-        if set(classes).isdisjoint(VOC_COCO_CLASS_NAMES[:start_class]+VOC_COCO_CLASS_NAMES[end_class:]):
+        if set(classes).isdisjoint(DOTA_DIOR_CLASS_NAMES[:start_class]+DOTA_DIOR_CLASS_NAMES[end_class:]):
             image_ids.append(fileid)
     
     image_ids = set(image_ids)
