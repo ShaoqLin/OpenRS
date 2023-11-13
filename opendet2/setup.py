@@ -11,4 +11,5 @@ setup(
     install_requires=[
         'timm', 'opencv-python'
     ],
+    py_modules=[],
 )

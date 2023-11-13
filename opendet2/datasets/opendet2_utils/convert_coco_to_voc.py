@@ -18,7 +18,7 @@ DOTA2DIOR_CLASS_NAMES = {
     "plane": "airplane",
     "baseball-diamond": "baseballfield",
     "ground-track-field": "groundtrackfield",
-    "small-vehiclevehicle": "vehicle",
+    "small-vehicle": "vehicle",
     "large-vehicle": "vehicle",
     "tennis-court": "tenniscourt",
     "basketball-court": "basketballcourt",
@@ -49,14 +49,17 @@ def convert_coco_to_voc(coco_annotation_file, target_folder):
         ET.SubElement(size_el, 'depth').text = str(3)
 
         for annotation in coco_instance.imgToAnns[image_id]:
-            object_el = ET.SubElement(annotation_el, 'object')
             cls_name = coco_instance.cats[annotation['category_id']]['name']
             if not set([cls_name]).isdisjoint(DOTA_IGNORE_CLASS_NAME):
                 print(f'ignoring class: {cls_name}')
                 continue
+            # move here
+            object_el = ET.SubElement(annotation_el, 'object')
             if cls_name in DOTA2DIOR_CLASS_NAMES.keys():
                 cls_name = DOTA2DIOR_CLASS_NAMES[cls_name]
             ET.SubElement(object_el,'name').text = cls_name
+            if len(cls_name) < 1:
+                print()
             # ET.SubElement(object_el, 'name').text = 'unknown'
             ET.SubElement(object_el, 'difficult').text = '0'
             bb_el = ET.SubElement(object_el, 'bndbox')
