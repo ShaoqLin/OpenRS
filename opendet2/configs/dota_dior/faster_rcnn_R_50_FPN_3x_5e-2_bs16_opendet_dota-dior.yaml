@@ -5,7 +5,7 @@ MODEL:
     DEPTH: 50
 DATASETS:
   TRAIN: ('dota_train',)
-  TEST: ('voc_2007_test', 'dior_10_15_test', 'dior_10_20_test')
+  TEST: ('dior_val', 'dior_10_15_test', 'dior_10_20_test')
 SOLVER:
   IMS_PER_BATCH: 16
   BASE_LR: 0.05
