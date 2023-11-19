@@ -25,8 +25,7 @@ DOTA2DIOR_CLASS_NAMES = {
     "storage-tank": "storagetank"
 }
 
-DOTA_IGNORE_CLASS_NAME = set(["soccer-ball-field", "roundabout", "swimming-pool", "helicopter"])
-
+DOTA_IGNORE_CLASS_NAME = set(["plane", "basketball-court", "ship", "soccer-ball-field", "roundabout", "swimming-pool", "helicopter"])
 
 def parse_args():
     parser = argparse.ArgumentParser(description='Convert COCO to VOC style')
