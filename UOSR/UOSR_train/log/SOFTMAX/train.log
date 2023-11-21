@@ -1,0 +1,2152 @@
+2023-09-15 21:23:16,066 [INFO] bit_common: Namespace(base_lr=0.1, batch=128, batch_split=1, bit_pretrained_dir='.', datadir='../data', dataset='cifar100', eval_every=400, examples_per_class=None, examples_per_class_seed=0, logdir='../log', loss='baseline', model='BiT-M-R50x1', name='SOFTMAX', save=False, seed=0, workers=8)
+2023-09-15 21:23:16,126 [INFO] bit_common: Going to train on cuda:0
+2023-09-15 21:23:36,562 [INFO] bit_common: Using a training set with 50000 images.
+2023-09-15 21:23:36,562 [INFO] bit_common: Using a validation set with 10000 images.
+2023-09-15 21:23:36,790 [INFO] bit_common: Training from Scratch ###############################
+2023-09-15 21:23:36,790 [INFO] bit_common: Moving model onto all GPUs
+2023-09-15 21:23:39,403 [INFO] bit_common: Model will be saved in '../log/SOFTMAX/bit.pth.tar'
+2023-09-15 21:23:39,404 [INFO] bit_common: Fine-tuning from BiT
+2023-09-15 21:23:39,419 [INFO] bit_common: Starting training!
+2023-09-15 21:23:47,456 [INFO] bit_common: [step 0]: loss=4.63741 (lr=0.0e+00)
+2023-09-15 21:25:00,308 [INFO] bit_common: Running validation...
+2023-09-15 21:25:13,750 [INFO] bit_common: Validation@400 loss 3.21849, top1 22.29%, top5 51.45%
+2023-09-15 21:25:14,609 [INFO] bit_common: [step 400]: loss=2.86324 (lr=8.0e-02)
+2023-09-15 21:28:17,296 [INFO] bit_common: Namespace(base_lr=0.1, batch=128, batch_split=1, bit_pretrained_dir='.', datadir='../data', dataset='cifar100', eval_every=400, examples_per_class=None, examples_per_class_seed=0, logdir='../log', loss='baseline', model='BiT-M-R50x1', name='SOFTMAX', save=False, seed=0, workers=8)
+2023-09-15 21:28:19,245 [INFO] bit_common: Going to train on cuda:0
+2023-09-15 21:28:21,474 [INFO] bit_common: Using a training set with 50000 images.
+2023-09-15 21:28:21,475 [INFO] bit_common: Using a validation set with 10000 images.
+2023-09-15 21:28:28,162 [INFO] bit_common: Training from Scratch ###############################
+2023-09-15 21:28:29,025 [INFO] bit_common: Moving model onto all GPUs
+2023-09-15 21:28:41,797 [INFO] bit_common: Model will be saved in '../log/SOFTMAX/bit.pth.tar'
+2023-09-15 21:28:43,255 [INFO] bit_common: Found saved model to resume from at '../log/SOFTMAX/bit.pth.tar'
+2023-09-15 21:29:08,723 [INFO] bit_common: Resumed at step 400
+2023-09-15 21:30:40,781 [INFO] bit_common: Starting training!
+2023-09-16 09:23:30,910 [INFO] bit_common: Namespace(base_lr=0.1, batch=128, batch_split=1, bit_pretrained_dir='.', datadir='../data', dataset='cifar100', eval_every=400, examples_per_class=None, examples_per_class_seed=0, logdir='../log', loss='baseline', model='BiT-M-R50x1', name='SOFTMAX', save=False, seed=0, workers=8)
+2023-09-16 09:23:30,973 [INFO] bit_common: Going to train on cuda:0
+2023-09-16 09:23:32,752 [INFO] bit_common: Using a training set with 50000 images.
+2023-09-16 09:23:32,752 [INFO] bit_common: Using a validation set with 10000 images.
+2023-09-16 09:23:32,974 [INFO] bit_common: Training from Scratch ###############################
+2023-09-16 09:23:32,974 [INFO] bit_common: Moving model onto all GPUs
+2023-09-16 09:23:34,427 [INFO] bit_common: Model will be saved in '../log/SOFTMAX/bit.pth.tar'
+2023-09-16 09:23:34,527 [INFO] bit_common: Found saved model to resume from at '../log/SOFTMAX/bit.pth.tar'
+2023-09-16 09:23:34,632 [INFO] bit_common: Resumed at step 400
+2023-09-16 09:23:38,116 [INFO] bit_common: Starting training!
+2023-09-16 12:42:10,685 [INFO] bit_common: [step 400]: loss=3.27397 (lr=8.0e-02)
+2023-09-16 12:43:18,907 [INFO] bit_common: Running validation...
+2023-09-16 12:43:28,329 [INFO] bit_common: Validation@800 loss 2.46181, top1 36.37%, top5 67.84%
+2023-09-16 12:43:29,492 [INFO] bit_common: [step 800]: loss=2.47921 (lr=1.0e-01)
+2023-09-16 12:44:36,646 [INFO] bit_common: Running validation...
+2023-09-16 12:44:45,383 [INFO] bit_common: Validation@1200 loss 2.16073, top1 43.15%, top5 74.15%
+2023-09-16 12:44:46,631 [INFO] bit_common: [step 1200]: loss=2.01765 (lr=1.0e-01)
+2023-09-16 12:45:54,557 [INFO] bit_common: Running validation...
+2023-09-16 12:46:03,480 [INFO] bit_common: Validation@1600 loss 1.99433, top1 46.81%, top5 77.00%
+2023-09-16 12:46:05,353 [INFO] bit_common: [step 1600]: loss=1.80728 (lr=1.0e-01)
+2023-09-16 17:30:37,752 [INFO] bit_common: Namespace(base_lr=0.1, batch=128, batch_split=1, bit_pretrained_dir='.', datadir='../data', dataset='cifar100', eval_every=400, examples_per_class=None, examples_per_class_seed=0, logdir='../log', loss='baseline', model='BiT-M-R50x1', name='SOFTMAX', save=False, seed=0, workers=8)
+2023-09-16 17:30:37,787 [INFO] bit_common: Going to train on cuda:0
+2023-09-16 17:31:52,644 [INFO] bit_common: Namespace(base_lr=0.1, batch=128, batch_split=1, bit_pretrained_dir='.', datadir='../data', dataset='cifar100', eval_every=400, examples_per_class=None, examples_per_class_seed=0, logdir='../log', loss='baseline', model='BiT-M-R50x1', name='SOFTMAX', save=False, seed=0, workers=8)
+2023-09-16 17:31:52,679 [INFO] bit_common: Going to train on cuda:0
+2023-09-16 17:31:54,441 [INFO] bit_common: Using a training set with 50000 images.
+2023-09-16 17:31:54,441 [INFO] bit_common: Using a validation set with 10000 images.
+2023-09-16 17:31:54,645 [INFO] bit_common: Training from Scratch ###############################
+2023-09-16 17:31:54,645 [INFO] bit_common: Moving model onto all GPUs
+2023-09-16 17:31:56,083 [INFO] bit_common: Model will be saved in '../log/SOFTMAX/bit.pth.tar'
+2023-09-16 17:31:56,173 [INFO] bit_common: Found saved model to resume from at '../log/SOFTMAX/bit.pth.tar'
+2023-09-16 17:31:56,262 [INFO] bit_common: Resumed at step 1600
+2023-09-16 17:31:56,268 [INFO] bit_common: Starting training!
+2023-09-16 17:32:03,390 [INFO] bit_common: [step 1600]: loss=1.77736 (lr=1.0e-01)
+2023-09-16 17:33:06,304 [INFO] bit_common: Running validation...
+2023-09-16 17:33:13,221 [INFO] bit_common: Validation@2000 loss 1.82197, top1 50.20%, top5 80.21%
+2023-09-16 17:33:15,296 [INFO] bit_common: [step 2000]: loss=1.63212 (lr=1.0e-01)
+2023-09-16 17:34:16,921 [INFO] bit_common: Running validation...
+2023-09-16 17:34:23,612 [INFO] bit_common: Validation@2400 loss 1.78664, top1 51.03%, top5 81.27%
+2023-09-16 17:34:25,819 [INFO] bit_common: [step 2400]: loss=1.66007 (lr=1.0e-01)
+2023-09-16 17:35:28,182 [INFO] bit_common: Running validation...
+2023-09-16 17:35:34,881 [INFO] bit_common: Validation@2800 loss 1.77083, top1 51.69%, top5 81.33%
+2023-09-16 17:35:36,306 [INFO] bit_common: [step 2800]: loss=1.50848 (lr=1.0e-01)
+2023-09-16 17:36:39,841 [INFO] bit_common: Running validation...
+2023-09-16 17:36:46,652 [INFO] bit_common: Validation@3200 loss 1.75041, top1 52.24%, top5 81.96%
+2023-09-16 17:36:48,067 [INFO] bit_common: [step 3200]: loss=1.28220 (lr=1.0e-01)
+2023-09-16 17:37:52,969 [INFO] bit_common: Running validation...
+2023-09-16 17:37:59,643 [INFO] bit_common: Validation@3600 loss 1.73175, top1 53.23%, top5 82.31%
+2023-09-16 17:38:00,426 [INFO] bit_common: [step 3600]: loss=1.21161 (lr=1.0e-01)
+2023-09-16 17:39:05,929 [INFO] bit_common: Running validation...
+2023-09-16 17:39:12,647 [INFO] bit_common: Validation@4000 loss 1.70551, top1 54.07%, top5 82.47%
+2023-09-16 17:39:13,454 [INFO] bit_common: [step 4000]: loss=1.22823 (lr=1.0e-01)
+2023-09-16 17:40:18,778 [INFO] bit_common: Running validation...
+2023-09-16 17:40:25,543 [INFO] bit_common: Validation@4400 loss 1.72182, top1 53.10%, top5 82.67%
+2023-09-16 17:40:26,010 [INFO] bit_common: [step 4400]: loss=1.29638 (lr=1.0e-01)
+2023-09-16 17:41:31,216 [INFO] bit_common: Running validation...
+2023-09-16 17:41:38,136 [INFO] bit_common: Validation@4800 loss 1.62366, top1 55.49%, top5 83.97%
+2023-09-16 17:41:39,838 [INFO] bit_common: [step 4800]: loss=1.23843 (lr=1.0e-01)
+2023-09-16 17:42:45,036 [INFO] bit_common: Running validation...
+2023-09-16 17:42:51,877 [INFO] bit_common: Validation@5200 loss 1.56787, top1 56.64%, top5 84.94%
+2023-09-16 17:42:53,415 [INFO] bit_common: [step 5200]: loss=1.20740 (lr=1.0e-01)
+2023-09-16 17:43:58,656 [INFO] bit_common: Running validation...
+2023-09-16 17:44:05,445 [INFO] bit_common: Validation@5600 loss 1.59388, top1 55.97%, top5 84.62%
+2023-09-16 17:44:07,010 [INFO] bit_common: [step 5600]: loss=1.30693 (lr=1.0e-01)
+2023-09-16 17:45:12,052 [INFO] bit_common: Running validation...
+2023-09-16 17:45:18,673 [INFO] bit_common: Validation@6000 loss 1.69340, top1 54.47%, top5 82.95%
+2023-09-16 17:45:19,207 [INFO] bit_common: [step 6000]: loss=1.19824 (lr=1.0e-01)
+2023-09-16 17:46:24,241 [INFO] bit_common: Running validation...
+2023-09-16 17:46:31,078 [INFO] bit_common: Validation@6400 loss 1.58671, top1 56.10%, top5 84.58%
+2023-09-16 17:46:31,547 [INFO] bit_common: [step 6400]: loss=1.54071 (lr=1.0e-01)
+2023-09-16 17:47:36,630 [INFO] bit_common: Running validation...
+2023-09-16 17:47:43,349 [INFO] bit_common: Validation@6800 loss 1.55759, top1 57.27%, top5 84.72%
+2023-09-16 17:47:44,138 [INFO] bit_common: [step 6800]: loss=1.35815 (lr=1.0e-01)
+2023-09-16 17:48:49,220 [INFO] bit_common: Running validation...
+2023-09-16 17:48:55,857 [INFO] bit_common: Validation@7200 loss 1.59469, top1 56.39%, top5 84.56%
+2023-09-16 17:48:56,319 [INFO] bit_common: [step 7200]: loss=1.08230 (lr=1.0e-01)
+2023-09-16 17:50:01,516 [INFO] bit_common: Running validation...
+2023-09-16 17:50:08,406 [INFO] bit_common: Validation@7600 loss 1.68846, top1 54.75%, top5 83.14%
+2023-09-16 17:50:08,854 [INFO] bit_common: [step 7600]: loss=1.38989 (lr=1.0e-01)
+2023-09-16 17:51:13,992 [INFO] bit_common: Running validation...
+2023-09-16 17:51:20,749 [INFO] bit_common: Validation@8000 loss 1.54290, top1 57.45%, top5 85.31%
+2023-09-16 17:51:22,764 [INFO] bit_common: [step 8000]: loss=1.09870 (lr=1.0e-01)
+2023-09-16 17:52:27,671 [INFO] bit_common: Running validation...
+2023-09-16 17:52:34,463 [INFO] bit_common: Validation@8400 loss 1.45086, top1 59.87%, top5 86.55%
+2023-09-16 17:52:36,226 [INFO] bit_common: [step 8400]: loss=1.42054 (lr=1.0e-01)
+2023-09-16 17:53:41,227 [INFO] bit_common: Running validation...
+2023-09-16 17:53:47,890 [INFO] bit_common: Validation@8800 loss 1.54036, top1 57.73%, top5 85.48%
+2023-09-16 17:53:48,430 [INFO] bit_common: [step 8800]: loss=1.20941 (lr=1.0e-01)
+2023-09-16 17:54:53,485 [INFO] bit_common: Running validation...
+2023-09-16 17:55:00,191 [INFO] bit_common: Validation@9200 loss 1.47569, top1 59.66%, top5 85.93%
+2023-09-16 17:55:00,660 [INFO] bit_common: [step 9200]: loss=1.20720 (lr=1.0e-01)
+2023-09-16 17:56:05,912 [INFO] bit_common: Running validation...
+2023-09-16 17:56:12,673 [INFO] bit_common: Validation@9600 loss 1.51710, top1 58.53%, top5 85.46%
+2023-09-16 17:56:13,141 [INFO] bit_common: [step 9600]: loss=0.99010 (lr=1.0e-01)
+2023-09-16 17:57:18,425 [INFO] bit_common: Running validation...
+2023-09-16 17:57:25,262 [INFO] bit_common: Validation@10000 loss 1.52211, top1 57.19%, top5 85.65%
+2023-09-16 17:57:25,726 [INFO] bit_common: [step 10000]: loss=1.25061 (lr=1.0e-01)
+2023-09-16 17:58:30,786 [INFO] bit_common: Running validation...
+2023-09-16 17:58:37,618 [INFO] bit_common: Validation@10400 loss 1.54550, top1 57.16%, top5 85.77%
+2023-09-16 17:58:38,078 [INFO] bit_common: [step 10400]: loss=1.29846 (lr=1.0e-01)
+2023-09-16 17:59:43,079 [INFO] bit_common: Running validation...
+2023-09-16 17:59:49,828 [INFO] bit_common: Validation@10800 loss 1.53422, top1 57.76%, top5 85.88%
+2023-09-16 17:59:50,368 [INFO] bit_common: [step 10800]: loss=1.09224 (lr=1.0e-01)
+2023-09-16 18:00:55,428 [INFO] bit_common: Running validation...
+2023-09-16 18:01:02,122 [INFO] bit_common: Validation@11200 loss 1.44866, top1 59.24%, top5 86.44%
+2023-09-16 18:01:02,582 [INFO] bit_common: [step 11200]: loss=1.12348 (lr=1.0e-01)
+2023-09-16 18:02:07,719 [INFO] bit_common: Running validation...
+2023-09-16 18:02:14,431 [INFO] bit_common: Validation@11600 loss 1.42492, top1 60.14%, top5 87.10%
+2023-09-16 18:02:16,352 [INFO] bit_common: [step 11600]: loss=1.38672 (lr=1.0e-01)
+2023-09-16 18:03:21,296 [INFO] bit_common: Running validation...
+2023-09-16 18:03:27,944 [INFO] bit_common: Validation@12000 loss 1.54626, top1 57.91%, top5 85.37%
+2023-09-16 18:03:28,938 [INFO] bit_common: [step 12000]: loss=1.15860 (lr=1.0e-01)
+2023-09-16 18:04:33,949 [INFO] bit_common: Running validation...
+2023-09-16 18:04:40,667 [INFO] bit_common: Validation@12400 loss 1.45958, top1 59.96%, top5 86.66%
+2023-09-16 18:04:41,142 [INFO] bit_common: [step 12400]: loss=1.33968 (lr=1.0e-01)
+2023-09-16 18:05:46,018 [INFO] bit_common: Running validation...
+2023-09-16 18:05:52,635 [INFO] bit_common: Validation@12800 loss 1.44993, top1 59.73%, top5 86.87%
+2023-09-16 18:05:53,187 [INFO] bit_common: [step 12800]: loss=1.24919 (lr=1.0e-01)
+2023-09-16 18:06:58,151 [INFO] bit_common: Running validation...
+2023-09-16 18:07:04,785 [INFO] bit_common: Validation@13200 loss 1.37884, top1 61.20%, top5 88.07%
+2023-09-16 18:07:05,706 [INFO] bit_common: [step 13200]: loss=1.27629 (lr=1.0e-01)
+2023-09-16 18:08:10,839 [INFO] bit_common: Running validation...
+2023-09-16 18:08:17,492 [INFO] bit_common: Validation@13600 loss 1.47746, top1 59.34%, top5 86.47%
+2023-09-16 18:08:17,951 [INFO] bit_common: [step 13600]: loss=1.22520 (lr=1.0e-01)
+2023-09-16 18:09:23,164 [INFO] bit_common: Running validation...
+2023-09-16 18:09:29,913 [INFO] bit_common: Validation@14000 loss 1.44285, top1 60.33%, top5 86.63%
+2023-09-16 18:09:30,365 [INFO] bit_common: [step 14000]: loss=0.84267 (lr=1.0e-01)
+2023-09-16 18:10:35,423 [INFO] bit_common: Running validation...
+2023-09-16 18:10:42,141 [INFO] bit_common: Validation@14400 loss 1.42296, top1 60.20%, top5 87.30%
+2023-09-16 18:10:42,614 [INFO] bit_common: [step 14400]: loss=1.03957 (lr=1.0e-01)
+2023-09-16 18:11:47,743 [INFO] bit_common: Running validation...
+2023-09-16 18:11:54,566 [INFO] bit_common: Validation@14800 loss 1.55324, top1 56.91%, top5 85.74%
+2023-09-16 18:11:55,029 [INFO] bit_common: [step 14800]: loss=1.11937 (lr=1.0e-01)
+2023-09-16 18:13:00,052 [INFO] bit_common: Running validation...
+2023-09-16 18:13:06,653 [INFO] bit_common: Validation@15200 loss 1.44163, top1 59.40%, top5 86.76%
+2023-09-16 18:13:07,186 [INFO] bit_common: [step 15200]: loss=1.08617 (lr=1.0e-01)
+2023-09-16 18:14:12,362 [INFO] bit_common: Running validation...
+2023-09-16 18:14:19,145 [INFO] bit_common: Validation@15600 loss 1.48580, top1 59.59%, top5 85.71%
+2023-09-16 18:14:19,602 [INFO] bit_common: [step 15600]: loss=1.22431 (lr=1.0e-01)
+2023-09-16 18:15:24,752 [INFO] bit_common: Running validation...
+2023-09-16 18:15:31,426 [INFO] bit_common: Validation@16000 loss 1.40020, top1 61.07%, top5 87.81%
+2023-09-16 18:15:31,887 [INFO] bit_common: [step 16000]: loss=1.08019 (lr=1.0e-01)
+2023-09-16 18:16:36,979 [INFO] bit_common: Running validation...
+2023-09-16 18:16:43,644 [INFO] bit_common: Validation@16400 loss 1.50239, top1 58.77%, top5 85.89%
+2023-09-16 18:16:44,610 [INFO] bit_common: [step 16400]: loss=1.14703 (lr=1.0e-01)
+2023-09-16 18:17:49,629 [INFO] bit_common: Running validation...
+2023-09-16 18:17:56,395 [INFO] bit_common: Validation@16800 loss 1.50164, top1 59.46%, top5 86.21%
+2023-09-16 18:17:57,671 [INFO] bit_common: [step 16800]: loss=1.09472 (lr=1.0e-01)
+2023-09-16 18:19:02,854 [INFO] bit_common: Running validation...
+2023-09-16 18:19:09,500 [INFO] bit_common: Validation@17200 loss 1.42006, top1 60.05%, top5 87.31%
+2023-09-16 18:19:10,074 [INFO] bit_common: [step 17200]: loss=1.22481 (lr=1.0e-01)
+2023-09-16 18:20:15,259 [INFO] bit_common: Running validation...
+2023-09-16 18:20:21,977 [INFO] bit_common: Validation@17600 loss 1.44503, top1 60.14%, top5 87.18%
+2023-09-16 18:20:22,457 [INFO] bit_common: [step 17600]: loss=1.09848 (lr=1.0e-01)
+2023-09-16 18:21:27,627 [INFO] bit_common: Running validation...
+2023-09-16 18:21:34,281 [INFO] bit_common: Validation@18000 loss 1.42213, top1 60.74%, top5 87.32%
+2023-09-16 18:21:34,766 [INFO] bit_common: [step 18000]: loss=1.19688 (lr=1.0e-01)
+2023-09-16 18:22:39,916 [INFO] bit_common: Running validation...
+2023-09-16 18:22:46,546 [INFO] bit_common: Validation@18400 loss 1.40787, top1 60.72%, top5 87.28%
+2023-09-16 18:22:47,005 [INFO] bit_common: [step 18400]: loss=1.35568 (lr=1.0e-01)
+2023-09-16 18:23:52,166 [INFO] bit_common: Running validation...
+2023-09-16 18:23:58,782 [INFO] bit_common: Validation@18800 loss 1.46258, top1 59.73%, top5 86.70%
+2023-09-16 18:23:59,246 [INFO] bit_common: [step 18800]: loss=1.03889 (lr=1.0e-01)
+2023-09-16 18:25:05,832 [INFO] bit_common: Running validation...
+2023-09-16 18:25:12,873 [INFO] bit_common: Validation@19200 loss 1.37676, top1 61.46%, top5 88.08%
+2023-09-16 18:25:13,856 [INFO] bit_common: [step 19200]: loss=1.05366 (lr=1.0e-01)
+2023-09-16 18:26:18,919 [INFO] bit_common: Running validation...
+2023-09-16 18:26:25,685 [INFO] bit_common: Validation@19600 loss 1.41509, top1 61.35%, top5 87.31%
+2023-09-16 18:26:26,151 [INFO] bit_common: [step 19600]: loss=0.89820 (lr=1.0e-01)
+2023-09-16 18:27:31,272 [INFO] bit_common: Running validation...
+2023-09-16 18:27:37,900 [INFO] bit_common: Validation@20000 loss 1.53545, top1 59.48%, top5 85.99%
+2023-09-16 18:27:38,376 [INFO] bit_common: [step 20000]: loss=1.10697 (lr=1.0e-01)
+2023-09-16 18:28:43,296 [INFO] bit_common: Running validation...
+2023-09-16 18:28:50,024 [INFO] bit_common: Validation@20400 loss 1.50301, top1 59.43%, top5 86.13%
+2023-09-16 18:28:50,498 [INFO] bit_common: [step 20400]: loss=1.13961 (lr=1.0e-01)
+2023-09-16 18:29:55,526 [INFO] bit_common: Running validation...
+2023-09-16 18:30:02,352 [INFO] bit_common: Validation@20800 loss 1.38912, top1 61.86%, top5 87.67%
+2023-09-16 18:30:03,161 [INFO] bit_common: [step 20800]: loss=0.90364 (lr=1.0e-01)
+2023-09-16 18:31:08,033 [INFO] bit_common: Running validation...
+2023-09-16 18:31:14,696 [INFO] bit_common: Validation@21200 loss 1.44126, top1 60.24%, top5 87.10%
+2023-09-16 18:31:15,196 [INFO] bit_common: [step 21200]: loss=0.91153 (lr=1.0e-01)
+2023-09-16 18:32:20,259 [INFO] bit_common: Running validation...
+2023-09-16 18:32:26,953 [INFO] bit_common: Validation@21600 loss 1.45089, top1 60.32%, top5 86.56%
+2023-09-16 18:32:27,511 [INFO] bit_common: [step 21600]: loss=1.27783 (lr=1.0e-01)
+2023-09-16 18:33:32,498 [INFO] bit_common: Running validation...
+2023-09-16 18:33:39,283 [INFO] bit_common: Validation@22000 loss 1.42230, top1 61.29%, top5 87.00%
+2023-09-16 18:33:40,315 [INFO] bit_common: [step 22000]: loss=0.99260 (lr=1.0e-01)
+2023-09-16 18:34:45,393 [INFO] bit_common: Running validation...
+2023-09-16 18:34:51,992 [INFO] bit_common: Validation@22400 loss 1.37948, top1 62.08%, top5 87.93%
+2023-09-16 18:34:52,797 [INFO] bit_common: [step 22400]: loss=0.98242 (lr=1.0e-01)
+2023-09-16 18:35:57,990 [INFO] bit_common: Running validation...
+2023-09-16 18:36:04,628 [INFO] bit_common: Validation@22800 loss 1.53830, top1 58.67%, top5 85.41%
+2023-09-16 18:36:05,089 [INFO] bit_common: [step 22800]: loss=1.29733 (lr=1.0e-01)
+2023-09-16 18:37:10,296 [INFO] bit_common: Running validation...
+2023-09-16 18:37:17,150 [INFO] bit_common: Validation@23200 loss 1.40716, top1 60.40%, top5 87.33%
+2023-09-16 18:37:17,624 [INFO] bit_common: [step 23200]: loss=1.01857 (lr=1.0e-01)
+2023-09-16 18:38:22,674 [INFO] bit_common: Running validation...
+2023-09-16 18:38:29,471 [INFO] bit_common: Validation@23600 loss 1.38995, top1 61.34%, top5 88.38%
+2023-09-16 18:38:29,923 [INFO] bit_common: [step 23600]: loss=1.11952 (lr=1.0e-01)
+2023-09-16 18:39:34,942 [INFO] bit_common: Running validation...
+2023-09-16 18:39:41,703 [INFO] bit_common: Validation@24000 loss 1.44261, top1 60.16%, top5 87.22%
+2023-09-16 18:39:42,614 [INFO] bit_common: [step 24000]: loss=1.04904 (lr=1.0e-01)
+2023-09-16 18:40:47,795 [INFO] bit_common: Running validation...
+2023-09-16 18:40:54,634 [INFO] bit_common: Validation@24400 loss 1.05335, top1 70.73%, top5 92.02%
+2023-09-16 18:40:56,155 [INFO] bit_common: [step 24400]: loss=0.46802 (lr=1.0e-02)
+2023-09-16 18:42:01,147 [INFO] bit_common: Running validation...
+2023-09-16 18:42:07,799 [INFO] bit_common: Validation@24800 loss 1.04139, top1 71.35%, top5 92.43%
+2023-09-16 18:42:08,674 [INFO] bit_common: [step 24800]: loss=0.46647 (lr=1.0e-02)
+2023-09-16 18:43:13,628 [INFO] bit_common: Running validation...
+2023-09-16 18:43:20,285 [INFO] bit_common: Validation@25200 loss 1.04956, top1 71.21%, top5 92.50%
+2023-09-16 18:43:21,399 [INFO] bit_common: [step 25200]: loss=0.30318 (lr=1.0e-02)
+2023-09-16 18:44:26,500 [INFO] bit_common: Running validation...
+2023-09-16 18:44:33,393 [INFO] bit_common: Validation@25600 loss 1.02786, top1 72.09%, top5 92.83%
+2023-09-16 18:44:34,187 [INFO] bit_common: [step 25600]: loss=0.22077 (lr=1.0e-02)
+2023-09-16 18:45:39,346 [INFO] bit_common: Running validation...
+2023-09-16 18:45:45,879 [INFO] bit_common: Validation@26000 loss 1.06242, top1 71.92%, top5 92.48%
+2023-09-16 18:45:46,339 [INFO] bit_common: [step 26000]: loss=0.26423 (lr=1.0e-02)
+2023-09-16 18:46:51,509 [INFO] bit_common: Running validation...
+2023-09-16 18:46:58,225 [INFO] bit_common: Validation@26400 loss 1.11931, top1 70.73%, top5 91.95%
+2023-09-16 18:46:58,692 [INFO] bit_common: [step 26400]: loss=0.18939 (lr=1.0e-02)
+2023-09-16 18:48:03,926 [INFO] bit_common: Running validation...
+2023-09-16 18:48:10,683 [INFO] bit_common: Validation@26800 loss 1.12179, top1 71.21%, top5 92.14%
+2023-09-16 18:48:11,148 [INFO] bit_common: [step 26800]: loss=0.24952 (lr=1.0e-02)
+2023-09-16 18:49:16,486 [INFO] bit_common: Running validation...
+2023-09-16 18:49:23,309 [INFO] bit_common: Validation@27200 loss 1.11429, top1 72.18%, top5 92.50%
+2023-09-16 18:49:24,203 [INFO] bit_common: [step 27200]: loss=0.19392 (lr=1.0e-02)
+2023-09-16 18:50:29,576 [INFO] bit_common: Running validation...
+2023-09-16 18:50:36,258 [INFO] bit_common: Validation@27600 loss 1.14891, top1 71.70%, top5 92.02%
+2023-09-16 18:50:36,728 [INFO] bit_common: [step 27600]: loss=0.13211 (lr=1.0e-02)
+2023-09-16 18:51:42,202 [INFO] bit_common: Running validation...
+2023-09-16 18:51:48,868 [INFO] bit_common: Validation@28000 loss 1.17278, top1 71.56%, top5 91.67%
+2023-09-16 18:51:49,318 [INFO] bit_common: [step 28000]: loss=0.15784 (lr=1.0e-02)
+2023-09-16 18:52:54,932 [INFO] bit_common: Running validation...
+2023-09-16 18:53:01,769 [INFO] bit_common: Validation@28400 loss 1.16085, top1 71.65%, top5 91.92%
+2023-09-16 18:53:02,360 [INFO] bit_common: [step 28400]: loss=0.08803 (lr=1.0e-02)
+2023-09-16 18:54:07,928 [INFO] bit_common: Running validation...
+2023-09-16 18:54:14,651 [INFO] bit_common: Validation@28800 loss 1.19654, top1 71.47%, top5 92.01%
+2023-09-16 18:54:15,194 [INFO] bit_common: [step 28800]: loss=0.11797 (lr=1.0e-02)
+2023-09-16 18:55:20,761 [INFO] bit_common: Running validation...
+2023-09-16 18:55:27,495 [INFO] bit_common: Validation@29200 loss 1.19436, top1 71.73%, top5 91.83%
+2023-09-16 18:55:27,948 [INFO] bit_common: [step 29200]: loss=0.13325 (lr=1.0e-02)
+2023-09-16 18:56:33,546 [INFO] bit_common: Running validation...
+2023-09-16 18:56:40,358 [INFO] bit_common: Validation@29600 loss 1.20183, top1 71.83%, top5 91.99%
+2023-09-16 18:56:40,849 [INFO] bit_common: [step 29600]: loss=0.11162 (lr=1.0e-02)
+2023-09-16 18:57:46,480 [INFO] bit_common: Running validation...
+2023-09-16 18:57:53,200 [INFO] bit_common: Validation@30000 loss 1.20949, top1 70.92%, top5 91.41%
+2023-09-16 18:57:53,707 [INFO] bit_common: [step 30000]: loss=0.10280 (lr=1.0e-02)
+2023-09-16 18:58:59,114 [INFO] bit_common: Running validation...
+2023-09-16 18:59:05,824 [INFO] bit_common: Validation@30400 loss 1.20274, top1 71.49%, top5 92.00%
+2023-09-16 18:59:06,278 [INFO] bit_common: [step 30400]: loss=0.11038 (lr=1.0e-02)
+2023-09-16 19:00:11,493 [INFO] bit_common: Running validation...
+2023-09-16 19:00:18,255 [INFO] bit_common: Validation@30800 loss 1.22797, top1 71.20%, top5 91.78%
+2023-09-16 19:00:18,812 [INFO] bit_common: [step 30800]: loss=0.09556 (lr=1.0e-02)
+2023-09-16 19:01:24,143 [INFO] bit_common: Running validation...
+2023-09-16 19:01:30,772 [INFO] bit_common: Validation@31200 loss 1.25070, top1 70.45%, top5 91.52%
+2023-09-16 19:01:31,332 [INFO] bit_common: [step 31200]: loss=0.11765 (lr=1.0e-02)
+2023-09-16 19:02:36,489 [INFO] bit_common: Running validation...
+2023-09-16 19:02:42,992 [INFO] bit_common: Validation@31600 loss 1.23671, top1 70.85%, top5 91.88%
+2023-09-16 19:02:43,474 [INFO] bit_common: [step 31600]: loss=0.05466 (lr=1.0e-02)
+2023-09-16 19:03:48,945 [INFO] bit_common: Running validation...
+2023-09-16 19:03:55,489 [INFO] bit_common: Validation@32000 loss 1.25009, top1 70.46%, top5 91.68%
+2023-09-16 19:03:55,973 [INFO] bit_common: [step 32000]: loss=0.14050 (lr=1.0e-02)
+2023-09-16 19:05:01,215 [INFO] bit_common: Running validation...
+2023-09-16 19:05:07,893 [INFO] bit_common: Validation@32400 loss 1.25347, top1 70.63%, top5 91.23%
+2023-09-16 19:05:08,353 [INFO] bit_common: [step 32400]: loss=0.07019 (lr=1.0e-02)
+2023-09-16 19:06:13,884 [INFO] bit_common: Running validation...
+2023-09-16 19:06:20,562 [INFO] bit_common: Validation@32800 loss 1.26196, top1 70.46%, top5 91.44%
+2023-09-16 19:06:21,131 [INFO] bit_common: [step 32800]: loss=0.18830 (lr=1.0e-02)
+2023-09-16 19:07:26,435 [INFO] bit_common: Running validation...
+2023-09-16 19:07:32,876 [INFO] bit_common: Validation@33200 loss 1.27384, top1 70.22%, top5 91.23%
+2023-09-16 19:07:33,348 [INFO] bit_common: [step 33200]: loss=0.15891 (lr=1.0e-02)
+2023-09-16 19:08:38,564 [INFO] bit_common: Running validation...
+2023-09-16 19:08:45,207 [INFO] bit_common: Validation@33600 loss 1.30935, top1 69.80%, top5 91.05%
+2023-09-16 19:08:45,674 [INFO] bit_common: [step 33600]: loss=0.10206 (lr=1.0e-02)
+2023-09-16 19:09:51,199 [INFO] bit_common: Running validation...
+2023-09-16 19:09:58,038 [INFO] bit_common: Validation@34000 loss 1.35734, top1 68.60%, top5 90.57%
+2023-09-16 19:09:58,511 [INFO] bit_common: [step 34000]: loss=0.15242 (lr=1.0e-02)
+2023-09-16 19:11:04,146 [INFO] bit_common: Running validation...
+2023-09-16 19:11:11,042 [INFO] bit_common: Validation@34400 loss 1.24702, top1 70.81%, top5 91.66%
+2023-09-16 19:11:11,498 [INFO] bit_common: [step 34400]: loss=0.08850 (lr=1.0e-02)
+2023-09-16 19:12:17,237 [INFO] bit_common: Running validation...
+2023-09-16 19:12:23,934 [INFO] bit_common: Validation@34800 loss 1.28848, top1 69.82%, top5 91.10%
+2023-09-16 19:12:24,416 [INFO] bit_common: [step 34800]: loss=0.10587 (lr=1.0e-02)
+2023-09-16 19:13:30,243 [INFO] bit_common: Running validation...
+2023-09-16 19:13:36,828 [INFO] bit_common: Validation@35200 loss 1.31255, top1 69.94%, top5 91.15%
+2023-09-16 19:13:37,277 [INFO] bit_common: [step 35200]: loss=0.11968 (lr=1.0e-02)
+2023-09-16 19:14:43,073 [INFO] bit_common: Running validation...
+2023-09-16 19:14:49,743 [INFO] bit_common: Validation@35600 loss 1.31261, top1 69.81%, top5 90.73%
+2023-09-16 19:14:50,992 [INFO] bit_common: [step 35600]: loss=0.10490 (lr=1.0e-02)
+2023-09-16 19:15:56,638 [INFO] bit_common: Running validation...
+2023-09-16 19:16:03,927 [INFO] bit_common: Validation@36000 loss 1.25725, top1 70.33%, top5 91.46%
+2023-09-16 19:16:04,379 [INFO] bit_common: [step 36000]: loss=0.21692 (lr=1.0e-02)
+2023-09-16 19:17:11,513 [INFO] bit_common: Running validation...
+2023-09-16 19:17:18,731 [INFO] bit_common: Validation@36400 loss 1.26254, top1 70.41%, top5 91.49%
+2023-09-16 19:17:19,270 [INFO] bit_common: [step 36400]: loss=0.10808 (lr=1.0e-02)
+2023-09-16 19:18:24,760 [INFO] bit_common: Running validation...
+2023-09-16 19:18:31,502 [INFO] bit_common: Validation@36800 loss 1.31167, top1 69.25%, top5 90.97%
+2023-09-16 19:18:31,978 [INFO] bit_common: [step 36800]: loss=0.14142 (lr=1.0e-02)
+2023-09-16 19:19:37,773 [INFO] bit_common: Running validation...
+2023-09-16 19:19:44,511 [INFO] bit_common: Validation@37200 loss 1.38932, top1 68.18%, top5 90.41%
+2023-09-16 19:19:44,966 [INFO] bit_common: [step 37200]: loss=0.11906 (lr=1.0e-02)
+2023-09-16 19:20:50,657 [INFO] bit_common: Running validation...
+2023-09-16 19:20:57,437 [INFO] bit_common: Validation@37600 loss 1.35067, top1 68.82%, top5 90.49%
+2023-09-16 19:20:57,897 [INFO] bit_common: [step 37600]: loss=0.23124 (lr=1.0e-02)
+2023-09-16 19:22:03,519 [INFO] bit_common: Running validation...
+2023-09-16 19:22:10,225 [INFO] bit_common: Validation@38000 loss 1.35449, top1 68.51%, top5 90.51%
+2023-09-16 19:22:10,713 [INFO] bit_common: [step 38000]: loss=0.08435 (lr=1.0e-02)
+2023-09-16 19:23:16,221 [INFO] bit_common: Running validation...
+2023-09-16 19:23:22,977 [INFO] bit_common: Validation@38400 loss 1.40086, top1 68.10%, top5 89.91%
+2023-09-16 19:23:23,551 [INFO] bit_common: [step 38400]: loss=0.13230 (lr=1.0e-02)
+2023-09-16 19:24:29,044 [INFO] bit_common: Running validation...
+2023-09-16 19:24:35,799 [INFO] bit_common: Validation@38800 loss 1.34029, top1 68.88%, top5 90.76%
+2023-09-16 19:24:36,503 [INFO] bit_common: [step 38800]: loss=0.15732 (lr=1.0e-02)
+2023-09-16 19:25:41,935 [INFO] bit_common: Running validation...
+2023-09-16 19:25:48,792 [INFO] bit_common: Validation@39200 loss 1.26406, top1 70.18%, top5 91.36%
+2023-09-16 19:25:49,264 [INFO] bit_common: [step 39200]: loss=0.10015 (lr=1.0e-02)
+2023-09-16 19:26:54,744 [INFO] bit_common: Running validation...
+2023-09-16 19:27:01,596 [INFO] bit_common: Validation@39600 loss 1.34135, top1 69.13%, top5 90.74%
+2023-09-16 19:27:02,059 [INFO] bit_common: [step 39600]: loss=0.14076 (lr=1.0e-02)
+2023-09-16 19:28:07,447 [INFO] bit_common: Running validation...
+2023-09-16 19:28:14,236 [INFO] bit_common: Validation@40000 loss 1.37721, top1 68.05%, top5 90.30%
+2023-09-16 19:28:14,687 [INFO] bit_common: [step 40000]: loss=0.17158 (lr=1.0e-02)
+2023-09-16 19:29:20,160 [INFO] bit_common: Running validation...
+2023-09-16 19:29:26,850 [INFO] bit_common: Validation@40400 loss 1.30583, top1 69.65%, top5 90.67%
+2023-09-16 19:29:27,400 [INFO] bit_common: [step 40400]: loss=0.09576 (lr=1.0e-02)
+2023-09-16 19:30:32,999 [INFO] bit_common: Running validation...
+2023-09-16 19:30:39,827 [INFO] bit_common: Validation@40800 loss 1.30206, top1 69.45%, top5 91.11%
+2023-09-16 19:30:40,303 [INFO] bit_common: [step 40800]: loss=0.14449 (lr=1.0e-02)
+2023-09-16 19:31:45,663 [INFO] bit_common: Running validation...
+2023-09-16 19:31:52,478 [INFO] bit_common: Validation@41200 loss 1.30680, top1 69.53%, top5 90.68%
+2023-09-16 19:31:53,735 [INFO] bit_common: [step 41200]: loss=0.16940 (lr=1.0e-02)
+2023-09-16 19:32:59,429 [INFO] bit_common: Running validation...
+2023-09-16 19:33:06,310 [INFO] bit_common: Validation@41600 loss 1.30059, top1 69.80%, top5 91.05%
+2023-09-16 19:33:06,770 [INFO] bit_common: [step 41600]: loss=0.09665 (lr=1.0e-02)
+2023-09-16 19:34:12,495 [INFO] bit_common: Running validation...
+2023-09-16 19:34:19,198 [INFO] bit_common: Validation@42000 loss 1.38474, top1 68.42%, top5 90.10%
+2023-09-16 19:34:20,202 [INFO] bit_common: [step 42000]: loss=0.12695 (lr=1.0e-02)
+2023-09-16 19:35:25,788 [INFO] bit_common: Running validation...
+2023-09-16 19:35:32,298 [INFO] bit_common: Validation@42400 loss 1.29290, top1 70.04%, top5 91.37%
+2023-09-16 19:35:32,853 [INFO] bit_common: [step 42400]: loss=0.13912 (lr=1.0e-02)
+2023-09-16 19:36:38,624 [INFO] bit_common: Running validation...
+2023-09-16 19:36:45,190 [INFO] bit_common: Validation@42800 loss 1.38110, top1 68.95%, top5 89.90%
+2023-09-16 19:36:45,654 [INFO] bit_common: [step 42800]: loss=0.18716 (lr=1.0e-02)
+2023-09-16 19:37:51,379 [INFO] bit_common: Running validation...
+2023-09-16 19:37:57,941 [INFO] bit_common: Validation@43200 loss 1.34218, top1 69.50%, top5 90.61%
+2023-09-16 19:37:58,413 [INFO] bit_common: [step 43200]: loss=0.12003 (lr=1.0e-02)
+2023-09-16 19:39:04,043 [INFO] bit_common: Running validation...
+2023-09-16 19:39:10,749 [INFO] bit_common: Validation@43600 loss 1.38997, top1 67.75%, top5 90.11%
+2023-09-16 19:39:11,193 [INFO] bit_common: [step 43600]: loss=0.11651 (lr=1.0e-02)
+2023-09-16 19:40:16,614 [INFO] bit_common: Running validation...
+2023-09-16 19:40:23,206 [INFO] bit_common: Validation@44000 loss 1.35294, top1 69.23%, top5 90.38%
+2023-09-16 19:40:23,684 [INFO] bit_common: [step 44000]: loss=0.06651 (lr=1.0e-02)
+2023-09-16 19:41:29,279 [INFO] bit_common: Running validation...
+2023-09-16 19:41:35,786 [INFO] bit_common: Validation@44400 loss 1.35311, top1 69.02%, top5 90.43%
+2023-09-16 19:41:36,382 [INFO] bit_common: [step 44400]: loss=0.16138 (lr=1.0e-02)
+2023-09-16 19:42:41,840 [INFO] bit_common: Running validation...
+2023-09-16 19:42:48,281 [INFO] bit_common: Validation@44800 loss 1.41762, top1 67.59%, top5 89.99%
+2023-09-16 19:42:48,736 [INFO] bit_common: [step 44800]: loss=0.19734 (lr=1.0e-02)
+2023-09-16 19:43:54,016 [INFO] bit_common: Running validation...
+2023-09-16 19:44:00,581 [INFO] bit_common: Validation@45200 loss 1.28865, top1 69.59%, top5 91.07%
+2023-09-16 19:44:01,047 [INFO] bit_common: [step 45200]: loss=0.13785 (lr=1.0e-02)
+2023-09-16 19:45:06,589 [INFO] bit_common: Running validation...
+2023-09-16 19:45:13,214 [INFO] bit_common: Validation@45600 loss 1.27974, top1 69.52%, top5 91.20%
+2023-09-16 19:45:13,996 [INFO] bit_common: [step 45600]: loss=0.10576 (lr=1.0e-02)
+2023-09-16 19:46:19,394 [INFO] bit_common: Running validation...
+2023-09-16 19:46:26,121 [INFO] bit_common: Validation@46000 loss 1.34226, top1 69.17%, top5 90.35%
+2023-09-16 19:46:27,599 [INFO] bit_common: [step 46000]: loss=0.15557 (lr=1.0e-02)
+2023-09-16 19:47:32,941 [INFO] bit_common: Running validation...
+2023-09-16 19:47:39,545 [INFO] bit_common: Validation@46400 loss 1.34109, top1 68.97%, top5 90.86%
+2023-09-16 19:47:40,104 [INFO] bit_common: [step 46400]: loss=0.13876 (lr=1.0e-02)
+2023-09-16 19:48:45,581 [INFO] bit_common: Running validation...
+2023-09-16 19:48:52,268 [INFO] bit_common: Validation@46800 loss 1.40207, top1 68.48%, top5 90.03%
+2023-09-16 19:48:53,891 [INFO] bit_common: [step 46800]: loss=0.10107 (lr=1.0e-02)
+2023-09-16 19:49:59,294 [INFO] bit_common: Running validation...
+2023-09-16 19:50:06,059 [INFO] bit_common: Validation@47200 loss 1.35030, top1 68.78%, top5 90.79%
+2023-09-16 19:50:06,516 [INFO] bit_common: [step 47200]: loss=0.25077 (lr=1.0e-02)
+2023-09-16 19:51:11,986 [INFO] bit_common: Running validation...
+2023-09-16 19:51:18,697 [INFO] bit_common: Validation@47600 loss 1.40505, top1 67.62%, top5 89.93%
+2023-09-16 19:51:19,188 [INFO] bit_common: [step 47600]: loss=0.20298 (lr=1.0e-02)
+2023-09-16 19:52:24,877 [INFO] bit_common: Running validation...
+2023-09-16 19:52:31,745 [INFO] bit_common: Validation@48000 loss 1.42309, top1 67.17%, top5 89.80%
+2023-09-16 19:52:32,294 [INFO] bit_common: [step 48000]: loss=0.18078 (lr=1.0e-02)
+2023-09-16 19:53:38,116 [INFO] bit_common: Running validation...
+2023-09-16 19:53:45,024 [INFO] bit_common: Validation@48400 loss 1.19943, top1 72.08%, top5 92.41%
+2023-09-16 19:53:45,571 [INFO] bit_common: [step 48400]: loss=0.02486 (lr=1.0e-03)
+2023-09-16 19:54:51,359 [INFO] bit_common: Running validation...
+2023-09-16 19:54:58,208 [INFO] bit_common: Validation@48800 loss 1.22210, top1 72.43%, top5 92.36%
+2023-09-16 19:54:59,129 [INFO] bit_common: [step 48800]: loss=0.01119 (lr=1.0e-03)
+2023-09-16 19:56:05,053 [INFO] bit_common: Running validation...
+2023-09-16 19:56:11,854 [INFO] bit_common: Validation@49200 loss 1.22449, top1 72.56%, top5 92.31%
+2023-09-16 19:56:14,538 [INFO] bit_common: [step 49200]: loss=0.03178 (lr=1.0e-03)
+2023-09-16 19:57:20,049 [INFO] bit_common: Running validation...
+2023-09-16 19:57:26,765 [INFO] bit_common: Validation@49600 loss 1.22141, top1 72.98%, top5 92.49%
+2023-09-16 19:57:27,929 [INFO] bit_common: [step 49600]: loss=0.01225 (lr=1.0e-03)
+2023-09-16 19:58:33,637 [INFO] bit_common: Running validation...
+2023-09-16 19:58:40,447 [INFO] bit_common: Validation@50000 loss 1.22169, top1 73.02%, top5 92.35%
+2023-09-16 19:58:42,126 [INFO] bit_common: [step 50000]: loss=0.03541 (lr=1.0e-03)
+2023-09-16 19:59:47,581 [INFO] bit_common: Running validation...
+2023-09-16 19:59:54,400 [INFO] bit_common: Validation@50400 loss 1.22105, top1 73.14%, top5 92.36%
+2023-09-16 19:59:55,187 [INFO] bit_common: [step 50400]: loss=0.01487 (lr=1.0e-03)
+2023-09-16 20:01:00,795 [INFO] bit_common: Running validation...
+2023-09-16 20:01:07,600 [INFO] bit_common: Validation@50800 loss 1.22884, top1 73.09%, top5 92.14%
+2023-09-16 20:01:08,054 [INFO] bit_common: [step 50800]: loss=0.00925 (lr=1.0e-03)
+2023-09-16 20:02:13,617 [INFO] bit_common: Running validation...
+2023-09-16 20:02:20,555 [INFO] bit_common: Validation@51200 loss 1.23240, top1 73.17%, top5 92.27%
+2023-09-16 20:02:21,752 [INFO] bit_common: [step 51200]: loss=0.00584 (lr=1.0e-03)
+2023-09-16 20:03:27,116 [INFO] bit_common: Running validation...
+2023-09-16 20:03:33,887 [INFO] bit_common: Validation@51600 loss 1.24222, top1 72.91%, top5 92.19%
+2023-09-16 20:03:34,522 [INFO] bit_common: [step 51600]: loss=0.01554 (lr=1.0e-03)
+2023-09-16 20:04:40,009 [INFO] bit_common: Running validation...
+2023-09-16 20:04:46,780 [INFO] bit_common: Validation@52000 loss 1.24484, top1 72.94%, top5 92.28%
+2023-09-16 20:04:47,238 [INFO] bit_common: [step 52000]: loss=0.00637 (lr=1.0e-03)
+2023-09-16 20:05:52,494 [INFO] bit_common: Running validation...
+2023-09-16 20:05:59,255 [INFO] bit_common: Validation@52400 loss 1.24277, top1 72.90%, top5 92.29%
+2023-09-16 20:06:00,354 [INFO] bit_common: [step 52400]: loss=0.01454 (lr=1.0e-03)
+2023-09-16 20:07:05,389 [INFO] bit_common: Running validation...
+2023-09-16 20:07:12,147 [INFO] bit_common: Validation@52800 loss 1.25408, top1 73.23%, top5 92.31%
+2023-09-16 20:07:12,961 [INFO] bit_common: [step 52800]: loss=0.00543 (lr=1.0e-03)
+2023-09-16 20:08:18,252 [INFO] bit_common: Running validation...
+2023-09-16 20:08:25,097 [INFO] bit_common: Validation@53200 loss 1.24799, top1 72.92%, top5 92.24%
+2023-09-16 20:08:25,556 [INFO] bit_common: [step 53200]: loss=0.00453 (lr=1.0e-03)
+2023-09-16 20:08:37,101 [INFO] bit_common: Namespace(base_lr=0.1, batch=128, batch_split=1, bit_pretrained_dir='.', datadir='../data', dataset='cifar100', eval_every=400, examples_per_class=None, examples_per_class_seed=0, logdir='../log', loss='baseline', model='BiT-M-R50x1', name='SOFTMAX', save=False, seed=0, workers=8)
+2023-09-16 20:08:37,157 [INFO] bit_common: Going to train on cuda:0
+2023-09-16 20:08:38,911 [INFO] bit_common: Using a training set with 50000 images.
+2023-09-16 20:08:38,912 [INFO] bit_common: Using a validation set with 10000 images.
+2023-09-16 20:08:39,123 [INFO] bit_common: Training from Scratch ###############################
+2023-09-16 20:08:39,124 [INFO] bit_common: Moving model onto all GPUs
+2023-09-16 20:08:40,570 [INFO] bit_common: Model will be saved in '../log/SOFTMAX/bit.pth.tar'
+2023-09-16 20:08:40,672 [INFO] bit_common: Found saved model to resume from at '../log/SOFTMAX/bit.pth.tar'
+2023-09-16 20:08:40,779 [INFO] bit_common: Resumed at step 53200
+2023-09-16 20:08:40,804 [INFO] bit_common: Starting training!
+2023-09-16 20:09:31,167 [INFO] bit_common: Running validation...
+2023-09-16 20:09:38,062 [INFO] bit_common: Validation@53600 loss 1.24888, top1 73.22%, top5 92.13%
+2023-09-16 20:09:38,513 [INFO] bit_common: [step 53600]: loss=0.00718 (lr=1.0e-03)
+2023-09-16 20:10:45,431 [INFO] bit_common: Running validation...
+2023-09-16 20:10:52,403 [INFO] bit_common: Validation@54000 loss 1.24436, top1 73.43%, top5 92.40%
+2023-09-16 20:10:53,281 [INFO] bit_common: [step 54000]: loss=0.00345 (lr=1.0e-03)
+2023-09-16 20:11:58,908 [INFO] bit_common: Running validation...
+2023-09-16 20:12:05,709 [INFO] bit_common: Validation@54400 loss 1.26270, top1 72.90%, top5 92.13%
+2023-09-16 20:12:06,236 [INFO] bit_common: [step 54400]: loss=0.00479 (lr=1.0e-03)
+2023-09-16 20:13:11,780 [INFO] bit_common: Running validation...
+2023-09-16 20:13:18,592 [INFO] bit_common: Validation@54800 loss 1.25404, top1 73.05%, top5 92.15%
+2023-09-16 20:13:19,568 [INFO] bit_common: [step 54800]: loss=0.01506 (lr=1.0e-03)
+2023-09-16 20:14:25,319 [INFO] bit_common: Running validation...
+2023-09-16 20:14:32,059 [INFO] bit_common: Validation@55200 loss 1.26612, top1 72.82%, top5 92.25%
+2023-09-16 20:14:32,504 [INFO] bit_common: [step 55200]: loss=0.00621 (lr=1.0e-03)
+2023-09-16 20:15:38,096 [INFO] bit_common: Running validation...
+2023-09-16 20:15:40,207 [INFO] bit_common: [step 53200]: loss=0.00549 (lr=1.0e-03)
+2023-09-16 20:15:51,440 [INFO] bit_common: Validation@55600 loss 1.25746, top1 73.16%, top5 92.26%
+2023-09-16 20:15:51,909 [INFO] bit_common: [step 55600]: loss=0.00517 (lr=1.0e-03)
+2023-09-16 20:17:10,217 [INFO] bit_common: Running validation...
+2023-09-16 20:17:19,456 [INFO] bit_common: Validation@56000 loss 1.26870, top1 73.05%, top5 92.05%
+2023-09-16 20:17:19,915 [INFO] bit_common: [step 56000]: loss=0.00447 (lr=1.0e-03)
+2023-09-16 20:17:21,665 [INFO] bit_common: Running validation...
+2023-09-16 20:17:40,205 [INFO] bit_common: Validation@53600 loss 1.24710, top1 73.32%, top5 92.42%
+2023-09-16 20:17:42,341 [INFO] bit_common: [step 53600]: loss=0.01608 (lr=1.0e-03)
+2023-09-16 20:18:33,752 [INFO] bit_common: Running validation...
+2023-09-16 20:18:48,559 [INFO] bit_common: Validation@56400 loss 1.27295, top1 73.03%, top5 92.15%
+2023-09-16 20:18:49,014 [INFO] bit_common: [step 56400]: loss=0.00187 (lr=1.0e-03)
+2023-09-16 20:19:19,672 [INFO] bit_common: Running validation...
+2023-09-16 20:19:38,052 [INFO] bit_common: Validation@54000 loss 1.25113, top1 73.03%, top5 92.36%
+2023-09-16 20:19:38,577 [INFO] bit_common: [step 54000]: loss=0.00391 (lr=1.0e-03)
+2023-09-16 20:20:02,326 [INFO] bit_common: Running validation...
+2023-09-16 20:20:17,085 [INFO] bit_common: Validation@56800 loss 1.26652, top1 73.23%, top5 92.06%
+2023-09-16 20:20:17,821 [INFO] bit_common: [step 56800]: loss=0.00632 (lr=1.0e-03)
+2023-09-16 20:21:15,632 [INFO] bit_common: Running validation...
+2023-09-16 20:21:33,185 [INFO] bit_common: Running validation...
+2023-09-16 20:21:34,118 [INFO] bit_common: Validation@54400 loss 1.27093, top1 72.74%, top5 92.13%
+2023-09-16 20:21:34,746 [INFO] bit_common: [step 54400]: loss=0.01563 (lr=1.0e-03)
+2023-09-16 20:21:45,792 [INFO] bit_common: Validation@57200 loss 1.27685, top1 72.94%, top5 92.09%
+2023-09-16 20:21:46,841 [INFO] bit_common: [step 57200]: loss=0.00744 (lr=1.0e-03)
+2023-09-16 20:22:03,398 [INFO] bit_common: Namespace(base_lr=0.1, batch=128, batch_split=1, bit_pretrained_dir='.', datadir='../data', dataset='cifar100', eval_every=400, examples_per_class=None, examples_per_class_seed=0, logdir='../log', loss='baseline', model='BiT-M-R50x1', name='SOFTMAX', save=False, seed=0, workers=8)
+2023-09-16 20:22:03,456 [INFO] bit_common: Going to train on cuda:0
+2023-09-16 20:22:05,275 [INFO] bit_common: Using a training set with 50000 images.
+2023-09-16 20:22:05,275 [INFO] bit_common: Using a validation set with 10000 images.
+2023-09-16 20:22:05,487 [INFO] bit_common: Training from Scratch ###############################
+2023-09-16 20:22:05,487 [INFO] bit_common: Moving model onto all GPUs
+2023-09-16 20:22:06,963 [INFO] bit_common: Model will be saved in '../log/SOFTMAX/bit.pth.tar'
+2023-09-16 20:22:07,070 [INFO] bit_common: Found saved model to resume from at '../log/SOFTMAX/bit.pth.tar'
+2023-09-16 20:22:07,179 [INFO] bit_common: Resumed at step 57200
+2023-09-16 20:22:07,204 [INFO] bit_common: Starting training!
+2023-09-16 20:22:52,222 [INFO] bit_common: Running validation...
+2023-09-16 20:22:59,076 [INFO] bit_common: Validation@57600 loss 1.27710, top1 73.00%, top5 92.17%
+2023-09-16 20:22:59,569 [INFO] bit_common: [step 57600]: loss=0.00217 (lr=1.0e-03)
+2023-09-16 20:24:05,207 [INFO] bit_common: Running validation...
+2023-09-16 20:24:12,006 [INFO] bit_common: Validation@58000 loss 1.27462, top1 73.14%, top5 92.13%
+2023-09-16 20:24:13,244 [INFO] bit_common: [step 58000]: loss=0.00405 (lr=1.0e-03)
+2023-09-16 20:25:18,634 [INFO] bit_common: Running validation...
+2023-09-16 20:25:25,418 [INFO] bit_common: Validation@58400 loss 1.26969, top1 73.15%, top5 92.17%
+2023-09-16 20:25:25,885 [INFO] bit_common: [step 58400]: loss=0.00621 (lr=1.0e-03)
+2023-09-16 20:26:31,242 [INFO] bit_common: Running validation...
+2023-09-16 20:26:37,960 [INFO] bit_common: Validation@58800 loss 1.27419, top1 73.12%, top5 92.07%
+2023-09-16 20:26:38,436 [INFO] bit_common: [step 58800]: loss=0.00336 (lr=1.0e-03)
+2023-09-16 20:27:44,043 [INFO] bit_common: Running validation...
+2023-09-16 20:27:50,837 [INFO] bit_common: Validation@59200 loss 1.28347, top1 73.00%, top5 91.94%
+2023-09-16 20:27:51,336 [INFO] bit_common: [step 59200]: loss=0.00151 (lr=1.0e-03)
+2023-09-16 20:28:56,784 [INFO] bit_common: Running validation...
+2023-09-16 20:29:03,685 [INFO] bit_common: Validation@59600 loss 1.28249, top1 73.01%, top5 91.95%
+2023-09-16 20:29:04,136 [INFO] bit_common: [step 59600]: loss=0.00326 (lr=1.0e-03)
+2023-09-16 20:30:09,717 [INFO] bit_common: Running validation...
+2023-09-16 20:30:16,495 [INFO] bit_common: Validation@60000 loss 1.27799, top1 72.88%, top5 92.11%
+2023-09-16 20:30:17,049 [INFO] bit_common: [step 60000]: loss=0.00326 (lr=1.0e-03)
+2023-09-16 20:31:22,694 [INFO] bit_common: Running validation...
+2023-09-16 20:31:29,432 [INFO] bit_common: Validation@60400 loss 1.27622, top1 73.13%, top5 92.11%
+2023-09-16 20:31:30,135 [INFO] bit_common: [step 60400]: loss=0.00568 (lr=1.0e-03)
+2023-09-16 20:32:35,841 [INFO] bit_common: Running validation...
+2023-09-16 20:32:42,647 [INFO] bit_common: Validation@60800 loss 1.27501, top1 73.12%, top5 91.93%
+2023-09-16 20:32:43,105 [INFO] bit_common: [step 60800]: loss=0.00229 (lr=1.0e-03)
+2023-09-16 20:33:48,928 [INFO] bit_common: Running validation...
+2023-09-16 20:33:55,716 [INFO] bit_common: Validation@61200 loss 1.28147, top1 73.19%, top5 91.99%
+2023-09-16 20:33:56,745 [INFO] bit_common: [step 61200]: loss=0.00264 (lr=1.0e-03)
+2023-09-16 20:35:02,344 [INFO] bit_common: Running validation...
+2023-09-16 20:35:09,365 [INFO] bit_common: Validation@61600 loss 1.28518, top1 73.11%, top5 91.98%
+2023-09-16 20:35:09,822 [INFO] bit_common: [step 61600]: loss=0.00650 (lr=1.0e-03)
+2023-09-16 20:36:15,186 [INFO] bit_common: Running validation...
+2023-09-16 20:36:21,922 [INFO] bit_common: Validation@62000 loss 1.29328, top1 72.86%, top5 91.76%
+2023-09-16 20:36:22,476 [INFO] bit_common: [step 62000]: loss=0.00225 (lr=1.0e-03)
+2023-09-16 20:37:28,027 [INFO] bit_common: Running validation...
+2023-09-16 20:37:34,858 [INFO] bit_common: Validation@62400 loss 1.28895, top1 72.75%, top5 91.95%
+2023-09-16 20:37:36,556 [INFO] bit_common: [step 62400]: loss=0.00300 (lr=1.0e-03)
+2023-09-16 20:38:42,010 [INFO] bit_common: Running validation...
+2023-09-16 20:38:48,832 [INFO] bit_common: Validation@62800 loss 1.28142, top1 73.00%, top5 91.91%
+2023-09-16 20:38:49,309 [INFO] bit_common: [step 62800]: loss=0.00371 (lr=1.0e-03)
+2023-09-16 20:39:54,849 [INFO] bit_common: Running validation...
+2023-09-16 20:40:01,622 [INFO] bit_common: Validation@63200 loss 1.28302, top1 73.03%, top5 92.08%
+2023-09-16 20:40:02,227 [INFO] bit_common: [step 63200]: loss=0.00406 (lr=1.0e-03)
+2023-09-16 20:41:07,721 [INFO] bit_common: Running validation...
+2023-09-16 20:41:14,480 [INFO] bit_common: Validation@63600 loss 1.28482, top1 72.95%, top5 92.10%
+2023-09-16 20:41:14,956 [INFO] bit_common: [step 63600]: loss=0.00462 (lr=1.0e-03)
+2023-09-16 20:42:20,387 [INFO] bit_common: Running validation...
+2023-09-16 20:42:27,227 [INFO] bit_common: Validation@64000 loss 1.29113, top1 72.88%, top5 91.90%
+2023-09-16 20:42:27,781 [INFO] bit_common: [step 64000]: loss=0.00231 (lr=1.0e-03)
+2023-09-16 20:43:32,934 [INFO] bit_common: Running validation...
+2023-09-16 20:43:39,717 [INFO] bit_common: Validation@64400 loss 1.28208, top1 72.92%, top5 92.05%
+2023-09-16 20:43:40,218 [INFO] bit_common: [step 64400]: loss=0.00163 (lr=1.0e-03)
+2023-09-16 20:44:45,590 [INFO] bit_common: Running validation...
+2023-09-16 20:44:52,326 [INFO] bit_common: Validation@64800 loss 1.28822, top1 72.89%, top5 92.11%
+2023-09-16 20:44:52,917 [INFO] bit_common: [step 64800]: loss=0.00248 (lr=1.0e-03)
+2023-09-16 20:45:58,297 [INFO] bit_common: Running validation...
+2023-09-16 20:46:05,240 [INFO] bit_common: Validation@65200 loss 1.28737, top1 72.96%, top5 91.99%
+2023-09-16 20:46:05,708 [INFO] bit_common: [step 65200]: loss=0.00328 (lr=1.0e-03)
+2023-09-16 20:47:11,194 [INFO] bit_common: Running validation...
+2023-09-16 20:47:18,213 [INFO] bit_common: Validation@65600 loss 1.28138, top1 73.06%, top5 92.06%
+2023-09-16 20:47:18,690 [INFO] bit_common: [step 65600]: loss=0.00210 (lr=1.0e-03)
+2023-09-16 20:48:24,219 [INFO] bit_common: Running validation...
+2023-09-16 20:48:30,844 [INFO] bit_common: Validation@66000 loss 1.28206, top1 72.96%, top5 92.06%
+2023-09-16 20:48:31,312 [INFO] bit_common: [step 66000]: loss=0.00175 (lr=1.0e-03)
+2023-09-16 20:49:36,948 [INFO] bit_common: Running validation...
+2023-09-16 20:49:43,595 [INFO] bit_common: Validation@66400 loss 1.28951, top1 72.89%, top5 91.87%
+2023-09-16 20:49:44,045 [INFO] bit_common: [step 66400]: loss=0.00248 (lr=1.0e-03)
+2023-09-16 20:50:49,635 [INFO] bit_common: Running validation...
+2023-09-16 20:50:56,309 [INFO] bit_common: Validation@66800 loss 1.28232, top1 73.03%, top5 92.02%
+2023-09-16 20:50:56,761 [INFO] bit_common: [step 66800]: loss=0.00256 (lr=1.0e-03)
+2023-09-16 20:52:02,495 [INFO] bit_common: Running validation...
+2023-09-16 20:52:09,343 [INFO] bit_common: Validation@67200 loss 1.27899, top1 73.05%, top5 92.06%
+2023-09-16 20:52:09,800 [INFO] bit_common: [step 67200]: loss=0.00132 (lr=1.0e-03)
+2023-09-16 20:53:15,478 [INFO] bit_common: Running validation...
+2023-09-16 20:53:22,389 [INFO] bit_common: Validation@67600 loss 1.27299, top1 73.18%, top5 92.20%
+2023-09-16 20:53:22,894 [INFO] bit_common: [step 67600]: loss=0.00233 (lr=1.0e-03)
+2023-09-16 20:54:28,633 [INFO] bit_common: Running validation...
+2023-09-16 20:54:35,520 [INFO] bit_common: Validation@68000 loss 1.27708, top1 73.12%, top5 92.11%
+2023-09-16 20:54:36,002 [INFO] bit_common: [step 68000]: loss=0.00224 (lr=1.0e-03)
+2023-09-16 20:55:41,486 [INFO] bit_common: Running validation...
+2023-09-16 20:55:48,688 [INFO] bit_common: Validation@68400 loss 1.28102, top1 73.04%, top5 92.04%
+2023-09-16 20:55:49,153 [INFO] bit_common: [step 68400]: loss=0.00568 (lr=1.0e-03)
+2023-09-16 20:56:54,583 [INFO] bit_common: Running validation...
+2023-09-16 20:57:01,144 [INFO] bit_common: Validation@68800 loss 1.27530, top1 73.15%, top5 92.09%
+2023-09-16 20:57:01,628 [INFO] bit_common: [step 68800]: loss=0.00277 (lr=1.0e-03)
+2023-09-16 20:58:07,102 [INFO] bit_common: Running validation...
+2023-09-16 20:58:13,801 [INFO] bit_common: Validation@69200 loss 1.28180, top1 73.13%, top5 91.97%
+2023-09-16 20:58:14,249 [INFO] bit_common: [step 69200]: loss=0.00179 (lr=1.0e-03)
+2023-09-16 20:59:19,533 [INFO] bit_common: Running validation...
+2023-09-16 20:59:26,203 [INFO] bit_common: Validation@69600 loss 1.27688, top1 73.10%, top5 92.02%
+2023-09-16 20:59:26,665 [INFO] bit_common: [step 69600]: loss=0.01310 (lr=1.0e-03)
+2023-09-16 21:00:31,946 [INFO] bit_common: Running validation...
+2023-09-16 21:00:38,532 [INFO] bit_common: Validation@70000 loss 1.27581, top1 72.89%, top5 92.12%
+2023-09-16 21:00:38,989 [INFO] bit_common: [step 70000]: loss=0.00281 (lr=1.0e-03)
+2023-09-16 21:01:44,197 [INFO] bit_common: Running validation...
+2023-09-16 21:01:51,477 [INFO] bit_common: Validation@70400 loss 1.27519, top1 73.10%, top5 92.03%
+2023-09-16 21:01:51,939 [INFO] bit_common: [step 70400]: loss=0.00433 (lr=1.0e-03)
+2023-09-16 21:02:57,275 [INFO] bit_common: Running validation...
+2023-09-16 21:03:03,926 [INFO] bit_common: Validation@70800 loss 1.27749, top1 73.15%, top5 92.06%
+2023-09-16 21:03:04,378 [INFO] bit_common: [step 70800]: loss=0.00150 (lr=1.0e-03)
+2023-09-16 21:04:11,122 [INFO] bit_common: Running validation...
+2023-09-16 21:04:18,337 [INFO] bit_common: Validation@71200 loss 1.27692, top1 73.10%, top5 92.14%
+2023-09-16 21:04:18,785 [INFO] bit_common: [step 71200]: loss=0.00140 (lr=1.0e-03)
+2023-09-16 21:05:24,234 [INFO] bit_common: Running validation...
+2023-09-16 21:05:30,913 [INFO] bit_common: Validation@71600 loss 1.28365, top1 72.96%, top5 92.10%
+2023-09-16 21:05:31,404 [INFO] bit_common: [step 71600]: loss=0.00626 (lr=1.0e-03)
+2023-09-16 21:06:37,056 [INFO] bit_common: Running validation...
+2023-09-16 21:06:43,827 [INFO] bit_common: Validation@72000 loss 1.27297, top1 73.31%, top5 92.08%
+2023-09-16 21:06:44,290 [INFO] bit_common: [step 72000]: loss=0.00206 (lr=1.0e-03)
+2023-09-16 21:07:50,038 [INFO] bit_common: Running validation...
+2023-09-16 21:07:56,658 [INFO] bit_common: Validation@72400 loss 1.27216, top1 73.34%, top5 92.08%
+2023-09-16 21:07:57,116 [INFO] bit_common: [step 72400]: loss=0.00315 (lr=1.0e-04)
+2023-09-16 21:09:02,692 [INFO] bit_common: Running validation...
+2023-09-16 21:09:09,339 [INFO] bit_common: Validation@72800 loss 1.27349, top1 73.27%, top5 92.07%
+2023-09-16 21:09:09,801 [INFO] bit_common: [step 72800]: loss=0.00266 (lr=1.0e-04)
+2023-09-16 21:10:15,482 [INFO] bit_common: Running validation...
+2023-09-16 21:10:22,353 [INFO] bit_common: Validation@73200 loss 1.27514, top1 73.23%, top5 92.07%
+2023-09-16 21:10:22,805 [INFO] bit_common: [step 73200]: loss=0.01151 (lr=1.0e-04)
+2023-09-16 21:11:28,358 [INFO] bit_common: Running validation...
+2023-09-16 21:11:35,091 [INFO] bit_common: Validation@73600 loss 1.27604, top1 73.18%, top5 92.05%
+2023-09-16 21:11:35,567 [INFO] bit_common: [step 73600]: loss=0.00123 (lr=1.0e-04)
+2023-09-16 21:12:41,022 [INFO] bit_common: Running validation...
+2023-09-16 21:12:47,728 [INFO] bit_common: Validation@74000 loss 1.27423, top1 73.30%, top5 92.13%
+2023-09-16 21:12:48,195 [INFO] bit_common: [step 74000]: loss=0.00300 (lr=1.0e-04)
+2023-09-16 21:13:53,642 [INFO] bit_common: Running validation...
+2023-09-16 21:14:00,373 [INFO] bit_common: Validation@74400 loss 1.27523, top1 73.22%, top5 92.09%
+2023-09-16 21:14:00,832 [INFO] bit_common: [step 74400]: loss=0.00246 (lr=1.0e-04)
+2023-09-16 21:15:06,150 [INFO] bit_common: Running validation...
+2023-09-16 21:15:12,899 [INFO] bit_common: Validation@74800 loss 1.27521, top1 73.21%, top5 92.08%
+2023-09-16 21:15:13,363 [INFO] bit_common: [step 74800]: loss=0.00163 (lr=1.0e-04)
+2023-09-16 21:16:18,816 [INFO] bit_common: Running validation...
+2023-09-16 21:16:25,717 [INFO] bit_common: Validation@75200 loss 1.27576, top1 73.10%, top5 92.06%
+2023-09-16 21:16:26,198 [INFO] bit_common: [step 75200]: loss=0.00243 (lr=1.0e-04)
+2023-09-16 21:17:31,413 [INFO] bit_common: Running validation...
+2023-09-16 21:17:38,113 [INFO] bit_common: Validation@75600 loss 1.27658, top1 73.10%, top5 92.10%
+2023-09-16 21:17:38,595 [INFO] bit_common: [step 75600]: loss=0.01352 (lr=1.0e-04)
+2023-09-16 21:18:43,891 [INFO] bit_common: Running validation...
+2023-09-16 21:18:50,610 [INFO] bit_common: Validation@76000 loss 1.27557, top1 73.08%, top5 92.10%
+2023-09-16 21:18:51,059 [INFO] bit_common: [step 76000]: loss=0.00182 (lr=1.0e-04)
+2023-09-16 21:19:56,444 [INFO] bit_common: Running validation...
+2023-09-16 21:20:03,105 [INFO] bit_common: Validation@76400 loss 1.27469, top1 73.16%, top5 92.13%
+2023-09-16 21:20:03,558 [INFO] bit_common: [step 76400]: loss=0.00241 (lr=1.0e-04)
+2023-09-16 21:21:09,084 [INFO] bit_common: Running validation...
+2023-09-16 21:21:15,654 [INFO] bit_common: Validation@76800 loss 1.27449, top1 73.16%, top5 92.08%
+2023-09-16 21:21:16,105 [INFO] bit_common: [step 76800]: loss=0.00349 (lr=1.0e-04)
+2023-09-16 21:22:21,548 [INFO] bit_common: Running validation...
+2023-09-16 21:22:28,247 [INFO] bit_common: Validation@77200 loss 1.27523, top1 73.07%, top5 92.07%
+2023-09-16 21:22:28,695 [INFO] bit_common: [step 77200]: loss=0.00228 (lr=1.0e-04)
+2023-09-16 21:23:34,311 [INFO] bit_common: Running validation...
+2023-09-16 21:23:41,042 [INFO] bit_common: Validation@77600 loss 1.27415, top1 73.07%, top5 92.07%
+2023-09-16 21:23:41,517 [INFO] bit_common: [step 77600]: loss=0.00173 (lr=1.0e-04)
+2023-09-16 21:24:47,360 [INFO] bit_common: Running validation...
+2023-09-16 21:24:54,121 [INFO] bit_common: Validation@78000 loss 1.27768, top1 73.03%, top5 92.04%
+2023-09-16 21:24:54,586 [INFO] bit_common: [step 78000]: loss=0.00350 (lr=1.0e-04)
+2023-09-16 21:26:00,337 [INFO] bit_common: Running validation...
+2023-09-16 21:26:07,042 [INFO] bit_common: Validation@78400 loss 1.27600, top1 73.04%, top5 92.02%
+2023-09-16 21:26:07,494 [INFO] bit_common: [step 78400]: loss=0.00362 (lr=1.0e-04)
+2023-09-16 21:27:13,282 [INFO] bit_common: Running validation...
+2023-09-16 21:27:19,861 [INFO] bit_common: Validation@78800 loss 1.27869, top1 72.94%, top5 91.99%
+2023-09-16 21:27:20,321 [INFO] bit_common: [step 78800]: loss=0.00424 (lr=1.0e-04)
+2023-09-16 21:28:26,076 [INFO] bit_common: Running validation...
+2023-09-16 21:28:32,943 [INFO] bit_common: Validation@79200 loss 1.27777, top1 73.10%, top5 91.99%
+2023-09-16 21:28:33,397 [INFO] bit_common: [step 79200]: loss=0.00180 (lr=1.0e-04)
+2023-09-16 21:29:39,239 [INFO] bit_common: Running validation...
+2023-09-16 21:29:46,004 [INFO] bit_common: Validation@79600 loss 1.27797, top1 73.05%, top5 92.02%
+2023-09-16 21:29:46,535 [INFO] bit_common: [step 79600]: loss=0.00273 (lr=1.0e-04)
+2023-09-16 21:30:52,226 [INFO] bit_common: Running validation...
+2023-09-16 21:30:58,868 [INFO] bit_common: Validation@80000 loss 1.27686, top1 73.09%, top5 92.02%
+2023-09-16 21:30:59,340 [INFO] bit_common: [step 80000]: loss=0.00199 (lr=1.0e-04)
+2023-09-16 21:32:05,381 [INFO] bit_common: Running validation...
+2023-09-16 21:32:12,074 [INFO] bit_common: Validation@80400 loss 1.27547, top1 73.14%, top5 92.05%
+2023-09-16 21:32:12,542 [INFO] bit_common: [step 80400]: loss=0.00231 (lr=1.0e-04)
+2023-09-16 21:33:18,268 [INFO] bit_common: Running validation...
+2023-09-16 21:33:24,876 [INFO] bit_common: Validation@80800 loss 1.27834, top1 73.11%, top5 92.06%
+2023-09-16 21:33:25,326 [INFO] bit_common: [step 80800]: loss=0.00168 (lr=1.0e-04)
+2023-09-16 21:34:30,906 [INFO] bit_common: Running validation...
+2023-09-16 21:34:37,728 [INFO] bit_common: Validation@81200 loss 1.27741, top1 73.07%, top5 92.07%
+2023-09-16 21:34:38,201 [INFO] bit_common: [step 81200]: loss=0.00156 (lr=1.0e-04)
+2023-09-16 21:35:43,726 [INFO] bit_common: Running validation...
+2023-09-16 21:35:50,339 [INFO] bit_common: Validation@81600 loss 1.27588, top1 73.09%, top5 92.07%
+2023-09-16 21:35:50,909 [INFO] bit_common: [step 81600]: loss=0.00183 (lr=1.0e-04)
+2023-09-16 21:36:56,318 [INFO] bit_common: Running validation...
+2023-09-16 21:37:02,837 [INFO] bit_common: Validation@82000 loss 1.27725, top1 73.08%, top5 92.06%
+2023-09-16 21:37:03,293 [INFO] bit_common: [step 82000]: loss=0.00208 (lr=1.0e-04)
+2023-09-16 21:38:08,873 [INFO] bit_common: Running validation...
+2023-09-16 21:38:15,419 [INFO] bit_common: Validation@82400 loss 1.27897, top1 73.04%, top5 92.11%
+2023-09-16 21:38:15,915 [INFO] bit_common: [step 82400]: loss=0.01199 (lr=1.0e-04)
+2023-09-16 21:39:21,539 [INFO] bit_common: Running validation...
+2023-09-16 21:39:28,133 [INFO] bit_common: Validation@82800 loss 1.28014, top1 72.96%, top5 92.02%
+2023-09-16 21:39:28,579 [INFO] bit_common: [step 82800]: loss=0.00182 (lr=1.0e-04)
+2023-09-16 21:40:34,159 [INFO] bit_common: Running validation...
+2023-09-16 21:40:40,924 [INFO] bit_common: Validation@83200 loss 1.27861, top1 73.01%, top5 92.03%
+2023-09-16 21:40:41,390 [INFO] bit_common: [step 83200]: loss=0.00121 (lr=1.0e-04)
+2023-09-16 21:41:47,010 [INFO] bit_common: Running validation...
+2023-09-16 21:41:53,731 [INFO] bit_common: Validation@83600 loss 1.27708, top1 73.02%, top5 92.09%
+2023-09-16 21:41:54,311 [INFO] bit_common: [step 83600]: loss=0.00245 (lr=1.0e-04)
+2023-09-16 21:42:59,856 [INFO] bit_common: Running validation...
+2023-09-16 21:43:06,430 [INFO] bit_common: Validation@84000 loss 1.27902, top1 72.96%, top5 92.11%
+2023-09-16 21:43:06,912 [INFO] bit_common: [step 84000]: loss=0.00173 (lr=1.0e-04)
+2023-09-16 21:44:12,429 [INFO] bit_common: Running validation...
+2023-09-16 21:44:18,924 [INFO] bit_common: Validation@84400 loss 1.27844, top1 72.92%, top5 92.06%
+2023-09-16 21:44:19,384 [INFO] bit_common: [step 84400]: loss=0.00443 (lr=1.0e-04)
+2023-09-16 21:45:24,916 [INFO] bit_common: Running validation...
+2023-09-16 21:45:31,589 [INFO] bit_common: Validation@84800 loss 1.27892, top1 72.93%, top5 92.06%
+2023-09-16 21:45:32,054 [INFO] bit_common: [step 84800]: loss=0.00197 (lr=1.0e-04)
+2023-09-16 21:46:37,576 [INFO] bit_common: Running validation...
+2023-09-16 21:46:44,241 [INFO] bit_common: Validation@85200 loss 1.27847, top1 72.90%, top5 92.07%
+2023-09-16 21:46:44,689 [INFO] bit_common: [step 85200]: loss=0.00659 (lr=1.0e-04)
+2023-09-16 21:47:49,996 [INFO] bit_common: Running validation...
+2023-09-16 21:47:56,689 [INFO] bit_common: Validation@85600 loss 1.27723, top1 72.91%, top5 92.08%
+2023-09-16 21:47:57,144 [INFO] bit_common: [step 85600]: loss=0.00233 (lr=1.0e-04)
+2023-09-16 21:49:02,816 [INFO] bit_common: Running validation...
+2023-09-16 21:49:09,335 [INFO] bit_common: Validation@86000 loss 1.27533, top1 72.98%, top5 92.05%
+2023-09-16 21:49:09,789 [INFO] bit_common: [step 86000]: loss=0.00249 (lr=1.0e-04)
+2023-09-16 21:50:15,132 [INFO] bit_common: Running validation...
+2023-09-16 21:50:21,699 [INFO] bit_common: Validation@86400 loss 1.27504, top1 73.00%, top5 92.09%
+2023-09-16 21:50:22,149 [INFO] bit_common: [step 86400]: loss=0.00227 (lr=1.0e-04)
+2023-09-16 21:51:27,640 [INFO] bit_common: Running validation...
+2023-09-16 21:51:34,501 [INFO] bit_common: Validation@86800 loss 1.27699, top1 73.03%, top5 92.05%
+2023-09-16 21:51:34,956 [INFO] bit_common: [step 86800]: loss=0.00307 (lr=1.0e-04)
+2023-09-16 21:52:40,345 [INFO] bit_common: Running validation...
+2023-09-16 21:52:46,999 [INFO] bit_common: Validation@87200 loss 1.27675, top1 73.02%, top5 92.03%
+2023-09-16 21:52:47,452 [INFO] bit_common: [step 87200]: loss=0.00172 (lr=1.0e-04)
+2023-09-16 21:53:52,796 [INFO] bit_common: Running validation...
+2023-09-16 21:53:59,311 [INFO] bit_common: Validation@87600 loss 1.27767, top1 72.97%, top5 92.05%
+2023-09-16 21:53:59,762 [INFO] bit_common: [step 87600]: loss=0.00165 (lr=1.0e-04)
+2023-09-16 21:55:05,179 [INFO] bit_common: Running validation...
+2023-09-16 21:55:11,833 [INFO] bit_common: Validation@88000 loss 1.27894, top1 72.93%, top5 92.07%
+2023-09-16 21:55:12,320 [INFO] bit_common: [step 88000]: loss=0.00198 (lr=1.0e-04)
+2023-09-16 21:56:17,742 [INFO] bit_common: Running validation...
+2023-09-16 21:56:24,416 [INFO] bit_common: Validation@88400 loss 1.27876, top1 72.96%, top5 92.07%
+2023-09-16 21:56:24,881 [INFO] bit_common: [step 88400]: loss=0.00299 (lr=1.0e-04)
+2023-09-16 21:57:31,597 [INFO] bit_common: Running validation...
+2023-09-16 21:57:38,549 [INFO] bit_common: Validation@88800 loss 1.27842, top1 72.94%, top5 92.03%
+2023-09-16 21:57:39,010 [INFO] bit_common: [step 88800]: loss=0.00177 (lr=1.0e-04)
+2023-09-16 21:58:44,599 [INFO] bit_common: Running validation...
+2023-09-16 21:58:51,315 [INFO] bit_common: Validation@89200 loss 1.27837, top1 72.93%, top5 92.02%
+2023-09-16 21:58:51,770 [INFO] bit_common: [step 89200]: loss=0.00392 (lr=1.0e-04)
+2023-09-16 21:59:57,260 [INFO] bit_common: Running validation...
+2023-09-16 22:00:03,861 [INFO] bit_common: Validation@89600 loss 1.27865, top1 72.95%, top5 91.97%
+2023-09-16 22:00:04,328 [INFO] bit_common: [step 89600]: loss=0.00199 (lr=1.0e-04)
+2023-09-16 22:01:09,911 [INFO] bit_common: Running validation...
+2023-09-16 22:01:16,444 [INFO] bit_common: Validation@90000 loss 1.27789, top1 72.93%, top5 92.06%
+2023-09-16 22:01:16,903 [INFO] bit_common: [step 90000]: loss=0.00158 (lr=1.0e-04)
+2023-09-16 22:02:22,579 [INFO] bit_common: Running validation...
+2023-09-16 22:02:29,201 [INFO] bit_common: Validation@90400 loss 1.27706, top1 72.99%, top5 92.04%
+2023-09-16 22:02:29,667 [INFO] bit_common: [step 90400]: loss=0.00227 (lr=1.0e-04)
+2023-09-16 22:03:35,289 [INFO] bit_common: Running validation...
+2023-09-16 22:03:42,221 [INFO] bit_common: Validation@90800 loss 1.27804, top1 73.02%, top5 92.07%
+2023-09-16 22:03:42,681 [INFO] bit_common: [step 90800]: loss=0.00245 (lr=1.0e-04)
+2023-09-16 22:04:48,335 [INFO] bit_common: Running validation...
+2023-09-16 22:04:55,311 [INFO] bit_common: Validation@91200 loss 1.27852, top1 72.98%, top5 92.14%
+2023-09-16 22:04:55,777 [INFO] bit_common: [step 91200]: loss=0.00161 (lr=1.0e-04)
+2023-09-16 22:06:01,376 [INFO] bit_common: Running validation...
+2023-09-16 22:06:08,173 [INFO] bit_common: Validation@91600 loss 1.27768, top1 73.03%, top5 92.07%
+2023-09-16 22:06:08,636 [INFO] bit_common: [step 91600]: loss=0.00257 (lr=1.0e-04)
+2023-09-16 22:07:14,069 [INFO] bit_common: Running validation...
+2023-09-16 22:07:20,666 [INFO] bit_common: Validation@92000 loss 1.27744, top1 72.97%, top5 92.04%
+2023-09-16 22:07:21,139 [INFO] bit_common: [step 92000]: loss=0.00148 (lr=1.0e-04)
+2023-09-16 22:08:26,451 [INFO] bit_common: Running validation...
+2023-09-16 22:08:33,129 [INFO] bit_common: Validation@92400 loss 1.27619, top1 72.97%, top5 92.07%
+2023-09-16 22:08:33,602 [INFO] bit_common: [step 92400]: loss=0.00306 (lr=1.0e-04)
+2023-09-16 22:09:38,866 [INFO] bit_common: Running validation...
+2023-09-16 22:09:45,564 [INFO] bit_common: Validation@92800 loss 1.27806, top1 72.97%, top5 92.07%
+2023-09-16 22:09:46,005 [INFO] bit_common: [step 92800]: loss=0.00295 (lr=1.0e-04)
+2023-09-16 22:10:51,252 [INFO] bit_common: Running validation...
+2023-09-16 22:10:58,222 [INFO] bit_common: Validation@93200 loss 1.27729, top1 73.01%, top5 92.10%
+2023-09-16 22:10:58,676 [INFO] bit_common: [step 93200]: loss=0.00958 (lr=1.0e-04)
+2023-09-16 22:12:04,115 [INFO] bit_common: Running validation...
+2023-09-16 22:12:10,922 [INFO] bit_common: Validation@93600 loss 1.27834, top1 72.99%, top5 92.03%
+2023-09-16 22:12:11,377 [INFO] bit_common: [step 93600]: loss=0.00524 (lr=1.0e-04)
+2023-09-16 22:13:16,701 [INFO] bit_common: Running validation...
+2023-09-16 22:13:23,615 [INFO] bit_common: Validation@94000 loss 1.27886, top1 72.95%, top5 92.04%
+2023-09-16 22:13:24,062 [INFO] bit_common: [step 94000]: loss=0.00188 (lr=1.0e-04)
+2023-09-16 22:14:29,467 [INFO] bit_common: Running validation...
+2023-09-16 22:14:36,175 [INFO] bit_common: Validation@94400 loss 1.27950, top1 72.99%, top5 92.04%
+2023-09-16 22:14:36,642 [INFO] bit_common: [step 94400]: loss=0.00410 (lr=1.0e-04)
+2023-09-16 22:15:42,284 [INFO] bit_common: Running validation...
+2023-09-16 22:15:49,227 [INFO] bit_common: Validation@94800 loss 1.27595, top1 73.06%, top5 92.06%
+2023-09-16 22:15:49,682 [INFO] bit_common: [step 94800]: loss=0.00470 (lr=1.0e-04)
+2023-09-16 22:16:55,422 [INFO] bit_common: Running validation...
+2023-09-16 22:17:02,380 [INFO] bit_common: Validation@95200 loss 1.27865, top1 73.03%, top5 92.02%
+2023-09-16 22:17:02,828 [INFO] bit_common: [step 95200]: loss=0.00178 (lr=1.0e-04)
+2023-09-16 22:18:08,675 [INFO] bit_common: Running validation...
+2023-09-16 22:18:15,475 [INFO] bit_common: Validation@95600 loss 1.27851, top1 72.95%, top5 92.01%
+2023-09-16 22:18:15,943 [INFO] bit_common: [step 95600]: loss=0.00114 (lr=1.0e-04)
+2023-09-16 22:19:21,542 [INFO] bit_common: Running validation...
+2023-09-16 22:19:28,267 [INFO] bit_common: Validation@96000 loss 1.27859, top1 73.01%, top5 92.02%
+2023-09-16 22:19:28,715 [INFO] bit_common: [step 96000]: loss=0.00154 (lr=1.0e-04)
+2023-09-16 22:20:34,228 [INFO] bit_common: Running validation...
+2023-09-16 22:20:41,106 [INFO] bit_common: Validation@96400 loss 1.27894, top1 72.97%, top5 92.00%
+2023-09-16 22:20:41,586 [INFO] bit_common: [step 96400]: loss=0.00238 (lr=1.0e-04)
+2023-09-16 22:21:47,285 [INFO] bit_common: Running validation...
+2023-09-16 22:21:54,240 [INFO] bit_common: Validation@96800 loss 1.27678, top1 73.01%, top5 92.04%
+2023-09-16 22:21:54,696 [INFO] bit_common: [step 96800]: loss=0.00159 (lr=1.0e-04)
+2023-09-16 22:23:00,043 [INFO] bit_common: Running validation...
+2023-09-16 22:23:06,905 [INFO] bit_common: Validation@97200 loss 1.27662, top1 73.07%, top5 92.01%
+2023-09-16 22:23:07,375 [INFO] bit_common: [step 97200]: loss=0.01091 (lr=1.0e-04)
+2023-09-16 22:24:12,737 [INFO] bit_common: Running validation...
+2023-09-16 22:24:19,645 [INFO] bit_common: Validation@97600 loss 1.27687, top1 72.97%, top5 91.98%
+2023-09-16 22:24:20,113 [INFO] bit_common: [step 97600]: loss=0.00454 (lr=1.0e-04)
+2023-09-16 22:25:25,706 [INFO] bit_common: Running validation...
+2023-09-16 22:25:32,506 [INFO] bit_common: Validation@98000 loss 1.27828, top1 73.02%, top5 92.00%
+2023-09-16 22:25:32,973 [INFO] bit_common: [step 98000]: loss=0.00175 (lr=1.0e-04)
+2023-09-16 22:26:38,340 [INFO] bit_common: Running validation...
+2023-09-16 22:26:45,199 [INFO] bit_common: Validation@98400 loss 1.27657, top1 73.04%, top5 92.01%
+2023-09-16 22:26:45,661 [INFO] bit_common: [step 98400]: loss=0.00286 (lr=1.0e-04)
+2023-09-16 22:27:51,060 [INFO] bit_common: Running validation...
+2023-09-16 22:27:58,064 [INFO] bit_common: Validation@98800 loss 1.27823, top1 73.00%, top5 92.00%
+2023-09-16 22:27:58,522 [INFO] bit_common: [step 98800]: loss=0.00146 (lr=1.0e-04)
+2023-09-16 22:29:04,057 [INFO] bit_common: Running validation...
+2023-09-16 22:29:10,968 [INFO] bit_common: Validation@99200 loss 1.27931, top1 72.96%, top5 91.98%
+2023-09-16 22:29:11,423 [INFO] bit_common: [step 99200]: loss=0.00224 (lr=1.0e-04)
+2023-09-16 22:30:16,808 [INFO] bit_common: Running validation...
+2023-09-16 22:30:23,571 [INFO] bit_common: Validation@99600 loss 1.27819, top1 72.92%, top5 91.98%
+2023-09-16 22:30:24,036 [INFO] bit_common: [step 99600]: loss=0.00149 (lr=1.0e-04)
+2023-09-16 22:31:29,551 [INFO] bit_common: Running validation...
+2023-09-16 22:31:36,344 [INFO] bit_common: Validation@100000 loss 1.28030, top1 72.89%, top5 91.95%
+2023-09-16 22:31:36,794 [INFO] bit_common: [step 100000]: loss=0.00274 (lr=1.0e-04)
+2023-09-16 22:32:42,564 [INFO] bit_common: Running validation...
+2023-09-16 22:32:49,252 [INFO] bit_common: Validation@100400 loss 1.28040, top1 72.89%, top5 91.95%
+2023-09-16 22:32:49,744 [INFO] bit_common: [step 100400]: loss=0.00117 (lr=1.0e-04)
+2023-09-16 22:33:55,471 [INFO] bit_common: Running validation...
+2023-09-16 22:34:02,317 [INFO] bit_common: Validation@100800 loss 1.27976, top1 72.91%, top5 91.99%
+2023-09-16 22:34:02,796 [INFO] bit_common: [step 100800]: loss=0.00426 (lr=1.0e-04)
+2023-09-16 22:35:08,490 [INFO] bit_common: Running validation...
+2023-09-16 22:35:15,170 [INFO] bit_common: Validation@101200 loss 1.28280, top1 72.90%, top5 91.99%
+2023-09-16 22:35:15,738 [INFO] bit_common: [step 101200]: loss=0.00565 (lr=1.0e-04)
+2023-09-16 22:36:21,373 [INFO] bit_common: Running validation...
+2023-09-16 22:36:27,999 [INFO] bit_common: Validation@101600 loss 1.28137, top1 72.94%, top5 92.04%
+2023-09-16 22:36:28,453 [INFO] bit_common: [step 101600]: loss=0.00194 (lr=1.0e-04)
+2023-09-16 22:37:34,098 [INFO] bit_common: Running validation...
+2023-09-16 22:37:40,811 [INFO] bit_common: Validation@102000 loss 1.28126, top1 72.96%, top5 91.97%
+2023-09-16 22:37:41,279 [INFO] bit_common: [step 102000]: loss=0.00143 (lr=1.0e-04)
+2023-09-16 22:38:46,623 [INFO] bit_common: Running validation...
+2023-09-16 22:38:53,491 [INFO] bit_common: Validation@102400 loss 1.28131, top1 72.99%, top5 91.99%
+2023-09-16 22:38:53,954 [INFO] bit_common: [step 102400]: loss=0.00136 (lr=1.0e-04)
+2023-09-16 22:39:59,419 [INFO] bit_common: Running validation...
+2023-09-16 22:40:06,202 [INFO] bit_common: Validation@102800 loss 1.28128, top1 72.96%, top5 92.02%
+2023-09-16 22:40:06,650 [INFO] bit_common: [step 102800]: loss=0.00397 (lr=1.0e-04)
+2023-09-16 22:41:12,042 [INFO] bit_common: Running validation...
+2023-09-16 22:41:18,765 [INFO] bit_common: Validation@103200 loss 1.28167, top1 72.89%, top5 92.00%
+2023-09-16 22:41:19,330 [INFO] bit_common: [step 103200]: loss=0.00274 (lr=1.0e-04)
+2023-09-16 22:42:24,780 [INFO] bit_common: Running validation...
+2023-09-16 22:42:31,631 [INFO] bit_common: Validation@103600 loss 1.28258, top1 72.88%, top5 91.98%
+2023-09-16 22:42:32,093 [INFO] bit_common: [step 103600]: loss=0.00256 (lr=1.0e-04)
+2023-09-16 22:43:37,485 [INFO] bit_common: Running validation...
+2023-09-16 22:43:44,225 [INFO] bit_common: Validation@104000 loss 1.28020, top1 72.99%, top5 92.06%
+2023-09-16 22:43:44,683 [INFO] bit_common: [step 104000]: loss=0.00303 (lr=1.0e-04)
+2023-09-16 22:44:49,989 [INFO] bit_common: Running validation...
+2023-09-16 22:44:56,866 [INFO] bit_common: Validation@104400 loss 1.28121, top1 72.93%, top5 92.04%
+2023-09-16 22:44:57,314 [INFO] bit_common: [step 104400]: loss=0.00299 (lr=1.0e-04)
+2023-09-16 22:46:02,702 [INFO] bit_common: Running validation...
+2023-09-16 22:46:09,638 [INFO] bit_common: Validation@104800 loss 1.28114, top1 72.85%, top5 91.98%
+2023-09-16 22:46:10,541 [INFO] bit_common: [step 104800]: loss=0.00241 (lr=1.0e-04)
+2023-09-16 22:47:16,071 [INFO] bit_common: Running validation...
+2023-09-16 22:47:22,817 [INFO] bit_common: Validation@105200 loss 1.28198, top1 72.90%, top5 91.97%
+2023-09-16 22:47:23,372 [INFO] bit_common: [step 105200]: loss=0.00297 (lr=1.0e-04)
+2023-09-16 22:48:28,970 [INFO] bit_common: Running validation...
+2023-09-16 22:48:35,683 [INFO] bit_common: Validation@105600 loss 1.28256, top1 72.92%, top5 92.00%
+2023-09-16 22:48:36,134 [INFO] bit_common: [step 105600]: loss=0.00206 (lr=1.0e-04)
+2023-09-16 22:49:43,259 [INFO] bit_common: Running validation...
+2023-09-16 22:49:50,383 [INFO] bit_common: Validation@106000 loss 1.28223, top1 72.85%, top5 91.95%
+2023-09-16 22:49:50,850 [INFO] bit_common: [step 106000]: loss=0.01843 (lr=1.0e-04)
+2023-09-16 22:50:56,579 [INFO] bit_common: Running validation...
+2023-09-16 22:51:03,601 [INFO] bit_common: Validation@106400 loss 1.28083, top1 72.87%, top5 91.98%
+2023-09-16 22:51:04,056 [INFO] bit_common: [step 106400]: loss=0.00254 (lr=1.0e-04)
+2023-09-16 22:52:09,843 [INFO] bit_common: Running validation...
+2023-09-16 22:52:16,689 [INFO] bit_common: Validation@106800 loss 1.27977, top1 73.04%, top5 92.00%
+2023-09-16 22:52:17,147 [INFO] bit_common: [step 106800]: loss=0.00179 (lr=1.0e-04)
+2023-09-16 22:53:22,888 [INFO] bit_common: Running validation...
+2023-09-16 22:53:29,924 [INFO] bit_common: Validation@107200 loss 1.27997, top1 72.93%, top5 91.98%
+2023-09-16 22:53:30,482 [INFO] bit_common: [step 107200]: loss=0.00202 (lr=1.0e-04)
+2023-09-16 22:54:36,318 [INFO] bit_common: Running validation...
+2023-09-16 22:54:43,180 [INFO] bit_common: Validation@107600 loss 1.28003, top1 72.90%, top5 91.98%
+2023-09-16 22:54:43,634 [INFO] bit_common: [step 107600]: loss=0.00296 (lr=1.0e-04)
+2023-09-16 22:55:49,449 [INFO] bit_common: Running validation...
+2023-09-16 22:55:56,332 [INFO] bit_common: Validation@108000 loss 1.28118, top1 72.90%, top5 91.98%
+2023-09-16 22:55:56,796 [INFO] bit_common: [step 108000]: loss=0.00183 (lr=1.0e-04)
+2023-09-16 22:57:02,525 [INFO] bit_common: Running validation...
+2023-09-16 22:57:09,383 [INFO] bit_common: Validation@108400 loss 1.28161, top1 72.81%, top5 92.00%
+2023-09-16 22:57:09,832 [INFO] bit_common: [step 108400]: loss=0.01659 (lr=1.0e-04)
+2023-09-16 22:58:15,225 [INFO] bit_common: Running validation...
+2023-09-16 22:58:22,286 [INFO] bit_common: Validation@108800 loss 1.28236, top1 72.85%, top5 91.95%
+2023-09-16 22:58:22,759 [INFO] bit_common: [step 108800]: loss=0.00222 (lr=1.0e-04)
+2023-09-16 22:59:28,238 [INFO] bit_common: Running validation...
+2023-09-16 22:59:34,872 [INFO] bit_common: Validation@109200 loss 1.28220, top1 72.92%, top5 91.96%
+2023-09-16 22:59:35,431 [INFO] bit_common: [step 109200]: loss=0.00468 (lr=1.0e-04)
+2023-09-16 23:00:40,795 [INFO] bit_common: Running validation...
+2023-09-16 23:00:47,569 [INFO] bit_common: Validation@109600 loss 1.27960, top1 72.97%, top5 91.94%
+2023-09-16 23:00:48,034 [INFO] bit_common: [step 109600]: loss=0.00696 (lr=1.0e-04)
+2023-09-16 23:01:53,290 [INFO] bit_common: Running validation...
+2023-09-16 23:02:00,070 [INFO] bit_common: Validation@110000 loss 1.28054, top1 72.97%, top5 92.01%
+2023-09-16 23:02:00,526 [INFO] bit_common: [step 110000]: loss=0.00828 (lr=1.0e-04)
+2023-09-16 23:03:05,850 [INFO] bit_common: Running validation...
+2023-09-16 23:03:12,834 [INFO] bit_common: Validation@110400 loss 1.28078, top1 72.90%, top5 91.98%
+2023-09-16 23:03:13,288 [INFO] bit_common: [step 110400]: loss=0.00225 (lr=1.0e-04)
+2023-09-16 23:04:18,809 [INFO] bit_common: Running validation...
+2023-09-16 23:04:25,742 [INFO] bit_common: Validation@110800 loss 1.28109, top1 72.97%, top5 91.94%
+2023-09-16 23:04:26,204 [INFO] bit_common: [step 110800]: loss=0.00273 (lr=1.0e-04)
+2023-09-16 23:05:31,619 [INFO] bit_common: Running validation...
+2023-09-16 23:05:38,532 [INFO] bit_common: Validation@111200 loss 1.28095, top1 73.00%, top5 91.98%
+2023-09-16 23:05:39,100 [INFO] bit_common: [step 111200]: loss=0.00268 (lr=1.0e-04)
+2023-09-16 23:06:44,701 [INFO] bit_common: Running validation...
+2023-09-16 23:06:51,463 [INFO] bit_common: Validation@111600 loss 1.27884, top1 73.14%, top5 92.01%
+2023-09-16 23:06:51,932 [INFO] bit_common: [step 111600]: loss=0.00216 (lr=1.0e-04)
+2023-09-16 23:07:57,624 [INFO] bit_common: Running validation...
+2023-09-16 23:08:04,299 [INFO] bit_common: Validation@112000 loss 1.27922, top1 73.10%, top5 91.94%
+2023-09-16 23:08:04,752 [INFO] bit_common: [step 112000]: loss=0.00362 (lr=1.0e-04)
+2023-09-16 23:09:10,474 [INFO] bit_common: Running validation...
+2023-09-16 23:09:17,358 [INFO] bit_common: Validation@112400 loss 1.27963, top1 73.11%, top5 92.00%
+2023-09-16 23:09:17,850 [INFO] bit_common: [step 112400]: loss=0.00319 (lr=1.0e-04)
+2023-09-16 23:10:23,454 [INFO] bit_common: Running validation...
+2023-09-16 23:10:30,293 [INFO] bit_common: Validation@112800 loss 1.28091, top1 73.01%, top5 92.01%
+2023-09-16 23:10:30,756 [INFO] bit_common: [step 112800]: loss=0.00275 (lr=1.0e-04)
+2023-09-16 23:11:36,380 [INFO] bit_common: Running validation...
+2023-09-16 23:11:43,037 [INFO] bit_common: Validation@113200 loss 1.27970, top1 73.05%, top5 92.02%
+2023-09-16 23:11:43,607 [INFO] bit_common: [step 113200]: loss=0.00227 (lr=1.0e-04)
+2023-09-16 23:12:49,310 [INFO] bit_common: Running validation...
+2023-09-16 23:12:55,913 [INFO] bit_common: Validation@113600 loss 1.28032, top1 72.97%, top5 92.01%
+2023-09-16 23:12:56,364 [INFO] bit_common: [step 113600]: loss=0.01705 (lr=1.0e-04)
+2023-09-16 23:14:01,882 [INFO] bit_common: Running validation...
+2023-09-16 23:14:08,543 [INFO] bit_common: Validation@114000 loss 1.28034, top1 73.03%, top5 92.00%
+2023-09-16 23:14:09,014 [INFO] bit_common: [step 114000]: loss=0.00646 (lr=1.0e-04)
+2023-09-16 23:15:14,635 [INFO] bit_common: Running validation...
+2023-09-16 23:15:21,601 [INFO] bit_common: Validation@114400 loss 1.27938, top1 73.00%, top5 91.98%
+2023-09-16 23:15:22,067 [INFO] bit_common: [step 114400]: loss=0.00230 (lr=1.0e-04)
+2023-09-16 23:16:27,331 [INFO] bit_common: Running validation...
+2023-09-16 23:16:34,280 [INFO] bit_common: Validation@114800 loss 1.27799, top1 73.05%, top5 92.03%
+2023-09-16 23:16:34,734 [INFO] bit_common: [step 114800]: loss=0.00222 (lr=1.0e-04)
+2023-09-16 23:17:39,913 [INFO] bit_common: Running validation...
+2023-09-16 23:17:46,642 [INFO] bit_common: Validation@115200 loss 1.27906, top1 73.04%, top5 91.99%
+2023-09-16 23:17:47,193 [INFO] bit_common: [step 115200]: loss=0.00149 (lr=1.0e-04)
+2023-09-16 23:18:52,570 [INFO] bit_common: Running validation...
+2023-09-16 23:18:59,365 [INFO] bit_common: Validation@115600 loss 1.27830, top1 73.00%, top5 91.91%
+2023-09-16 23:18:59,826 [INFO] bit_common: [step 115600]: loss=0.00345 (lr=1.0e-04)
+2023-09-16 23:20:05,167 [INFO] bit_common: Running validation...
+2023-09-16 23:20:12,039 [INFO] bit_common: Validation@116000 loss 1.27915, top1 73.03%, top5 91.95%
+2023-09-16 23:20:12,494 [INFO] bit_common: [step 116000]: loss=0.00161 (lr=1.0e-04)
+2023-09-16 23:21:17,978 [INFO] bit_common: Running validation...
+2023-09-16 23:21:24,884 [INFO] bit_common: Validation@116400 loss 1.27874, top1 73.11%, top5 91.98%
+2023-09-16 23:21:25,360 [INFO] bit_common: [step 116400]: loss=0.00199 (lr=1.0e-04)
+2023-09-16 23:22:30,814 [INFO] bit_common: Running validation...
+2023-09-16 23:22:37,674 [INFO] bit_common: Validation@116800 loss 1.28164, top1 73.02%, top5 91.93%
+2023-09-16 23:22:38,128 [INFO] bit_common: [step 116800]: loss=0.00195 (lr=1.0e-04)
+2023-09-16 23:23:43,652 [INFO] bit_common: Running validation...
+2023-09-16 23:23:50,374 [INFO] bit_common: Validation@117200 loss 1.27959, top1 73.07%, top5 91.90%
+2023-09-16 23:23:50,929 [INFO] bit_common: [step 117200]: loss=0.00208 (lr=1.0e-04)
+2023-09-16 23:24:56,563 [INFO] bit_common: Running validation...
+2023-09-16 23:25:03,342 [INFO] bit_common: Validation@117600 loss 1.27846, top1 73.11%, top5 91.92%
+2023-09-16 23:25:03,801 [INFO] bit_common: [step 117600]: loss=0.00256 (lr=1.0e-04)
+2023-09-16 23:26:09,436 [INFO] bit_common: Running validation...
+2023-09-16 23:26:16,089 [INFO] bit_common: Validation@118000 loss 1.27759, top1 73.09%, top5 91.97%
+2023-09-16 23:26:16,542 [INFO] bit_common: [step 118000]: loss=0.00123 (lr=1.0e-04)
+2023-09-16 23:27:22,261 [INFO] bit_common: Running validation...
+2023-09-16 23:27:29,246 [INFO] bit_common: Validation@118400 loss 1.27749, top1 73.08%, top5 91.92%
+2023-09-16 23:27:29,705 [INFO] bit_common: [step 118400]: loss=0.00110 (lr=1.0e-04)
+2023-09-16 23:28:35,312 [INFO] bit_common: Running validation...
+2023-09-16 23:28:42,137 [INFO] bit_common: Validation@118800 loss 1.27767, top1 73.17%, top5 91.92%
+2023-09-16 23:28:42,597 [INFO] bit_common: [step 118800]: loss=0.00445 (lr=1.0e-04)
+2023-09-16 23:29:48,082 [INFO] bit_common: Running validation...
+2023-09-16 23:29:54,903 [INFO] bit_common: Validation@119200 loss 1.27829, top1 73.13%, top5 91.94%
+2023-09-16 23:29:55,464 [INFO] bit_common: [step 119200]: loss=0.00238 (lr=1.0e-04)
+2023-09-16 23:31:01,053 [INFO] bit_common: Running validation...
+2023-09-16 23:31:07,922 [INFO] bit_common: Validation@119600 loss 1.27850, top1 73.09%, top5 91.95%
+2023-09-16 23:31:08,403 [INFO] bit_common: [step 119600]: loss=0.00148 (lr=1.0e-04)
+2023-09-16 23:32:14,061 [INFO] bit_common: Running validation...
+2023-09-16 23:32:20,983 [INFO] bit_common: Validation@120000 loss 1.27913, top1 73.01%, top5 91.90%
+2023-09-16 23:32:21,710 [INFO] bit_common: Running validation...
+2023-09-16 23:32:28,668 [INFO] bit_common: Validation@end loss 1.27913, top1 73.01%, top5 91.90%
+2023-09-16 23:32:28,692 [INFO] bit_common: Timings:
+eval fprop: 0.05091s
+fprop     : 0.05003s
+grads     : 0.03200s
+eval load : 0.03122s
+load      : 0.00448s
+update    : 0.00283s
+2023-09-17 09:44:32,437 [INFO] bit_common: Namespace(base_lr=0.1, batch=128, batch_split=1, bit_pretrained_dir='.', datadir='../data', dataset='cifar100', eval_every=400, examples_per_class=None, examples_per_class_seed=0, logdir='../log', loss='baseline', model='BiT-M-R50x1', name='SOFTMAX', save=False, seed=0, workers=8)
+2023-09-17 09:44:32,492 [INFO] bit_common: Going to train on cuda:0
+2023-09-17 09:44:34,247 [INFO] bit_common: Using a training set with 50000 images.
+2023-09-17 09:44:34,248 [INFO] bit_common: Using a validation set with 10000 images.
+2023-09-17 09:44:34,460 [INFO] bit_common: Training from Scratch ###############################
+2023-09-17 09:44:34,460 [INFO] bit_common: Moving model onto all GPUs
+2023-09-17 09:44:35,893 [INFO] bit_common: Model will be saved in '../log/SOFTMAX/bit.pth.tar'
+2023-09-17 09:44:35,993 [INFO] bit_common: Found saved model to resume from at '../log/SOFTMAX/bit.pth.tar'
+2023-09-17 09:44:36,098 [INFO] bit_common: Resumed at step 120000
+2023-09-17 09:44:36,121 [INFO] bit_common: Starting training!
+2023-09-17 09:46:30,507 [INFO] bit_common: Running validation...
+2023-09-17 10:57:31,646 [INFO] bit_common: Namespace(base_lr=0.1, batch=128, batch_split=1, bit_pretrained_dir='.', datadir='../data', dataset='cifar100', eval_every=400, examples_per_class=None, examples_per_class_seed=0, logdir='../log', loss='baseline', model='BiT-M-R50x1', name='SOFTMAX', save=False, seed=0, workers=8)
+2023-09-17 10:57:31,710 [INFO] bit_common: Going to train on cuda:0
+2023-09-17 10:57:33,460 [INFO] bit_common: Using a training set with 50000 images.
+2023-09-17 10:57:33,460 [INFO] bit_common: Using a validation set with 10000 images.
+2023-09-17 10:57:33,675 [INFO] bit_common: Training from Scratch ###############################
+2023-09-17 10:57:33,676 [INFO] bit_common: Moving model onto all GPUs
+2023-09-17 10:57:35,121 [INFO] bit_common: Model will be saved in '../log/SOFTMAX/bit.pth.tar'
+2023-09-17 10:57:35,228 [INFO] bit_common: Found saved model to resume from at '../log/SOFTMAX/bit.pth.tar'
+2023-09-17 10:57:35,325 [INFO] bit_common: Resumed at step 120000
+2023-09-17 10:57:35,341 [INFO] bit_common: Starting training!
+2023-09-17 10:57:46,175 [INFO] bit_common: Running validation...
+2023-09-17 11:00:06,526 [INFO] bit_common: Namespace(base_lr=0.1, batch=128, batch_split=1, bit_pretrained_dir='.', datadir='../data', dataset='cifar100', eval_every=400, examples_per_class=None, examples_per_class_seed=0, logdir='../log', loss='baseline', model='BiT-M-R50x1', name='SOFTMAX', save=False, seed=0, workers=8)
+2023-09-17 11:00:06,588 [INFO] bit_common: Going to train on cuda:0
+2023-09-17 11:00:08,359 [INFO] bit_common: Using a training set with 50000 images.
+2023-09-17 11:00:08,359 [INFO] bit_common: Using a validation set with 10000 images.
+2023-09-17 11:00:08,573 [INFO] bit_common: Training from Scratch ###############################
+2023-09-17 11:00:08,574 [INFO] bit_common: Moving model onto all GPUs
+2023-09-17 11:00:10,017 [INFO] bit_common: Model will be saved in '../log/SOFTMAX/bit.pth.tar'
+2023-09-17 11:00:10,124 [INFO] bit_common: Found saved model to resume from at '../log/SOFTMAX/bit.pth.tar'
+2023-09-17 11:00:10,234 [INFO] bit_common: Resumed at step 120000
+2023-09-17 11:00:10,258 [INFO] bit_common: Starting training!
+2023-09-17 11:00:19,134 [INFO] bit_common: Running validation...
+2023-09-17 11:35:09,198 [INFO] bit_common: Namespace(base_lr=0.1, batch=128, batch_split=1, bit_pretrained_dir='.', datadir='../data', dataset='cifar100', eval_every=400, examples_per_class=None, examples_per_class_seed=0, logdir='../log', loss='baseline', model='BiT-M-R50x1', name='SOFTMAX', save=False, seed=0, workers=8)
+2023-09-17 11:35:09,259 [INFO] bit_common: Going to train on cuda:0
+2023-09-17 11:35:11,016 [INFO] bit_common: Using a training set with 50000 images.
+2023-09-17 11:35:11,016 [INFO] bit_common: Using a validation set with 10000 images.
+2023-09-17 11:35:11,232 [INFO] bit_common: Training from Scratch ###############################
+2023-09-17 11:35:11,232 [INFO] bit_common: Moving model onto all GPUs
+2023-09-17 11:35:12,699 [INFO] bit_common: Model will be saved in '../log/SOFTMAX/bit.pth.tar'
+2023-09-17 11:35:12,805 [INFO] bit_common: Found saved model to resume from at '../log/SOFTMAX/bit.pth.tar'
+2023-09-17 11:35:12,914 [INFO] bit_common: Resumed at step 120000
+2023-09-17 11:35:12,940 [INFO] bit_common: Starting training!
+2023-09-17 11:35:21,979 [INFO] bit_common: Running validation...
+2023-09-17 11:36:12,690 [INFO] bit_common: Namespace(base_lr=0.1, batch=128, batch_split=1, bit_pretrained_dir='.', datadir='../data', dataset='cifar100', eval_every=400, examples_per_class=None, examples_per_class_seed=0, logdir='../log', loss='baseline', model='BiT-M-R50x1', name='SOFTMAX', save=False, seed=0, workers=8)
+2023-09-17 11:36:12,755 [INFO] bit_common: Going to train on cuda:0
+2023-09-17 11:36:14,502 [INFO] bit_common: Using a training set with 50000 images.
+2023-09-17 11:36:14,503 [INFO] bit_common: Using a validation set with 10000 images.
+2023-09-17 11:36:14,714 [INFO] bit_common: Training from Scratch ###############################
+2023-09-17 11:36:14,715 [INFO] bit_common: Moving model onto all GPUs
+2023-09-17 11:36:16,162 [INFO] bit_common: Model will be saved in '../log/SOFTMAX/bit.pth.tar'
+2023-09-17 11:36:16,265 [INFO] bit_common: Found saved model to resume from at '../log/SOFTMAX/bit.pth.tar'
+2023-09-17 11:36:16,370 [INFO] bit_common: Resumed at step 120000
+2023-09-17 11:36:16,392 [INFO] bit_common: Starting training!
+2023-09-17 11:36:30,185 [INFO] bit_common: Running validation...
+2023-09-17 11:58:04,087 [INFO] bit_common: Namespace(base_lr=0.1, batch=128, batch_split=1, bit_pretrained_dir='.', datadir='../data', dataset='cifar100', eval_every=400, examples_per_class=None, examples_per_class_seed=0, logdir='../log', loss='baseline', model='BiT-M-R50x1', name='SOFTMAX', save=False, seed=0, workers=8)
+2023-09-17 11:58:04,147 [INFO] bit_common: Going to train on cuda:0
+2023-09-17 11:58:05,909 [INFO] bit_common: Using a training set with 50000 images.
+2023-09-17 11:58:05,910 [INFO] bit_common: Using a validation set with 10000 images.
+2023-09-17 11:58:06,123 [INFO] bit_common: Training from Scratch ###############################
+2023-09-17 11:58:06,124 [INFO] bit_common: Moving model onto all GPUs
+2023-09-17 11:58:07,572 [INFO] bit_common: Model will be saved in '../log/SOFTMAX/bit.pth.tar'
+2023-09-17 11:58:07,691 [INFO] bit_common: Found saved model to resume from at '../log/SOFTMAX/bit.pth.tar'
+2023-09-17 11:58:07,801 [INFO] bit_common: Resumed at step 120000
+2023-09-17 11:58:07,826 [INFO] bit_common: Starting training!
+2023-09-17 11:58:46,122 [INFO] bit_common: Running validation...
+2023-09-17 11:59:53,720 [INFO] bit_common: Namespace(base_lr=0.1, batch=128, batch_split=1, bit_pretrained_dir='.', datadir='../data', dataset='cifar100', eval_every=400, examples_per_class=None, examples_per_class_seed=0, logdir='../log', loss='baseline', model='BiT-M-R50x1', name='SOFTMAX', save=False, seed=0, workers=8)
+2023-09-17 11:59:53,775 [INFO] bit_common: Going to train on cuda:0
+2023-09-17 11:59:55,554 [INFO] bit_common: Using a training set with 50000 images.
+2023-09-17 11:59:55,554 [INFO] bit_common: Using a validation set with 10000 images.
+2023-09-17 11:59:55,766 [INFO] bit_common: Training from Scratch ###############################
+2023-09-17 11:59:55,767 [INFO] bit_common: Moving model onto all GPUs
+2023-09-17 11:59:57,221 [INFO] bit_common: Model will be saved in '../log/SOFTMAX/bit.pth.tar'
+2023-09-17 11:59:57,320 [INFO] bit_common: Found saved model to resume from at '../log/SOFTMAX/bit.pth.tar'
+2023-09-17 11:59:57,425 [INFO] bit_common: Resumed at step 120000
+2023-09-17 11:59:57,447 [INFO] bit_common: Starting training!
+2023-09-17 12:00:07,321 [INFO] bit_common: Running validation...
+2023-09-17 14:30:33,595 [INFO] bit_common: Validation@end loss 1.27913, top1 73.01%, top5 91.90%
+2023-09-17 14:30:37,893 [INFO] bit_common: Timings:
+eval fprop: 113.49111s
+load      :   3.70019s
+eval load :   0.46111s
+2023-09-17 14:38:47,124 [INFO] bit_common: Namespace(base_lr=0.1, batch=128, batch_split=1, bit_pretrained_dir='.', datadir='../data', dataset='cifar100', eval_every=400, examples_per_class=None, examples_per_class_seed=0, logdir='../log', loss='baseline', model='BiT-M-R50x1', name='SOFTMAX', resume=True, save=False, seed=0, workers=8)
+2023-09-17 14:38:47,184 [INFO] bit_common: Going to train on cuda:0
+2023-09-17 14:38:49,019 [INFO] bit_common: Using a training set with 50000 images.
+2023-09-17 14:38:49,020 [INFO] bit_common: Using a validation set with 10000 images.
+2023-09-17 14:38:49,236 [INFO] bit_common: Training from Scratch ###############################
+2023-09-17 14:38:49,237 [INFO] bit_common: Moving model onto all GPUs
+2023-09-17 14:38:50,699 [INFO] bit_common: Model will be saved in '../log/SOFTMAX/bit.pth.tar'
+2023-09-17 14:38:50,804 [INFO] bit_common: Found saved model to resume from at '../log/SOFTMAX/bit.pth.tar'
+2023-09-17 14:38:50,909 [INFO] bit_common: Resumed at step 120000
+2023-09-17 14:38:50,932 [INFO] bit_common: Starting training!
+2023-09-17 14:38:56,648 [INFO] bit_common: Running validation...
+2023-09-17 14:41:23,178 [INFO] bit_common: Namespace(base_lr=0.1, batch=128, batch_split=1, bit_pretrained_dir='.', datadir='../data', dataset='cifar100', eval_every=400, examples_per_class=None, examples_per_class_seed=0, logdir='../log', loss='baseline', model='BiT-M-R50x1', name='SOFTMAX', resume=True, save=False, seed=0, workers=8)
+2023-09-17 14:41:23,220 [INFO] bit_common: Going to train on cuda:0
+2023-09-17 14:41:25,061 [INFO] bit_common: Using a training set with 50000 images.
+2023-09-17 14:41:25,062 [INFO] bit_common: Using a validation set with 10000 images.
+2023-09-17 14:41:25,288 [INFO] bit_common: Training from Scratch ###############################
+2023-09-17 14:41:25,288 [INFO] bit_common: Moving model onto all GPUs
+2023-09-17 14:41:26,724 [INFO] bit_common: Model will be saved in '../log/SOFTMAX/bit.pth.tar'
+2023-09-17 14:41:26,841 [INFO] bit_common: Found saved model to resume from at '../log/SOFTMAX/bit.pth.tar'
+2023-09-17 14:41:26,947 [INFO] bit_common: Resumed at step 120000
+2023-09-17 14:41:26,981 [INFO] bit_common: Starting training!
+2023-09-17 14:41:56,202 [INFO] bit_common: Running validation...
+2023-09-17 14:43:49,926 [INFO] bit_common: Namespace(base_lr=0.1, batch=128, batch_split=1, bit_pretrained_dir='.', datadir='../data', dataset='cifar100', eval_every=400, examples_per_class=None, examples_per_class_seed=0, logdir='../log', loss='baseline', model='BiT-M-R50x1', name='SOFTMAX', resume=True, save=False, seed=0, workers=8)
+2023-09-17 14:43:49,968 [INFO] bit_common: Going to train on cuda:0
+2023-09-17 14:43:51,764 [INFO] bit_common: Using a training set with 50000 images.
+2023-09-17 14:43:51,764 [INFO] bit_common: Using a validation set with 10000 images.
+2023-09-17 14:43:51,977 [INFO] bit_common: Training from Scratch ###############################
+2023-09-17 14:43:51,977 [INFO] bit_common: Moving model onto all GPUs
+2023-09-17 14:43:53,420 [INFO] bit_common: Model will be saved in '../log/SOFTMAX/bit.pth.tar'
+2023-09-17 14:43:53,542 [INFO] bit_common: Found saved model to resume from at '../log/SOFTMAX/bit.pth.tar'
+2023-09-17 14:43:53,650 [INFO] bit_common: Resumed at step 120000
+2023-09-17 14:43:53,682 [INFO] bit_common: Starting training!
+2023-09-17 14:49:04,725 [INFO] bit_common: Running validation...
+2023-09-17 14:49:19,774 [INFO] bit_common: Validation@end loss 1.27913, top1 73.01%, top5 91.90%
+2023-09-17 14:49:19,783 [INFO] bit_common: Timings:
+load      : 232.72537s
+eval fprop:   0.08986s
+eval load :   0.08777s
+2023-09-17 15:22:40,932 [INFO] bit_common: Namespace(base_lr=0.1, batch=128, batch_split=1, bit_pretrained_dir='.', datadir='../data', dataset='cifar100', eval_every=400, examples_per_class=None, examples_per_class_seed=0, logdir='../log', loss='baseline', model='BiT-M-R50x1', name='SOFTMAX', resume=True, save=False, seed=0, workers=8)
+2023-09-17 15:22:40,991 [INFO] bit_common: Going to train on cuda:0
+2023-09-17 15:22:42,761 [INFO] bit_common: Using a training set with 50000 images.
+2023-09-17 15:22:42,761 [INFO] bit_common: Using a validation set with 10000 images.
+2023-09-17 15:22:42,976 [INFO] bit_common: Training from Scratch ###############################
+2023-09-17 15:22:42,976 [INFO] bit_common: Moving model onto all GPUs
+2023-09-17 15:22:44,445 [INFO] bit_common: Model will be saved in '../log/SOFTMAX/bit.pth.tar'
+2023-09-17 15:22:44,552 [INFO] bit_common: Found saved model to resume from at '../log/SOFTMAX/bit.pth.tar'
+2023-09-17 15:22:44,661 [INFO] bit_common: Resumed at step 120000
+2023-09-17 15:22:44,686 [INFO] bit_common: Starting training!
+2023-09-17 15:24:04,639 [INFO] bit_common: Running validation...
+2023-09-17 15:24:17,739 [INFO] bit_common: Validation@end loss 1.27913, top1 73.01%, top5 91.90%
+2023-09-17 15:26:48,366 [INFO] bit_common: Timings:
+load      : 63.15501s
+eval fprop:  0.09030s
+eval load :  0.06048s
+2023-09-17 15:29:41,916 [INFO] bit_common: Namespace(base_lr=0.1, batch=128, batch_split=1, bit_pretrained_dir='.', datadir='../data', dataset='cifar100', eval_every=400, examples_per_class=None, examples_per_class_seed=0, logdir='../log', loss='baseline', model='BiT-M-R50x1', name='SOFTMAX', resume=True, save=False, seed=0, workers=8)
+2023-09-17 15:29:41,973 [INFO] bit_common: Going to train on cuda:0
+2023-09-17 15:29:43,734 [INFO] bit_common: Using a training set with 50000 images.
+2023-09-17 15:29:43,734 [INFO] bit_common: Using a validation set with 10000 images.
+2023-09-17 15:29:43,947 [INFO] bit_common: Training from Scratch ###############################
+2023-09-17 15:29:43,948 [INFO] bit_common: Moving model onto all GPUs
+2023-09-17 17:00:35,169 [INFO] bit_common: Namespace(base_lr=0.1, batch=128, batch_split=1, bit_pretrained_dir='.', datadir='../data', dataset='cifar100', eval_every=400, examples_per_class=None, examples_per_class_seed=0, logdir='../log', loss='baseline', model='BiT-M-R50x1', name='SOFTMAX', save=False, seed=0, workers=8)
+2023-09-17 17:04:43,458 [INFO] bit_common: Namespace(base_lr=0.1, batch=128, batch_split=1, bit_pretrained_dir='.', datadir='../data', dataset='cifar100', eval_every=400, examples_per_class=None, examples_per_class_seed=0, logdir='../log', loss='baseline', model='BiT-M-R50x1', name='SOFTMAX', resume=False, save=False, seed=0, workers=8)
+2023-09-17 17:04:43,522 [INFO] bit_common: Going to train on cuda:0
+2023-09-17 17:04:45,310 [INFO] bit_common: Using a training set with 50000 images.
+2023-09-17 17:04:45,310 [INFO] bit_common: Using a validation set with 10000 images.
+2023-09-17 17:04:45,548 [INFO] bit_common: Training from Scratch ###############################
+2023-09-17 17:04:45,548 [INFO] bit_common: Moving model onto all GPUs
+2023-09-17 17:05:44,959 [INFO] bit_common: Starting training!
+2023-09-17 17:19:22,839 [INFO] bit_common: Namespace(base_lr=0.1, batch=128, batch_split=1, bit_pretrained_dir='.', datadir='../data', dataset='cifar100', eval_every=400, examples_per_class=None, examples_per_class_seed=0, logdir='../log', loss='baseline', model='BiT-M-R50x1', name='SOFTMAX', resume=False, save=False, seed=0, workers=8)
+2023-09-17 17:19:22,901 [INFO] bit_common: Going to train on cuda:0
+2023-09-17 17:19:24,677 [INFO] bit_common: Using a training set with 50000 images.
+2023-09-17 17:19:24,677 [INFO] bit_common: Using a validation set with 10000 images.
+2023-09-17 17:19:24,892 [INFO] bit_common: Training from Scratch ###############################
+2023-09-17 17:19:24,892 [INFO] bit_common: Moving model onto all GPUs
+2023-09-17 17:19:32,785 [INFO] bit_common: Starting training!
+2023-09-17 17:21:45,693 [INFO] bit_common: Namespace(base_lr=0.1, batch=128, batch_split=1, bit_pretrained_dir='.', datadir='../data', dataset='cifar100', eval_every=400, examples_per_class=None, examples_per_class_seed=0, logdir='../log', loss='baseline', model='BiT-M-R50x1', name='SOFTMAX', resume=False, save=False, seed=0, workers=8)
+2023-09-17 17:21:45,756 [INFO] bit_common: Going to train on cuda:0
+2023-09-17 17:21:47,506 [INFO] bit_common: Using a training set with 50000 images.
+2023-09-17 17:21:47,507 [INFO] bit_common: Using a validation set with 10000 images.
+2023-09-17 17:21:47,718 [INFO] bit_common: Training from Scratch ###############################
+2023-09-17 17:21:47,719 [INFO] bit_common: Moving model onto all GPUs
+2023-09-17 17:21:59,675 [INFO] bit_common: Starting training!
+2023-09-17 17:27:27,921 [INFO] bit_common: Namespace(base_lr=0.1, batch=128, batch_split=1, bit_pretrained_dir='.', datadir='../data', dataset='cifar100', eval_every=400, examples_per_class=None, examples_per_class_seed=0, logdir='../log', loss='baseline', model='BiT-M-R50x1', name='SOFTMAX', resume=False, save=False, seed=0, workers=8)
+2023-09-17 17:27:27,982 [INFO] bit_common: Going to train on cuda:0
+2023-09-17 17:27:29,757 [INFO] bit_common: Using a training set with 50000 images.
+2023-09-17 17:27:29,758 [INFO] bit_common: Using a validation set with 10000 images.
+2023-09-17 17:27:29,973 [INFO] bit_common: Training from Scratch ###############################
+2023-09-17 17:27:29,973 [INFO] bit_common: Moving model onto all GPUs
+2023-09-17 17:27:38,528 [INFO] bit_common: Starting training!
+2023-09-17 17:31:00,507 [INFO] bit_common: Namespace(base_lr=0.1, batch=128, batch_split=1, bit_pretrained_dir='.', datadir='../data', dataset='cifar100', eval_every=400, examples_per_class=None, examples_per_class_seed=0, logdir='../log', loss='baseline', model='BiT-M-R50x1', name='SOFTMAX', resume=False, save=False, seed=0, workers=8)
+2023-09-17 17:31:00,578 [INFO] bit_common: Going to train on cuda:0
+2023-09-17 17:31:02,342 [INFO] bit_common: Using a training set with 50000 images.
+2023-09-17 17:31:02,343 [INFO] bit_common: Using a validation set with 10000 images.
+2023-09-17 17:31:02,582 [INFO] bit_common: Training from Scratch ###############################
+2023-09-17 17:31:02,582 [INFO] bit_common: Moving model onto all GPUs
+2023-09-17 17:31:08,273 [INFO] bit_common: Starting training!
+2023-09-17 17:40:54,666 [INFO] bit_common: Namespace(base_lr=0.1, batch=128, batch_split=1, bit_pretrained_dir='.', datadir='../data', dataset='cifar100', eval_every=400, examples_per_class=None, examples_per_class_seed=0, logdir='../log', loss='baseline', model='BiT-M-R50x1', name='SOFTMAX', resume=False, save=False, seed=0, workers=8)
+2023-09-17 17:40:54,733 [INFO] bit_common: Going to train on cuda:0
+2023-09-17 17:40:56,510 [INFO] bit_common: Using a training set with 50000 images.
+2023-09-17 17:40:56,511 [INFO] bit_common: Using a validation set with 10000 images.
+2023-09-17 17:40:56,725 [INFO] bit_common: Training from Scratch ###############################
+2023-09-17 17:40:56,725 [INFO] bit_common: Moving model onto all GPUs
+2023-09-17 17:40:59,698 [INFO] bit_common: Starting training!
+2023-09-17 17:44:02,517 [INFO] bit_common: Namespace(base_lr=0.1, batch=128, batch_split=1, bit_pretrained_dir='.', datadir='../data', dataset='cifar100', eval_every=400, examples_per_class=None, examples_per_class_seed=0, logdir='../log', loss='baseline', model='BiT-M-R50x1', name='SOFTMAX', resume=False, save=False, seed=0, workers=8)
+2023-09-17 17:44:02,582 [INFO] bit_common: Going to train on cuda:0
+2023-09-17 17:44:04,344 [INFO] bit_common: Using a training set with 50000 images.
+2023-09-17 17:44:04,345 [INFO] bit_common: Using a validation set with 10000 images.
+2023-09-17 17:44:04,559 [INFO] bit_common: Training from Scratch ###############################
+2023-09-17 17:44:04,560 [INFO] bit_common: Moving model onto all GPUs
+2023-09-17 17:44:08,068 [INFO] bit_common: Starting training!
+2023-09-17 17:47:41,505 [INFO] bit_common: [step 0]: loss=4.62417 (lr=0.0e+00)
+2023-09-17 19:51:14,561 [INFO] bit_common: Namespace(base_lr=0.1, batch=128, batch_split=1, bit_pretrained_dir='.', datadir='../data', dataset='cifar100', eval_every=400, examples_per_class=None, examples_per_class_seed=0, logdir='../log', loss='confidence', model='BiT-M-R50x1', name='SOFTMAX', resume=False, save=False, seed=0, workers=8)
+2023-09-17 19:51:14,623 [INFO] bit_common: Going to train on cuda:0
+2023-09-17 19:51:16,416 [INFO] bit_common: Using a training set with 50000 images.
+2023-09-17 19:51:16,416 [INFO] bit_common: Using a validation set with 10000 images.
+2023-09-17 19:51:16,662 [INFO] bit_common: Training from Scratch ###############################
+2023-09-17 19:51:16,663 [INFO] bit_common: Moving model onto all GPUs
+2023-09-17 19:51:32,292 [INFO] bit_common: Starting training!
+2023-09-17 20:10:55,799 [INFO] bit_common: Namespace(base_lr=0.1, batch=128, batch_split=1, bit_pretrained_dir='.', datadir='../data', dataset='cifar100', eval_every=400, examples_per_class=None, examples_per_class_seed=0, logdir='../log', loss='confidence', model='BiT-M-R50x1', name='SOFTMAX', resume=False, save=False, seed=0, workers=8)
+2023-09-17 20:10:55,869 [INFO] bit_common: Going to train on cuda:0
+2023-09-17 20:10:57,628 [INFO] bit_common: Using a training set with 50000 images.
+2023-09-17 20:10:57,628 [INFO] bit_common: Using a validation set with 10000 images.
+2023-09-17 20:10:57,874 [INFO] bit_common: Training from Scratch ###############################
+2023-09-17 20:10:57,875 [INFO] bit_common: Moving model onto all GPUs
+2023-09-17 20:11:54,501 [INFO] bit_common: Starting training!
+2023-09-17 21:37:38,748 [INFO] bit_common: Namespace(base_lr=0.1, batch=128, batch_split=1, bit_pretrained_dir='.', datadir='../data', dataset='cifar100', eval_every=400, examples_per_class=None, examples_per_class_seed=0, logdir='../log', loss='confidence', model='BiT-M-R50x1', name='SOFTMAX', resume=False, save=False, seed=0, workers=8)
+2023-09-17 21:37:38,816 [INFO] bit_common: Going to train on cuda:0
+2023-09-17 21:37:40,595 [INFO] bit_common: Using a training set with 50000 images.
+2023-09-17 21:37:40,596 [INFO] bit_common: Using a validation set with 10000 images.
+2023-09-17 21:37:40,837 [INFO] bit_common: Training from Scratch ###############################
+2023-09-17 21:37:40,837 [INFO] bit_common: Moving model onto all GPUs
+2023-09-17 21:37:45,077 [INFO] bit_common: Starting training!
+2023-09-18 12:26:04,913 [INFO] bit_common: Namespace(base_lr=0.1, batch=128, batch_split=1, bit_pretrained_dir='.', datadir='../data', dataset='cifar100', eval_every=400, examples_per_class=None, examples_per_class_seed=0, logdir='../log', loss='confidence', model='BiT-M-R50x1', name='SOFTMAX', resume=False, save=False, seed=0, workers=8)
+2023-09-18 12:26:04,972 [INFO] bit_common: Going to train on cuda:0
+2023-09-18 12:26:06,742 [INFO] bit_common: Using a training set with 50000 images.
+2023-09-18 12:26:06,742 [INFO] bit_common: Using a validation set with 10000 images.
+2023-09-18 12:26:06,989 [INFO] bit_common: Training from Scratch ###############################
+2023-09-18 12:26:06,989 [INFO] bit_common: Moving model onto all GPUs
+2023-09-18 12:26:17,490 [INFO] bit_common: Starting training!
+2023-09-18 12:28:14,245 [INFO] bit_common: Namespace(base_lr=0.1, batch=128, batch_split=1, bit_pretrained_dir='.', datadir='../data', dataset='cifar100', eval_every=400, examples_per_class=None, examples_per_class_seed=0, logdir='../log', loss='confidence', model='BiT-M-R50x1', name='SOFTMAX', resume=False, save=False, seed=0, workers=8)
+2023-09-18 12:28:14,283 [INFO] bit_common: Going to train on cuda:0
+2023-09-18 12:28:16,012 [INFO] bit_common: Using a training set with 50000 images.
+2023-09-18 12:28:16,012 [INFO] bit_common: Using a validation set with 10000 images.
+2023-09-18 12:28:16,233 [INFO] bit_common: Training from Scratch ###############################
+2023-09-18 12:28:16,233 [INFO] bit_common: Moving model onto all GPUs
+2023-09-18 12:28:17,680 [INFO] bit_common: Starting training!
+2023-09-18 12:28:24,829 [INFO] bit_common: [step 0]: loss=2.60548 (lr=0.0e+00)
+2023-09-18 12:29:29,340 [INFO] bit_common: Running validation...
+2023-09-18 12:29:36,402 [INFO] bit_common: Validation@400 loss 3.77988, top1 12.80%, top5 34.62%
+2023-09-18 12:29:37,353 [INFO] bit_common: [step 400]: loss=2.20965 (lr=8.0e-02)
+2023-09-18 12:30:40,857 [INFO] bit_common: Running validation...
+2023-09-18 12:30:47,443 [INFO] bit_common: Validation@800 loss 3.12225, top1 23.96%, top5 51.87%
+2023-09-18 12:30:48,394 [INFO] bit_common: [step 800]: loss=2.08527 (lr=1.0e-01)
+2023-09-18 12:31:52,568 [INFO] bit_common: Running validation...
+2023-09-18 12:31:59,196 [INFO] bit_common: Validation@1200 loss 2.70654, top1 30.54%, top5 62.67%
+2023-09-18 12:32:00,176 [INFO] bit_common: [step 1200]: loss=1.43097 (lr=1.0e-01)
+2023-09-18 12:33:06,266 [INFO] bit_common: Running validation...
+2023-09-18 12:33:12,986 [INFO] bit_common: Validation@1600 loss 2.51844, top1 34.68%, top5 67.25%
+2023-09-18 12:33:13,853 [INFO] bit_common: [step 1600]: loss=1.27689 (lr=1.0e-01)
+2023-09-18 12:34:20,669 [INFO] bit_common: Running validation...
+2023-09-18 12:34:27,433 [INFO] bit_common: Validation@2000 loss 2.45683, top1 36.64%, top5 67.46%
+2023-09-18 12:34:28,300 [INFO] bit_common: [step 2000]: loss=1.35301 (lr=1.0e-01)
+2023-09-18 12:35:35,368 [INFO] bit_common: Running validation...
+2023-09-18 12:35:42,351 [INFO] bit_common: Validation@2400 loss 2.30079, top1 38.84%, top5 72.34%
+2023-09-18 12:35:43,217 [INFO] bit_common: [step 2400]: loss=1.24654 (lr=1.0e-01)
+2023-09-18 12:36:50,161 [INFO] bit_common: Running validation...
+2023-09-18 12:36:57,108 [INFO] bit_common: Validation@2800 loss 2.21857, top1 41.16%, top5 73.31%
+2023-09-18 12:36:57,971 [INFO] bit_common: [step 2800]: loss=1.21135 (lr=1.0e-01)
+2023-09-18 12:38:04,705 [INFO] bit_common: Running validation...
+2023-09-18 12:38:11,467 [INFO] bit_common: Validation@3200 loss 2.12169, top1 43.35%, top5 74.88%
+2023-09-18 12:38:12,329 [INFO] bit_common: [step 3200]: loss=1.34854 (lr=1.0e-01)
+2023-09-18 12:39:18,857 [INFO] bit_common: Running validation...
+2023-09-18 12:39:25,734 [INFO] bit_common: Validation@3600 loss 2.16363, top1 42.48%, top5 74.01%
+2023-09-18 12:39:26,227 [INFO] bit_common: [step 3600]: loss=1.31834 (lr=1.0e-01)
+2023-09-18 12:40:32,776 [INFO] bit_common: Running validation...
+2023-09-18 12:40:39,640 [INFO] bit_common: Validation@4000 loss 2.15911, top1 42.08%, top5 75.01%
+2023-09-18 12:40:40,143 [INFO] bit_common: [step 4000]: loss=1.24158 (lr=1.0e-01)
+2023-09-18 12:41:46,966 [INFO] bit_common: Running validation...
+2023-09-18 12:41:53,828 [INFO] bit_common: Validation@4400 loss 2.04075, top1 45.37%, top5 76.58%
+2023-09-18 12:41:54,802 [INFO] bit_common: [step 4400]: loss=1.11582 (lr=1.0e-01)
+2023-09-18 12:43:01,449 [INFO] bit_common: Running validation...
+2023-09-18 12:43:08,216 [INFO] bit_common: Validation@4800 loss 2.06258, top1 44.70%, top5 76.01%
+2023-09-18 12:43:08,722 [INFO] bit_common: [step 4800]: loss=1.28921 (lr=1.0e-01)
+2023-09-18 12:44:15,393 [INFO] bit_common: Running validation...
+2023-09-18 12:44:22,226 [INFO] bit_common: Validation@5200 loss 2.18907, top1 43.20%, top5 74.01%
+2023-09-18 12:44:22,729 [INFO] bit_common: [step 5200]: loss=1.26034 (lr=1.0e-01)
+2023-09-18 12:45:29,299 [INFO] bit_common: Running validation...
+2023-09-18 12:45:36,073 [INFO] bit_common: Validation@5600 loss 1.99006, top1 46.93%, top5 76.94%
+2023-09-18 12:45:36,935 [INFO] bit_common: [step 5600]: loss=1.03253 (lr=1.0e-01)
+2023-09-18 12:46:43,408 [INFO] bit_common: Running validation...
+2023-09-18 12:46:50,121 [INFO] bit_common: Validation@6000 loss 1.99724, top1 46.32%, top5 77.66%
+2023-09-18 12:46:50,610 [INFO] bit_common: [step 6000]: loss=1.26130 (lr=1.0e-01)
+2023-09-18 12:47:57,163 [INFO] bit_common: Running validation...
+2023-09-18 12:48:04,050 [INFO] bit_common: Validation@6400 loss 2.07737, top1 45.38%, top5 76.04%
+2023-09-18 12:48:04,544 [INFO] bit_common: [step 6400]: loss=0.98418 (lr=1.0e-01)
+2023-09-18 12:49:11,066 [INFO] bit_common: Running validation...
+2023-09-18 12:49:17,859 [INFO] bit_common: Validation@6800 loss 1.91680, top1 48.60%, top5 78.54%
+2023-09-18 12:49:18,845 [INFO] bit_common: [step 6800]: loss=1.05038 (lr=1.0e-01)
+2023-09-18 12:50:25,382 [INFO] bit_common: Running validation...
+2023-09-18 12:50:32,221 [INFO] bit_common: Validation@7200 loss 2.04021, top1 45.93%, top5 76.65%
+2023-09-18 12:50:32,798 [INFO] bit_common: [step 7200]: loss=1.11936 (lr=1.0e-01)
+2023-09-18 12:51:39,469 [INFO] bit_common: Running validation...
+2023-09-18 12:51:46,339 [INFO] bit_common: Validation@7600 loss 1.97448, top1 46.67%, top5 78.29%
+2023-09-18 12:51:46,835 [INFO] bit_common: [step 7600]: loss=1.06010 (lr=1.0e-01)
+2023-09-18 12:52:53,453 [INFO] bit_common: Running validation...
+2023-09-18 12:53:00,319 [INFO] bit_common: Validation@8000 loss 1.85957, top1 49.34%, top5 80.23%
+2023-09-18 12:53:01,200 [INFO] bit_common: [step 8000]: loss=1.05101 (lr=1.0e-01)
+2023-09-18 12:54:07,839 [INFO] bit_common: Running validation...
+2023-09-18 12:54:14,654 [INFO] bit_common: Validation@8400 loss 1.91544, top1 48.17%, top5 79.18%
+2023-09-18 12:54:15,153 [INFO] bit_common: [step 8400]: loss=1.03137 (lr=1.0e-01)
+2023-09-18 12:55:21,929 [INFO] bit_common: Running validation...
+2023-09-18 12:55:28,687 [INFO] bit_common: Validation@8800 loss 1.83612, top1 49.83%, top5 80.58%
+2023-09-18 12:55:29,562 [INFO] bit_common: [step 8800]: loss=1.18259 (lr=1.0e-01)
+2023-09-18 12:56:36,537 [INFO] bit_common: Running validation...
+2023-09-18 12:56:43,492 [INFO] bit_common: Validation@9200 loss 1.77959, top1 51.77%, top5 81.00%
+2023-09-18 12:56:44,387 [INFO] bit_common: [step 9200]: loss=1.29121 (lr=1.0e-01)
+2023-09-18 12:57:51,000 [INFO] bit_common: Running validation...
+2023-09-18 12:57:57,920 [INFO] bit_common: Validation@9600 loss 1.82242, top1 50.85%, top5 80.65%
+2023-09-18 12:57:58,431 [INFO] bit_common: [step 9600]: loss=0.95100 (lr=1.0e-01)
+2023-09-18 12:59:04,986 [INFO] bit_common: Running validation...
+2023-09-18 12:59:11,775 [INFO] bit_common: Validation@10000 loss 1.80454, top1 51.34%, top5 81.13%
+2023-09-18 12:59:12,267 [INFO] bit_common: [step 10000]: loss=1.13908 (lr=1.0e-01)
+2023-09-18 13:00:18,754 [INFO] bit_common: Running validation...
+2023-09-18 13:00:26,174 [INFO] bit_common: Validation@10400 loss 1.84111, top1 50.26%, top5 80.56%
+2023-09-18 13:00:26,678 [INFO] bit_common: [step 10400]: loss=1.11599 (lr=1.0e-01)
+2023-09-18 13:01:33,547 [INFO] bit_common: Running validation...
+2023-09-18 13:01:40,342 [INFO] bit_common: Validation@10800 loss 1.79992, top1 51.06%, top5 80.87%
+2023-09-18 13:01:40,848 [INFO] bit_common: [step 10800]: loss=0.90007 (lr=1.0e-01)
+2023-09-18 13:02:47,857 [INFO] bit_common: Running validation...
+2023-09-18 13:02:54,783 [INFO] bit_common: Validation@11200 loss 1.90515, top1 49.22%, top5 78.78%
+2023-09-18 13:02:55,285 [INFO] bit_common: [step 11200]: loss=1.16243 (lr=1.0e-01)
+2023-09-18 13:04:02,175 [INFO] bit_common: Running validation...
+2023-09-18 13:04:08,997 [INFO] bit_common: Validation@11600 loss 1.83085, top1 50.37%, top5 81.64%
+2023-09-18 13:04:09,495 [INFO] bit_common: [step 11600]: loss=0.95446 (lr=1.0e-01)
+2023-09-18 13:05:16,206 [INFO] bit_common: Running validation...
+2023-09-18 13:05:22,918 [INFO] bit_common: Validation@12000 loss 1.80063, top1 50.73%, top5 81.47%
+2023-09-18 13:05:23,425 [INFO] bit_common: [step 12000]: loss=0.89920 (lr=1.0e-01)
+2023-09-18 13:06:29,931 [INFO] bit_common: Running validation...
+2023-09-18 13:06:36,566 [INFO] bit_common: Validation@12400 loss 1.92837, top1 48.79%, top5 78.49%
+2023-09-18 13:06:37,060 [INFO] bit_common: [step 12400]: loss=1.02321 (lr=1.0e-01)
+2023-09-18 13:07:43,763 [INFO] bit_common: Running validation...
+2023-09-18 13:07:50,399 [INFO] bit_common: Validation@12800 loss 1.79787, top1 51.54%, top5 80.48%
+2023-09-18 13:07:50,894 [INFO] bit_common: [step 12800]: loss=1.11432 (lr=1.0e-01)
+2023-09-18 13:08:57,252 [INFO] bit_common: Running validation...
+2023-09-18 13:09:04,088 [INFO] bit_common: Validation@13200 loss 1.68255, top1 53.69%, top5 82.84%
+2023-09-18 13:09:04,948 [INFO] bit_common: [step 13200]: loss=0.99266 (lr=1.0e-01)
+2023-09-18 13:10:11,445 [INFO] bit_common: Running validation...
+2023-09-18 13:10:18,278 [INFO] bit_common: Validation@13600 loss 1.76176, top1 51.32%, top5 82.10%
+2023-09-18 13:10:18,775 [INFO] bit_common: [step 13600]: loss=0.98545 (lr=1.0e-01)
+2023-09-18 13:11:25,352 [INFO] bit_common: Running validation...
+2023-09-18 13:11:32,181 [INFO] bit_common: Validation@14000 loss 1.79391, top1 51.63%, top5 81.58%
+2023-09-18 13:11:32,762 [INFO] bit_common: [step 14000]: loss=0.85497 (lr=1.0e-01)
+2023-09-18 13:12:39,164 [INFO] bit_common: Running validation...
+2023-09-18 13:12:45,962 [INFO] bit_common: Validation@14400 loss 1.78016, top1 51.51%, top5 81.66%
+2023-09-18 13:12:46,457 [INFO] bit_common: [step 14400]: loss=0.93285 (lr=1.0e-01)
+2023-09-18 13:13:52,975 [INFO] bit_common: Running validation...
+2023-09-18 13:13:59,672 [INFO] bit_common: Validation@14800 loss 1.73689, top1 52.71%, top5 82.38%
+2023-09-18 13:14:00,174 [INFO] bit_common: [step 14800]: loss=1.08516 (lr=1.0e-01)
+2023-09-18 13:15:06,667 [INFO] bit_common: Running validation...
+2023-09-18 13:15:13,493 [INFO] bit_common: Validation@15200 loss 1.65123, top1 54.07%, top5 83.16%
+2023-09-18 13:15:14,373 [INFO] bit_common: [step 15200]: loss=0.84285 (lr=1.0e-01)
+2023-09-18 13:16:21,035 [INFO] bit_common: Running validation...
+2023-09-18 13:16:27,805 [INFO] bit_common: Validation@15600 loss 1.67092, top1 53.53%, top5 83.53%
+2023-09-18 13:16:28,293 [INFO] bit_common: [step 15600]: loss=0.97817 (lr=1.0e-01)
+2023-09-18 13:17:34,995 [INFO] bit_common: Running validation...
+2023-09-18 13:17:41,976 [INFO] bit_common: Validation@16000 loss 1.67969, top1 54.27%, top5 82.66%
+2023-09-18 13:17:42,860 [INFO] bit_common: [step 16000]: loss=0.87358 (lr=1.0e-01)
+2023-09-18 13:18:49,394 [INFO] bit_common: Running validation...
+2023-09-18 13:18:56,395 [INFO] bit_common: Validation@16400 loss 1.75224, top1 51.95%, top5 81.84%
+2023-09-18 13:18:56,905 [INFO] bit_common: [step 16400]: loss=0.98301 (lr=1.0e-01)
+2023-09-18 13:20:03,673 [INFO] bit_common: Running validation...
+2023-09-18 13:20:10,427 [INFO] bit_common: Validation@16800 loss 1.76233, top1 51.69%, top5 82.14%
+2023-09-18 13:20:10,932 [INFO] bit_common: [step 16800]: loss=0.90889 (lr=1.0e-01)
+2023-09-18 13:21:17,724 [INFO] bit_common: Running validation...
+2023-09-18 13:21:24,614 [INFO] bit_common: Validation@17200 loss 1.69099, top1 53.68%, top5 83.06%
+2023-09-18 13:21:25,107 [INFO] bit_common: [step 17200]: loss=0.80244 (lr=1.0e-01)
+2023-09-18 13:22:33,003 [INFO] bit_common: Running validation...
+2023-09-18 13:22:40,046 [INFO] bit_common: Validation@17600 loss 1.78438, top1 51.18%, top5 81.55%
+2023-09-18 13:22:40,583 [INFO] bit_common: [step 17600]: loss=0.85406 (lr=1.0e-01)
+2023-09-18 13:23:47,552 [INFO] bit_common: Running validation...
+2023-09-18 13:23:54,533 [INFO] bit_common: Validation@18000 loss 1.75876, top1 52.06%, top5 82.45%
+2023-09-18 13:23:55,032 [INFO] bit_common: [step 18000]: loss=0.95934 (lr=1.0e-01)
+2023-09-18 13:25:01,826 [INFO] bit_common: Running validation...
+2023-09-18 13:25:08,778 [INFO] bit_common: Validation@18400 loss 1.72457, top1 52.92%, top5 82.38%
+2023-09-18 13:25:10,142 [INFO] bit_common: [step 18400]: loss=0.99752 (lr=1.0e-01)
+2023-09-18 13:26:16,625 [INFO] bit_common: Running validation...
+2023-09-18 13:26:23,334 [INFO] bit_common: Validation@18800 loss 1.71182, top1 53.12%, top5 82.87%
+2023-09-18 13:26:25,188 [INFO] bit_common: [step 18800]: loss=0.83154 (lr=1.0e-01)
+2023-09-18 13:27:31,567 [INFO] bit_common: Running validation...
+2023-09-18 13:27:38,347 [INFO] bit_common: Validation@19200 loss 1.73690, top1 52.81%, top5 82.89%
+2023-09-18 13:27:38,865 [INFO] bit_common: [step 19200]: loss=0.72634 (lr=1.0e-01)
+2023-09-18 13:28:45,540 [INFO] bit_common: Running validation...
+2023-09-18 13:28:52,379 [INFO] bit_common: Validation@19600 loss 1.70885, top1 53.37%, top5 83.17%
+2023-09-18 13:28:52,891 [INFO] bit_common: [step 19600]: loss=0.85704 (lr=1.0e-01)
+2023-09-18 13:29:59,368 [INFO] bit_common: Running validation...
+2023-09-18 13:30:06,343 [INFO] bit_common: Validation@20000 loss 1.65958, top1 53.82%, top5 83.51%
+2023-09-18 13:30:06,853 [INFO] bit_common: [step 20000]: loss=0.94573 (lr=1.0e-01)
+2023-09-18 13:31:13,176 [INFO] bit_common: Running validation...
+2023-09-18 13:31:20,054 [INFO] bit_common: Validation@20400 loss 1.71151, top1 53.78%, top5 82.44%
+2023-09-18 13:31:20,553 [INFO] bit_common: [step 20400]: loss=0.98003 (lr=1.0e-01)
+2023-09-18 13:32:26,855 [INFO] bit_common: Running validation...
+2023-09-18 13:32:33,687 [INFO] bit_common: Validation@20800 loss 1.71256, top1 53.35%, top5 83.41%
+2023-09-18 13:32:34,189 [INFO] bit_common: [step 20800]: loss=1.10934 (lr=1.0e-01)
+2023-09-18 13:33:40,769 [INFO] bit_common: Running validation...
+2023-09-18 13:33:47,465 [INFO] bit_common: Validation@21200 loss 1.66209, top1 54.90%, top5 83.60%
+2023-09-18 13:33:49,930 [INFO] bit_common: [step 21200]: loss=0.85726 (lr=1.0e-01)
+2023-09-18 13:34:56,425 [INFO] bit_common: Running validation...
+2023-09-18 13:35:03,322 [INFO] bit_common: Validation@21600 loss 1.67274, top1 54.48%, top5 83.23%
+2023-09-18 13:35:04,095 [INFO] bit_common: [step 21600]: loss=1.05908 (lr=1.0e-01)
+2023-09-18 13:36:10,111 [INFO] bit_common: Running validation...
+2023-09-18 13:36:17,064 [INFO] bit_common: Validation@22000 loss 1.70058, top1 53.80%, top5 83.02%
+2023-09-18 13:36:17,564 [INFO] bit_common: [step 22000]: loss=0.81088 (lr=1.0e-01)
+2023-09-18 13:37:23,876 [INFO] bit_common: Running validation...
+2023-09-18 13:37:30,681 [INFO] bit_common: Validation@22400 loss 1.75282, top1 52.67%, top5 81.81%
+2023-09-18 13:37:31,180 [INFO] bit_common: [step 22400]: loss=1.05550 (lr=1.0e-01)
+2023-09-18 13:38:37,789 [INFO] bit_common: Running validation...
+2023-09-18 13:38:44,598 [INFO] bit_common: Validation@22800 loss 1.87097, top1 49.80%, top5 79.81%
+2023-09-18 13:38:45,194 [INFO] bit_common: [step 22800]: loss=1.03528 (lr=1.0e-01)
+2023-09-18 13:39:51,799 [INFO] bit_common: Running validation...
+2023-09-18 13:39:58,663 [INFO] bit_common: Validation@23200 loss 1.77787, top1 51.87%, top5 82.11%
+2023-09-18 13:39:59,167 [INFO] bit_common: [step 23200]: loss=0.95251 (lr=1.0e-01)
+2023-09-18 13:41:05,722 [INFO] bit_common: Running validation...
+2023-09-18 13:41:12,495 [INFO] bit_common: Validation@23600 loss 1.76963, top1 52.13%, top5 81.06%
+2023-09-18 13:41:13,000 [INFO] bit_common: [step 23600]: loss=1.02831 (lr=1.0e-01)
+2023-09-18 13:42:19,451 [INFO] bit_common: Running validation...
+2023-09-18 13:42:26,397 [INFO] bit_common: Validation@24000 loss 1.68594, top1 53.95%, top5 82.97%
+2023-09-18 13:42:26,931 [INFO] bit_common: [step 24000]: loss=0.93866 (lr=1.0e-01)
+2023-09-18 13:43:33,210 [INFO] bit_common: Running validation...
+2023-09-18 13:43:40,118 [INFO] bit_common: Validation@24400 loss 1.26293, top1 64.61%, top5 89.35%
+2023-09-18 13:43:42,363 [INFO] bit_common: [step 24400]: loss=0.51718 (lr=1.0e-02)
+2023-09-18 13:44:48,543 [INFO] bit_common: Running validation...
+2023-09-18 13:44:55,373 [INFO] bit_common: Validation@24800 loss 1.23492, top1 65.17%, top5 89.75%
+2023-09-18 13:44:56,273 [INFO] bit_common: [step 24800]: loss=0.47384 (lr=1.0e-02)
+2023-09-18 13:46:02,408 [INFO] bit_common: Running validation...
+2023-09-18 13:46:09,161 [INFO] bit_common: Validation@25200 loss 1.21504, top1 66.40%, top5 90.16%
+2023-09-18 13:46:10,121 [INFO] bit_common: [step 25200]: loss=0.45934 (lr=1.0e-02)
+2023-09-18 13:47:16,278 [INFO] bit_common: Running validation...
+2023-09-18 13:47:23,012 [INFO] bit_common: Validation@25600 loss 1.17396, top1 67.15%, top5 90.38%
+2023-09-18 13:47:23,993 [INFO] bit_common: [step 25600]: loss=0.32413 (lr=1.0e-02)
+2023-09-18 13:48:30,210 [INFO] bit_common: Running validation...
+2023-09-18 13:48:36,955 [INFO] bit_common: Validation@26000 loss 1.16449, top1 67.71%, top5 90.80%
+2023-09-18 13:48:39,337 [INFO] bit_common: [step 26000]: loss=0.47786 (lr=1.0e-02)
+2023-09-18 13:49:45,521 [INFO] bit_common: Running validation...
+2023-09-18 13:49:52,440 [INFO] bit_common: Validation@26400 loss 1.17781, top1 67.79%, top5 90.82%
+2023-09-18 13:49:53,361 [INFO] bit_common: [step 26400]: loss=0.36703 (lr=1.0e-02)
+2023-09-18 13:50:59,598 [INFO] bit_common: Running validation...
+2023-09-18 13:51:06,283 [INFO] bit_common: Validation@26800 loss 1.13822, top1 68.78%, top5 91.06%
+2023-09-18 13:51:07,176 [INFO] bit_common: [step 26800]: loss=0.55055 (lr=1.0e-02)
+2023-09-18 13:52:13,539 [INFO] bit_common: Running validation...
+2023-09-18 13:52:20,432 [INFO] bit_common: Validation@27200 loss 1.14847, top1 68.05%, top5 91.19%
+2023-09-18 13:52:20,930 [INFO] bit_common: [step 27200]: loss=0.39019 (lr=1.0e-02)
+2023-09-18 13:53:27,167 [INFO] bit_common: Running validation...
+2023-09-18 13:53:34,012 [INFO] bit_common: Validation@27600 loss 1.21969, top1 67.20%, top5 90.46%
+2023-09-18 13:53:34,526 [INFO] bit_common: [step 27600]: loss=0.35120 (lr=1.0e-02)
+2023-09-18 13:54:40,958 [INFO] bit_common: Running validation...
+2023-09-18 13:54:47,954 [INFO] bit_common: Validation@28000 loss 1.24081, top1 66.73%, top5 90.27%
+2023-09-18 13:54:48,740 [INFO] bit_common: [step 28000]: loss=0.33785 (lr=1.0e-02)
+2023-09-18 13:55:55,189 [INFO] bit_common: Running validation...
+2023-09-18 13:56:01,720 [INFO] bit_common: Validation@28400 loss 1.18786, top1 68.39%, top5 91.15%
+2023-09-18 13:56:02,310 [INFO] bit_common: [step 28400]: loss=0.30271 (lr=1.0e-02)
+2023-09-18 13:57:08,699 [INFO] bit_common: Running validation...
+2023-09-18 13:57:15,257 [INFO] bit_common: Validation@28800 loss 1.23103, top1 67.20%, top5 90.43%
+2023-09-18 13:57:15,773 [INFO] bit_common: [step 28800]: loss=0.38579 (lr=1.0e-02)
+2023-09-18 13:58:22,183 [INFO] bit_common: Running validation...
+2023-09-18 13:58:28,757 [INFO] bit_common: Validation@29200 loss 1.19114, top1 68.25%, top5 90.88%
+2023-09-18 13:58:30,487 [INFO] bit_common: [step 29200]: loss=0.30916 (lr=1.0e-02)
+2023-09-18 13:59:36,770 [INFO] bit_common: Running validation...
+2023-09-18 13:59:43,522 [INFO] bit_common: Validation@29600 loss 1.24132, top1 67.07%, top5 90.79%
+2023-09-18 13:59:44,034 [INFO] bit_common: [step 29600]: loss=0.43459 (lr=1.0e-02)
+2023-09-18 14:00:50,403 [INFO] bit_common: Running validation...
+2023-09-18 14:00:57,130 [INFO] bit_common: Validation@30000 loss 1.21662, top1 67.97%, top5 90.44%
+2023-09-18 14:00:57,626 [INFO] bit_common: [step 30000]: loss=0.25644 (lr=1.0e-02)
+2023-09-18 14:02:03,943 [INFO] bit_common: Running validation...
+2023-09-18 14:02:10,572 [INFO] bit_common: Validation@30400 loss 1.23965, top1 67.06%, top5 90.30%
+2023-09-18 14:02:11,156 [INFO] bit_common: [step 30400]: loss=0.19733 (lr=1.0e-02)
+2023-09-18 14:03:17,682 [INFO] bit_common: Running validation...
+2023-09-18 14:03:24,240 [INFO] bit_common: Validation@30800 loss 1.23472, top1 67.04%, top5 90.56%
+2023-09-18 14:03:24,753 [INFO] bit_common: [step 30800]: loss=0.29243 (lr=1.0e-02)
+2023-09-18 14:04:31,482 [INFO] bit_common: Running validation...
+2023-09-18 14:04:38,031 [INFO] bit_common: Validation@31200 loss 1.27139, top1 67.19%, top5 90.40%
+2023-09-18 14:04:38,530 [INFO] bit_common: [step 31200]: loss=0.33605 (lr=1.0e-02)
+2023-09-18 14:05:44,922 [INFO] bit_common: Running validation...
+2023-09-18 14:05:51,548 [INFO] bit_common: Validation@31600 loss 1.27314, top1 66.78%, top5 90.45%
+2023-09-18 14:05:52,077 [INFO] bit_common: [step 31600]: loss=0.36969 (lr=1.0e-02)
+2023-09-18 14:06:58,355 [INFO] bit_common: Running validation...
+2023-09-18 14:07:04,973 [INFO] bit_common: Validation@32000 loss 1.29565, top1 67.66%, top5 90.43%
+2023-09-18 14:07:05,563 [INFO] bit_common: [step 32000]: loss=0.41212 (lr=1.0e-02)
+2023-09-18 14:08:11,929 [INFO] bit_common: Running validation...
+2023-09-18 14:08:18,605 [INFO] bit_common: Validation@32400 loss 1.23555, top1 67.74%, top5 90.69%
+2023-09-18 14:08:19,195 [INFO] bit_common: [step 32400]: loss=0.31721 (lr=1.0e-02)
+2023-09-18 14:09:24,972 [INFO] bit_common: Running validation...
+2023-09-18 14:09:31,408 [INFO] bit_common: Validation@32800 loss 1.25979, top1 67.49%, top5 90.24%
+2023-09-18 14:09:31,914 [INFO] bit_common: [step 32800]: loss=0.28607 (lr=1.0e-02)
+2023-09-18 14:10:38,260 [INFO] bit_common: Running validation...
+2023-09-18 14:10:44,951 [INFO] bit_common: Validation@33200 loss 1.26155, top1 68.33%, top5 90.28%
+2023-09-18 14:10:46,587 [INFO] bit_common: [step 33200]: loss=0.26370 (lr=1.0e-02)
+2023-09-18 14:11:52,962 [INFO] bit_common: Running validation...
+2023-09-18 14:11:59,720 [INFO] bit_common: Validation@33600 loss 1.28449, top1 67.78%, top5 90.03%
+2023-09-18 14:12:00,222 [INFO] bit_common: [step 33600]: loss=0.20061 (lr=1.0e-02)
+2023-09-18 14:13:06,627 [INFO] bit_common: Running validation...
+2023-09-18 14:13:13,451 [INFO] bit_common: Validation@34000 loss 1.32383, top1 67.07%, top5 89.62%
+2023-09-18 14:13:13,962 [INFO] bit_common: [step 34000]: loss=0.27448 (lr=1.0e-02)
+2023-09-18 14:14:20,291 [INFO] bit_common: Running validation...
+2023-09-18 14:14:27,106 [INFO] bit_common: Validation@34400 loss 1.26728, top1 67.68%, top5 90.70%
+2023-09-18 14:14:27,697 [INFO] bit_common: [step 34400]: loss=0.39723 (lr=1.0e-02)
+2023-09-18 14:15:35,330 [INFO] bit_common: Running validation...
+2023-09-18 14:15:42,786 [INFO] bit_common: Validation@34800 loss 1.30109, top1 67.64%, top5 89.88%
+2023-09-18 14:15:43,292 [INFO] bit_common: [step 34800]: loss=0.27059 (lr=1.0e-02)
+2023-09-18 14:16:49,644 [INFO] bit_common: Running validation...
+2023-09-18 14:16:56,420 [INFO] bit_common: Validation@35200 loss 1.30879, top1 67.40%, top5 90.05%
+2023-09-18 14:16:58,091 [INFO] bit_common: [step 35200]: loss=0.17408 (lr=1.0e-02)
+2023-09-18 14:18:03,870 [INFO] bit_common: Running validation...
+2023-09-18 14:18:10,714 [INFO] bit_common: Validation@35600 loss 1.30539, top1 67.84%, top5 89.92%
+2023-09-18 14:18:11,294 [INFO] bit_common: [step 35600]: loss=0.39502 (lr=1.0e-02)
+2023-09-18 14:19:17,221 [INFO] bit_common: Running validation...
+2023-09-18 14:19:24,181 [INFO] bit_common: Validation@36000 loss 1.35396, top1 66.42%, top5 89.45%
+2023-09-18 14:19:24,949 [INFO] bit_common: [step 36000]: loss=0.26766 (lr=1.0e-02)
+2023-09-18 14:20:31,246 [INFO] bit_common: Running validation...
+2023-09-18 14:20:38,139 [INFO] bit_common: Validation@36400 loss 1.31305, top1 67.46%, top5 90.02%
+2023-09-18 14:20:39,630 [INFO] bit_common: [step 36400]: loss=0.27324 (lr=1.0e-02)
+2023-09-18 14:21:46,091 [INFO] bit_common: Running validation...
+2023-09-18 14:21:52,760 [INFO] bit_common: Validation@36800 loss 1.43501, top1 65.63%, top5 89.12%
+2023-09-18 14:21:53,326 [INFO] bit_common: [step 36800]: loss=0.30046 (lr=1.0e-02)
+2023-09-18 14:22:59,954 [INFO] bit_common: Running validation...
+2023-09-18 14:23:06,747 [INFO] bit_common: Validation@37200 loss 1.39365, top1 65.97%, top5 89.26%
+2023-09-18 14:23:07,251 [INFO] bit_common: [step 37200]: loss=0.26214 (lr=1.0e-02)
+2023-09-18 14:24:13,839 [INFO] bit_common: Running validation...
+2023-09-18 14:24:20,694 [INFO] bit_common: Validation@37600 loss 1.33126, top1 67.38%, top5 89.82%
+2023-09-18 14:24:21,201 [INFO] bit_common: [step 37600]: loss=0.20536 (lr=1.0e-02)
+2023-09-18 14:25:27,785 [INFO] bit_common: Running validation...
+2023-09-18 14:25:34,616 [INFO] bit_common: Validation@38000 loss 1.33710, top1 67.30%, top5 89.67%
+2023-09-18 14:25:35,186 [INFO] bit_common: [step 38000]: loss=0.30847 (lr=1.0e-02)
+2023-09-18 14:26:41,509 [INFO] bit_common: Running validation...
+2023-09-18 14:26:48,313 [INFO] bit_common: Validation@38400 loss 1.41882, top1 65.95%, top5 89.08%
+2023-09-18 14:26:48,988 [INFO] bit_common: [step 38400]: loss=0.29413 (lr=1.0e-02)
+2023-09-18 14:27:55,523 [INFO] bit_common: Running validation...
+2023-09-18 14:28:02,337 [INFO] bit_common: Validation@38800 loss 1.40968, top1 66.20%, top5 89.12%
+2023-09-18 14:28:02,835 [INFO] bit_common: [step 38800]: loss=0.26496 (lr=1.0e-02)
+2023-09-18 14:29:09,372 [INFO] bit_common: Running validation...
+2023-09-18 14:29:16,263 [INFO] bit_common: Validation@39200 loss 1.48961, top1 64.91%, top5 88.12%
+2023-09-18 14:29:16,759 [INFO] bit_common: [step 39200]: loss=0.30558 (lr=1.0e-02)
+2023-09-18 14:30:23,312 [INFO] bit_common: Running validation...
+2023-09-18 14:30:30,231 [INFO] bit_common: Validation@39600 loss 1.33621, top1 67.52%, top5 90.03%
+2023-09-18 14:30:31,806 [INFO] bit_common: [step 39600]: loss=0.19143 (lr=1.0e-02)
+2023-09-18 14:31:38,160 [INFO] bit_common: Running validation...
+2023-09-18 14:31:45,209 [INFO] bit_common: Validation@40000 loss 1.31704, top1 67.60%, top5 89.98%
+2023-09-18 14:31:45,703 [INFO] bit_common: [step 40000]: loss=0.20444 (lr=1.0e-02)
+2023-09-18 14:32:52,215 [INFO] bit_common: Running validation...
+2023-09-18 14:32:58,895 [INFO] bit_common: Validation@40400 loss 1.36254, top1 67.20%, top5 89.52%
+2023-09-18 14:32:59,855 [INFO] bit_common: [step 40400]: loss=0.25225 (lr=1.0e-02)
+2023-09-18 14:34:06,337 [INFO] bit_common: Running validation...
+2023-09-18 14:34:13,021 [INFO] bit_common: Validation@40800 loss 1.33946, top1 67.83%, top5 89.70%
+2023-09-18 14:34:13,522 [INFO] bit_common: [step 40800]: loss=0.21465 (lr=1.0e-02)
+2023-09-18 14:35:19,594 [INFO] bit_common: Running validation...
+2023-09-18 14:35:26,197 [INFO] bit_common: Validation@41200 loss 1.35750, top1 67.59%, top5 89.67%
+2023-09-18 14:35:26,697 [INFO] bit_common: [step 41200]: loss=0.26868 (lr=1.0e-02)
+2023-09-18 14:36:32,844 [INFO] bit_common: Running validation...
+2023-09-18 14:36:39,593 [INFO] bit_common: Validation@41600 loss 1.38874, top1 66.31%, top5 89.58%
+2023-09-18 14:36:40,102 [INFO] bit_common: [step 41600]: loss=0.17246 (lr=1.0e-02)
+2023-09-18 14:37:46,541 [INFO] bit_common: Running validation...
+2023-09-18 14:37:53,251 [INFO] bit_common: Validation@42000 loss 1.40021, top1 66.97%, top5 89.41%
+2023-09-18 14:37:53,763 [INFO] bit_common: [step 42000]: loss=0.19592 (lr=1.0e-02)
+2023-09-18 14:39:00,150 [INFO] bit_common: Running validation...
+2023-09-18 14:39:06,753 [INFO] bit_common: Validation@42400 loss 1.38486, top1 66.61%, top5 89.49%
+2023-09-18 14:39:07,346 [INFO] bit_common: [step 42400]: loss=0.30867 (lr=1.0e-02)
+2023-09-18 14:40:13,963 [INFO] bit_common: Running validation...
+2023-09-18 14:40:20,703 [INFO] bit_common: Validation@42800 loss 1.44729, top1 66.16%, top5 88.76%
+2023-09-18 14:40:21,198 [INFO] bit_common: [step 42800]: loss=0.26189 (lr=1.0e-02)
+2023-09-18 14:41:27,761 [INFO] bit_common: Running validation...
+2023-09-18 14:41:34,420 [INFO] bit_common: Validation@43200 loss 1.39083, top1 66.56%, top5 89.27%
+2023-09-18 14:41:34,911 [INFO] bit_common: [step 43200]: loss=0.11315 (lr=1.0e-02)
+2023-09-18 14:42:41,237 [INFO] bit_common: Running validation...
+2023-09-18 14:42:47,989 [INFO] bit_common: Validation@43600 loss 1.56011, top1 64.66%, top5 88.03%
+2023-09-18 14:42:48,498 [INFO] bit_common: [step 43600]: loss=0.26884 (lr=1.0e-02)
+2023-09-18 14:43:54,995 [INFO] bit_common: Running validation...
+2023-09-18 14:44:01,792 [INFO] bit_common: Validation@44000 loss 1.45612, top1 65.66%, top5 88.86%
+2023-09-18 14:44:02,305 [INFO] bit_common: [step 44000]: loss=0.24213 (lr=1.0e-02)
+2023-09-18 14:45:08,704 [INFO] bit_common: Running validation...
+2023-09-18 14:45:15,248 [INFO] bit_common: Validation@44400 loss 1.42003, top1 66.57%, top5 89.46%
+2023-09-18 14:45:15,846 [INFO] bit_common: [step 44400]: loss=0.28463 (lr=1.0e-02)
+2023-09-18 14:46:22,396 [INFO] bit_common: Running validation...
+2023-09-18 14:46:28,967 [INFO] bit_common: Validation@44800 loss 1.42441, top1 66.70%, top5 88.97%
+2023-09-18 14:46:29,492 [INFO] bit_common: [step 44800]: loss=0.16329 (lr=1.0e-02)
+2023-09-18 14:47:36,042 [INFO] bit_common: Running validation...
+2023-09-18 14:47:43,025 [INFO] bit_common: Validation@45200 loss 1.47171, top1 65.32%, top5 88.69%
+2023-09-18 14:47:43,532 [INFO] bit_common: [step 45200]: loss=0.15459 (lr=1.0e-02)
+2023-09-18 14:48:50,079 [INFO] bit_common: Running validation...
+2023-09-18 14:48:56,965 [INFO] bit_common: Validation@45600 loss 1.42458, top1 66.92%, top5 89.16%
+2023-09-18 14:48:57,459 [INFO] bit_common: [step 45600]: loss=0.17057 (lr=1.0e-02)
+2023-09-18 14:50:03,880 [INFO] bit_common: Running validation...
+2023-09-18 14:50:10,751 [INFO] bit_common: Validation@46000 loss 1.40430, top1 66.67%, top5 89.01%
+2023-09-18 14:50:11,250 [INFO] bit_common: [step 46000]: loss=0.24000 (lr=1.0e-02)
+2023-09-18 14:51:17,770 [INFO] bit_common: Running validation...
+2023-09-18 14:51:24,470 [INFO] bit_common: Validation@46400 loss 1.39721, top1 67.23%, top5 89.40%
+2023-09-18 14:51:24,982 [INFO] bit_common: [step 46400]: loss=0.20033 (lr=1.0e-02)
+2023-09-18 14:52:31,802 [INFO] bit_common: Running validation...
+2023-09-18 14:52:38,531 [INFO] bit_common: Validation@46800 loss 1.45759, top1 66.37%, top5 88.88%
+2023-09-18 14:52:39,036 [INFO] bit_common: [step 46800]: loss=0.25581 (lr=1.0e-02)
+2023-09-18 14:53:45,730 [INFO] bit_common: Running validation...
+2023-09-18 14:53:52,513 [INFO] bit_common: Validation@47200 loss 1.44650, top1 66.42%, top5 88.97%
+2023-09-18 14:53:53,029 [INFO] bit_common: [step 47200]: loss=0.16462 (lr=1.0e-02)
+2023-09-18 14:54:59,777 [INFO] bit_common: Running validation...
+2023-09-18 14:55:06,728 [INFO] bit_common: Validation@47600 loss 1.52334, top1 65.56%, top5 88.05%
+2023-09-18 14:55:07,228 [INFO] bit_common: [step 47600]: loss=0.26267 (lr=1.0e-02)
+2023-09-18 14:56:13,747 [INFO] bit_common: Running validation...
+2023-09-18 14:56:20,658 [INFO] bit_common: Validation@48000 loss 1.41600, top1 66.74%, top5 89.35%
+2023-09-18 14:56:21,159 [INFO] bit_common: [step 48000]: loss=0.24818 (lr=1.0e-02)
+2023-09-18 14:57:27,607 [INFO] bit_common: Running validation...
+2023-09-18 14:57:34,434 [INFO] bit_common: Validation@48400 loss 1.27523, top1 70.69%, top5 91.18%
+2023-09-18 14:57:35,406 [INFO] bit_common: [step 48400]: loss=0.12278 (lr=1.0e-03)
+2023-09-18 14:58:41,955 [INFO] bit_common: Running validation...
+2023-09-18 14:58:48,652 [INFO] bit_common: Validation@48800 loss 1.27136, top1 71.14%, top5 91.43%
+2023-09-18 14:58:49,614 [INFO] bit_common: [step 48800]: loss=0.05072 (lr=1.0e-03)
+2023-09-18 14:59:55,613 [INFO] bit_common: Running validation...
+2023-09-18 15:00:02,392 [INFO] bit_common: Validation@49200 loss 1.29650, top1 71.39%, top5 91.31%
+2023-09-18 15:00:03,266 [INFO] bit_common: [step 49200]: loss=0.05113 (lr=1.0e-03)
+2023-09-18 15:01:09,654 [INFO] bit_common: Running validation...
+2023-09-18 15:01:16,406 [INFO] bit_common: Validation@49600 loss 1.30104, top1 70.99%, top5 91.22%
+2023-09-18 15:01:16,901 [INFO] bit_common: [step 49600]: loss=0.05585 (lr=1.0e-03)
+2023-09-18 15:02:23,538 [INFO] bit_common: Running validation...
+2023-09-18 15:02:30,283 [INFO] bit_common: Validation@50000 loss 1.31041, top1 71.31%, top5 91.39%
+2023-09-18 15:02:30,782 [INFO] bit_common: [step 50000]: loss=0.02993 (lr=1.0e-03)
+2023-09-18 15:03:37,314 [INFO] bit_common: Running validation...
+2023-09-18 15:03:44,053 [INFO] bit_common: Validation@50400 loss 1.32014, top1 71.34%, top5 91.38%
+2023-09-18 15:03:44,550 [INFO] bit_common: [step 50400]: loss=0.04853 (lr=1.0e-03)
+2023-09-18 15:04:50,693 [INFO] bit_common: Running validation...
+2023-09-18 15:04:57,449 [INFO] bit_common: Validation@50800 loss 1.33105, top1 71.30%, top5 91.42%
+2023-09-18 15:04:57,948 [INFO] bit_common: [step 50800]: loss=0.08956 (lr=1.0e-03)
+2023-09-18 15:06:04,421 [INFO] bit_common: Running validation...
+2023-09-18 15:06:11,159 [INFO] bit_common: Validation@51200 loss 1.35217, top1 71.25%, top5 91.15%
+2023-09-18 15:06:11,655 [INFO] bit_common: [step 51200]: loss=0.02624 (lr=1.0e-03)
+2023-09-18 15:07:17,925 [INFO] bit_common: Running validation...
+2023-09-18 15:07:24,504 [INFO] bit_common: Validation@51600 loss 1.33081, top1 71.55%, top5 91.30%
+2023-09-18 15:07:25,416 [INFO] bit_common: [step 51600]: loss=0.01846 (lr=1.0e-03)
+2023-09-18 15:08:32,170 [INFO] bit_common: Running validation...
+2023-09-18 15:08:38,767 [INFO] bit_common: Validation@52000 loss 1.35267, top1 71.41%, top5 91.28%
+2023-09-18 15:08:39,263 [INFO] bit_common: [step 52000]: loss=0.02810 (lr=1.0e-03)
+2023-09-18 15:09:47,231 [INFO] bit_common: Running validation...
+2023-09-18 15:09:54,108 [INFO] bit_common: Validation@52400 loss 1.34534, top1 71.39%, top5 91.33%
+2023-09-18 15:09:54,603 [INFO] bit_common: [step 52400]: loss=0.01716 (lr=1.0e-03)
+2023-09-18 15:11:01,536 [INFO] bit_common: Running validation...
+2023-09-18 15:11:08,153 [INFO] bit_common: Validation@52800 loss 1.36569, top1 71.31%, top5 91.25%
+2023-09-18 15:11:08,657 [INFO] bit_common: [step 52800]: loss=0.01978 (lr=1.0e-03)
+2023-09-18 15:12:15,330 [INFO] bit_common: Running validation...
+2023-09-18 15:12:21,885 [INFO] bit_common: Validation@53200 loss 1.36678, top1 71.40%, top5 91.28%
+2023-09-18 15:12:22,472 [INFO] bit_common: [step 53200]: loss=0.01159 (lr=1.0e-03)
+2023-09-18 15:13:28,962 [INFO] bit_common: Running validation...
+2023-09-18 15:13:35,361 [INFO] bit_common: Validation@53600 loss 1.39112, top1 71.04%, top5 91.19%
+2023-09-18 15:13:35,861 [INFO] bit_common: [step 53600]: loss=0.00592 (lr=1.0e-03)
+2023-09-18 15:14:42,363 [INFO] bit_common: Running validation...
+2023-09-18 15:14:49,061 [INFO] bit_common: Validation@54000 loss 1.37144, top1 71.73%, top5 91.25%
+2023-09-18 15:14:49,969 [INFO] bit_common: [step 54000]: loss=0.02766 (lr=1.0e-03)
+2023-09-18 15:15:56,542 [INFO] bit_common: Running validation...
+2023-09-18 15:16:03,172 [INFO] bit_common: Validation@54400 loss 1.35430, top1 71.76%, top5 91.34%
+2023-09-18 15:16:04,043 [INFO] bit_common: [step 54400]: loss=0.01643 (lr=1.0e-03)
+2023-09-18 15:17:10,594 [INFO] bit_common: Running validation...
+2023-09-18 15:17:17,204 [INFO] bit_common: Validation@54800 loss 1.38539, top1 71.28%, top5 91.11%
+2023-09-18 15:17:17,697 [INFO] bit_common: [step 54800]: loss=0.01745 (lr=1.0e-03)
+2023-09-18 15:18:24,104 [INFO] bit_common: Running validation...
+2023-09-18 15:18:30,918 [INFO] bit_common: Validation@55200 loss 1.38595, top1 71.59%, top5 91.26%
+2023-09-18 15:18:31,423 [INFO] bit_common: [step 55200]: loss=0.01580 (lr=1.0e-03)
+2023-09-18 15:19:38,241 [INFO] bit_common: Running validation...
+2023-09-18 15:19:44,891 [INFO] bit_common: Validation@55600 loss 1.37796, top1 71.61%, top5 91.41%
+2023-09-18 15:19:45,491 [INFO] bit_common: [step 55600]: loss=0.01251 (lr=1.0e-03)
+2023-09-18 15:20:52,339 [INFO] bit_common: Running validation...
+2023-09-18 15:20:58,818 [INFO] bit_common: Validation@56000 loss 1.39482, top1 71.60%, top5 91.03%
+2023-09-18 15:20:59,326 [INFO] bit_common: [step 56000]: loss=0.02985 (lr=1.0e-03)
+2023-09-18 15:22:05,770 [INFO] bit_common: Running validation...
+2023-09-18 15:22:12,355 [INFO] bit_common: Validation@56400 loss 1.38491, top1 71.88%, top5 91.27%
+2023-09-18 15:22:13,248 [INFO] bit_common: [step 56400]: loss=0.02690 (lr=1.0e-03)
+2023-09-18 15:23:20,194 [INFO] bit_common: Running validation...
+2023-09-18 15:23:26,895 [INFO] bit_common: Validation@56800 loss 1.38762, top1 71.54%, top5 91.30%
+2023-09-18 15:23:27,397 [INFO] bit_common: [step 56800]: loss=0.00574 (lr=1.0e-03)
+2023-09-18 15:24:34,317 [INFO] bit_common: Running validation...
+2023-09-18 15:24:41,007 [INFO] bit_common: Validation@57200 loss 1.41185, top1 71.65%, top5 91.12%
+2023-09-18 15:24:41,498 [INFO] bit_common: [step 57200]: loss=0.00822 (lr=1.0e-03)
+2023-09-18 15:25:48,367 [INFO] bit_common: Running validation...
+2023-09-18 15:25:55,032 [INFO] bit_common: Validation@57600 loss 1.40285, top1 71.84%, top5 91.18%
+2023-09-18 15:25:55,522 [INFO] bit_common: [step 57600]: loss=0.00774 (lr=1.0e-03)
+2023-09-18 15:27:02,391 [INFO] bit_common: Running validation...
+2023-09-18 15:27:09,114 [INFO] bit_common: Validation@58000 loss 1.39935, top1 71.76%, top5 91.13%
+2023-09-18 15:27:09,720 [INFO] bit_common: [step 58000]: loss=0.01340 (lr=1.0e-03)
+2023-09-18 15:28:16,672 [INFO] bit_common: Running validation...
+2023-09-18 15:28:23,259 [INFO] bit_common: Validation@58400 loss 1.42336, top1 71.39%, top5 90.99%
+2023-09-18 15:28:23,763 [INFO] bit_common: [step 58400]: loss=0.02057 (lr=1.0e-03)
+2023-09-18 15:29:30,686 [INFO] bit_common: Running validation...
+2023-09-18 15:29:37,380 [INFO] bit_common: Validation@58800 loss 1.41679, top1 71.42%, top5 91.01%
+2023-09-18 15:29:37,885 [INFO] bit_common: [step 58800]: loss=0.01235 (lr=1.0e-03)
+2023-09-18 15:30:44,759 [INFO] bit_common: Running validation...
+2023-09-18 15:30:51,490 [INFO] bit_common: Validation@59200 loss 1.41420, top1 71.65%, top5 91.02%
+2023-09-18 15:30:52,019 [INFO] bit_common: [step 59200]: loss=0.00639 (lr=1.0e-03)
+2023-09-18 15:31:58,894 [INFO] bit_common: Running validation...
+2023-09-18 15:32:05,699 [INFO] bit_common: Validation@59600 loss 1.39622, top1 71.97%, top5 91.30%
+2023-09-18 15:32:06,584 [INFO] bit_common: [step 59600]: loss=0.02794 (lr=1.0e-03)
+2023-09-18 15:33:13,162 [INFO] bit_common: Running validation...
+2023-09-18 15:33:19,950 [INFO] bit_common: Validation@60000 loss 1.39941, top1 71.90%, top5 91.18%
+2023-09-18 15:33:20,451 [INFO] bit_common: [step 60000]: loss=0.00331 (lr=1.0e-03)
+2023-09-18 15:34:27,111 [INFO] bit_common: Running validation...
+2023-09-18 15:34:33,662 [INFO] bit_common: Validation@60400 loss 1.42563, top1 71.54%, top5 91.26%
+2023-09-18 15:34:34,159 [INFO] bit_common: [step 60400]: loss=0.01367 (lr=1.0e-03)
+2023-09-18 15:35:40,859 [INFO] bit_common: Running validation...
+2023-09-18 15:35:47,557 [INFO] bit_common: Validation@60800 loss 1.42114, top1 71.64%, top5 91.09%
+2023-09-18 15:35:48,043 [INFO] bit_common: [step 60800]: loss=0.02210 (lr=1.0e-03)
+2023-09-18 15:36:54,837 [INFO] bit_common: Running validation...
+2023-09-18 15:37:01,490 [INFO] bit_common: Validation@61200 loss 1.41828, top1 71.72%, top5 91.14%
+2023-09-18 15:37:01,998 [INFO] bit_common: [step 61200]: loss=0.01254 (lr=1.0e-03)
+2023-09-18 15:38:08,722 [INFO] bit_common: Running validation...
+2023-09-18 15:38:15,494 [INFO] bit_common: Validation@61600 loss 1.40873, top1 71.83%, top5 91.33%
+2023-09-18 15:38:15,986 [INFO] bit_common: [step 61600]: loss=0.00967 (lr=1.0e-03)
+2023-09-18 15:39:22,620 [INFO] bit_common: Running validation...
+2023-09-18 15:39:29,259 [INFO] bit_common: Validation@62000 loss 1.41393, top1 72.00%, top5 91.18%
+2023-09-18 15:39:30,124 [INFO] bit_common: [step 62000]: loss=0.00671 (lr=1.0e-03)
+2023-09-18 15:40:36,760 [INFO] bit_common: Running validation...
+2023-09-18 15:40:43,316 [INFO] bit_common: Validation@62400 loss 1.40872, top1 71.76%, top5 91.36%
+2023-09-18 15:40:43,912 [INFO] bit_common: [step 62400]: loss=0.01308 (lr=1.0e-03)
+2023-09-18 15:41:51,108 [INFO] bit_common: Running validation...
+2023-09-18 15:41:57,620 [INFO] bit_common: Validation@62800 loss 1.41797, top1 71.71%, top5 91.23%
+2023-09-18 15:41:58,129 [INFO] bit_common: [step 62800]: loss=0.01328 (lr=1.0e-03)
+2023-09-18 15:43:05,235 [INFO] bit_common: Running validation...
+2023-09-18 15:43:12,081 [INFO] bit_common: Validation@63200 loss 1.42259, top1 71.91%, top5 91.21%
+2023-09-18 15:43:12,589 [INFO] bit_common: [step 63200]: loss=0.01114 (lr=1.0e-03)
+2023-09-18 15:44:19,294 [INFO] bit_common: Running validation...
+2023-09-18 15:44:25,997 [INFO] bit_common: Validation@63600 loss 1.43518, top1 71.32%, top5 91.07%
+2023-09-18 15:44:26,491 [INFO] bit_common: [step 63600]: loss=0.00900 (lr=1.0e-03)
+2023-09-18 15:45:33,370 [INFO] bit_common: Running validation...
+2023-09-18 15:45:40,177 [INFO] bit_common: Validation@64000 loss 1.42119, top1 71.63%, top5 90.98%
+2023-09-18 15:45:40,681 [INFO] bit_common: [step 64000]: loss=0.00889 (lr=1.0e-03)
+2023-09-18 15:46:47,686 [INFO] bit_common: Running validation...
+2023-09-18 15:46:54,532 [INFO] bit_common: Validation@64400 loss 1.42762, top1 71.73%, top5 91.07%
+2023-09-18 15:46:55,128 [INFO] bit_common: [step 64400]: loss=0.00697 (lr=1.0e-03)
+2023-09-18 15:48:02,036 [INFO] bit_common: Running validation...
+2023-09-18 15:48:08,898 [INFO] bit_common: Validation@64800 loss 1.41903, top1 71.60%, top5 91.11%
+2023-09-18 15:48:09,399 [INFO] bit_common: [step 64800]: loss=0.00786 (lr=1.0e-03)
+2023-09-18 15:49:15,996 [INFO] bit_common: Running validation...
+2023-09-18 15:49:22,608 [INFO] bit_common: Validation@65200 loss 1.42913, top1 71.65%, top5 91.04%
+2023-09-18 15:49:23,105 [INFO] bit_common: [step 65200]: loss=0.00929 (lr=1.0e-03)
+2023-09-18 15:50:30,027 [INFO] bit_common: Running validation...
+2023-09-18 15:50:36,857 [INFO] bit_common: Validation@65600 loss 1.43396, top1 71.65%, top5 91.23%
+2023-09-18 15:50:37,348 [INFO] bit_common: [step 65600]: loss=0.01225 (lr=1.0e-03)
+2023-09-18 15:51:44,356 [INFO] bit_common: Running validation...
+2023-09-18 15:51:51,223 [INFO] bit_common: Validation@66000 loss 1.43500, top1 71.59%, top5 91.08%
+2023-09-18 15:51:51,724 [INFO] bit_common: [step 66000]: loss=0.02204 (lr=1.0e-03)
+2023-09-18 15:52:58,399 [INFO] bit_common: Running validation...
+2023-09-18 15:53:05,108 [INFO] bit_common: Validation@66400 loss 1.44039, top1 71.56%, top5 91.03%
+2023-09-18 15:53:05,714 [INFO] bit_common: [step 66400]: loss=0.00320 (lr=1.0e-03)
+2023-09-18 15:54:12,748 [INFO] bit_common: Running validation...
+2023-09-18 15:54:19,716 [INFO] bit_common: Validation@66800 loss 1.42966, top1 71.63%, top5 91.06%
+2023-09-18 15:54:20,226 [INFO] bit_common: [step 66800]: loss=0.00733 (lr=1.0e-03)
+2023-09-18 15:55:27,239 [INFO] bit_common: Running validation...
+2023-09-18 15:55:34,123 [INFO] bit_common: Validation@67200 loss 1.44062, top1 71.48%, top5 91.02%
+2023-09-18 15:55:34,620 [INFO] bit_common: [step 67200]: loss=0.00879 (lr=1.0e-03)
+2023-09-18 15:56:41,266 [INFO] bit_common: Running validation...
+2023-09-18 15:56:48,057 [INFO] bit_common: Validation@67600 loss 1.43178, top1 71.60%, top5 91.27%
+2023-09-18 15:56:48,559 [INFO] bit_common: [step 67600]: loss=0.00301 (lr=1.0e-03)
+2023-09-18 15:57:55,435 [INFO] bit_common: Running validation...
+2023-09-18 15:58:02,329 [INFO] bit_common: Validation@68000 loss 1.44186, top1 71.75%, top5 90.89%
+2023-09-18 15:58:02,841 [INFO] bit_common: [step 68000]: loss=0.00966 (lr=1.0e-03)
+2023-09-18 15:59:09,779 [INFO] bit_common: Running validation...
+2023-09-18 15:59:16,571 [INFO] bit_common: Validation@68400 loss 1.43046, top1 71.77%, top5 91.08%
+2023-09-18 15:59:17,178 [INFO] bit_common: [step 68400]: loss=0.00432 (lr=1.0e-03)
+2023-09-18 16:00:24,201 [INFO] bit_common: Running validation...
+2023-09-18 16:00:30,998 [INFO] bit_common: Validation@68800 loss 1.43448, top1 71.92%, top5 91.22%
+2023-09-18 16:00:31,513 [INFO] bit_common: [step 68800]: loss=0.00301 (lr=1.0e-03)
+2023-09-18 16:01:38,648 [INFO] bit_common: Running validation...
+2023-09-18 16:01:45,520 [INFO] bit_common: Validation@69200 loss 1.43696, top1 71.85%, top5 91.05%
+2023-09-18 16:01:46,027 [INFO] bit_common: [step 69200]: loss=0.00294 (lr=1.0e-03)
+2023-09-18 16:02:54,577 [INFO] bit_common: Running validation...
+2023-09-18 16:03:02,079 [INFO] bit_common: Validation@69600 loss 1.44185, top1 71.84%, top5 91.18%
+2023-09-18 16:03:02,584 [INFO] bit_common: [step 69600]: loss=0.00281 (lr=1.0e-03)
+2023-09-18 16:04:09,945 [INFO] bit_common: Running validation...
+2023-09-18 16:04:16,844 [INFO] bit_common: Validation@70000 loss 1.44916, top1 71.74%, top5 91.06%
+2023-09-18 16:04:17,349 [INFO] bit_common: [step 70000]: loss=0.01683 (lr=1.0e-03)
+2023-09-18 16:05:24,551 [INFO] bit_common: Running validation...
+2023-09-18 16:05:31,419 [INFO] bit_common: Validation@70400 loss 1.45159, top1 71.59%, top5 90.90%
+2023-09-18 16:05:32,016 [INFO] bit_common: [step 70400]: loss=0.00529 (lr=1.0e-03)
+2023-09-18 16:06:39,006 [INFO] bit_common: Running validation...
+2023-09-18 16:06:45,829 [INFO] bit_common: Validation@70800 loss 1.43893, top1 71.61%, top5 91.10%
+2023-09-18 16:06:46,327 [INFO] bit_common: [step 70800]: loss=0.00428 (lr=1.0e-03)
+2023-09-18 16:07:53,279 [INFO] bit_common: Running validation...
+2023-09-18 16:08:00,110 [INFO] bit_common: Validation@71200 loss 1.43552, top1 71.77%, top5 91.03%
+2023-09-18 16:08:00,615 [INFO] bit_common: [step 71200]: loss=0.01067 (lr=1.0e-03)
+2023-09-18 16:09:07,609 [INFO] bit_common: Running validation...
+2023-09-18 16:09:14,589 [INFO] bit_common: Validation@71600 loss 1.43708, top1 71.91%, top5 90.95%
+2023-09-18 16:09:15,102 [INFO] bit_common: [step 71600]: loss=0.01230 (lr=1.0e-03)
+2023-09-18 16:10:22,087 [INFO] bit_common: Running validation...
+2023-09-18 16:10:29,008 [INFO] bit_common: Validation@72000 loss 1.45431, top1 71.48%, top5 91.03%
+2023-09-18 16:10:29,512 [INFO] bit_common: [step 72000]: loss=0.00210 (lr=1.0e-03)
+2023-09-18 16:11:36,512 [INFO] bit_common: Running validation...
+2023-09-18 16:11:43,298 [INFO] bit_common: Validation@72400 loss 1.44122, top1 71.79%, top5 91.17%
+2023-09-18 16:11:43,897 [INFO] bit_common: [step 72400]: loss=0.00309 (lr=1.0e-04)
+2023-09-18 16:12:50,826 [INFO] bit_common: Running validation...
+2023-09-18 16:12:57,530 [INFO] bit_common: Validation@72800 loss 1.43789, top1 71.78%, top5 91.22%
+2023-09-18 16:12:58,032 [INFO] bit_common: [step 72800]: loss=0.00529 (lr=1.0e-04)
+2023-09-18 16:14:04,858 [INFO] bit_common: Running validation...
+2023-09-18 16:14:11,668 [INFO] bit_common: Validation@73200 loss 1.44002, top1 71.84%, top5 91.18%
+2023-09-18 16:14:12,164 [INFO] bit_common: [step 73200]: loss=0.00196 (lr=1.0e-04)
+2023-09-18 16:15:19,067 [INFO] bit_common: Running validation...
+2023-09-18 16:15:25,919 [INFO] bit_common: Validation@73600 loss 1.43833, top1 71.81%, top5 91.26%
+2023-09-18 16:15:26,424 [INFO] bit_common: [step 73600]: loss=0.00781 (lr=1.0e-04)
+2023-09-18 16:16:33,525 [INFO] bit_common: Running validation...
+2023-09-18 16:16:40,428 [INFO] bit_common: Validation@74000 loss 1.44124, top1 71.79%, top5 91.22%
+2023-09-18 16:16:40,942 [INFO] bit_common: [step 74000]: loss=0.00788 (lr=1.0e-04)
+2023-09-18 16:17:47,871 [INFO] bit_common: Running validation...
+2023-09-18 16:17:54,632 [INFO] bit_common: Validation@74400 loss 1.43998, top1 71.76%, top5 91.30%
+2023-09-18 16:17:55,210 [INFO] bit_common: [step 74400]: loss=0.00145 (lr=1.0e-04)
+2023-09-18 16:19:02,251 [INFO] bit_common: Running validation...
+2023-09-18 16:19:09,112 [INFO] bit_common: Validation@74800 loss 1.43833, top1 71.91%, top5 91.25%
+2023-09-18 16:19:09,628 [INFO] bit_common: [step 74800]: loss=0.00327 (lr=1.0e-04)
+2023-09-18 16:20:16,203 [INFO] bit_common: Running validation...
+2023-09-18 16:20:22,993 [INFO] bit_common: Validation@75200 loss 1.43648, top1 71.85%, top5 91.28%
+2023-09-18 16:20:23,490 [INFO] bit_common: [step 75200]: loss=0.00334 (lr=1.0e-04)
+2023-09-18 16:21:30,614 [INFO] bit_common: Running validation...
+2023-09-18 16:21:37,433 [INFO] bit_common: Validation@75600 loss 1.43887, top1 71.79%, top5 91.29%
+2023-09-18 16:21:37,936 [INFO] bit_common: [step 75600]: loss=0.00384 (lr=1.0e-04)
+2023-09-18 16:22:45,141 [INFO] bit_common: Running validation...
+2023-09-18 16:22:52,076 [INFO] bit_common: Validation@76000 loss 1.44243, top1 71.80%, top5 91.17%
+2023-09-18 16:22:52,575 [INFO] bit_common: [step 76000]: loss=0.00239 (lr=1.0e-04)
+2023-09-18 16:23:59,676 [INFO] bit_common: Running validation...
+2023-09-18 16:24:06,386 [INFO] bit_common: Validation@76400 loss 1.44596, top1 71.77%, top5 91.22%
+2023-09-18 16:24:06,982 [INFO] bit_common: [step 76400]: loss=0.00289 (lr=1.0e-04)
+2023-09-18 16:25:14,180 [INFO] bit_common: Running validation...
+2023-09-18 16:25:21,045 [INFO] bit_common: Validation@76800 loss 1.44740, top1 71.81%, top5 91.15%
+2023-09-18 16:25:21,559 [INFO] bit_common: [step 76800]: loss=0.00559 (lr=1.0e-04)
+2023-09-18 16:26:28,706 [INFO] bit_common: Running validation...
+2023-09-18 16:26:35,548 [INFO] bit_common: Validation@77200 loss 1.44394, top1 71.77%, top5 91.17%
+2023-09-18 16:26:36,040 [INFO] bit_common: [step 77200]: loss=0.00184 (lr=1.0e-04)
+2023-09-18 16:27:43,227 [INFO] bit_common: Running validation...
+2023-09-18 16:27:50,227 [INFO] bit_common: Validation@77600 loss 1.44646, top1 71.82%, top5 91.23%
+2023-09-18 16:27:50,728 [INFO] bit_common: [step 77600]: loss=0.00275 (lr=1.0e-04)
+2023-09-18 16:28:57,683 [INFO] bit_common: Running validation...
+2023-09-18 16:29:04,541 [INFO] bit_common: Validation@78000 loss 1.44610, top1 71.85%, top5 91.19%
+2023-09-18 16:29:05,037 [INFO] bit_common: [step 78000]: loss=0.00267 (lr=1.0e-04)
+2023-09-18 16:30:11,661 [INFO] bit_common: Running validation...
+2023-09-18 16:30:18,314 [INFO] bit_common: Validation@78400 loss 1.44260, top1 71.90%, top5 91.20%
+2023-09-18 16:30:18,907 [INFO] bit_common: [step 78400]: loss=0.00718 (lr=1.0e-04)
+2023-09-18 16:31:25,619 [INFO] bit_common: Running validation...
+2023-09-18 16:31:32,449 [INFO] bit_common: Validation@78800 loss 1.44614, top1 71.83%, top5 91.16%
+2023-09-18 16:31:32,949 [INFO] bit_common: [step 78800]: loss=0.00370 (lr=1.0e-04)
+2023-09-18 16:32:39,591 [INFO] bit_common: Running validation...
+2023-09-18 16:32:46,386 [INFO] bit_common: Validation@79200 loss 1.44695, top1 71.83%, top5 91.11%
+2023-09-18 16:32:46,874 [INFO] bit_common: [step 79200]: loss=0.00453 (lr=1.0e-04)
+2023-09-18 16:33:53,564 [INFO] bit_common: Running validation...
+2023-09-18 16:34:00,537 [INFO] bit_common: Validation@79600 loss 1.44548, top1 71.88%, top5 91.11%
+2023-09-18 16:34:01,042 [INFO] bit_common: [step 79600]: loss=0.00550 (lr=1.0e-04)
+2023-09-18 16:35:07,775 [INFO] bit_common: Running validation...
+2023-09-18 16:35:14,599 [INFO] bit_common: Validation@80000 loss 1.44721, top1 71.90%, top5 91.09%
+2023-09-18 16:35:15,195 [INFO] bit_common: [step 80000]: loss=0.00208 (lr=1.0e-04)
+2023-09-18 16:36:21,897 [INFO] bit_common: Running validation...
+2023-09-18 16:36:28,680 [INFO] bit_common: Validation@80400 loss 1.44722, top1 71.92%, top5 91.18%
+2023-09-18 16:36:29,178 [INFO] bit_common: [step 80400]: loss=0.00369 (lr=1.0e-04)
+2023-09-18 16:37:36,051 [INFO] bit_common: Running validation...
+2023-09-18 16:37:42,829 [INFO] bit_common: Validation@80800 loss 1.44438, top1 71.96%, top5 91.19%
+2023-09-18 16:37:43,315 [INFO] bit_common: [step 80800]: loss=0.00636 (lr=1.0e-04)
+2023-09-18 16:38:49,569 [INFO] bit_common: Running validation...
+2023-09-18 16:38:56,396 [INFO] bit_common: Validation@81200 loss 1.44391, top1 71.94%, top5 91.19%
+2023-09-18 16:38:56,887 [INFO] bit_common: [step 81200]: loss=0.00272 (lr=1.0e-04)
+2023-09-18 16:40:03,536 [INFO] bit_common: Running validation...
+2023-09-18 16:40:10,503 [INFO] bit_common: Validation@81600 loss 1.45228, top1 71.73%, top5 91.05%
+2023-09-18 16:40:11,009 [INFO] bit_common: [step 81600]: loss=0.00217 (lr=1.0e-04)
+2023-09-18 16:41:17,722 [INFO] bit_common: Running validation...
+2023-09-18 16:41:24,479 [INFO] bit_common: Validation@82000 loss 1.44942, top1 71.74%, top5 91.12%
+2023-09-18 16:41:25,078 [INFO] bit_common: [step 82000]: loss=0.00573 (lr=1.0e-04)
+2023-09-18 16:42:31,740 [INFO] bit_common: Running validation...
+2023-09-18 16:42:38,535 [INFO] bit_common: Validation@82400 loss 1.44928, top1 71.78%, top5 91.10%
+2023-09-18 16:42:39,047 [INFO] bit_common: [step 82400]: loss=0.00243 (lr=1.0e-04)
+2023-09-18 16:43:45,788 [INFO] bit_common: Running validation...
+2023-09-18 16:43:52,589 [INFO] bit_common: Validation@82800 loss 1.44510, top1 71.84%, top5 91.08%
+2023-09-18 16:43:53,092 [INFO] bit_common: [step 82800]: loss=0.00171 (lr=1.0e-04)
+2023-09-18 16:44:59,807 [INFO] bit_common: Running validation...
+2023-09-18 16:45:06,604 [INFO] bit_common: Validation@83200 loss 1.44717, top1 71.71%, top5 91.02%
+2023-09-18 16:45:07,111 [INFO] bit_common: [step 83200]: loss=0.00442 (lr=1.0e-04)
+2023-09-18 16:46:13,717 [INFO] bit_common: Running validation...
+2023-09-18 16:46:20,707 [INFO] bit_common: Validation@83600 loss 1.44709, top1 71.83%, top5 91.14%
+2023-09-18 16:46:21,213 [INFO] bit_common: [step 83600]: loss=0.00324 (lr=1.0e-04)
+2023-09-18 16:47:28,269 [INFO] bit_common: Running validation...
+2023-09-18 16:47:35,020 [INFO] bit_common: Validation@84000 loss 1.45019, top1 71.81%, top5 91.07%
+2023-09-18 16:47:35,667 [INFO] bit_common: [step 84000]: loss=0.00471 (lr=1.0e-04)
+2023-09-18 16:47:48,209 [INFO] bit_common: Namespace(base_lr=0.1, batch=128, batch_split=1, bit_pretrained_dir='.', datadir='../data', dataset='cifar100', eval_every=400, examples_per_class=None, examples_per_class_seed=0, logdir='../log', loss='confidence', model='BiT-M-R50x1', name='SOFTMAX', resume=False, save=False, seed=0, workers=8)
+2023-09-18 16:47:48,270 [INFO] bit_common: Going to train on cuda:0
+2023-09-18 16:47:50,106 [INFO] bit_common: Using a training set with 50000 images.
+2023-09-18 16:47:50,107 [INFO] bit_common: Using a validation set with 10000 images.
+2023-09-18 16:47:50,350 [INFO] bit_common: Training from Scratch ###############################
+2023-09-18 16:47:50,351 [INFO] bit_common: Moving model onto all GPUs
+2023-09-18 16:48:42,981 [INFO] bit_common: Running validation...
+2023-09-18 16:48:49,761 [INFO] bit_common: Validation@84400 loss 1.44877, top1 71.84%, top5 91.08%
+2023-09-18 16:48:50,266 [INFO] bit_common: [step 84400]: loss=0.00415 (lr=1.0e-04)
+2023-09-18 16:48:56,892 [INFO] bit_common: Namespace(base_lr=0.1, batch=128, batch_split=1, bit_pretrained_dir='.', datadir='../data', dataset='cifar100', eval_every=400, examples_per_class=None, examples_per_class_seed=0, logdir='../log', loss='confidence', model='BiT-M-R50x1', name='SOFTMAX', resume=False, save=False, seed=0, workers=8)
+2023-09-18 16:48:56,943 [INFO] bit_common: Going to train on cuda:0
+2023-09-18 16:48:58,724 [INFO] bit_common: Using a training set with 50000 images.
+2023-09-18 16:48:58,724 [INFO] bit_common: Using a validation set with 10000 images.
+2023-09-18 16:48:58,974 [INFO] bit_common: Training from Scratch ###############################
+2023-09-18 16:48:58,974 [INFO] bit_common: Moving model onto all GPUs
+2023-09-18 16:49:45,462 [INFO] bit_common: Starting training!
+2023-09-18 16:49:57,309 [INFO] bit_common: Running validation...
+2023-09-18 16:50:05,373 [INFO] bit_common: Validation@84800 loss 1.45241, top1 71.70%, top5 91.11%
+2023-09-18 16:50:05,882 [INFO] bit_common: [step 84800]: loss=0.00235 (lr=1.0e-04)
+2023-09-18 16:51:13,008 [INFO] bit_common: Running validation...
+2023-09-18 16:51:19,986 [INFO] bit_common: Validation@85200 loss 1.45121, top1 71.68%, top5 91.12%
+2023-09-18 16:51:20,493 [INFO] bit_common: [step 85200]: loss=0.00379 (lr=1.0e-04)
+2023-09-18 16:52:27,699 [INFO] bit_common: Running validation...
+2023-09-18 16:52:34,613 [INFO] bit_common: Validation@85600 loss 1.45396, top1 71.75%, top5 91.05%
+2023-09-18 16:52:35,110 [INFO] bit_common: [step 85600]: loss=0.00223 (lr=1.0e-04)
+2023-09-18 16:53:41,802 [INFO] bit_common: Running validation...
+2023-09-18 16:53:48,611 [INFO] bit_common: Validation@86000 loss 1.45284, top1 71.72%, top5 91.03%
+2023-09-18 16:53:49,214 [INFO] bit_common: [step 86000]: loss=0.01551 (lr=1.0e-04)
+2023-09-18 16:54:56,010 [INFO] bit_common: Running validation...
+2023-09-18 16:55:02,805 [INFO] bit_common: Validation@86400 loss 1.44959, top1 71.85%, top5 91.10%
+2023-09-18 16:55:03,309 [INFO] bit_common: [step 86400]: loss=0.00247 (lr=1.0e-04)
+2023-09-18 16:56:10,226 [INFO] bit_common: Running validation...
+2023-09-18 16:56:17,078 [INFO] bit_common: Validation@86800 loss 1.44793, top1 71.84%, top5 91.05%
+2023-09-18 16:56:17,585 [INFO] bit_common: [step 86800]: loss=0.00849 (lr=1.0e-04)
+2023-09-18 16:57:25,701 [INFO] bit_common: Running validation...
+2023-09-18 16:57:32,770 [INFO] bit_common: Validation@87200 loss 1.44879, top1 71.88%, top5 91.03%
+2023-09-18 16:57:33,283 [INFO] bit_common: [step 87200]: loss=0.00155 (lr=1.0e-04)
+2023-09-18 16:58:40,154 [INFO] bit_common: Running validation...
+2023-09-18 16:58:47,181 [INFO] bit_common: Validation@87600 loss 1.45217, top1 71.76%, top5 91.11%
+2023-09-18 16:58:47,681 [INFO] bit_common: [step 87600]: loss=0.00297 (lr=1.0e-04)
+2023-09-18 16:59:54,660 [INFO] bit_common: Running validation...
+2023-09-18 17:00:01,566 [INFO] bit_common: Validation@88000 loss 1.45041, top1 71.71%, top5 91.07%
+2023-09-18 17:00:02,234 [INFO] bit_common: [step 88000]: loss=0.00313 (lr=1.0e-04)
+2023-09-18 17:01:09,249 [INFO] bit_common: Running validation...
+2023-09-18 17:01:16,119 [INFO] bit_common: Validation@88400 loss 1.45282, top1 71.72%, top5 91.11%
+2023-09-18 17:01:16,615 [INFO] bit_common: [step 88400]: loss=0.00201 (lr=1.0e-04)
+2023-09-18 17:02:23,421 [INFO] bit_common: Running validation...
+2023-09-18 17:02:30,317 [INFO] bit_common: Validation@88800 loss 1.45425, top1 71.79%, top5 91.11%
+2023-09-18 17:02:30,806 [INFO] bit_common: [step 88800]: loss=0.00230 (lr=1.0e-04)
+2023-09-18 17:03:37,716 [INFO] bit_common: Running validation...
+2023-09-18 17:03:44,625 [INFO] bit_common: Validation@89200 loss 1.45574, top1 71.68%, top5 91.00%
+2023-09-18 17:03:45,126 [INFO] bit_common: [step 89200]: loss=0.00273 (lr=1.0e-04)
+2023-09-18 17:04:51,979 [INFO] bit_common: Running validation...
+2023-09-18 17:04:58,984 [INFO] bit_common: Validation@89600 loss 1.45039, top1 71.72%, top5 90.99%
+2023-09-18 17:04:59,499 [INFO] bit_common: [step 89600]: loss=0.00405 (lr=1.0e-04)
+2023-09-18 17:06:06,335 [INFO] bit_common: Running validation...
+2023-09-18 17:06:13,114 [INFO] bit_common: Validation@90000 loss 1.45453, top1 71.68%, top5 91.04%
+2023-09-18 17:06:13,721 [INFO] bit_common: [step 90000]: loss=0.00833 (lr=1.0e-04)
+2023-09-18 17:07:20,614 [INFO] bit_common: Running validation...
+2023-09-18 17:07:27,400 [INFO] bit_common: Validation@90400 loss 1.45342, top1 71.74%, top5 91.04%
+2023-09-18 17:07:27,911 [INFO] bit_common: [step 90400]: loss=0.00857 (lr=1.0e-04)
+2023-09-18 17:08:34,760 [INFO] bit_common: Running validation...
+2023-09-18 17:08:41,615 [INFO] bit_common: Validation@90800 loss 1.45273, top1 71.73%, top5 90.97%
+2023-09-18 17:08:42,120 [INFO] bit_common: [step 90800]: loss=0.00506 (lr=1.0e-04)
+2023-09-18 17:09:48,995 [INFO] bit_common: Running validation...
+2023-09-18 17:09:56,064 [INFO] bit_common: Validation@91200 loss 1.45573, top1 71.74%, top5 90.97%
+2023-09-18 17:09:56,596 [INFO] bit_common: [step 91200]: loss=0.00212 (lr=1.0e-04)
+2023-09-18 17:11:03,239 [INFO] bit_common: Running validation...
+2023-09-18 17:11:10,220 [INFO] bit_common: Validation@91600 loss 1.45581, top1 71.75%, top5 90.94%
+2023-09-18 17:11:10,753 [INFO] bit_common: [step 91600]: loss=0.00811 (lr=1.0e-04)
+2023-09-18 17:12:17,669 [INFO] bit_common: Running validation...
+2023-09-18 17:12:24,550 [INFO] bit_common: Validation@92000 loss 1.45537, top1 71.81%, top5 90.95%
+2023-09-18 17:12:25,149 [INFO] bit_common: [step 92000]: loss=0.00122 (lr=1.0e-04)
+2023-09-18 17:13:32,105 [INFO] bit_common: Running validation...
+2023-09-18 17:13:38,913 [INFO] bit_common: Validation@92400 loss 1.45564, top1 71.81%, top5 90.96%
+2023-09-18 17:13:39,549 [INFO] bit_common: [step 92400]: loss=0.00739 (lr=1.0e-04)
+2023-09-18 17:14:46,361 [INFO] bit_common: Running validation...
+2023-09-18 17:14:53,123 [INFO] bit_common: Validation@92800 loss 1.45672, top1 71.80%, top5 90.96%
+2023-09-18 17:14:53,628 [INFO] bit_common: [step 92800]: loss=0.00860 (lr=1.0e-04)
+2023-09-18 17:16:00,571 [INFO] bit_common: Running validation...
+2023-09-18 17:16:07,433 [INFO] bit_common: Validation@93200 loss 1.45796, top1 71.84%, top5 90.92%
+2023-09-18 17:16:07,928 [INFO] bit_common: [step 93200]: loss=0.00849 (lr=1.0e-04)
+2023-09-18 17:17:14,869 [INFO] bit_common: Running validation...
+2023-09-18 17:17:21,804 [INFO] bit_common: Validation@93600 loss 1.46042, top1 71.76%, top5 90.99%
+2023-09-18 17:17:22,314 [INFO] bit_common: [step 93600]: loss=0.00262 (lr=1.0e-04)
+2023-09-18 17:18:29,620 [INFO] bit_common: Running validation...
+2023-09-18 17:18:36,453 [INFO] bit_common: Validation@94000 loss 1.45658, top1 71.80%, top5 90.98%
+2023-09-18 17:18:37,059 [INFO] bit_common: [step 94000]: loss=0.00190 (lr=1.0e-04)
+2023-09-18 17:19:44,300 [INFO] bit_common: Running validation...
+2023-09-18 17:19:51,197 [INFO] bit_common: Validation@94400 loss 1.45702, top1 71.82%, top5 90.93%
+2023-09-18 17:19:51,700 [INFO] bit_common: [step 94400]: loss=0.00802 (lr=1.0e-04)
+2023-09-18 17:20:58,728 [INFO] bit_common: Running validation...
+2023-09-18 17:21:05,604 [INFO] bit_common: Validation@94800 loss 1.46183, top1 71.78%, top5 90.89%
+2023-09-18 17:21:06,133 [INFO] bit_common: [step 94800]: loss=0.00333 (lr=1.0e-04)
+2023-09-18 17:22:13,063 [INFO] bit_common: Running validation...
+2023-09-18 17:22:19,989 [INFO] bit_common: Validation@95200 loss 1.45742, top1 71.81%, top5 90.91%
+2023-09-18 17:22:20,555 [INFO] bit_common: [step 95200]: loss=0.00251 (lr=1.0e-04)
+2023-09-18 17:23:27,448 [INFO] bit_common: Running validation...
+2023-09-18 17:23:34,457 [INFO] bit_common: Validation@95600 loss 1.45931, top1 71.77%, top5 90.95%
+2023-09-18 17:23:34,962 [INFO] bit_common: [step 95600]: loss=0.00247 (lr=1.0e-04)
+2023-09-18 17:24:34,374 [INFO] bit_common: Namespace(base_lr=0.1, batch=128, batch_split=1, bit_pretrained_dir='.', datadir='../data', dataset='cifar100', eval_every=400, examples_per_class=None, examples_per_class_seed=0, logdir='../log', loss='confidence', model='BiT-M-R50x1', name='SOFTMAX', resume=False, save=False, seed=0, workers=8)
+2023-09-18 17:24:34,431 [INFO] bit_common: Going to train on cuda:0
+2023-09-18 17:24:36,246 [INFO] bit_common: Using a training set with 50000 images.
+2023-09-18 17:24:36,246 [INFO] bit_common: Using a validation set with 10000 images.
+2023-09-18 17:24:36,494 [INFO] bit_common: Training from Scratch ###############################
+2023-09-18 17:24:36,494 [INFO] bit_common: Moving model onto all GPUs
+2023-09-18 17:24:39,498 [INFO] bit_common: Starting training!
+2023-09-18 17:24:41,832 [INFO] bit_common: Running validation...
+2023-09-18 17:24:50,242 [INFO] bit_common: Validation@96000 loss 1.45583, top1 71.78%, top5 91.01%
+2023-09-18 17:24:50,840 [INFO] bit_common: [step 96000]: loss=0.00506 (lr=1.0e-04)
+2023-09-18 17:25:28,781 [INFO] bit_common: [step 0]: loss=2.64021 (lr=0.0e+00)
+2023-09-18 17:25:57,615 [INFO] bit_common: Running validation...
+2023-09-18 17:26:04,507 [INFO] bit_common: Validation@96400 loss 1.45504, top1 71.87%, top5 91.02%
+2023-09-18 17:26:05,242 [INFO] bit_common: [step 96400]: loss=0.00234 (lr=1.0e-04)
+2023-09-18 17:27:11,949 [INFO] bit_common: Running validation...
+2023-09-18 17:27:18,793 [INFO] bit_common: Validation@96800 loss 1.45503, top1 71.85%, top5 90.97%
+2023-09-18 17:27:19,302 [INFO] bit_common: [step 96800]: loss=0.00318 (lr=1.0e-04)
+2023-09-18 17:28:26,228 [INFO] bit_common: Running validation...
+2023-09-18 17:28:32,976 [INFO] bit_common: Validation@97200 loss 1.45818, top1 71.85%, top5 90.96%
+2023-09-18 17:28:33,482 [INFO] bit_common: [step 97200]: loss=0.00313 (lr=1.0e-04)
+2023-09-18 17:29:40,633 [INFO] bit_common: Running validation...
+2023-09-18 17:29:47,499 [INFO] bit_common: Validation@97600 loss 1.45908, top1 71.70%, top5 90.88%
+2023-09-18 17:29:48,001 [INFO] bit_common: [step 97600]: loss=0.00300 (lr=1.0e-04)
+2023-09-18 17:30:55,153 [INFO] bit_common: Running validation...
+2023-09-18 17:31:01,815 [INFO] bit_common: Validation@98000 loss 1.45823, top1 71.74%, top5 90.98%
+2023-09-18 17:31:02,414 [INFO] bit_common: [step 98000]: loss=0.00404 (lr=1.0e-04)
+2023-09-18 17:32:09,587 [INFO] bit_common: Running validation...
+2023-09-18 17:32:16,266 [INFO] bit_common: Validation@98400 loss 1.45967, top1 71.71%, top5 90.96%
+2023-09-18 17:32:16,771 [INFO] bit_common: [step 98400]: loss=0.00171 (lr=1.0e-04)
+2023-09-18 17:33:23,892 [INFO] bit_common: Running validation...
+2023-09-18 17:33:30,681 [INFO] bit_common: Validation@98800 loss 1.45869, top1 71.77%, top5 91.00%
+2023-09-18 17:33:31,202 [INFO] bit_common: [step 98800]: loss=0.00179 (lr=1.0e-04)
+2023-09-18 17:34:38,171 [INFO] bit_common: Running validation...
+2023-09-18 17:34:44,965 [INFO] bit_common: Validation@99200 loss 1.46094, top1 71.82%, top5 90.98%
+2023-09-18 17:34:45,714 [INFO] bit_common: [step 99200]: loss=0.00436 (lr=1.0e-04)
+2023-09-18 17:35:51,900 [INFO] bit_common: Running validation...
+2023-09-18 17:35:58,903 [INFO] bit_common: Validation@99600 loss 1.46073, top1 71.84%, top5 90.95%
+2023-09-18 17:35:59,404 [INFO] bit_common: [step 99600]: loss=0.00220 (lr=1.0e-04)
+2023-09-18 17:37:06,101 [INFO] bit_common: Running validation...
+2023-09-18 17:37:12,956 [INFO] bit_common: Validation@100000 loss 1.45898, top1 71.77%, top5 90.99%
+2023-09-18 17:37:13,555 [INFO] bit_common: [step 100000]: loss=0.00173 (lr=1.0e-04)
+2023-09-18 17:38:20,171 [INFO] bit_common: Running validation...
+2023-09-18 17:38:27,091 [INFO] bit_common: Validation@100400 loss 1.45478, top1 71.91%, top5 91.06%
+2023-09-18 17:38:27,601 [INFO] bit_common: [step 100400]: loss=0.00288 (lr=1.0e-04)
+2023-09-18 17:39:34,395 [INFO] bit_common: Running validation...
+2023-09-18 17:39:41,240 [INFO] bit_common: Validation@100800 loss 1.45474, top1 71.92%, top5 91.02%
+2023-09-18 17:39:41,737 [INFO] bit_common: [step 100800]: loss=0.02496 (lr=1.0e-04)
+2023-09-18 17:40:48,821 [INFO] bit_common: Running validation...
+2023-09-18 17:40:55,697 [INFO] bit_common: Validation@101200 loss 1.45568, top1 71.89%, top5 90.99%
+2023-09-18 17:40:56,210 [INFO] bit_common: [step 101200]: loss=0.00183 (lr=1.0e-04)
+2023-09-18 17:42:03,234 [INFO] bit_common: Running validation...
+2023-09-18 17:42:10,234 [INFO] bit_common: Validation@101600 loss 1.45464, top1 71.85%, top5 91.03%
+2023-09-18 17:42:10,736 [INFO] bit_common: [step 101600]: loss=0.00219 (lr=1.0e-04)
+2023-09-18 17:43:17,512 [INFO] bit_common: Running validation...
+2023-09-18 17:43:24,474 [INFO] bit_common: Validation@102000 loss 1.46302, top1 71.75%, top5 90.97%
+2023-09-18 17:43:25,070 [INFO] bit_common: [step 102000]: loss=0.00475 (lr=1.0e-04)
+2023-09-18 17:44:31,871 [INFO] bit_common: Running validation...
+2023-09-18 17:44:38,585 [INFO] bit_common: Validation@102400 loss 1.46213, top1 71.78%, top5 90.98%
+2023-09-18 17:44:39,103 [INFO] bit_common: [step 102400]: loss=0.00303 (lr=1.0e-04)
+2023-09-18 17:45:45,752 [INFO] bit_common: Running validation...
+2023-09-18 17:45:52,465 [INFO] bit_common: Validation@102800 loss 1.46224, top1 71.75%, top5 90.93%
+2023-09-18 17:45:52,985 [INFO] bit_common: [step 102800]: loss=0.00267 (lr=1.0e-04)
+2023-09-18 17:46:59,718 [INFO] bit_common: Running validation...
+2023-09-18 17:47:06,676 [INFO] bit_common: Validation@103200 loss 1.46264, top1 71.81%, top5 90.94%
+2023-09-18 17:47:07,183 [INFO] bit_common: [step 103200]: loss=0.00237 (lr=1.0e-04)
+2023-09-18 17:48:13,934 [INFO] bit_common: Running validation...
+2023-09-18 17:48:20,912 [INFO] bit_common: Validation@103600 loss 1.45798, top1 71.82%, top5 91.00%
+2023-09-18 17:48:21,433 [INFO] bit_common: [step 103600]: loss=0.00129 (lr=1.0e-04)
+2023-09-18 17:49:28,175 [INFO] bit_common: Running validation...
+2023-09-18 17:49:34,904 [INFO] bit_common: Validation@104000 loss 1.45938, top1 71.85%, top5 91.03%
+2023-09-18 17:49:35,507 [INFO] bit_common: [step 104000]: loss=0.00180 (lr=1.0e-04)
+2023-09-18 17:50:43,923 [INFO] bit_common: Running validation...
+2023-09-18 17:50:51,211 [INFO] bit_common: Validation@104400 loss 1.46154, top1 71.81%, top5 90.94%
+2023-09-18 17:50:51,714 [INFO] bit_common: [step 104400]: loss=0.00538 (lr=1.0e-04)
+2023-09-18 17:51:58,752 [INFO] bit_common: Running validation...
+2023-09-18 17:52:05,524 [INFO] bit_common: Validation@104800 loss 1.45704, top1 71.85%, top5 90.99%
+2023-09-18 17:52:06,029 [INFO] bit_common: [step 104800]: loss=0.00371 (lr=1.0e-04)
+2023-09-18 17:53:13,277 [INFO] bit_common: Running validation...
+2023-09-18 17:53:20,368 [INFO] bit_common: Validation@105200 loss 1.46104, top1 71.74%, top5 91.03%
+2023-09-18 17:53:20,891 [INFO] bit_common: [step 105200]: loss=0.00172 (lr=1.0e-04)
+2023-09-18 17:54:28,053 [INFO] bit_common: Running validation...
+2023-09-18 17:54:35,070 [INFO] bit_common: Validation@105600 loss 1.46070, top1 71.74%, top5 91.02%
+2023-09-18 17:54:35,859 [INFO] bit_common: [step 105600]: loss=0.00349 (lr=1.0e-04)
+2023-09-18 17:55:42,920 [INFO] bit_common: Running validation...
+2023-09-18 17:55:49,773 [INFO] bit_common: Validation@106000 loss 1.46179, top1 71.72%, top5 90.96%
+2023-09-18 17:55:50,382 [INFO] bit_common: [step 106000]: loss=0.00234 (lr=1.0e-04)
+2023-09-18 17:56:57,560 [INFO] bit_common: Running validation...
+2023-09-18 17:57:04,497 [INFO] bit_common: Validation@106400 loss 1.45947, top1 71.78%, top5 90.98%
+2023-09-18 17:57:05,003 [INFO] bit_common: [step 106400]: loss=0.00549 (lr=1.0e-04)
+2023-09-18 17:58:11,644 [INFO] bit_common: Running validation...
+2023-09-18 17:58:18,326 [INFO] bit_common: Validation@106800 loss 1.45537, top1 71.78%, top5 91.01%
+2023-09-18 17:58:18,985 [INFO] bit_common: [step 106800]: loss=0.00248 (lr=1.0e-04)
+2023-09-18 17:59:25,909 [INFO] bit_common: Running validation...
+2023-09-18 17:59:32,854 [INFO] bit_common: Validation@107200 loss 1.45424, top1 71.86%, top5 91.01%
+2023-09-18 17:59:33,359 [INFO] bit_common: [step 107200]: loss=0.00316 (lr=1.0e-04)
+2023-09-18 18:00:39,979 [INFO] bit_common: Running validation...
+2023-09-18 18:00:46,880 [INFO] bit_common: Validation@107600 loss 1.46073, top1 71.77%, top5 90.94%
+2023-09-18 18:00:47,379 [INFO] bit_common: [step 107600]: loss=0.00246 (lr=1.0e-04)
+2023-09-18 18:01:54,139 [INFO] bit_common: Running validation...
+2023-09-18 18:02:00,972 [INFO] bit_common: Validation@108000 loss 1.46273, top1 71.71%, top5 90.93%
+2023-09-18 18:02:01,468 [INFO] bit_common: [step 108000]: loss=0.00229 (lr=1.0e-04)
+2023-09-18 18:03:08,129 [INFO] bit_common: Running validation...
+2023-09-18 18:03:14,959 [INFO] bit_common: Validation@108400 loss 1.46255, top1 71.74%, top5 90.95%
+2023-09-18 18:03:15,467 [INFO] bit_common: [step 108400]: loss=0.00250 (lr=1.0e-04)
+2023-09-18 18:04:22,304 [INFO] bit_common: Running validation...
+2023-09-18 18:04:29,173 [INFO] bit_common: Validation@108800 loss 1.46157, top1 71.78%, top5 90.96%
+2023-09-18 18:04:29,677 [INFO] bit_common: [step 108800]: loss=0.00892 (lr=1.0e-04)
+2023-09-18 18:05:36,600 [INFO] bit_common: Running validation...
+2023-09-18 18:05:43,575 [INFO] bit_common: Validation@109200 loss 1.45705, top1 71.91%, top5 91.04%
+2023-09-18 18:05:44,092 [INFO] bit_common: [step 109200]: loss=0.00289 (lr=1.0e-04)
+2023-09-18 18:06:51,014 [INFO] bit_common: Running validation...
+2023-09-18 18:06:57,957 [INFO] bit_common: Validation@109600 loss 1.46279, top1 71.74%, top5 90.93%
+2023-09-18 18:06:58,685 [INFO] bit_common: [step 109600]: loss=0.00292 (lr=1.0e-04)
+2023-09-18 18:08:05,586 [INFO] bit_common: Running validation...
+2023-09-18 18:08:12,343 [INFO] bit_common: Validation@110000 loss 1.46747, top1 71.79%, top5 90.89%
+2023-09-18 18:08:12,844 [INFO] bit_common: [step 110000]: loss=0.00318 (lr=1.0e-04)
+2023-09-18 18:09:19,517 [INFO] bit_common: Running validation...
+2023-09-18 18:09:27,049 [INFO] bit_common: Validation@110400 loss 1.46419, top1 71.63%, top5 91.01%
+2023-09-18 18:09:27,553 [INFO] bit_common: [step 110400]: loss=0.00339 (lr=1.0e-04)
+2023-09-18 18:10:34,519 [INFO] bit_common: Running validation...
+2023-09-18 18:10:41,321 [INFO] bit_common: Validation@110800 loss 1.45765, top1 71.87%, top5 91.00%
+2023-09-18 18:10:42,066 [INFO] bit_common: [step 110800]: loss=0.00195 (lr=1.0e-04)
+2023-09-18 18:11:48,925 [INFO] bit_common: Running validation...
+2023-09-18 18:11:55,881 [INFO] bit_common: Validation@111200 loss 1.46256, top1 71.70%, top5 91.00%
+2023-09-18 18:11:56,381 [INFO] bit_common: [step 111200]: loss=0.00535 (lr=1.0e-04)
+2023-09-18 18:13:03,241 [INFO] bit_common: Running validation...
+2023-09-18 18:13:10,179 [INFO] bit_common: Validation@111600 loss 1.45946, top1 71.80%, top5 90.97%
+2023-09-18 18:13:10,680 [INFO] bit_common: [step 111600]: loss=0.00329 (lr=1.0e-04)
+2023-09-18 18:14:16,981 [INFO] bit_common: Running validation...
+2023-09-18 18:14:23,799 [INFO] bit_common: Validation@112000 loss 1.45974, top1 71.85%, top5 90.97%
+2023-09-18 18:14:24,309 [INFO] bit_common: [step 112000]: loss=0.01904 (lr=1.0e-04)
+2023-09-18 18:15:31,270 [INFO] bit_common: Running validation...
+2023-09-18 18:15:38,038 [INFO] bit_common: Validation@112400 loss 1.46215, top1 71.78%, top5 90.96%
+2023-09-18 18:15:38,547 [INFO] bit_common: [step 112400]: loss=0.00309 (lr=1.0e-04)
+2023-09-18 18:16:45,445 [INFO] bit_common: Running validation...
+2023-09-18 18:16:52,160 [INFO] bit_common: Validation@112800 loss 1.46086, top1 71.86%, top5 90.97%
+2023-09-18 18:16:52,684 [INFO] bit_common: [step 112800]: loss=0.00524 (lr=1.0e-04)
+2023-09-18 18:17:59,617 [INFO] bit_common: Running validation...
+2023-09-18 18:18:06,640 [INFO] bit_common: Validation@113200 loss 1.46185, top1 71.77%, top5 90.94%
+2023-09-18 18:18:07,145 [INFO] bit_common: [step 113200]: loss=0.00256 (lr=1.0e-04)
+2023-09-18 18:19:14,082 [INFO] bit_common: Running validation...
+2023-09-18 18:19:20,977 [INFO] bit_common: Validation@113600 loss 1.46226, top1 71.96%, top5 90.95%
+2023-09-18 18:19:21,727 [INFO] bit_common: [step 113600]: loss=0.00337 (lr=1.0e-04)
+2023-09-18 18:20:28,611 [INFO] bit_common: Running validation...
+2023-09-18 18:20:35,392 [INFO] bit_common: Validation@114000 loss 1.46226, top1 71.95%, top5 91.00%
+2023-09-18 18:20:35,904 [INFO] bit_common: [step 114000]: loss=0.00683 (lr=1.0e-04)
+2023-09-18 18:21:42,789 [INFO] bit_common: Running validation...
+2023-09-18 18:21:49,482 [INFO] bit_common: Validation@114400 loss 1.46415, top1 71.82%, top5 90.92%
+2023-09-18 18:21:49,987 [INFO] bit_common: [step 114400]: loss=0.00218 (lr=1.0e-04)
+2023-09-18 18:22:56,902 [INFO] bit_common: Running validation...
+2023-09-18 18:23:03,660 [INFO] bit_common: Validation@114800 loss 1.46326, top1 71.84%, top5 90.97%
+2023-09-18 18:23:04,438 [INFO] bit_common: [step 114800]: loss=0.00308 (lr=1.0e-04)
+2023-09-18 18:24:11,192 [INFO] bit_common: Running validation...
+2023-09-18 18:24:18,090 [INFO] bit_common: Validation@115200 loss 1.45930, top1 71.89%, top5 91.05%
+2023-09-18 18:24:18,663 [INFO] bit_common: [step 115200]: loss=0.00346 (lr=1.0e-04)
+2023-09-18 18:25:25,544 [INFO] bit_common: Running validation...
+2023-09-18 18:25:32,446 [INFO] bit_common: Validation@115600 loss 1.45933, top1 71.89%, top5 91.00%
+2023-09-18 18:25:32,956 [INFO] bit_common: [step 115600]: loss=0.00295 (lr=1.0e-04)
+2023-09-18 18:26:39,794 [INFO] bit_common: Running validation...
+2023-09-18 18:26:46,610 [INFO] bit_common: Validation@116000 loss 1.46463, top1 71.92%, top5 90.96%
+2023-09-18 18:26:47,104 [INFO] bit_common: [step 116000]: loss=0.00287 (lr=1.0e-04)
+2023-09-18 18:27:53,982 [INFO] bit_common: Running validation...
+2023-09-18 18:28:01,314 [INFO] bit_common: Validation@116400 loss 1.46534, top1 71.80%, top5 90.89%
+2023-09-18 18:28:02,054 [INFO] bit_common: [step 116400]: loss=0.00208 (lr=1.0e-04)
+2023-09-18 18:29:08,883 [INFO] bit_common: Running validation...
+2023-09-18 18:29:15,664 [INFO] bit_common: Validation@116800 loss 1.46215, top1 71.94%, top5 90.99%
+2023-09-18 18:29:16,165 [INFO] bit_common: [step 116800]: loss=0.01149 (lr=1.0e-04)
+2023-09-18 18:30:22,751 [INFO] bit_common: Running validation...
+2023-09-18 18:30:29,542 [INFO] bit_common: Validation@117200 loss 1.45905, top1 71.95%, top5 91.03%
+2023-09-18 18:30:30,048 [INFO] bit_common: [step 117200]: loss=0.00222 (lr=1.0e-04)
+2023-09-18 18:31:36,508 [INFO] bit_common: Running validation...
+2023-09-18 18:31:43,243 [INFO] bit_common: Validation@117600 loss 1.46363, top1 71.90%, top5 90.93%
+2023-09-18 18:31:43,736 [INFO] bit_common: [step 117600]: loss=0.00231 (lr=1.0e-04)
+2023-09-18 18:32:50,824 [INFO] bit_common: Running validation...
+2023-09-18 18:32:57,604 [INFO] bit_common: Validation@118000 loss 1.46518, top1 71.88%, top5 90.91%
+2023-09-18 18:32:58,135 [INFO] bit_common: [step 118000]: loss=0.00285 (lr=1.0e-04)
+2023-09-18 18:34:04,925 [INFO] bit_common: Running validation...
+2023-09-18 18:34:11,779 [INFO] bit_common: Validation@118400 loss 1.46328, top1 71.84%, top5 90.88%
+2023-09-18 18:34:12,299 [INFO] bit_common: [step 118400]: loss=0.00181 (lr=1.0e-04)
+2023-09-18 18:35:19,116 [INFO] bit_common: Running validation...
+2023-09-18 18:35:26,016 [INFO] bit_common: Validation@118800 loss 1.46309, top1 71.92%, top5 90.99%
+2023-09-18 18:35:26,546 [INFO] bit_common: [step 118800]: loss=0.00243 (lr=1.0e-04)
+2023-09-18 18:36:33,311 [INFO] bit_common: Running validation...
+2023-09-18 18:36:40,256 [INFO] bit_common: Validation@119200 loss 1.46198, top1 71.84%, top5 90.89%
+2023-09-18 18:36:40,753 [INFO] bit_common: [step 119200]: loss=0.00212 (lr=1.0e-04)
+2023-09-18 18:37:47,343 [INFO] bit_common: Running validation...
+2023-09-18 18:37:54,277 [INFO] bit_common: Validation@119600 loss 1.46479, top1 71.80%, top5 90.90%
+2023-09-18 18:37:54,780 [INFO] bit_common: [step 119600]: loss=0.00342 (lr=1.0e-04)
+2023-09-18 18:39:01,600 [INFO] bit_common: Running validation...
+2023-09-18 18:39:08,431 [INFO] bit_common: Validation@120000 loss 1.46272, top1 71.76%, top5 90.98%
+2023-09-18 18:39:09,208 [INFO] bit_common: Running validation...
+2023-09-18 18:39:16,073 [INFO] bit_common: Validation@end loss 1.46272, top1 71.76%, top5 90.98%
+2023-09-18 18:39:16,097 [INFO] bit_common: Timings:
+eval fprop: 0.05091s
+fprop     : 0.05062s
+grads     : 0.03380s
+eval load : 0.03056s
+load      : 0.00381s
+update    : 0.00306s
+2023-09-27 20:17:57,950 [INFO] bit_common: Namespace(base_lr=0.1, batch=128, batch_split=1, bit_pretrained_dir='.', datadir='../data', dataset='cifar100', eval_every=400, examples_per_class=None, examples_per_class_seed=0, logdir='../log', loss='TCP', model='BiT-M-R50x1', name='SOFTMAX', resume=False, save=False, seed=0, workers=8)
+2023-09-27 20:17:57,950 [INFO] bit_common: Going to train on cuda:0
+2023-09-27 20:18:00,009 [INFO] bit_common: Using a training set with 50000 images.
+2023-09-27 20:18:00,010 [INFO] bit_common: Using a validation set with 10000 images.
+2023-09-27 20:18:00,215 [INFO] bit_common: Training from Scratch ###############################
+2023-09-27 20:18:00,215 [INFO] bit_common: Moving model onto all GPUs
+2023-09-27 20:18:02,795 [INFO] bit_common: Starting training!
+2023-09-27 20:18:04,971 [INFO] bit_common: [step 0]: loss=2.79933 (lr=0.0e+00)
+2023-09-27 20:19:09,303 [INFO] bit_common: Running validation...
+2023-09-27 20:19:14,363 [INFO] bit_common: Validation@400 loss 3.67373, top1 14.93%, top5 37.65%
+2023-09-27 20:19:15,231 [INFO] bit_common: [step 400]: loss=2.12901 (lr=8.0e-02)
+2023-09-27 20:19:44,459 [INFO] bit_common: Running validation...
