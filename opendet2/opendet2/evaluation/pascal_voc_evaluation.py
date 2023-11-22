@@ -208,6 +208,10 @@ class PascalVOCDetectionEvaluator(DatasetEvaluator):
             numalign="left",
         )
         self.logger.info("\n" + table)
+        # output per-class ap, presc, recs
+        self.logger.info("\n aps: \n" + aps[50][:self.num_known_classes])
+        self.logger.info("\n precs: \n" + precs[50][:self.num_known_classes])
+        self.logger.info("\n recs: \n" + recs[50][:self.num_known_classes])
 
         return {metric:round(x,2) for metric, x in zip(results_head, results_data[0])}
 

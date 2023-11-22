@@ -2150,3 +2150,45 @@ update    : 0.00306s
 2023-09-27 20:19:14,363 [INFO] bit_common: Validation@400 loss 3.67373, top1 14.93%, top5 37.65%
 2023-09-27 20:19:15,231 [INFO] bit_common: [step 400]: loss=2.12901 (lr=8.0e-02)
 2023-09-27 20:19:44,459 [INFO] bit_common: Running validation...
+2023-11-21 19:39:50,893 [INFO] bit_common: Namespace(base_lr=0.1, batch=128, batch_split=1, bit_pretrained_dir='.', datadir='../data', dataset='cifar100', eval_every=400, examples_per_class=None, examples_per_class_seed=0, logdir='../log', loss='baseline', model='BiT-M-R50x1', name='SOFTMAX', resume=False, save=False, seed=0, workers=8)
+2023-11-21 19:39:50,931 [INFO] bit_common: Going to train on cuda:0
+2023-11-21 19:39:53,040 [INFO] bit_common: Using a training set with 50000 images.
+2023-11-21 19:39:53,041 [INFO] bit_common: Using a validation set with 10000 images.
+2023-11-21 19:39:53,313 [INFO] bit_common: Training from Scratch ###############################
+2023-11-21 19:39:53,314 [INFO] bit_common: Moving model onto all GPUs
+2023-11-21 19:39:56,491 [INFO] bit_common: Starting training!
+2023-11-21 19:40:07,904 [INFO] bit_common: [step 0]: loss=4.64606 (lr=0.0e+00)
+2023-11-21 19:41:40,410 [INFO] bit_common: Namespace(base_lr=0.1, batch=128, batch_split=1, bit_pretrained_dir='.', datadir='../data', dataset='cifar100', eval_every=400, examples_per_class=None, examples_per_class_seed=0, logdir='../log', loss='baseline', model='BiT-M-R50x1', name='SOFTMAX', resume=False, save=False, seed=0, workers=8)
+2023-11-21 19:41:40,442 [INFO] bit_common: Going to train on cuda:0
+2023-11-21 19:41:42,423 [INFO] bit_common: Using a training set with 50000 images.
+2023-11-21 19:41:42,424 [INFO] bit_common: Using a validation set with 10000 images.
+2023-11-21 19:41:42,625 [INFO] bit_common: Training from Scratch ###############################
+2023-11-21 19:41:42,626 [INFO] bit_common: Moving model onto all GPUs
+2023-11-21 19:41:44,937 [INFO] bit_common: Starting training!
+2023-11-21 19:41:54,381 [INFO] bit_common: [step 0]: loss=4.63758 (lr=0.00000e+00)
+2023-11-21 19:43:52,325 [INFO] bit_common: Running validation...
+2023-11-21 19:44:08,756 [INFO] bit_common: Validation@400 loss 3.24879, top1 21.21%, top5 49.56%
+2023-11-21 19:44:10,589 [INFO] bit_common: [step 400]: loss=3.04691 (lr=8.00000e-02)
+2023-11-21 19:50:55,103 [INFO] bit_common: Namespace(base_lr=0.1, batch=128, batch_split=1, bit_pretrained_dir='.', datadir='../data', dataset='cifar100', eval_every=400, examples_per_class=None, examples_per_class_seed=0, logdir='../log', loss='baseline', model='BiT-M-R50x1', name='SOFTMAX', resume=False, save=False, seed=0, workers=8)
+2023-11-21 19:51:00,714 [INFO] bit_common: Going to train on cuda:0
+2023-11-21 19:51:07,441 [INFO] bit_common: Using a training set with 50000 images.
+2023-11-21 19:51:07,442 [INFO] bit_common: Using a validation set with 10000 images.
+2023-11-21 19:51:17,065 [INFO] bit_common: Training from Scratch ###############################
+2023-11-21 19:51:18,733 [INFO] bit_common: Moving model onto all GPUs
+2023-11-21 19:51:50,696 [INFO] bit_common: Starting training!
+2023-11-21 20:05:23,207 [INFO] bit_common: [step 0]: loss=4.61043 (lr=0.00000e+00)
+2023-11-21 20:08:32,562 [INFO] bit_common: Namespace(base_lr=0.1, batch=128, batch_split=1, bit_pretrained_dir='.', datadir='../data', dataset='cifar100', eval_every=400, examples_per_class=None, examples_per_class_seed=0, logdir='../log', loss='confidence', model='BiT-M-R50x1', name='SOFTMAX', resume=False, save=False, seed=0, workers=8)
+2023-11-21 20:08:32,602 [INFO] bit_common: Going to train on cuda:0
+2023-11-21 20:08:34,578 [INFO] bit_common: Using a training set with 50000 images.
+2023-11-21 20:08:34,579 [INFO] bit_common: Using a validation set with 10000 images.
+2023-11-21 20:08:34,841 [INFO] bit_common: Training from Scratch ###############################
+2023-11-21 20:08:34,842 [INFO] bit_common: Moving model onto all GPUs
+2023-11-21 20:08:36,943 [INFO] bit_common: Starting training!
+2023-11-21 20:10:00,761 [INFO] bit_common: Namespace(base_lr=0.1, batch=128, batch_split=1, bit_pretrained_dir='.', datadir='../data', dataset='cifar100', eval_every=400, examples_per_class=None, examples_per_class_seed=0, logdir='../log', loss='confidence', model='BiT-M-R50x1', name='SOFTMAX', resume=False, save=False, seed=0, workers=8)
+2023-11-21 20:10:00,797 [INFO] bit_common: Going to train on cuda:0
+2023-11-21 20:10:02,768 [INFO] bit_common: Using a training set with 50000 images.
+2023-11-21 20:10:02,769 [INFO] bit_common: Using a validation set with 10000 images.
+2023-11-21 20:10:03,016 [INFO] bit_common: Training from Scratch ###############################
+2023-11-21 20:10:03,017 [INFO] bit_common: Moving model onto all GPUs
+2023-11-21 20:10:05,222 [INFO] bit_common: Starting training!
+2023-11-21 20:44:17,342 [INFO] bit_common: [step 0]: loss=2.97079 (lr=0.00000e+00)

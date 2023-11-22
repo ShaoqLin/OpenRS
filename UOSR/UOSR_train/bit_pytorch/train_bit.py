@@ -419,7 +419,7 @@ def main(args):
             )
             if args.eval_every and step % args.eval_every == 0:
                 logger.info(
-                    f"[step {step}{accstep}]: loss={c_num:.5f} (lr={lr:.1e})"
+                    f"[step {step}{accstep}]: loss={c_num:.5f} (lr={lr:.5e})"
                 )  # pylint: disable=logging-format-interpolation
                 logger.flush()
 

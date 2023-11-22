@@ -127,3 +127,7 @@ work_dirs/
 *.pth
 *.py~
 *.sh~
+
+
+*.tar
+*.npz
