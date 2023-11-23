@@ -48,3 +48,8 @@ def add_opendet_config(cfg):
     # solver, e.g., adamw for swin
     _C.SOLVER.OPTIMIZER = 'SGD'
     _C.SOLVER.BETAS = (0.9, 0.999)
+
+    # config for siren
+    _C.SIREN = CN()
+    _C.SIREN.LOSS_WEIGHT = 0.1
+    _C.SIREN.PROJECTION_DIM = 32   
