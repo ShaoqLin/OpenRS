@@ -8,8 +8,7 @@ MODEL:
     NUM_KNOWN_CLASSES: 17
 DATASETS:
   TRAIN: ('DIOR_train17',)
-  TEST: ('DIOR_DOTA_val', 
-        'DIOR_DOTA_17_20_test', 
+  TEST: ('DIOR_DOTA_17_20_test', 
         'DIOR_DOTA_17_20_agn_2500_test', 
         'DIOR_DOTA_17_20_agn_3000_test',
         'DIOR_DOTA_17_20_agn_3500_test')
@@ -17,7 +16,7 @@ SOLVER:
   IMS_PER_BATCH: 8
   BASE_LR: 0.001
   STEPS: (42000, 58000)
-  MAX_ITER: 64000
+  MAX_ITER: 64
   WARMUP_ITERS: 500
   AMP:
     ENABLED: True

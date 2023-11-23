@@ -61,6 +61,7 @@ def fast_rcnn_inference_single_image(
     topk_per_image: int,
     vis_iou_thr: float,
 ):
+    # torch.infinite() is to detect inf nums
     valid_mask = torch.isfinite(boxes).all(
         dim=1) & torch.isfinite(scores).all(dim=1)
     if not valid_mask.all():
