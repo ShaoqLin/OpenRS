@@ -68,6 +68,7 @@ def fast_rcnn_inference_single_image(
         boxes = boxes[valid_mask]
         scores = scores[valid_mask]
 
+    # get rid of BG
     scores = scores[:, :-1]
     num_bbox_reg_classes = boxes.shape[1] // 4
     # Convert to Boxes to use the `clip` function ...
@@ -644,3 +645,236 @@ class DropoutFastRCNNOutputLayers(CosineFastRCNNOutputLayers):
         num_inst_per_image = [len(p) for p in proposals]
         probs = F.softmax(scores, dim=-1)
         return probs.split(num_inst_per_image, dim=0)
+
+
+@ROI_BOX_OUTPUT_LAYERS_REGISTRY.register()
+class SIRENOpenDetFastRCNNOutputLayers(CosineFastRCNNOutputLayers):
+    @configurable
+    def __init__(
+        self,
+        *args,
+        num_known_classes,
+        max_iters,
+        up_loss_start_iter,
+        up_loss_sampling_metric,
+        up_loss_topk,
+        up_loss_alpha,
+        up_loss_weight,
+        ic_loss_out_dim,
+        ic_loss_queue_size,
+        ic_loss_in_queue_size,
+        ic_loss_batch_iou_thr,
+        ic_loss_queue_iou_thr,
+        ic_loss_queue_tau,
+        ic_loss_weight,
+        **kargs,
+    ):
+        super().__init__(*args, **kargs)
+        self.num_known_classes = num_known_classes
+        self.max_iters = max_iters
+
+        self.up_loss = UPLoss(
+            self.num_classes,
+            sampling_metric=up_loss_sampling_metric,
+            topk=up_loss_topk,
+            alpha=up_loss_alpha,
+        )
+        self.up_loss_start_iter = up_loss_start_iter
+        self.up_loss_weight = up_loss_weight
+
+        self.encoder = MLP(self.cls_score.in_features, ic_loss_out_dim)
+        self.ic_loss_loss = ICLoss(tau=ic_loss_queue_tau)
+        self.ic_loss_out_dim = ic_loss_out_dim
+        self.ic_loss_queue_size = ic_loss_queue_size
+        self.ic_loss_in_queue_size = ic_loss_in_queue_size
+        self.ic_loss_batch_iou_thr = ic_loss_batch_iou_thr
+        self.ic_loss_queue_iou_thr = ic_loss_queue_iou_thr
+        self.ic_loss_weight = ic_loss_weight
+
+        self.register_buffer(
+            "queue",
+            torch.zeros(self.num_known_classes, ic_loss_queue_size, ic_loss_out_dim),
+        )
+        self.register_buffer(
+            "queue_label",
+            torch.empty(self.num_known_classes, ic_loss_queue_size).fill_(-1).long(),
+        )
+        self.register_buffer(
+            "queue_ptr", torch.zeros(self.num_known_classes, dtype=torch.long)
+        )
+
+    @classmethod
+    def from_config(cls, cfg, input_shape):
+        ret = super().from_config(cfg, input_shape)
+        ret.update(
+            {
+                "num_known_classes": cfg.MODEL.ROI_HEADS.NUM_KNOWN_CLASSES,
+                "max_iters": cfg.SOLVER.MAX_ITER,
+                "up_loss_start_iter": cfg.UPLOSS.START_ITER,
+                "up_loss_sampling_metric": cfg.UPLOSS.SAMPLING_METRIC,
+                "up_loss_topk": cfg.UPLOSS.TOPK,
+                "up_loss_alpha": cfg.UPLOSS.ALPHA,
+                "up_loss_weight": cfg.UPLOSS.WEIGHT,
+                "ic_loss_out_dim": cfg.ICLOSS.OUT_DIM,
+                "ic_loss_queue_size": cfg.ICLOSS.QUEUE_SIZE,
+                "ic_loss_in_queue_size": cfg.ICLOSS.IN_QUEUE_SIZE,
+                "ic_loss_batch_iou_thr": cfg.ICLOSS.BATCH_IOU_THRESH,
+                "ic_loss_queue_iou_thr": cfg.ICLOSS.QUEUE_IOU_THRESH,
+                "ic_loss_queue_tau": cfg.ICLOSS.TEMPERATURE,
+                "ic_loss_weight": cfg.ICLOSS.WEIGHT,
+            }
+        )
+        return ret
+
+    def forward(self, feats):
+        # support shared & sepearte head
+        if isinstance(feats, tuple):
+            reg_x, cls_x = feats
+        else:
+            reg_x = cls_x = feats
+
+        if reg_x.dim() > 2:
+            reg_x = torch.flatten(reg_x, start_dim=1)
+            cls_x = torch.flatten(cls_x, start_dim=1)
+
+        x_norm = torch.norm(cls_x, p=2, dim=1).unsqueeze(1).expand_as(cls_x)
+        x_normalized = cls_x.div(x_norm + 1e-5)
+
+        # normalize weight
+        temp_norm = (
+            torch.norm(self.cls_score.weight.data, p=2, dim=1)
+            .unsqueeze(1)
+            .expand_as(self.cls_score.weight.data)
+        )
+        self.cls_score.weight.data = self.cls_score.weight.data.div(temp_norm + 1e-5)
+        cos_dist = self.cls_score(x_normalized)
+        scores = self.scale * cos_dist
+        proposal_deltas = self.bbox_pred(reg_x)
+
+        # encode feature with MLP
+        mlp_feat = self.encoder(cls_x)
+
+        return scores, proposal_deltas, mlp_feat
+
+    def get_up_loss(self, scores, gt_classes):
+        # start up loss after several warmup iters
+        storage = get_event_storage()
+        if storage.iter > self.up_loss_start_iter:
+            loss_cls_up = self.up_loss(scores, gt_classes)
+        else:
+            loss_cls_up = scores.new_tensor(0.0)
+
+        return {"loss_cls_up": self.up_loss_weight * loss_cls_up}
+
+    def get_ic_loss(self, feat, gt_classes, ious):
+        # select foreground and iou > thr instance in a mini-batch
+        pos_inds = (ious > self.ic_loss_batch_iou_thr) & (
+            gt_classes != self.num_classes
+        )  # self.num_classes: background class
+        feat, gt_classes = feat[pos_inds], gt_classes[pos_inds]
+
+        queue = self.queue.reshape(-1, self.ic_loss_out_dim)
+        queue_label = self.queue_label.reshape(-1)
+        queue_inds = queue_label != -1  # filter empty queue
+        queue, queue_label = queue[queue_inds], queue_label[queue_inds]
+
+        loss_ic_loss = self.ic_loss_loss(feat, gt_classes, queue, queue_label)
+        # loss decay
+        storage = get_event_storage()
+        decay_weight = 1.0 - storage.iter / self.max_iters
+        return {"loss_cls_ic": self.ic_loss_weight * decay_weight * loss_ic_loss}
+
+    @torch.no_grad()
+    def _dequeue_and_enqueue(self, feat, gt_classes, ious, iou_thr=0.7):
+        # 1. gather variable
+        feat = self.concat_all_gather(feat)  # for multi gpus sync
+        gt_classes = self.concat_all_gather(gt_classes)
+        ious = self.concat_all_gather(ious)
+        # 2. filter by iou and obj, remove bg
+        keep = (ious > iou_thr) & (gt_classes != self.num_classes)
+        feat, gt_classes = feat[keep], gt_classes[keep]
+
+        for i in range(self.num_known_classes):
+            ptr = int(self.queue_ptr[i])
+            cls_ind = gt_classes == i
+            cls_feat, cls_gt_classes = feat[cls_ind], gt_classes[cls_ind]
+            # 3. sort by similarity, low sim ranks first
+            cls_queue = self.queue[i, self.queue_label[i] != -1]
+            _, sim_inds = (
+                F.cosine_similarity(cls_feat[:, None], cls_queue[None, :], dim=-1)
+                .mean(dim=1)
+                .sort()
+            )
+            top_sim_inds = sim_inds[: self.ic_loss_in_queue_size]  # topk
+            cls_feat, cls_gt_classes = (
+                cls_feat[top_sim_inds],
+                cls_gt_classes[top_sim_inds],
+            )
+            # 4. in queue
+            batch_size = (
+                cls_feat.size(0)
+                if ptr + cls_feat.size(0) <= self.ic_loss_queue_size
+                else self.ic_loss_queue_size - ptr
+            )
+            self.queue[i, ptr : ptr + batch_size] = cls_feat[:batch_size]
+            self.queue_label[i, ptr : ptr + batch_size] = cls_gt_classes[:batch_size]
+
+            ptr = ptr + batch_size if ptr + batch_size < self.ic_loss_queue_size else 0
+            self.queue_ptr[i] = ptr
+
+    @torch.no_grad()
+    def concat_all_gather(self, tensor):
+        world_size = comm.get_world_size()
+        # single GPU, directly return the tensor
+        if world_size == 1:
+            return tensor
+        # multiple GPUs, gather tensors
+        tensors_gather = [torch.ones_like(tensor) for _ in range(world_size)]
+        torch.distributed.all_gather(tensors_gather, tensor, async_op=False)
+        output = torch.cat(tensors_gather, dim=0)
+        return output
+
+    def losses(self, predictions, proposals, losses: dict, input_features=None):
+        """
+        Args:
+            predictions: return values of :meth:`forward()`.
+            proposals (list[Instances]): proposals that match the features that were used
+                to compute predictions. The fields ``proposal_boxes``, ``gt_boxes``,
+                ``gt_classes`` are expected.
+
+        Returns:
+            Dict[str, Tensor]: dict of losses
+        """
+        scores, proposal_deltas, mlp_feat = predictions  # added mlp_feat
+        # parse classification outputs
+        gt_classes = (
+            cat([p.gt_classes for p in proposals], dim=0)
+            if len(proposals)
+            else torch.empty(0)
+        )
+        _log_classification_stats(scores, gt_classes)
+
+        # parse box regression outputs
+        if len(proposals):  # here len = batch size
+            proposal_boxes = cat(
+                [p.proposal_boxes.tensor for p in proposals], dim=0
+            )  # Nx4, now we get all proposals.
+            assert (
+                not proposal_boxes.requires_grad
+            ), "Proposals should not require gradients!"
+        else:
+            proposal_boxes = torch.empty(
+                (0, 4), device=proposal_deltas.device
+            )
+
+        # up loss
+        losses.update(self.get_up_loss(scores, gt_classes))
+
+        ious = cat([p.iou for p in proposals], dim=0)
+        # we first store feats in the queue, then cmopute loss
+        self._dequeue_and_enqueue(
+            mlp_feat, gt_classes, ious, iou_thr=self.ic_loss_queue_iou_thr
+        )
+        losses.update(self.get_ic_loss(mlp_feat, gt_classes, ious))
+
+        return losses
