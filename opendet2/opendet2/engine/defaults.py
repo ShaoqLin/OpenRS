@@ -22,6 +22,7 @@ from fvcore.nn.precise_bn import get_bn_modules
 from ..data import build_detection_test_loader, build_detection_train_loader
 from ..evaluation import PascalVOCDetectionEvaluator
 from ..solver import build_optimizer
+from ..data.augmentation_impl import BoxAddNoise, ImageAddNoise
 
 
 class OpenDetTrainer(TrainerBase):
@@ -245,7 +246,14 @@ class OpenDetTrainer(TrainerBase):
         It now calls :func:`detectron2.data.build_detection_train_loader`.
         Overwrite it if you'd like a different data loader.
         """
-        return build_detection_train_loader(cfg)
+        mapper = None
+        assert not (("ImageAddNoise" in cfg.DATASETS.AUG.NAME) and ("BoxAddNoise" in cfg.DATASETS.AUG.NAME))
+        if "ImageAddNoise" in cfg.DATASETS.AUG.NAME:
+            mapper = ImageAddNoise
+        if "BoxAddNoise" in cfg.DATASETS.AUG.NAME:
+            mapper = BoxAddNoise
+        
+        return build_detection_train_loader(cfg, mapper=mapper)
 
     @classmethod
     def build_test_loader(cls, cfg, dataset_name):

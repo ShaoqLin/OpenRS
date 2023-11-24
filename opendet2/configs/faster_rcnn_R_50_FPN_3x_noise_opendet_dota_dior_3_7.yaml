@@ -1,0 +1,28 @@
+_BASE_: "./Base-RCNN-FPN-OPENDET.yaml"
+MODEL:
+  WEIGHTS: "detectron2://ImageNetPretrained/MSRA/R-50.pkl"
+  RESNETS:
+    DEPTH: 50
+  ROI_HEADS:
+    NUM_CLASSES: 11
+    NUM_KNOWN_CLASSES: 7
+DATASETS:
+  TRAIN: ('DIOR_train7',)
+  TEST: ('DIORval_DOTAtrainval_val', 
+        'DIORtest_DOTAtrainval_7_3_test', 
+        'DIORtest_DOTAtrainval_2500_test', 
+        'DIORtest_DOTAtrainval_3500_test')
+  AUG:
+    NAME: "BoxAddNoise"
+    AUG_RATE: 0.2
+
+SOLVER:
+  IMS_PER_BATCH: 16
+  BASE_LR: 0.02
+  STEPS: (21000, 29000)
+  MAX_ITER: 32
+  WARMUP_ITERS: 500
+  AMP:
+    ENABLED: True
+
+# UPLOSS.WEIGHT: former two are 0.5, the last is 1.0
