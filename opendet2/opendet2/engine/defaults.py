@@ -246,14 +246,8 @@ class OpenDetTrainer(TrainerBase):
         It now calls :func:`detectron2.data.build_detection_train_loader`.
         Overwrite it if you'd like a different data loader.
         """
-        mapper = None
-        assert not (("ImageAddNoise" in cfg.DATASETS.AUG.NAME) and ("BoxAddNoise" in cfg.DATASETS.AUG.NAME))
-        if "ImageAddNoise" in cfg.DATASETS.AUG.NAME:
-            mapper = ImageAddNoise
-        if "BoxAddNoise" in cfg.DATASETS.AUG.NAME:
-            mapper = BoxAddNoise
-        
-        return build_detection_train_loader(cfg, mapper=mapper)
+        return build_detection_train_loader(cfg)
+
 
     @classmethod
     def build_test_loader(cls, cfg, dataset_name):
