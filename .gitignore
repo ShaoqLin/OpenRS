@@ -128,6 +128,7 @@ work_dirs/
 *.py~
 *.sh~
 
-
+# some data
 *.tar
+*.zip
 *.npz
