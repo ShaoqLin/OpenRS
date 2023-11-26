@@ -1,4 +1,4 @@
-_BASE_: "./Base-RCNN-FPN-OPENDET.yaml"
+_BASE_: "../Base-RCNN-FPN-OPENDET.yaml"
 MODEL:
   WEIGHTS: "detectron2://ImageNetPretrained/MSRA/R-50.pkl"
   RESNETS:
@@ -16,7 +16,6 @@ INPUT:
   BOX_NOISE_RATE: 0.5
 DATALOADER:
   NUM_WORKERS: 32
-
 SOLVER:
   IMS_PER_BATCH: 16
   BASE_LR: 0.02

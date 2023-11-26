@@ -55,5 +55,7 @@ def add_opendet_config(cfg):
     _C.SIREN.PROJECTION_DIM = 32   
 
     # config to data noise
-    _C.INPUT.BOX_NOISE_RATE = 0.0
+    _C.DATASETS.AUG = CN()
+    _C.DATASETS.AUG.NAME = ""
+    _C.DATASETS.AUG.AUG_RATE = 0.0
     

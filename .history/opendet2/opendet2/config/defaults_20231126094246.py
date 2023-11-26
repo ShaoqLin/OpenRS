@@ -1,3 +1,11 @@
+'''
+Author: ShaoqLin 852884179@qq.com
+Date: 2023-11-10 21:06:16
+LastEditors: ShaoqLin 852884179@qq.com
+LastEditTime: 2023-11-26 09:42:45
+FilePath: /OpenRS/opendet2/opendet2/config/defaults.py
+Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+'''
 from detectron2.config import CfgNode as CN
 
 
@@ -55,5 +63,7 @@ def add_opendet_config(cfg):
     _C.SIREN.PROJECTION_DIM = 32   
 
     # config to data noise
-    _C.INPUT.BOX_NOISE_RATE = 0.0
+    _C.DATASETS.AUG = CN()
+    _C.DATASETS.AUG.NAME = ""
+    _C.DATASETS.AUG.AUG_RATE = 0.0
     
