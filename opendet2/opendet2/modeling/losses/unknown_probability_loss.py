@@ -93,4 +93,3 @@ class UPLoss(nn.Module):
         return self._soft_cross_entropy(mask_scores, targets.detach())
 
 
-# added ProbObjectness from PROB
