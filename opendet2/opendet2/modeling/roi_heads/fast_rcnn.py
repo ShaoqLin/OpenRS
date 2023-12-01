@@ -348,6 +348,7 @@ class OpenDetFastRCNNOutputLayers(CosineFastRCNNOutputLayers):
         )
         cos_dist = self.cls_score(x_normalized)
         scores = self.scale * cos_dist
+        
         proposal_deltas = self.bbox_pred(reg_x)
 
         # encode feature with MLP

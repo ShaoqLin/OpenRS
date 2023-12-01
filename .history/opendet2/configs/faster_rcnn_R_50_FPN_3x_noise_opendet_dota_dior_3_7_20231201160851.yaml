@@ -8,8 +8,9 @@ MODEL:
     NUM_KNOWN_CLASSES: 7
 DATASETS:
   TRAIN: ('DIOR_train7',)
-  TEST: ('DIORtest_DOTAtrainval_7_3_test', 
-        'DIORtest_DOTAtrainval_2500_test',
+  TEST: ( 
+        'DIORtest_DOTAtrainval_7_3_test', 
+        'DIORtest_DOTAtrainval_2500_test', 
         'DIORtest_DOTAtrainval_3500_test')
 INPUT:
   BOX_NOISE_RATE: 0.5
