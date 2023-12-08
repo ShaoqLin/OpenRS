@@ -57,3 +57,7 @@ def add_opendet_config(cfg):
     # config to data noise
     _C.INPUT.BOX_NOISE_RATE = 0.0
     
+    # config for VOS
+    _C.VOS = CN()
+    _C.VOS.STARTING_ITER = 12000
+    _C.VOS.SAMPLE_NUMBER = 1000
