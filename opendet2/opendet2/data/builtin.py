@@ -100,8 +100,8 @@ def register_all_dota_dior_7_3_set1(root):
         # ("DIORval_DOTAtrainval_val", "dota_dior", "DIORval_DOTAtrainval_val"),
         
         ("DIORtest_DOTAtrainval_7_3_test_set1", "dota_dior", "DIORtest_DOTAtrainval_7_3_test_set1"),
-        ("DOTA_trainval_set1_cls_agn_2000", "dota_dior", "DOTA_trainval_set1_cls_agn_2000"),
-        ("DOTA_trainval_set1_cls_agn_3000", "dota_dior", "DOTA_trainval_set1_cls_agn_3000"),
+        ("DOTA_trainval_set1_cls_agn_2000_test", "dota_dior", "DOTA_trainval_set1_cls_agn_2000"),
+        ("DOTA_trainval_set1_cls_agn_3000_test", "dota_dior", "DOTA_trainval_set1_cls_agn_3000"),
     ]
     for name, dirname, split in SPLITS:
         year = 2007 if "2007" in name else 2012
@@ -125,8 +125,8 @@ def register_all_dota_dior_7_3_set2(root):
         # ("DIORval_DOTAtrainval_val", "dota_dior", "DIORval_DOTAtrainval_val"),
         
         ("DIORtest_DOTAtrainval_7_3_test_set2", "dota_dior", "DIORtest_DOTAtrainval_7_3_test_set2"),
-        ("DOTA_trainval_set2_cls_agn_2000", "dota_dior", "DOTA_trainval_set2_cls_agn_2000"),
-        ("DOTA_trainval_set2_cls_agn_3000", "dota_dior", "DOTA_trainval_set2_cls_agn_3000"),
+        ("DOTA_trainval_set2_cls_agn_2000_test", "dota_dior", "DOTA_trainval_set2_cls_agn_2000"),
+        ("DOTA_trainval_set2_cls_agn_3000_test", "dota_dior", "DOTA_trainval_set2_cls_agn_3000"),
     ]
     for name, dirname, split in SPLITS:
         year = 2007 if "2007" in name else 2012
@@ -150,8 +150,8 @@ def register_all_dota_dior_7_3_set3(root):
         # ("DIORval_DOTAtrainval_val", "dota_dior", "DIORval_DOTAtrainval_val"),
         
         ("DIORtest_DOTAtrainval_7_3_test_set3", "dota_dior", "DIORtest_DOTAtrainval_7_3_test_set3"),
-        ("DOTA_trainval_set3_cls_agn_2000", "dota_dior", "DOTA_trainval_set3_cls_agn_2000"),
-        ("DOTA_trainval_set3_cls_agn_3000", "dota_dior", "DOTA_trainval_set3_cls_agn_3000"),
+        ("DOTA_trainval_set3_cls_agn_2000_test", "dota_dior", "DOTA_trainval_set3_cls_agn_2000"),
+        ("DOTA_trainval_set3_cls_agn_3000_test", "dota_dior", "DOTA_trainval_set3_cls_agn_3000"),
     ]
     for name, dirname, split in SPLITS:
         year = 2007 if "2007" in name else 2012
@@ -175,8 +175,8 @@ def register_all_dota_dior_7_3_set4(root):
         # ("DIORval_DOTAtrainval_val", "dota_dior", "DIORval_DOTAtrainval_val"),
         
         ("DIORtest_DOTAtrainval_7_3_test_set4", "dota_dior", "DIORtest_DOTAtrainval_7_3_test_set4"),
-        ("DOTA_trainval_set4_cls_agn_2000", "dota_dior", "DOTA_trainval_set4_cls_agn_2000"),
-        ("DOTA_trainval_set4_cls_agn_3000", "dota_dior", "DOTA_trainval_set4_cls_agn_3000"),
+        ("DOTA_trainval_set4_cls_agn_2000_test", "dota_dior", "DOTA_trainval_set4_cls_agn_2000"),
+        ("DOTA_trainval_set4_cls_agn_3000_test", "dota_dior", "DOTA_trainval_set4_cls_agn_3000"),
     ]
     for name, dirname, split in SPLITS:
         year = 2007 if "2007" in name else 2012

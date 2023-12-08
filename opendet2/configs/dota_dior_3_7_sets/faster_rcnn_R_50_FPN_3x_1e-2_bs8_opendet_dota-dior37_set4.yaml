@@ -9,8 +9,8 @@ MODEL:
 DATASETS:
   TRAIN: ('DIOR_train7_set4',)
   TEST: ('DIORtest_DOTAtrainval_7_3_test_set4', 
-        'DOTA_trainval_set4_cls_agn_2000', 
-        'DOTA_trainval_set4_cls_agn_3000',)
+        'DOTA_trainval_set4_cls_agn_2000_test', 
+        'DOTA_trainval_set4_cls_agn_3000_test',)
 SOLVER:
   IMS_PER_BATCH: 8
   BASE_LR: 0.01
