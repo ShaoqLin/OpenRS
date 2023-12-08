@@ -28,26 +28,86 @@ DOTA_10_CLASS_NAMES=[
     'basketball-court', 'storage-tank', 'harbor'
     ]
 
-DIOR_7_CLASS_NAMES=[
+DIOR_7_CLASS_NAMES_SET1=[
     'baseballfield', 'bridge', 'groundtrackfield', 'harbor',
     'vehicle', 'tenniscourt', 'storagetank'
 ]
 
-DOTA_7_CLASS_NAMES=[
+DOTA_7_CLASS_NAMES_SET1=[
     'baseball-diamond', 'bridge', 'ground-track-field', 'harbor',
     'small-vehicle', 'large-vehicle',   # small vehicle + large vehicle = vehicle 
     'tennis-court', 'storage-tank'
 ]
 
-DIOR_3_CLASS_NAMES=[
+DIOR_3_CLASS_NAMES_SET1=[
     'airplane', 'basketballcourt', 'ship'
 ]
 
-DOTA_3_CLASS_NAMES=[
+DOTA_3_CLASS_NAMES_SET1=[
     'plane', 'basketball-court', 'ship'
 ]
 
-DOTA_DIOR_10_CLASS_NAMES = tuple(itertools.chain(DIOR_7_CLASS_NAMES, DIOR_3_CLASS_NAMES))
+DIOR_7_CLASS_NAMES_SET2=[
+    'baseballfield', 'bridge', 'groundtrackfield', 'harbor',
+    'vehicle', 'basketballcourt', 'airplane'
+]
+
+DOTA_7_CLASS_NAMES_SET2=[
+    'baseball-diamond', 'bridge', 'ground-track-field', 'harbor',
+    'small-vehicle', 'large-vehicle',   # small vehicle + large vehicle = vehicle 
+    'basketball-court', 'plane'
+]
+
+DIOR_3_CLASS_NAMES_SET2=[
+    'storagetank', 'tenniscourt', 'ship'
+]
+
+DOTA_3_CLASS_NAMES_SET2=[
+    'storage-tank', 'tennis-court', 'ship'
+]
+
+DIOR_7_CLASS_NAMES_SET3=[
+    'baseballfield', 'bridge', 'groundtrackfield', 'harbor',
+    'ship', 'tenniscourt', 'storagetank'
+]
+
+DOTA_7_CLASS_NAMES_SET3=[
+    'baseball-diamond', 'bridge', 'ground-track-field', 'harbor',
+    'ship',   # small vehicle + large vehicle = vehicle 
+    'tennis-court', 'storage-tank'
+]
+
+DIOR_3_CLASS_NAMES_SET3=[
+    'airplane', 'basketballcourt', 'vehicle'
+]
+
+DOTA_3_CLASS_NAMES_SET3=[
+    'plane', 'basketball-court', 'small-vehicle', 'large-vehicle'
+]
+
+DIOR_7_CLASS_NAMES_SET4=[
+    'airplane', 'bridge', 'groundtrackfield', 'harbor',
+    'ship', 'tenniscourt', 'storagetank'
+]
+
+DOTA_7_CLASS_NAMES_SET4=[
+    'plane', 'bridge', 'ground-track-field', 'harbor',
+    'ship',   # small vehicle + large vehicle = vehicle 
+    'tennis-court', 'storage-tank'
+]
+
+DIOR_3_CLASS_NAMES_SET4=[
+    'baseballfield', 'basketballcourt', 'vehicle'
+]
+
+DOTA_3_CLASS_NAMES_SET4=[
+    'baseball-diamond', 'basketball-court', 'small-vehicle', 'large-vehicle'
+]
+
+DOTA_DIOR_10_CLASS_NAMES_SET1 = tuple(itertools.chain(DIOR_7_CLASS_NAMES_SET1, DIOR_3_CLASS_NAMES_SET1))
+DOTA_DIOR_10_CLASS_NAMES_SET2 = tuple(itertools.chain(DIOR_7_CLASS_NAMES_SET2, DIOR_3_CLASS_NAMES_SET2))
+DOTA_DIOR_10_CLASS_NAMES_SET3 = tuple(itertools.chain(DIOR_7_CLASS_NAMES_SET3, DIOR_3_CLASS_NAMES_SET3))
+DOTA_DIOR_10_CLASS_NAMES_SET4 = tuple(itertools.chain(DIOR_7_CLASS_NAMES_SET4, DIOR_3_CLASS_NAMES_SET4))
 
 def parse_args():
     parser = argparse.ArgumentParser(description='openset voc generator')
@@ -73,8 +133,8 @@ def prepare_openset(dirname: str, in_split: str, out_split: str, start_class: in
             tree = ET.parse(f)
 
         classes = [obj.find("name").text for obj in tree.findall("object")]
-        if (not set(classes).isdisjoint(DOTA_DIOR_10_CLASS_NAMES[start_class:end_class])) and "person" not in classes and set(classes).isdisjoint(DOTA_DIOR_10_CLASS_NAMES[end_class:]):
-            print(f'pick out classes: {classes}')
+        if (not set(classes).isdisjoint(DOTA_DIOR_10_CLASS_NAMES_SET4[start_class:end_class])) and "person" not in classes and set(classes).isdisjoint(DOTA_DIOR_10_CLASS_NAMES_SET4[end_class:]):
+            print(f'pick out classes: {set(classes)}')
             for cls in classes:
                 image_ids[cls].append(fileid)
     # count class stastics

@@ -15,87 +15,98 @@ from tqdm import tqdm
 
 from detectron2.utils.file_io import PathManager
 
-DIOR_CLASS_NAMES = [
-    'airplane', 'airport', 'baseballfield', 'basketballcourt',
-    'bridge', 'chimney', 'dam', 'Expressway-Service-area', 'Expressway-toll-station',
-    'golffield', 'groundtrackfield', 'harbor', 'overpass', 'ship', 'stadium', 'storagetank',
-    'tenniscourt', 'trainstation', 'vehicle', 'windmill'
+DIOR_10_CLASS_NAMES = [
+    'airplane', 'baseballfield', 'basketballcourt',
+    'bridge', 'groundtrackfield', 'harbor', 'ship', 'storagetank',
+    'tenniscourt', 'vehicle'
 ]
 
-DOTA_CLASS_NAMES=[
+DOTA_10_CLASS_NAMES=[
     'plane', 'baseball-diamond', 'bridge', 'ground-track-field',
     'small-vehicle', 'large-vehicle', 'ship', 'tennis-court',
-    'basketball-court', 'storage-tank', 'soccer-ball-field', 'roundabout',
-    'harbor', 'swimming-pool', 'helicopter']
+    'basketball-court', 'storage-tank', 'harbor'
+    ]
 
-DOTA_BASE_CLASS_NAMES=[
-    'plane', 'baseball-diamond', 'bridge', 'ground-track-field',
-    'small-vehicle', 'large-vehicle', 'ship', 'tennis-court',
-    'basketball-court', 'storage-tank', 'harbor' 
-]
-
-DIOR_BASE_CLASS_NAMES=[
-    'airplane', 'baseballfield', 'basketballcourt', 'bridge',
-    'groundtrackfield', 'harbor', 'ship', 'stadium', 'tenniscourt',
-    'vehicle'
-]
-
-DIOR_NOVEL_CLASS_NAMES1=[
-    'airport', 'chimney', 'dam', 'golffield', 'overpass'
-]
-
-DIOR_NOVEL_CLASS_NAMES2=[
-    'Expressway-Service-area', 'Expressway-toll-station',
-    'stadium', 'trainstation', 'windmill'
-]
-
-VOC_CLASS_NAMES = [
-    "aeroplane", "bicycle", "bird", "boat", "bottle", "bus", "car", "cat",
-    "chair", "cow", "diningtable", "dog", "horse", "motorbike", "person",
-    "pottedplant", "sheep", "sofa", "train", "tvmonitor"
-]
-
-T2_CLASS_NAMES = [
-    "truck", "traffic light", "fire hydrant", "stop sign", "parking meter",
-    "bench", "elephant", "bear", "zebra", "giraffe",
-    "backpack", "umbrella", "handbag", "tie", "suitcase",
-    "microwave", "oven", "toaster", "sink", "refrigerator"
-]
-
-T3_CLASS_NAMES = [
-    "frisbee", "skis", "snowboard", "sports ball", "kite",
-    "baseball bat", "baseball glove", "skateboard", "surfboard", "tennis racket",
-    "banana", "apple", "sandwich", "orange", "broccoli",
-    "carrot", "hot dog", "pizza", "donut", "cake"
-]
-
-T4_CLASS_NAMES = [
-    "bed", "toilet", "laptop", "mouse",
-    "remote", "keyboard", "cell phone", "book", "clock",
-    "vase", "scissors", "teddy bear", "hair drier", "toothbrush",
-    "wine glass", "cup", "fork", "knife", "spoon", "bowl"
-]
-
-DIOR_7_CLASS_NAMES=[
+DIOR_7_CLASS_NAMES_SET1=[
     'baseballfield', 'bridge', 'groundtrackfield', 'harbor',
     'vehicle', 'tenniscourt', 'storagetank'
 ]
 
-DOTA_7_CLASS_NAMES=[
+DOTA_7_CLASS_NAMES_SET1=[
     'baseball-diamond', 'bridge', 'ground-track-field', 'harbor',
     'small-vehicle', 'large-vehicle',   # small vehicle + large vehicle = vehicle 
     'tennis-court', 'storage-tank'
 ]
 
-DIOR_3_CLASS_NAMES=[
+DIOR_3_CLASS_NAMES_SET1=[
     'airplane', 'basketballcourt', 'ship'
 ]
 
-DOTA_3_CLASS_NAMES=[
+DOTA_3_CLASS_NAMES_SET1=[
     'plane', 'basketball-court', 'ship'
 ]
 
-DOTA_DIOR_10_CLASS_NAMES = tuple(itertools.chain(DIOR_7_CLASS_NAMES, DIOR_3_CLASS_NAMES))
+DIOR_7_CLASS_NAMES_SET2=[
+    'baseballfield', 'bridge', 'groundtrackfield', 'harbor',
+    'vehicle', 'basketballcourt', 'airplane'
+]
+
+DOTA_7_CLASS_NAMES_SET2=[
+    'baseball-diamond', 'bridge', 'ground-track-field', 'harbor',
+    'small-vehicle', 'large-vehicle',   # small vehicle + large vehicle = vehicle 
+    'basketball-court', 'plane'
+]
+
+DIOR_3_CLASS_NAMES_SET2=[
+    'storagetank', 'tenniscourt', 'ship'
+]
+
+DOTA_3_CLASS_NAMES_SET2=[
+    'storage-tank', 'tennis-court', 'ship'
+]
+
+DIOR_7_CLASS_NAMES_SET3=[
+    'baseballfield', 'bridge', 'groundtrackfield', 'harbor',
+    'ship', 'tenniscourt', 'storagetank'
+]
+
+DOTA_7_CLASS_NAMES_SET3=[
+    'baseball-diamond', 'bridge', 'ground-track-field', 'harbor',
+    'ship',   # small vehicle + large vehicle = vehicle 
+    'tennis-court', 'storage-tank'
+]
+
+DIOR_3_CLASS_NAMES_SET3=[
+    'airplane', 'basketballcourt', 'vehicle'
+]
+
+DOTA_3_CLASS_NAMES_SET3=[
+    'plane', 'basketball-court', 'small-vehicle', 'large-vehicle'
+]
+
+DIOR_7_CLASS_NAMES_SET4=[
+    'airplane', 'bridge', 'groundtrackfield', 'harbor',
+    'ship', 'tenniscourt', 'storagetank'
+]
+
+DOTA_7_CLASS_NAMES_SET4=[
+    'plane', 'bridge', 'ground-track-field', 'harbor',
+    'ship',   # small vehicle + large vehicle = vehicle 
+    'tennis-court', 'storage-tank'
+]
+
+DIOR_3_CLASS_NAMES_SET4=[
+    'baseballfield', 'basketballcourt', 'vehicle'
+]
+
+DOTA_3_CLASS_NAMES_SET4=[
+    'baseball-diamond', 'basketball-court', 'small-vehicle', 'large-vehicle'
+]
+
+DOTA_DIOR_10_CLASS_NAMES_SET1 = tuple(itertools.chain(DIOR_7_CLASS_NAMES_SET1, DIOR_3_CLASS_NAMES_SET1))
+DOTA_DIOR_10_CLASS_NAMES_SET2 = tuple(itertools.chain(DIOR_7_CLASS_NAMES_SET2, DIOR_3_CLASS_NAMES_SET2))
+DOTA_DIOR_10_CLASS_NAMES_SET3 = tuple(itertools.chain(DIOR_7_CLASS_NAMES_SET3, DIOR_3_CLASS_NAMES_SET3))
+DOTA_DIOR_10_CLASS_NAMES_SET4 = tuple(itertools.chain(DIOR_7_CLASS_NAMES_SET4, DIOR_3_CLASS_NAMES_SET4))
 
 def parse_args():
     parser = argparse.ArgumentParser(description='openset voc generator')
@@ -120,7 +131,7 @@ def prepare_openset(dirname: str, in_split: str, out_split: str, start_class: in
             tree = ET.parse(f)
 
         classes = [obj.find("name").text for obj in tree.findall("object")]
-        if set(classes).isdisjoint(DOTA_DIOR_10_CLASS_NAMES[:start_class]+DOTA_DIOR_10_CLASS_NAMES[end_class:]):
+        if set(classes).isdisjoint(DOTA_DIOR_10_CLASS_NAMES_SET4[:start_class]+DOTA_DIOR_10_CLASS_NAMES_SET4[end_class:]):
             image_ids.append(fileid)
     
     image_ids = set(image_ids)
