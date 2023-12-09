@@ -1543,10 +1543,10 @@ class OpensetROIHeadsLogisticGMMNewLimitFPEnergy(ROIHeadsLogisticGMMNew):
         # 1: x > y, 0: y > x
         bool_batch = torch.cat(bool_batch)
         box_features_x = self.extract_feature(features, proposals_batch_x)
-        complete_scores_x = self.complete_scores(box_features_x)
+        complete_scores_x = self.complete_scores(box_features_x[0])
 
         box_features_y = self.extract_feature(features, proposals_batch_y)
-        complete_scores_y = self.complete_scores(box_features_y)
+        complete_scores_y = self.complete_scores(box_features_y[0])
 
         # contrast_loss = self.contrast_loss(box_features_x, box_features_y, batch_instances_ids)
 
@@ -1557,7 +1557,7 @@ class OpensetROIHeadsLogisticGMMNewLimitFPEnergy(ROIHeadsLogisticGMMNew):
         loss_pos3 = MSELoss(complete_scores_y, torch.ones_like(complete_scores_y))#F.relu(-1 * torch.log(complete_scores_y + 0.0001))
 
         box_features_neg = self.extract_feature(features, neg_batch)
-        complete_scores_neg = self.complete_scores(box_features_neg)
+        complete_scores_neg = self.complete_scores(box_features_neg[0])
         minscores = 0.5 #if tmp.shape[0] == 0 else tmp.min().item()
         loss_neg = F.relu(complete_scores_neg + 1e-3 - minscores)#MSELoss(complete_scores_neg, torch.zeros_like(complete_scores_neg))#F.relu(complete_scores_neg)
         
@@ -1565,7 +1565,7 @@ class OpensetROIHeadsLogisticGMMNewLimitFPEnergy(ROIHeadsLogisticGMMNew):
         neg_weight = 1 if complete_scores_neg.shape[0] > 0 else 0
         loss = pos_weight * (loss_pos1.mean() + loss_pos2.mean() + loss_pos3.mean()) + loss_neg.mean() * neg_weight
         # print("shape: {}  {}   ".format(bool_batch.shape[0], complete_scores_neg.shape[0]))
-        print("{}  {}   {}   {}   {}".format(minscores, loss_pos1.mean(), loss_pos2.mean(), loss_pos3.mean(), loss_neg.mean()))
+        print("minscores:{:.4f} | loss_pos1.mean:{:.4f} | loss_pos2.mean():{:.4f} | loss_pos3.mean:{:.4f} | loss_neg.mean:{:.4f}".format(minscores, loss_pos1.mean(), loss_pos2.mean(), loss_pos3.mean(), loss_neg.mean()))
         return loss
 
 
