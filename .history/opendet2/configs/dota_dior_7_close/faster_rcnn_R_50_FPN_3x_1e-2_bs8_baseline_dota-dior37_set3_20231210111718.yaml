@@ -6,6 +6,9 @@ MODEL:
   ROI_HEADS:
     NUM_CLASSES: 11
     NUM_KNOWN_CLASSES: 7
+  ROI_BOX_HEAD:
+    OUTPUT_LAYERS: "CosineFastRCNNOutputLayers" # baseline use a simple cosine FRCNN
+
 DATASETS:
   TRAIN: ('DIOR_train7_set1',)
   TEST: ('DIORtest_DOTAtrainval_7_3_test_set1',)

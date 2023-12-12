@@ -1,1 +1,0 @@
-{"lr": 0.0010721442885771545, "data_time": 0.06573251724243163, "loss": NaN, "loss_rpn_cls": NaN, "loss_rpn_bbox": NaN, "loss_cls": NaN, "acc": 0.3246753215789795, "loss_bbox": NaN, "time": 0.5307432460784912, "epoch": 1, "iter": 50, "memory": 6973, "step": 50}

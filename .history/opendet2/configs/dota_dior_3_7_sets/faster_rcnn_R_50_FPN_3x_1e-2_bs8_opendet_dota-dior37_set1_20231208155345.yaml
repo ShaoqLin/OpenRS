@@ -8,8 +8,12 @@ MODEL:
     NUM_KNOWN_CLASSES: 7
 DATASETS:
   TRAIN: ('DIOR_train7_set1',)
-  TEST: ('DIORtest_DOTAtrainval_7_3_test_set1',)
+  TEST: ('DIORtest_DOTAtrainval_7_3_test_set1', 
+        'DOTA_trainval_set1_cls_agn_2000_test', 
+        'DOTA_trainval_set1_cls_agn_3000_test',)
 SOLVER:
+  IMS_PER_BATCH: 8
+  BASE_LR: 0.01
   STEPS: (21000, 29000)
   MAX_ITER: 32000
   WARMUP_ITERS: 100
