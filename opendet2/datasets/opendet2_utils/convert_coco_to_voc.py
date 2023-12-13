@@ -25,12 +25,12 @@ DOTA2DIOR_CLASS_NAMES = {
     "storage-tank": "storagetank"
 }
 
-DOTA_IGNORE_CLASS_NAME = set(["plane", "basketball-court", "ship", "soccer-ball-field", "roundabout", "swimming-pool", "helicopter"])
+DOTA_IGNORE_CLASS_NAME = set([""])
 
 def parse_args():
     parser = argparse.ArgumentParser(description='Convert COCO to VOC style')
-    parser.add_argument("--dir", default="datasets/voc_coco", type=str, help="dataset dir")
-    parser.add_argument("--ann_path", default="datasets/coco/annotations/instances_train2017.json", type=str, help="annotation path")
+    parser.add_argument("--dir", default="/mnt/bee9bc2f-b897-4648-b8c4-909715332cb4/linshaoqing/data/datasets/DOTA1024VOC", type=str, help="dataset dir")
+    parser.add_argument("--ann_path", default="/mnt/bee9bc2f-b897-4648-b8c4-909715332cb4/linshaoqing/data/datasets/DOTA1024/val/DOTA_val1024.json", type=str, help="annotation path")
     return parser.parse_args()
 
 def convert_coco_to_voc(coco_annotation_file, target_folder):

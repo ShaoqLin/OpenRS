@@ -1,10 +1,10 @@
 {
-  "nproc": 10,
+  "nproc": 20,
   "img_dirs": [
-    "data/DOTA/train/images/"
+    "/mnt/bee9bc2f-b897-4648-b8c4-909715332cb4/linshaoqing/data/datasets/DOTA/train/images/"
   ],
   "ann_dirs": [
-    "data/DOTA/train/labelTxt/"
+    "/mnt/bee9bc2f-b897-4648-b8c4-909715332cb4/linshaoqing/data/datasets/DOTA/train/labelTxt-v1.0/labelTxt/"
   ],
   "sizes": [
     1024
@@ -23,6 +23,6 @@
     116,
     124
   ],
-  "save_dir": "data/split_ss_dota/train/",
-  "save_ext": ".png"
+  "save_dir": "/mnt/bee9bc2f-b897-4648-b8c4-909715332cb4/linshaoqing/data/datasets/DOTA1024/train/",
+  "save_ext": ".jpg"
 }
