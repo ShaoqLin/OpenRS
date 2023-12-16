@@ -61,3 +61,4 @@ def add_opendet_config(cfg):
     _C.VOS = CN()
     _C.VOS.STARTING_ITER = 12000
     _C.VOS.SAMPLE_NUMBER = 1000
+    
