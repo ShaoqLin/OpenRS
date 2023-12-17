@@ -1,6 +1,4 @@
 # too big learning rate to Nan
-sleep 23400
-
 CUDA_VISIBLE_DEVICES=2 \
 DETECTRON2_DATASETS=/mnt/bee9bc2f-b897-4648-b8c4-909715332cb4/linshaoqing/data/datasets \
 python tools/train_net.py \
