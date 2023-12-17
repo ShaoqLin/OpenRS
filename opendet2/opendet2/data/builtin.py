@@ -42,6 +42,28 @@ def register_all_dota_dior(root):
         year = 2007 if "2007" in name else 2012
         register_dota_dior(name, os.path.join(root, dirname), split, year)
         MetadataCatalog.get(name).evaluator_type = "pascal_voc"
+                
+def register_all_dota_dior_10_15_20(root):
+    SPLITS = [ 
+        # DOTA_DIOR_openset
+        ("DOTA_val_DIOR_train_test_10_15", "dota_dior", "DOTA_val_DIOR_train_class_spe_10_15"),
+        ("DOTA_val_DIOR_train_test_10_20", "dota_dior", "DOTA_val_DIOR_train_class_spe_10_20"),
+    ]
+    for name, dirname, split in SPLITS:
+        year = 2007 if "2007" in name else 2012
+        register_dota_dior(name, os.path.join(root, dirname), split, year)
+        MetadataCatalog.get(name).evaluator_type = "pascal_voc"
+        
+def register_all_train_dior_10_15_20(root):
+    SPLITS = [
+        # DOTA_closeset
+        ("DOTA_val1024", "dota_dior", "DOTA_val1024"),
+        ("DOTA_train1024", "dota_dior", "DOTA_train1024"),
+    ]
+    for name, dirname, split in SPLITS:
+        year = 2007 if "2007" in name else 2012
+        register_dota(name, os.path.join(root, dirname), split, year)
+        MetadataCatalog.get(name).evaluator_type = "pascal_voc"
         
 def register_all_dota_dior_7_3(root):
     SPLITS = [ 
@@ -218,3 +240,7 @@ if __name__.endswith(".builtin"):
     
     register_all_dota_dior_7_3_set4(_root)
     register_all_train_dior7_set4(_root)
+
+    register_all_train_dior_10_15_20(_root)
+    register_all_dota_dior_10_15_20(_root)
+    
