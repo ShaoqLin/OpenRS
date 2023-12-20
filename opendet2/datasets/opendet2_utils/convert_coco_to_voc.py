@@ -4,33 +4,36 @@ import itertools
 import argparse
 from tqdm import tqdm
 from pycocotools.coco import COCO
+import re
 
-COCO2VOC_CLASS_NAMES = {
-    "airplane": "aeroplane",
-    "dining table": "diningtable",
-    "motorcycle": "motorbike",
-    "potted plant": "pottedplant",
-    "couch": "sofa",
-    "tv": "tvmonitor",
-}
+# COCO2VOC_CLASS_NAMES = {
+#     "airplane": "aeroplane",
+#     "dining table": "diningtable",
+#     "motorcycle": "motorbike",
+#     "potted plant": "pottedplant",
+#     "couch": "sofa",
+#     "tv": "tvmonitor",
+# }
 
-DOTA2DIOR_CLASS_NAMES = {
-    "plane": "airplane",
-    "baseball-diamond": "baseballfield",
-    "ground-track-field": "groundtrackfield",
-    "small-vehicle": "vehicle",
-    "large-vehicle": "vehicle",
-    "tennis-court": "tenniscourt",
-    "basketball-court": "basketballcourt",
-    "storage-tank": "storagetank"
-}
+# DOTA2DIOR_CLASS_NAMES = {
+#     "plane": "airplane",
+#     "baseball-diamond": "baseballfield",
+#     "ground-track-field": "groundtrackfield",
+#     "small-vehicle": "vehicle",
+#     "large-vehicle": "vehicle",
+#     "tennis-court": "tenniscourt",
+#     "basketball-court": "basketballcourt",
+#     "storage-tank": "storagetank"
+# }
+
+FAIR1M2FAIR1M_CLASS_NAMES = {}
 
 DOTA_IGNORE_CLASS_NAME = set([""])
 
 def parse_args():
     parser = argparse.ArgumentParser(description='Convert COCO to VOC style')
-    parser.add_argument("--dir", default="/mnt/bee9bc2f-b897-4648-b8c4-909715332cb4/linshaoqing/data/datasets/DOTA1024VOC", type=str, help="dataset dir")
-    parser.add_argument("--ann_path", default="/mnt/bee9bc2f-b897-4648-b8c4-909715332cb4/linshaoqing/data/datasets/DOTA1024/val/DOTA_val1024.json", type=str, help="annotation path")
+    parser.add_argument("--dir", default="/mnt/bee9bc2f-b897-4648-b8c4-909715332cb4/linshaoqing/data/datasets/FAIR1M2.0/validation", type=str, help="dataset dir")
+    parser.add_argument("--ann_path", default="/mnt/bee9bc2f-b897-4648-b8c4-909715332cb4/linshaoqing/data/datasets/FAIR1M2.0/validation/fair1m_coco_val.json", type=str, help="annotation path")
     return parser.parse_args()
 
 def convert_coco_to_voc(coco_annotation_file, target_folder):
@@ -54,8 +57,8 @@ def convert_coco_to_voc(coco_annotation_file, target_folder):
                 continue
             # move here
             object_el = ET.SubElement(annotation_el, 'object')
-            if cls_name in DOTA2DIOR_CLASS_NAMES.keys():
-                cls_name = DOTA2DIOR_CLASS_NAMES[cls_name]
+            # if cls_name in DOTA_IGNORE_CLASS_NAME.keys():
+            #     cls_name = DOTA_IGNORE_CLASS_NAME[cls_name]
             ET.SubElement(object_el,'name').text = cls_name
             if len(cls_name) < 1:
                 print()
@@ -74,6 +77,7 @@ def convert_coco_to_voc(coco_annotation_file, target_folder):
     imageset_dir = os.path.join(target_folder, 'ImageSets/Main')
     os.makedirs(imageset_dir, exist_ok=True)
     imageset_name = os.path.basename(coco_annotation_file).split(".json")[0] + ".txt"
+    image_ids.sort(key = lambda i:int(re.match(r'(\d+)',i).group()))
     with open(os.path.join(imageset_dir, imageset_name), 'w')  as f:
         f.writelines("\n".join(image_ids)+'\n')
     
