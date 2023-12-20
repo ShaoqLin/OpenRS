@@ -39,7 +39,10 @@ def load_voc_instances(dirname: str, split: str, class_names: Union[List[str], T
     dicts = []
     for fileid in fileids:
         anno_file = os.path.join(annotation_dirname, fileid + ".xml")
-        jpeg_file = os.path.join(dirname, "JPEGImages", fileid + ".jpg")
+        if ("fair1m" in fileid):    # added for fair1m
+            jpeg_file = os.path.join(dirname, "JPEGImages", fileid + ".xml")
+        else:
+            jpeg_file = os.path.join(dirname, "JPEGImages", fileid + ".jpg")
 
         with PathManager.open(anno_file) as f:
             tree = ET.parse(f)
