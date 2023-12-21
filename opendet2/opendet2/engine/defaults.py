@@ -5,9 +5,10 @@ from collections import OrderedDict
 from typing import Dict
 
 import torch
+import detectron2.data.transforms as T
 from detectron2.checkpoint import DetectionCheckpointer
 from detectron2.config import CfgNode
-from detectron2.data import MetadataCatalog
+from detectron2.data import MetadataCatalog, DatasetMapper
 from detectron2.engine import (AMPTrainer, SimpleTrainer,
                                TrainerBase, create_ddp_model, hooks, create_ddp_model, default_writers)
 from detectron2.evaluation import (DatasetEvaluator, DatasetEvaluators,
@@ -246,7 +247,24 @@ class OpenDetTrainer(TrainerBase):
         It now calls :func:`detectron2.data.build_detection_train_loader`.
         Overwrite it if you'd like a different data loader.
         """
-        return build_detection_train_loader(cfg)
+        if cfg.INPUT.CROP.SIZE >= 1024:
+            augs = [
+                T.ResizeShortestEdge(
+                    cfg.INPUT.MIN_SIZE_TRAIN, cfg.INPUT.MAX_SIZE_TRAIN, cfg.INPUT.MIN_SIZE_TRAIN_SAMPLING
+                )
+            ]
+            if cfg.INPUT.CROP.ENABLED:
+                augs.append(
+                    T.RandomCrop(
+                        cfg.INPUT.CROP.TYPE,
+                        cfg.INPUT.CROP.SIZE,
+                    )
+                )
+            augs.append(T.RandomFlip(prob=0.5))  # same as default         
+            mapper = DatasetMapper(cfg, is_train=True, augmentations=augs)
+        else:
+            mapper = None
+        return build_detection_train_loader(cfg, mapper=mapper)
 
 
     @classmethod
