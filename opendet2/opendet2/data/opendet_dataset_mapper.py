@@ -214,6 +214,6 @@ def build_augmentation(cfg, is_train):
                 vertical=cfg.INPUT.RANDOM_FLIP == "vertical",
             )
         )
-    if is_train and cfg.INPUT.BOX_NOISE_RATE > 0.0:
-        augmentation.append(BoxAddNoise(mutation_rate=cfg.INPUT.BOX_NOISE_RATE))
+    # if is_train and cfg.INPUT.BOX_NOISE_RATE > 0.0:
+    #     augmentation.append(BoxAddNoise(mutation_rate=cfg.INPUT.BOX_NOISE_RATE))
     return augmentation
