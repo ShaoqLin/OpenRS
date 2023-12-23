@@ -1,8 +1,8 @@
 import os
 
 folder_path = '/mnt/bee9bc2f-b897-4648-b8c4-909715332cb4/linshaoqing/projects/OpenRS/opendet2/configs/fair1m_mar20/' 
-before = "mar20_crop512"
-after = "mar20_crop1024"
+before = " copy"
+after = ""
 
 for filename in os.listdir(folder_path):
     old_name = filename
