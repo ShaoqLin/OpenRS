@@ -17,6 +17,7 @@ DATALOADER:
   NUM_WORKERS: 16
 INPUT:
   MIN_SIZE_TRAIN: (1024, )
+  MAX_SIZE_TRAIN: 20000
   # We don't need MAX_SIZE_TRAIN here since we hope crop from a whole slide images
   # MAX_SIZE_TRAIN: 1024 
   MIN_SIZE_TEST: 800
