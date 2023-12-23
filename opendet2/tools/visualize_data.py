@@ -64,7 +64,7 @@ if __name__ == "__main__":
             cv2.waitKey()
         else:
             filepath = os.path.join(dirname, fname)
-            print("Saving to {} ...".format(filepath))
+            print("\n" + "Saving to {} ...".format(filepath))
             vis.save(filepath)
 
     scale = 1.0

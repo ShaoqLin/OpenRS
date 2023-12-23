@@ -247,7 +247,7 @@ class OpenDetTrainer(TrainerBase):
         It now calls :func:`detectron2.data.build_detection_train_loader`.
         Overwrite it if you'd like a different data loader.
         """
-        if cfg.INPUT.CROP.SIZE >= 1024:
+        if cfg.INPUT.CROP.SIZE[0] >= 1024 and cfg.INPUT.CROP.SIZE[1] >= 1024:
             augs = [
                 T.ResizeShortestEdge(
                     cfg.INPUT.MIN_SIZE_TRAIN, cfg.INPUT.MAX_SIZE_TRAIN, cfg.INPUT.MIN_SIZE_TRAIN_SAMPLING
