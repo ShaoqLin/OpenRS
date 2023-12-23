@@ -6,7 +6,7 @@ from .dota_dior import (register_dota_dior, register_dota, register_dior7,
                     register_dior7_3_set1, register_dior7_3_set2, register_dior7_3_set3, 
                     register_dior7_3_set4, register_dior7_set1 ,register_dior7_set2,
                     register_dior7_set3, register_dior7_set4)
-from .fair1m_mar20 import (register_fair1m, register_fair1m_mar20)
+from .fair1m_mar20 import (register_fair1m, register_fair1m_mar20, register_mar20)
 from detectron2.data import MetadataCatalog
 
 
@@ -50,6 +50,17 @@ def register_all_fair1m(root):
     for name, dirname, split in SPLITS:
         year = 2007 if "2007" in name else 2012
         register_fair1m(name, os.path.join(root, dirname), split, year)
+        MetadataCatalog.get(name).evaluator_type = "pascal_voc"
+        
+def register_all_mar20(root):
+    SPLITS = [ 
+        # DOTA_DIOR_openset
+        ("mar20_train", "fair1m_mar20", "mar20_train"),
+        ("mar20_test", "fair1m_mar20", "mar20_test"),
+    ]
+    for name, dirname, split in SPLITS:
+        year = 2007 if "2007" in name else 2012
+        register_mar20(name, os.path.join(root, dirname), split, year)
         MetadataCatalog.get(name).evaluator_type = "pascal_voc"
 
 def register_all_dota_dior(root):
@@ -268,4 +279,4 @@ if __name__.endswith(".builtin"):
     
     register_all_fair1m_mar20(_root)
     register_all_fair1m(_root)
-    
+    register_all_mar20(_root)

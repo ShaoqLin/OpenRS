@@ -154,7 +154,7 @@ def _train_loader_from_config(cfg, mapper=None, *, dataset=None, sampler=None):
     if mapper is None:
         mapper = OpenDetDatasetMapper(cfg, True)
     else:
-        mapper = mapper(cfg, True)
+        mapper = mapper
 
     if sampler is None:
         sampler_name = cfg.DATALOADER.SAMPLER_TRAIN
