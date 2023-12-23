@@ -55,8 +55,9 @@ class OpenSetStandardROIHeads(StandardROIHeads):
             proposals_per_image = proposals_per_image[sampled_idxs]
             proposals_per_image.gt_classes = gt_classes
             # NOTE: add iou of each proposal
-            ious, _ = match_quality_matrix.max(dim=0)
-            proposals_per_image.iou = ious[sampled_idxs]
+            if match_quality_matrix.shape[0]:
+                ious, _ = match_quality_matrix.max(dim=0)
+                proposals_per_image.iou = ious[sampled_idxs]
 
             if has_gt:
                 sampled_targets = matched_idxs[sampled_idxs]
