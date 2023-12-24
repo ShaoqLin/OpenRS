@@ -35,6 +35,8 @@ def register_all_fair1m_mar20(root):
         # DOTA_DIOR_openset
         ("fair1m_val_mar20_train_10_20", "fair1m_mar20", "fair1m_val_mar20_train_0_10"),
         ("fair1m_val_mar20_train_10_30", "fair1m_mar20", "fair1m_val_mar20_train_0_20"),
+        ("fair1m_val1024_airplane_mar20_train_10_20", "fair1m_mar20", "FAIR1m_val1024_airplane_mar20_train_0_10"),
+        ("fair1m_val1024_airplane_mar20_train_10_30", "fair1m_mar20", "FAIR1m_val1024_airplane_mar20_train_0_20"),
     ]
     for name, dirname, split in SPLITS:
         year = 2007 if "2007" in name else 2012
@@ -46,6 +48,8 @@ def register_all_fair1m(root):
         # DOTA_DIOR_openset
         ("fair1m_train", "fair1m_mar20", "fair1m_voc_train"),
         ("fair1m_val", "fair1m_mar20", "fair1m_voc_val"),
+        ("fair1m_train1024_airplane", "fair1m_mar20", "FAIR1m_train1024_airplane"),
+        ("fair1m_val1024_airplane", "fair1m_mar20", "FAIR1m_val1024_airplane"),
     ]
     for name, dirname, split in SPLITS:
         year = 2007 if "2007" in name else 2012
