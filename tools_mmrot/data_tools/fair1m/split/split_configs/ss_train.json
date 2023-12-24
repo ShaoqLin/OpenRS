@@ -1,0 +1,28 @@
+{
+  "nproc": 20,
+  "img_dirs": [
+    "/mnt/bee9bc2f-b897-4648-b8c4-909715332cb4/linshaoqing/data/datasets/FAIR1M2.0/train/images/"
+  ],
+  "ann_dirs": [
+    "/mnt/bee9bc2f-b897-4648-b8c4-909715332cb4/linshaoqing/data/datasets/FAIR1M2.0/train/labelTxt/"
+  ],
+  "sizes": [
+    1024
+  ],
+  "gaps": [
+    256
+  ],
+  "rates": [
+    1.0
+  ],
+  "img_rate_thr": 0.6,
+  "iof_thr": 0.7,
+  "no_padding": false,
+  "padding_value": [
+    104,
+    116,
+    124
+  ],
+  "save_dir": "/mnt/bee9bc2f-b897-4648-b8c4-909715332cb4/linshaoqing/data/datasets/FAIR1M1024/train/",
+  "save_ext": ".tif"
+}

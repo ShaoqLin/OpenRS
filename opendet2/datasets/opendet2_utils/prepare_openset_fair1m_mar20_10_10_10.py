@@ -29,7 +29,7 @@ FAIR1M_PLANE_CATEGORIES = [
     # fair1m
     'Boeing737', 'Boeing747', 'Boeing777',
     'Boeing787', 'ARJ21', 'A220', 'A321',
-    'A330', 'A350', 'C919',
+    'A320', 'A330', 'A350', 'C919', 'other-airplane'
 ]
 
 DOTA_DIOR_20_CLASS_NAMES = tuple(itertools.chain(FAIR1M_PLANE_CATEGORIES, MAR20_CATEGORIES))
@@ -58,7 +58,7 @@ def prepare_openset(dirname: str, in_split: str, out_split: str, start_class: in
             tree = ET.parse(f)
 
         classes = [obj.find("name").text for obj in tree.findall("object")]
-        if (not set(classes).isdisjoint(DOTA_DIOR_20_CLASS_NAMES[start_class:end_class])) and "person" not in classes and set(classes).isdisjoint(DOTA_DIOR_20_CLASS_NAMES[end_class:]):
+        if (not set(classes).isdisjoint(DOTA_DIOR_20_CLASS_NAMES[start_class:end_class])): # and "person" not in classes and set(classes).isdisjoint(DOTA_DIOR_20_CLASS_NAMES[end_class:]):
             print(f'pick out classes: {classes}')
             for cls in classes:
                 image_ids[cls].append(fileid)

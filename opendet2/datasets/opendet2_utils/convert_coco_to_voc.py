@@ -32,8 +32,8 @@ DOTA_IGNORE_CLASS_NAME = set([""])
 
 def parse_args():
     parser = argparse.ArgumentParser(description='Convert COCO to VOC style')
-    parser.add_argument("--dir", default="/mnt/bee9bc2f-b897-4648-b8c4-909715332cb4/linshaoqing/data/datasets/FAIR1M2.0/validation", type=str, help="dataset dir")
-    parser.add_argument("--ann_path", default="/mnt/bee9bc2f-b897-4648-b8c4-909715332cb4/linshaoqing/data/datasets/FAIR1M2.0/validation/fair1m_coco_val.json", type=str, help="annotation path")
+    parser.add_argument("--dir", default="/mnt/bee9bc2f-b897-4648-b8c4-909715332cb4/linshaoqing/data/datasets/FAIR1M1024/train/ann_voc", type=str, help="dataset dir")
+    parser.add_argument("--ann_path", default="/mnt/bee9bc2f-b897-4648-b8c4-909715332cb4/linshaoqing/data/datasets/FAIR1M1024/train/FAIR1m_train1024.json", type=str, help="annotation path")
     return parser.parse_args()
 
 def convert_coco_to_voc(coco_annotation_file, target_folder):
@@ -77,7 +77,6 @@ def convert_coco_to_voc(coco_annotation_file, target_folder):
     imageset_dir = os.path.join(target_folder, 'ImageSets/Main')
     os.makedirs(imageset_dir, exist_ok=True)
     imageset_name = os.path.basename(coco_annotation_file).split(".json")[0] + ".txt"
-    image_ids.sort(key = lambda i:int(re.match(r'(\d+)',i).group()))
     with open(os.path.join(imageset_dir, imageset_name), 'w')  as f:
         f.writelines("\n".join(image_ids)+'\n')
     
