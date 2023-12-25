@@ -15,7 +15,7 @@ from detectron2.modeling.backbone import Backbone, build_backbone
 from detectron2.modeling.postprocessing import detector_postprocess
 from detectron2.modeling.proposal_generator import build_proposal_generator
 from detectron2.modeling.roi_heads import build_roi_heads
-from detectron2.modeling.meta_arch import GeneralizedRCNN
+from detectron2
 from detectron2.modeling.meta_arch.build import META_ARCH_REGISTRY
 
 __all__ = ["PartialConvGeneralizedRCNN", ]
@@ -153,21 +153,8 @@ class PartialConvGeneralizedRCNN(nn.Module):
 
         features = self.backbone(images.tensor)
         
-        features_list = []
-        for f in self.proposal_generator.in_features:
-            gt_sizes = [gt_instance.image_size for gt_instance in gt_instances]
-            temp = torch.tensor(features[f].shape[-2:]).unsqueeze(0)
-            features[f].mask = torch.tensor(gt_sizes) / torch.tensor(features[f].shape[-2:]).unsqueeze(0)
-            features_list.append(features[f])
-        
-        pred_objectness_logits = []
-        pred_anchor_deltas = []
-        for x in features:
-            t = self.conv(x)
-            pred_objectness_logits.append(self.objectness_logits(t))
-            pred_anchor_deltas.append(self.anchor_deltas(t))
-        # mask = [(images.image_sizes[0] / features['p2'][0].size) * gt_instances[0]]
-        # features['p2'] = [features['p2'], ]
+        mask = [(images.image_sizes[0] / features['p2'][0].size) * gt_instances[0]]
+        features['p2'] = [features['p2'], ]
 
         if self.proposal_generator is not None:
             proposals, proposal_losses = self.proposal_generator(images, features, gt_instances)

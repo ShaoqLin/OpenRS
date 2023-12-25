@@ -153,13 +153,7 @@ class PartialConvGeneralizedRCNN(nn.Module):
 
         features = self.backbone(images.tensor)
         
-        features_list = []
-        for f in self.proposal_generator.in_features:
-            gt_sizes = [gt_instance.image_size for gt_instance in gt_instances]
-            temp = torch.tensor(features[f].shape[-2:]).unsqueeze(0)
-            features[f].mask = torch.tensor(gt_sizes) / torch.tensor(features[f].shape[-2:]).unsqueeze(0)
-            features_list.append(features[f])
-        
+        features_list = [features[f] for f in self.proposal_generator.in_features]
         pred_objectness_logits = []
         pred_anchor_deltas = []
         for x in features:
@@ -170,7 +164,7 @@ class PartialConvGeneralizedRCNN(nn.Module):
         # features['p2'] = [features['p2'], ]
 
         if self.proposal_generator is not None:
-            proposals, proposal_losses = self.proposal_generator(images, features, gt_instances)
+            proposals, proposal_losses = self.(images, features, gt_instances)
         else:
             assert "proposals" in batched_inputs[0]
             proposals = [x["proposals"].to(self.device) for x in batched_inputs]
