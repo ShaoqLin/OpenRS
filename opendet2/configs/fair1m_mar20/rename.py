@@ -1,7 +1,7 @@
 import os
 
 folder_path = '/mnt/bee9bc2f-b897-4648-b8c4-909715332cb4/linshaoqing/projects/OpenRS/opendet2/configs/fair1m_mar20/' 
-before = " copy"
+before = "*1e-3*"
 after = ""
 
 for filename in os.listdir(folder_path):

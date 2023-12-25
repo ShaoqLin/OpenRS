@@ -6,9 +6,6 @@ MODEL:
   ROI_HEADS:
     NUM_CLASSES: 31
     NUM_KNOWN_CLASSES: 10
-    NAME: "SIRENOpenSetStandardROIHeads"
-  ROI_BOX_HEAD:
-    OUTPUT_LAYERS: "SIRENOpenDetFastRCNNOutputLayers"
 DATASETS:
   TRAIN: ('fair1m_train1024_airplane',)
   TEST: ('fair1m_val1024_airplane',
@@ -26,14 +23,11 @@ TEST:
 SOLVER:
   IMS_PER_BATCH: 16
   BASE_LR: 0.001
-  STEPS: (6000, 8250)
-  MAX_ITER: 9000
+  STEPS: (12000, 16500)
+  MAX_ITER: 18000
   WARMUP_ITERS: 100
   CHECKPOINT_PERIOD: 1500
   AMP:
     ENABLED: True
 
-SIREN:
-  LOSS_WEIGHT: 0.1
-  PROJECTION_DIM: 64
 # UPLOSS.WEIGHT: former two are 0.5, the last is 1.0
