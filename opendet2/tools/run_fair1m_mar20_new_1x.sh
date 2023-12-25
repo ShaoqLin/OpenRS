@@ -36,4 +36,3 @@ python tools/train_net.py \
 sleep 60
 
 python /mnt/bee9bc2f-b897-4648-b8c4-909715332cb4/linshaoqing/projects/OpenRS/tools/alldone.py
-RSgis104
