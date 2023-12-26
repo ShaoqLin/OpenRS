@@ -1,5 +1,6 @@
 # Copyright (c) Facebook, Inc. and its affiliates.
 import logging
+import math
 import numpy as np
 from typing import Dict, List, Optional, Tuple
 import torch
@@ -58,6 +59,11 @@ class PartialConvGeneralizedRCNN(nn.Module):
 
         self.input_format = input_format
         self.vis_period = vis_period
+        
+        self.conv1 = PartialConv(in_channels=256, out_channels=256, kernel_size=3, stride=1, padding=1, bias=False)
+        self.conv2 = PartialConv(in_channels=256, out_channels=256, kernel_size=3, stride=1, padding=1, bias=False)
+        self.conv3 = PartialConv(in_channels=256, out_channels=256, kernel_size=3, stride=1, padding=1, bias=False)
+        
         if vis_period > 0:
             assert input_format is not None, "input_format is required for visualization!"
 
@@ -153,19 +159,27 @@ class PartialConvGeneralizedRCNN(nn.Module):
 
         features = self.backbone(images.tensor)
         
-        features_list = []
+        gt_sizes = [gt_instance.image_size for gt_instance in gt_instances]
+        gt_bboxes = [gt_instance._fields['gt_boxes'] for gt_instance in gt_instances]
         for f in self.proposal_generator.in_features:
-            gt_sizes = [gt_instance.image_size for gt_instance in gt_instances]
-            temp = torch.tensor(features[f].shape[-2:]).unsqueeze(0)
-            features[f].mask = torch.tensor(gt_sizes) / torch.tensor(features[f].shape[-2:]).unsqueeze(0)
-            features_list.append(features[f])
+            ratio = torch.tensor(gt_sizes) / torch.tensor(features[f].shape[-2:]).unsqueeze(0)
+            ratio = torch.cat((ratio, ratio), dim=1)
+            features[f].masks = []
+            for index, gt in enumerate(gt_bboxes):
+                gt = gt.tensor / ratio[index].cuda()
+                mask = torch.ones(features[f].shape[-2:]).cuda()
+                for box in gt:
+                    mask[int(box[0]):int(box[2])+1, int(box[1]):int(box[3])+1] = 0
+                features[f].masks.append(mask)
+            features[f].masks = torch.stack(features[f].masks)
+            features[f].masks = features[f].masks.repeat(features[f].shape[1], 1, 1, 1).permute(1,0,2,3)
+            out1, mask1 = self.conv1(features[f], features[f].masks)
+            out2, mask2 = self.conv2(out1, mask1)
+            del out1, mask1
+            out3, _ = self.conv3(out2, mask2)
+            del out2, mask2, _
+            features[f] = torch.cat((features[f], out3), dim=1)
         
-        pred_objectness_logits = []
-        pred_anchor_deltas = []
-        for x in features:
-            t = self.conv(x)
-            pred_objectness_logits.append(self.objectness_logits(t))
-            pred_anchor_deltas.append(self.anchor_deltas(t))
         # mask = [(images.image_sizes[0] / features['p2'][0].size) * gt_instances[0]]
         # features['p2'] = [features['p2'], ]
 
@@ -257,3 +271,67 @@ class PartialConvGeneralizedRCNN(nn.Module):
             r = detector_postprocess(results_per_image, height, width)
             processed_results.append({"instances": r})
         return processed_results
+
+
+class PartialConv(nn.Module):
+    def __init__(self, in_channels, out_channels, kernel_size, stride=1,
+                 padding=0, dilation=1, groups=1, bias=True):
+        super().__init__()
+        self.input_conv = nn.Conv2d(in_channels, out_channels, kernel_size,
+                                    stride, padding, dilation, groups, bias)
+        self.mask_conv = nn.Conv2d(in_channels, out_channels, kernel_size,
+                                   stride, padding, dilation, groups, False)
+        self.input_conv.apply(weights_init('kaiming'))
+
+        torch.nn.init.constant_(self.mask_conv.weight, 1.0)
+
+        # mask is not updated
+        for param in self.mask_conv.parameters():
+            param.requires_grad = False
+
+    def forward(self, input, mask):
+        # http://masc.cs.gmu.edu/wiki/partialconv
+        # C(X) = W^T * X + b, C(0) = b, D(M) = 1 * M + 0 = sum(M)
+        # W^T* (M .* X) / sum(M) + b = [C(M .* X) – C(0)] / D(M) + C(0)
+        output = self.input_conv(input * mask)
+        if self.input_conv.bias is not None:
+            output_bias = self.input_conv.bias.view(1, -1, 1, 1).expand_as(
+                output)
+        else:
+            output_bias = torch.zeros_like(output)
+
+        with torch.no_grad():
+            output_mask = self.mask_conv(mask)
+
+        no_update_holes = output_mask == 0
+        mask_sum = output_mask.masked_fill_(no_update_holes, 1.0)
+
+        output_pre = (output - output_bias) / mask_sum + output_bias
+        output = output_pre.masked_fill_(no_update_holes, 0.0)
+
+        new_mask = torch.ones_like(output)
+        new_mask = new_mask.masked_fill_(no_update_holes, 0.0)
+
+        return output, new_mask
+    
+def weights_init(init_type='gaussian'):
+    def init_fun(m):
+        classname = m.__class__.__name__
+        if (classname.find('Conv') == 0 or classname.find(
+                'Linear') == 0) and hasattr(m, 'weight'):
+            if init_type == 'gaussian':
+                nn.init.normal_(m.weight, 0.0, 0.02)
+            elif init_type == 'xavier':
+                nn.init.xavier_normal_(m.weight, gain=math.sqrt(2))
+            elif init_type == 'kaiming':
+                nn.init.kaiming_normal_(m.weight, a=0, mode='fan_in')
+            elif init_type == 'orthogonal':
+                nn.init.orthogonal_(m.weight, gain=math.sqrt(2))
+            elif init_type == 'default':
+                pass
+            else:
+                assert 0, "Unsupported initialization: {}".format(init_type)
+            if hasattr(m, 'bias') and m.bias is not None:
+                nn.init.constant_(m.bias, 0.0)
+
+    return init_fun
