@@ -3,7 +3,7 @@ from detectron2.data.build import build_detection_train_loader
 from detectron2.engine import HookBase
 import detectron2.utils.comm as comm
 
-class ValidationLoss(HookBase):
+class ValidationLossHook(HookBase):
     def __init__(self, cfg, DATASETS_VAL_NAME):
         super().__init__()
         self.cfg = cfg.clone()
