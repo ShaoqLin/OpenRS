@@ -11,6 +11,7 @@ DATASETS:
   TEST: ('DOTA_val_DIOR_train_test_10_15',
         'DOTA_val_DIOR_train_test_10_20',
         'DOTA_val1024')
+  VAL: 'DOTA_val1024'
 
 # for debug
 INPUT:

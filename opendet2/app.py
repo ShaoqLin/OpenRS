@@ -10,7 +10,7 @@ os.system('pip install timm opencv-python-headless')
 
 import gradio as gr
 
-from demo.predictor import VisualizationDemo
+from demos.predictor import VisualizationDemo
 from detectron2.config import get_cfg
 from opendet2 import add_opendet_config
 
@@ -41,8 +41,7 @@ def inference(input, model):
     # use PIL, to be consistent with evaluation
     predictions, visualized_output = demo.run_on_image(input)
     output = visualized_output.get_image()[:, :, ::-1]
-    return output
-
+    return outpu
 
 iface = gr.Interface(
     inference,

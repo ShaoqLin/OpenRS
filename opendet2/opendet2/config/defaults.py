@@ -62,3 +62,5 @@ def add_opendet_config(cfg):
     _C.VOS.STARTING_ITER = 12000
     _C.VOS.SAMPLE_NUMBER = 1000
     
+    # dataset val
+    _C.DATASETS.VAL = None
