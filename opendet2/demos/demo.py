@@ -17,7 +17,7 @@ from detectron2.utils.logger import setup_logger
 import sys
 sys.path.insert(-1, "../")
 from opendet2 import add_opendet_config, builtin, OpenDetTrainer
-import VisualizationDemo
+from .predictor import VisualizationDemo
 # constants
 WINDOW_NAME = "COCO detections"
 
