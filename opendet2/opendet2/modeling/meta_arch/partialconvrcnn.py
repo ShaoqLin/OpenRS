@@ -63,6 +63,7 @@ class PartialConvGeneralizedRCNN(nn.Module):
         self.conv1 = PartialConv(in_channels=256, out_channels=256, kernel_size=3, stride=1, padding=1, bias=False)
         self.conv2 = PartialConv(in_channels=256, out_channels=256, kernel_size=3, stride=1, padding=1, bias=False)
         self.conv3 = PartialConv(in_channels=256, out_channels=256, kernel_size=3, stride=1, padding=1, bias=False)
+        self.conv_channel = nn.Conv2d(in_channels=512, out_channels=256, kernel_size=1, stride=1, bias=False)
         
         if vis_period > 0:
             assert input_format is not None, "input_format is required for visualization!"
@@ -178,7 +179,7 @@ class PartialConvGeneralizedRCNN(nn.Module):
             del out1, mask1
             out3, _ = self.conv3(out2, mask2)
             del out2, mask2, _
-            features[f] = torch.cat((features[f], out3), dim=1)
+            features[f] = self.conv_channel(torch.cat((features[f], out3), dim=1))
         
         # mask = [(images.image_sizes[0] / features['p2'][0].size) * gt_instances[0]]
         # features['p2'] = [features['p2'], ]
