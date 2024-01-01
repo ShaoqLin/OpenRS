@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-CUDA_VISIBLE_DEVICES=1 \
+CUDA_VISIBLE_DEVICES=2 \
 DETECTRON2_DATASETS=/mnt/bee9bc2f-b897-4648-b8c4-909715332cb4/linshaoqing/data/datasets \
 python tools/train_net_with_val.py \
 --resume \
@@ -12,7 +12,7 @@ python tools/train_net_with_val.py \
 DATASETS.VAL 'fair1m_val1024_airplane'
 sleep 60
 
-CUDA_VISIBLE_DEVICES=1 \
+CUDA_VISIBLE_DEVICES=2 \
 DETECTRON2_DATASETS=/mnt/bee9bc2f-b897-4648-b8c4-909715332cb4/linshaoqing/data/datasets \
 python tools/train_net_with_val.py \
 --resume \
@@ -23,7 +23,7 @@ python tools/train_net_with_val.py \
 DATASETS.VAL 'fair1m_val1024_airplane'
 sleep 60
 
-CUDA_VISIBLE_DEVICES=1 \
+CUDA_VISIBLE_DEVICES=2 \
 DETECTRON2_DATASETS=/mnt/bee9bc2f-b897-4648-b8c4-909715332cb4/linshaoqing/data/datasets \
 python tools/train_net_with_val.py \
 --resume \
@@ -34,7 +34,7 @@ python tools/train_net_with_val.py \
 DATASETS.VAL 'fair1m_val1024_airplane'
 sleep 60
 
-CUDA_VISIBLE_DEVICES=1 \
+CUDA_VISIBLE_DEVICES=2 \
 DETECTRON2_DATASETS=/mnt/bee9bc2f-b897-4648-b8c4-909715332cb4/linshaoqing/data/datasets \
 python tools/train_net_with_val.py \
 --resume \
@@ -45,7 +45,7 @@ python tools/train_net_with_val.py \
 DATASETS.VAL 'fair1m_val1024_airplane'
 sleep 60
 
-CUDA_VISIBLE_DEVICES=1 \
+CUDA_VISIBLE_DEVICES=2 \
 DETECTRON2_DATASETS=/mnt/bee9bc2f-b897-4648-b8c4-909715332cb4/linshaoqing/data/datasets \
 python tools/train_net_with_val.py \
 --resume \
@@ -56,7 +56,7 @@ python tools/train_net_with_val.py \
 DATASETS.VAL 'fair1m_val1024_airplane'
 sleep 60
 
-CUDA_VISIBLE_DEVICES=1 \
+CUDA_VISIBLE_DEVICES=2 \
 DETECTRON2_DATASETS=/mnt/bee9bc2f-b897-4648-b8c4-909715332cb4/linshaoqing/data/datasets \
 python tools/train_net_with_val.py \
 --resume \
@@ -67,7 +67,7 @@ python tools/train_net_with_val.py \
 DATASETS.VAL 'fair1m_val1024_airplane'
 sleep 60
 
-CUDA_VISIBLE_DEVICES=1 \
+CUDA_VISIBLE_DEVICES=2 \
 DETECTRON2_DATASETS=/mnt/bee9bc2f-b897-4648-b8c4-909715332cb4/linshaoqing/data/datasets \
 python tools/train_net_with_val.py \
 --resume \
@@ -78,7 +78,7 @@ python tools/train_net_with_val.py \
 DATASETS.VAL 'fair1m_val1024_airplane'
 sleep 60
 
-CUDA_VISIBLE_DEVICES=1 \
+CUDA_VISIBLE_DEVICES=2 \
 DETECTRON2_DATASETS=/mnt/bee9bc2f-b897-4648-b8c4-909715332cb4/linshaoqing/data/datasets \
 python tools/train_net_with_val.py \
 --resume \
@@ -90,7 +90,7 @@ DATASETS.VAL 'fair1m_val1024_airplane'
 sleep 60
 
 # too big learning rate to Nan
-CUDA_VISIBLE_DEVICES=1 \
+CUDA_VISIBLE_DEVICES=2 \
 DETECTRON2_DATASETS=/mnt/bee9bc2f-b897-4648-b8c4-909715332cb4/linshaoqing/data/datasets \
 python tools/train_net_with_val.py \
 --resume \
@@ -101,7 +101,7 @@ python tools/train_net_with_val.py \
 DATASETS.VAL 'fair1m_val1024_airplane'
 sleep 60
 
-CUDA_VISIBLE_DEVICES=1 \
+CUDA_VISIBLE_DEVICES=2 \
 DETECTRON2_DATASETS=/mnt/bee9bc2f-b897-4648-b8c4-909715332cb4/linshaoqing/data/datasets \
 python tools/train_net_with_val.py \
 --resume \
@@ -112,7 +112,7 @@ python tools/train_net_with_val.py \
 DATASETS.VAL 'fair1m_val1024_airplane'
 sleep 60
 
-CUDA_VISIBLE_DEVICES=1 \
+CUDA_VISIBLE_DEVICES=2 \
 DETECTRON2_DATASETS=/mnt/bee9bc2f-b897-4648-b8c4-909715332cb4/linshaoqing/data/datasets \
 python tools/train_net_with_val.py \
 --resume \
@@ -123,7 +123,7 @@ python tools/train_net_with_val.py \
 DATASETS.VAL 'fair1m_val1024_airplane'
 sleep 60
 
-CUDA_VISIBLE_DEVICES=1 \
+CUDA_VISIBLE_DEVICES=2 \
 DETECTRON2_DATASETS=/mnt/bee9bc2f-b897-4648-b8c4-909715332cb4/linshaoqing/data/datasets \
 python tools/train_net_with_val.py \
 --resume \
@@ -134,7 +134,7 @@ python tools/train_net_with_val.py \
 DATASETS.VAL 'fair1m_val1024_airplane'
 sleep 60
 
-CUDA_VISIBLE_DEVICES=1 \
+CUDA_VISIBLE_DEVICES=2 \
 DETECTRON2_DATASETS=/mnt/bee9bc2f-b897-4648-b8c4-909715332cb4/linshaoqing/data/datasets \
 python tools/train_net_with_val.py \
 --resume \
@@ -145,7 +145,7 @@ python tools/train_net_with_val.py \
 DATASETS.VAL 'fair1m_val1024_airplane'
 sleep 60
 
-CUDA_VISIBLE_DEVICES=1 \
+CUDA_VISIBLE_DEVICES=2 \
 DETECTRON2_DATASETS=/mnt/bee9bc2f-b897-4648-b8c4-909715332cb4/linshaoqing/data/datasets \
 python tools/train_net_with_val.py \
 --resume \
@@ -156,7 +156,7 @@ python tools/train_net_with_val.py \
 DATASETS.VAL 'fair1m_val1024_airplane'
 sleep 60
 
-CUDA_VISIBLE_DEVICES=1 \
+CUDA_VISIBLE_DEVICES=2 \
 DETECTRON2_DATASETS=/mnt/bee9bc2f-b897-4648-b8c4-909715332cb4/linshaoqing/data/datasets \
 python tools/train_net_with_val.py \
 --resume \
@@ -167,7 +167,7 @@ python tools/train_net_with_val.py \
 DATASETS.VAL 'fair1m_val1024_airplane'
 sleep 60
 
-CUDA_VISIBLE_DEVICES=1 \
+CUDA_VISIBLE_DEVICES=2 \
 DETECTRON2_DATASETS=/mnt/bee9bc2f-b897-4648-b8c4-909715332cb4/linshaoqing/data/datasets \
 python tools/train_net_with_val.py \
 --resume \
