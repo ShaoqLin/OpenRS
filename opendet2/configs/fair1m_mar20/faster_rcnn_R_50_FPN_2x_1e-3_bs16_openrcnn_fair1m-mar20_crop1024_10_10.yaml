@@ -24,13 +24,16 @@ MODEL:
     UNKNOWN_SCORE_THRESH: 0.0
     UNKNOWN_NMS_THRESH: 0.5
     UNKNOWN_TOPK: 50
-    NUM_CLASSES: 81
-    NUM_KNOWN_CLASSES: 20
+    NUM_CLASSES: 31
+    NUM_KNOWN_CLASSES: 10
     UNKNOWN_ID: 1000
   ROI_BOX_HEAD:
     CLS_LOSS_WEIGHT: 0.9
     BBOX_REG_LOSS_WEIGHT: 0.5
     IOU_REG_LOSS_WEIGHT: 0.5
+    CLS_AGNOSTIC_BBOX_REG: true
+  ROI_MASK_HEAD:
+    CLS_AGNOSTIC_MASK: True
   PLN:
     EMD_DIM: 256
     ALPHA: 0.1
@@ -40,12 +43,12 @@ MODEL:
     IOU_THRESHOLD: 0.5
     UNK_THR: 0.23
     LOSS_WEIGHT: 0.5
-
 DATASETS:
   TRAIN: ('fair1m_train1024_airplane',)
   TEST: ('fair1m_val1024_airplane',
         'fair1m_val1024_airplane_mar20_train_10_20',
         'fair1m_val1024_airplane_mar20_train_10_30')
+  VAL: 'fair1m_val1024_airplane'
 DATALOADER:
   NUM_WORKERS: 8
 INPUT:
