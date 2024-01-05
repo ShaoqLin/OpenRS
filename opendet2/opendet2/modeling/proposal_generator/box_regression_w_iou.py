@@ -7,8 +7,10 @@ import torch
 from fvcore.nn import giou_loss, smooth_l1_loss
 
 from detectron2.structures import Boxes, pairwise_iou
-from detectron2.layers import cat, ciou_loss, diou_loss
+from detectron2.layers import cat
 from detectron2.modeling.box_regression import Box2BoxTransform
+
+from opendet2.modeling.layers.openset_rcnn_losses import ciou_loss, diou_loss
 
 
 def _dense_box_regression_loss_w_iou(

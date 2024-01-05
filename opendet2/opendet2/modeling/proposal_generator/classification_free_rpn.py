@@ -11,12 +11,12 @@ from detectron2.structures import Boxes, ImageList, Instances, pairwise_iou
 from detectron2.utils.events import get_event_storage
 from detectron2.utils.memory import retry_if_cuda_oom
 from detectron2.modeling import build_anchor_generator, build_rpn_head, RPN_HEAD_REGISTRY, PROPOSAL_GENERATOR_REGISTRY
-from detectron2.modeling.box_regression import Box2BoxTransformLinear
 from detectron2.modeling.matcher import Matcher
 from detectron2.modeling.sampling import subsample_labels
 
 from .box_regression_w_iou import _dense_box_regression_loss_w_iou
 from .find_top_proposals import find_top_rpn_proposals
+from opendet2.modeling.openset_rcnn_box_regression import Box2BoxTransformLinear
 
 
 """
