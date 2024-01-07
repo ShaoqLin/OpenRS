@@ -17,7 +17,7 @@ from detectron2.utils.logger import setup_logger
 import sys
 sys.path.insert(-1, "../")
 from opendet2 import add_opendet_config, builtin, OpenDetTrainer
-from .predictor import VisualizationDemo
+from demos.predictor import VisualizationDemo
 # constants
 WINDOW_NAME = "COCO detections"
 
@@ -109,20 +109,26 @@ if __name__ == "__main__":
         if len(args.input) == 1:
             args.input = glob.glob(os.path.expanduser(args.input[0]))
             assert args.input, "The input path(s) was not found"
-        for path in tqdm.tqdm(args.input, disable=not args.output, ncols=80):
+            if os.path.isdir(args.input[0]):
+                print(f'gathering all files in {args.input[0]}')
+                inputs = os.listdir(args.input[0])
+        for path in tqdm.tqdm(inputs, disable=not args.output, ncols=80):
+            path = os.path.join(args.input[0], path)
+            if os.path.splitext(path)[-1] != '.jpg':
+                continue
             # use PIL, to be consistent with evaluation
             img = read_image(path, format="BGR")
             start_time = time.time()
             predictions, visualized_output = demo.run_on_image(img)
-            logger.info(
-                "{}: {} in {:.2f}s".format(
-                    path,
-                    "detected {} instances".format(len(predictions["instances"]))
-                    if "instances" in predictions
-                    else "finished",
-                    time.time() - start_time,
-                )
-            )
+            # logger.info(
+            #     "{}: {} in {:.2f}s".format(
+            #         path,
+            #         "detected {} instances".format(len(predictions["instances"]))
+            #         if "instances" in predictions
+            #         else "finished",
+            #         time.time() - start_time,
+            #     )
+            # )
 
             if args.output:
                 if os.path.isdir(args.output):
