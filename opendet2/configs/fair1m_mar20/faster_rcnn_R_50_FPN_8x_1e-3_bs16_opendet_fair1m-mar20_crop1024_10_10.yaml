@@ -7,10 +7,10 @@ MODEL:
     NUM_CLASSES: 31
     NUM_KNOWN_CLASSES: 10
 DATASETS:
-  TRAIN: ('fair1m_train',)
-  TEST: ('fair1m_val',
-        'fair1m_val_mar20_train_10_20',
-        'fair1m_val_mar20_train_10_30')
+  TRAIN: ('fair1m_train1024_airplane',)
+  TEST: ('fair1m_val1024_airplane',
+        'fair1m_val1024_airplane_mar20_train_10_20',
+        'fair1m_val1024_airplane_mar20_train_10_30')
 INPUT:
   MIN_SIZE_TRAIN: (1024, )
   MAX_SIZE_TRAIN: 20000
