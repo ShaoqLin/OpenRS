@@ -64,11 +64,11 @@ class PLN(nn.Module):
         self.unk_thr = unk_thr
         self.opendet_benchmark = opendet_benchmark
 
-        self.encoder = nn.Linear(self.feature_dim, self.embedding_dim, device='cuda')
+        self.encoder = nn.Linear(self.feature_dim, self.embedding_dim)
         nn.init.normal_(self.encoder.weight, std=0.01)
         nn.init.constant_(self.encoder.bias, 0)
 
-        self.decoder = nn.Linear(self.embedding_dim, self.feature_dim, device='cuda')
+        self.decoder = nn.Linear(self.embedding_dim, self.feature_dim)
         nn.init.normal_(self.decoder.weight, std=0.01)
         nn.init.constant_(self.decoder.bias, 0)
 
@@ -79,9 +79,9 @@ class PLN(nn.Module):
 
         if not self.opendet_benchmark:
             meta = MetadataCatalog.get(dataset_name)
-            self.class_id, _ = torch.sort(
+            self.class_id, _ = torch.sort(  # modified
                 torch.tensor(
-                    [meta.thing_dataset_id_to_contiguous_id[thing_id] for thing_id in GRASPNET_KNOWN_IDS], 
+                    list(range(len(meta.thing_classes))), 
                     device='cuda'
                 )
             )

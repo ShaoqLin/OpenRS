@@ -228,10 +228,10 @@ class SoftMaxClassifier(nn.Module):
 
             self.id_map = self.id_map.long()
         else:
-            meta = MetadataCatalog.get(dataset_name)
+            meta = MetadataCatalog.get(dataset_name)    # modified
             self.class_id, _ = torch.sort(
                 torch.tensor(
-                    [meta.thing_dataset_id_to_contiguous_id[thing_id] for thing_id in GRASPNET_KNOWN_IDS], 
+                    list(range(len(meta.thing_classes))), 
                     device='cuda'
                 )
             )

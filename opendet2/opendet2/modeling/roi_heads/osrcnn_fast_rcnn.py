@@ -12,6 +12,7 @@ from detectron2.modeling.box_regression import Box2BoxTransform, _dense_box_regr
 from detectron2.structures import Boxes, Instances, pairwise_iou
 from detectron2.utils.events import get_event_storage
 
+from opendet2.modeling.layers.openset_rcnn_losses import ciou_loss, diou_loss
 
 
 logger = logging.getLogger(__name__)
