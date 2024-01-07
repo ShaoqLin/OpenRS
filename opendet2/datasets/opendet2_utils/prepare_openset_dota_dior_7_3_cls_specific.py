@@ -109,6 +109,8 @@ DOTA_DIOR_10_CLASS_NAMES_SET2 = tuple(itertools.chain(DIOR_7_CLASS_NAMES_SET2, D
 DOTA_DIOR_10_CLASS_NAMES_SET3 = tuple(itertools.chain(DIOR_7_CLASS_NAMES_SET3, DIOR_3_CLASS_NAMES_SET3))
 DOTA_DIOR_10_CLASS_NAMES_SET4 = tuple(itertools.chain(DIOR_7_CLASS_NAMES_SET4, DIOR_3_CLASS_NAMES_SET4))
 
+DOTA_DIOR_10_SELECT_4 = 
+
 def parse_args():
     parser = argparse.ArgumentParser(description='openset voc generator')
     parser.add_argument("--dir", default="datasets/voc_coco", type=str, help="dataset dir")

@@ -77,8 +77,13 @@ T4_CLASS_NAMES = [
     "wine glass", "cup", "fork", "knife", "spoon", "bowl"
 ]
 
+DIOR_4NOVEL_CLASS_NAMES=[
+    'chimney', 'dam', 'stadium', 'windmill'
+]
+
 VOC_COCO_CLASS_NAMES = tuple(itertools.chain(VOC_CLASS_NAMES, T2_CLASS_NAMES, T3_CLASS_NAMES, T4_CLASS_NAMES))
 DOTA_DIOR_CLASS_NAMES = tuple(itertools.chain(DIOR_BASE_CLASS_NAMES, DIOR_NOVEL_CLASS_NAMES1, DIOR_NOVEL_CLASS_NAMES2))
+DOTA_DIOR_CLASS_NAMES14 = tuple(itertools.chain(DIOR_BASE_CLASS_NAMES, DIOR_4NOVEL_CLASS_NAMES))
 
 def parse_args():
     parser = argparse.ArgumentParser(description='openset voc generator')
@@ -104,7 +109,7 @@ def prepare_openset(dirname: str, in_split: str, out_split: str, start_class: in
             tree = ET.parse(f)
 
         classes = [obj.find("name").text for obj in tree.findall("object")]
-        if (not set(classes).isdisjoint(DOTA_DIOR_CLASS_NAMES[start_class:end_class])) and "person" not in classes and set(classes).isdisjoint(DOTA_DIOR_CLASS_NAMES[end_class:]):
+        if (not set(classes).isdisjoint(DOTA_DIOR_CLASS_NAMES14[start_class:end_class])) and "person" not in classes and set(classes).isdisjoint(DOTA_DIOR_CLASS_NAMES14[end_class:]):
             print(f'pick out classes: {classes}')
             for cls in classes:
                 image_ids[cls].append(fileid)

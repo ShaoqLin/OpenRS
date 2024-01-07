@@ -49,6 +49,10 @@ DIOR_NOVEL_CLASS_NAMES2=[
     'stadium', 'trainstation', 'windmill'
 ]
 
+DIOR_4NOVEL_CLASS_NAMES=[
+    'chimney', 'dam', 'stadium', 'windmill'
+]
+
 VOC_CLASS_NAMES = [
     "aeroplane", "bicycle", "bird", "boat", "bottle", "bus", "car", "cat",
     "chair", "cow", "diningtable", "dog", "horse", "motorbike", "person",
@@ -78,14 +82,15 @@ T4_CLASS_NAMES = [
 
 VOC_COCO_CLASS_NAMES = tuple(itertools.chain(VOC_CLASS_NAMES, T2_CLASS_NAMES, T3_CLASS_NAMES, T4_CLASS_NAMES))
 DOTA_DIOR_CLASS_NAMES = tuple(itertools.chain(DIOR_BASE_CLASS_NAMES, DIOR_NOVEL_CLASS_NAMES1, DIOR_NOVEL_CLASS_NAMES2))
+DOTA_DIOR_CLASS_NAMES14 = tuple(itertools.chain(DIOR_BASE_CLASS_NAMES, DIOR_4NOVEL_CLASS_NAMES))
 
 def parse_args():
     parser = argparse.ArgumentParser(description='openset voc generator')
-    parser.add_argument("--dir", default="datasets/voc_coco", type=str, help="dataset dir")
-    parser.add_argument("--in_split", default="instances_train2017", type=str, help="in split name")
-    parser.add_argument("--out_split", default="instances_train2017_openset_cls_agn_5000", type=str, help="out split name")
-    parser.add_argument("--start_class", default="20", type=int)
-    parser.add_argument("--end_class", default="40", type=int)
+    parser.add_argument("--dir", default="/mnt/bee9bc2f-b897-4648-b8c4-909715332cb4/linshaoqing/data/datasets/dota_dior", type=str, help="dataset dir")
+    parser.add_argument("--in_split", default="DIOR_train", type=str, help="in split name")
+    parser.add_argument("--out_split", default="dior_train_openset_4_novel", type=str, help="out split name")
+    parser.add_argument("--start_class", default="10", type=int)
+    parser.add_argument("--end_class", default="14", type=int)
     parser.add_argument("--post_num_sample", default="5000", type=int)
     return parser.parse_args()
 
@@ -102,7 +107,7 @@ def prepare_openset(dirname: str, in_split: str, out_split: str, start_class: in
             tree = ET.parse(f)
 
         classes = [obj.find("name").text for obj in tree.findall("object")]
-        if set(classes).isdisjoint(DOTA_DIOR_CLASS_NAMES[:start_class]+DOTA_DIOR_CLASS_NAMES[end_class:]):
+        if set(classes).isdisjoint(DOTA_DIOR_CLASS_NAMES14[:start_class]+DOTA_DIOR_CLASS_NAMES14[end_class:]):
             image_ids.append(fileid)
     
     image_ids = set(image_ids)
