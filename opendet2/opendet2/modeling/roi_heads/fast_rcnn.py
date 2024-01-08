@@ -879,3 +879,73 @@ class SIRENOpenDetFastRCNNOutputLayers(CosineFastRCNNOutputLayers):
         losses.update(self.get_ic_loss(mlp_feat, gt_classes, ious))
 
         return losses
+
+
+@ROI_BOX_OUTPUT_LAYERS_REGISTRY.register()
+class SepLossOpenDetFastRCNNOutputLayers(OpenDetFastRCNNOutputLayers):
+    
+    def losses(self, predictions, proposals, input_features=None):
+        """
+        Args:
+            predictions: return values of :meth:`forward()`.
+            proposals (list[Instances]): proposals that match the features that were used
+                to compute predictions. The fields ``proposal_boxes``, ``gt_boxes``,
+                ``gt_classes`` are expected.
+
+        Returns:
+            Dict[str, Tensor]: dict of losses
+        """
+        scores, proposal_deltas, mlp_feat = predictions
+        # parse classification outputs
+        gt_classes = (
+            cat([p.gt_classes for p in proposals], dim=0) if len(
+                proposals) else torch.empty(0)
+        )
+        _log_classification_stats(scores, gt_classes)
+        
+        # parse box regression outputs
+        if len(proposals):
+            proposal_boxes = cat(
+                [p.proposal_boxes.tensor for p in proposals], dim=0)  # Nx4
+            assert not proposal_boxes.requires_grad, "Proposals should not require gradients!"
+            # If "gt_boxes" does not exist, the proposals must be all negative and
+            # should not be included in regression loss computation.
+            # Here we just use proposal_boxes as an arbitrary placeholder because its
+            # value won't be used in self.box_reg_loss().
+            gt_boxes = cat(
+                [(p.gt_boxes if p.has("gt_boxes")
+                  else p.proposal_boxes).tensor for p in proposals],
+                dim=0,
+            )
+        else:
+            proposal_boxes = gt_boxes = torch.empty(
+                (0, 4), device=proposal_deltas.device)
+
+        unk_indices = torch.nonzero(torch.argmax(scores, dim=1) == self.num_classes-1).squeeze(1)
+        if len(unk_indices):
+            unk_proposals = proposal_deltas[unk_indices]
+            iou_matrix = pairwise_iou(Boxes(gt_boxes), Boxes(unk_proposals))
+            iou_loss = torch.sum(iou_matrix)
+            if iou_loss > 0:
+                print(iou_loss)
+        else:
+            iou_loss = torch.tensor(0.0)
+
+        losses = {
+            "loss_cls_ce": cross_entropy(scores, gt_classes, reduction="mean"),
+            "loss_box_reg": self.box_reg_loss(
+                proposal_boxes, gt_boxes, proposal_deltas, gt_classes
+            ),
+            "iou_loss": iou_loss,
+        }
+
+        # up loss
+        losses.update(self.get_up_loss(scores, gt_classes))
+
+        ious = cat([p.iou for p in proposals], dim=0)
+        # we first store feats in the queue, then cmopute loss
+        self._dequeue_and_enqueue(
+            mlp_feat, gt_classes, ious, iou_thr=self.ic_loss_queue_iou_thr)
+        losses.update(self.get_ic_loss(mlp_feat, gt_classes, ious))
+
+        return {k: v * self.loss_weight.get(k, 1.0) for k, v in losses.items()}
