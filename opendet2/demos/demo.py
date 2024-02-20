@@ -35,7 +35,6 @@ def setup_cfg(args):
     cfg.MODEL.RETINANET.SCORE_THRESH_TEST = args.confidence_threshold
     cfg.MODEL.ROI_HEADS.SCORE_THRESH_TEST = args.confidence_threshold
     cfg.MODEL.PANOPTIC_FPN.COMBINE.INSTANCES_CONFIDENCE_THRESH = args.confidence_threshold
-    cfg.MODEL.ROI_HEADS.VIS_IOU_THRESH = 0.8
     cfg.freeze()
     return cfg
 
@@ -114,7 +113,7 @@ if __name__ == "__main__":
                 inputs = os.listdir(args.input[0])
         for path in tqdm.tqdm(inputs, disable=not args.output, ncols=80):
             path = os.path.join(args.input[0], path)
-            if os.path.splitext(path)[-1] != '.jpg':
+            if os.path.splitext(path)[-1] != '.jpg' and os.path.splitext(path)[-1] != '.tif':
                 continue
             # use PIL, to be consistent with evaluation
             img = read_image(path, format="BGR")

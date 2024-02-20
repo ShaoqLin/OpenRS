@@ -26,6 +26,50 @@ DOTA_DIOR4k_CATEGORIES = [
     "unknown",
 ]
 
+DOTA_DIOR_dam_CATEGORIES = [
+    # DOTA
+    'airplane', 'baseballfield', 'bridge',
+    'groundtrackfield', 'vehicle', 'ship', 'tenniscourt',
+    'basketballcourt', 'storagetank', 'harbor',
+    # DIOR-10-11
+    'dam',
+    # Unknown
+    "unknown",
+]
+
+DOTA_DIOR_stadium_CATEGORIES = [
+    # DOTA
+    'airplane', 'baseballfield', 'bridge',
+    'groundtrackfield', 'vehicle', 'ship', 'tenniscourt',
+    'basketballcourt', 'storagetank', 'harbor',
+    # DIOR-10-11
+    'stadium',
+    # Unknown
+    "unknown",
+]
+
+DOTA_DIOR_windmill_CATEGORIES = [
+    # DOTA
+    'airplane', 'baseballfield', 'bridge',
+    'groundtrackfield', 'vehicle', 'ship', 'tenniscourt',
+    'basketballcourt', 'storagetank', 'harbor',
+    # DIOR-10-11
+    'windmill',
+    # Unknown
+    "unknown",
+]
+
+DOTA_DIOR_chimney_CATEGORIES = [
+    # DOTA
+    'airplane', 'baseballfield', 'bridge',
+    'groundtrackfield', 'vehicle', 'ship', 'tenniscourt',
+    'basketballcourt', 'storagetank', 'harbor',
+    # DIOR-10-11
+    'chimney',
+    # Unknown
+    "unknown",
+]
+
 DIOR_CLASS_17_3_NAMES = [
     # DIOR
     'airplane', 'airport', 'baseballfield', 'basketballcourt',
@@ -250,6 +294,38 @@ def register_dior7_set4(name, dirname, split, year):
     
 def register_dior7_3_set4(name, dirname, split, year):
     class_names = DIOR_7_3_CATEGORIES_SET4
+    DatasetCatalog.register(
+        name, lambda: load_voc_instances(dirname, split, class_names))
+    MetadataCatalog.get(name).set(
+        thing_classes=list(class_names), dirname=dirname, year=year, split=split
+    )
+
+def register_dota_dior_chimeny(name, dirname, split, year):
+    class_names = DOTA_DIOR_chimney_CATEGORIES
+    DatasetCatalog.register(
+        name, lambda: load_voc_instances(dirname, split, class_names))
+    MetadataCatalog.get(name).set(
+        thing_classes=list(class_names), dirname=dirname, year=year, split=split
+    )
+    
+def register_dota_dior_dam(name, dirname, split, year):
+    class_names = DOTA_DIOR_dam_CATEGORIES
+    DatasetCatalog.register(
+        name, lambda: load_voc_instances(dirname, split, class_names))
+    MetadataCatalog.get(name).set(
+        thing_classes=list(class_names), dirname=dirname, year=year, split=split
+    )
+    
+def register_dota_dior_stadium(name, dirname, split, year):
+    class_names = DOTA_DIOR_stadium_CATEGORIES
+    DatasetCatalog.register(
+        name, lambda: load_voc_instances(dirname, split, class_names))
+    MetadataCatalog.get(name).set(
+        thing_classes=list(class_names), dirname=dirname, year=year, split=split
+    )
+    
+def register_dota_dior_windmill(name, dirname, split, year):
+    class_names = DOTA_DIOR_windmill_CATEGORIES
     DatasetCatalog.register(
         name, lambda: load_voc_instances(dirname, split, class_names))
     MetadataCatalog.get(name).set(

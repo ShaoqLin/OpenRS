@@ -21,7 +21,7 @@ VOC_COCO_CATEGORIES = [
     "remote", "keyboard", "cell phone", "book", "clock",
     "vase", "scissors", "teddy bear", "hair drier", "toothbrush",
     "wine glass", "cup", "fork", "knife", "spoon", "bowl",
-    # Unknown
+    # Unknowns101
     "unknown",
 ]
 

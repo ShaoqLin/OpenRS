@@ -41,11 +41,12 @@ def fast_rcnn_inference(
     score_thresh: float,
     nms_thresh: float,
     topk_per_image: int,
+    unk_class_id: int,
     vis_iou_thr: float = 1.0,
 ):
     result_per_image = [
         fast_rcnn_inference_single_image(
-            boxes_per_image, scores_per_image, image_shape, score_thresh, nms_thresh, topk_per_image, vis_iou_thr
+            boxes_per_image, scores_per_image, image_shape, score_thresh, nms_thresh, topk_per_image, unk_class_id, vis_iou_thr
         )
         for scores_per_image, boxes_per_image, image_shape in zip(scores, boxes, image_shapes)
     ]
@@ -59,6 +60,7 @@ def fast_rcnn_inference_single_image(
     score_thresh: float,
     nms_thresh: float,
     topk_per_image: int,
+    unk_class_id: int,
     vis_iou_thr: float,
 ):
     # torch.infinite() is to detect inf nums
@@ -97,7 +99,7 @@ def fast_rcnn_inference_single_image(
     # apply nms between known classes and unknown class for visualization.
     if vis_iou_thr < 1.0:
         boxes, scores, filter_inds = unknown_aware_nms(
-            boxes, scores, filter_inds, iou_thr=vis_iou_thr)
+            boxes, scores, filter_inds, ukn_class_id=unk_class_id, iou_thr=vis_iou_thr)
 
     result = Instances(image_shape)
     result.pred_boxes = Boxes(boxes)
@@ -221,6 +223,7 @@ class CosineFastRCNNOutputLayers(FastRCNNOutputLayers):
             self.test_score_thresh,
             self.test_nms_thresh,
             self.test_topk_per_image,
+            self.num_classes - 1,
             self.vis_iou_thr,
         )
 
@@ -481,6 +484,287 @@ class OpenDetFastRCNNOutputLayers(CosineFastRCNNOutputLayers):
 
 
 @ROI_BOX_OUTPUT_LAYERS_REGISTRY.register()
+class CFRPNOpenDetFastRCNNOutputLayers(CosineFastRCNNOutputLayers):
+    @configurable
+    def __init__(
+        self,
+        *args,
+        test_objectness_score_thresh: float = 0.0,
+        test_topk_per_image: int = 100,
+        mean_type: str = "geometric",
+        box_smooth_l1_beta: float = 0.0,
+        iou_smooth_l1_beta: float = 0.0,
+        iou_reg_loss_type: str = "smooth_l1",
+        num_known_classes,
+        max_iters,
+        up_loss_start_iter,
+        up_loss_sampling_metric,
+        up_loss_topk,
+        up_loss_alpha,
+        up_loss_weight,
+        ic_loss_out_dim,
+        ic_loss_queue_size,
+        ic_loss_in_queue_size,
+        ic_loss_batch_iou_thr,
+        ic_loss_queue_iou_thr,
+        ic_loss_queue_tau,
+        ic_loss_weight,
+        **kargs
+    ):
+        super().__init__(*args, **kargs)
+        self.num_known_classes = num_known_classes
+        self.max_iters = max_iters
+        
+        self.test_objectness_score_thresh = test_objectness_score_thresh
+        self.mean_type = mean_type
+        self.box_smooth_l1_beta = box_smooth_l1_beta
+        self.iou_smooth_l1_beta = iou_smooth_l1_beta
+        self.iou_reg_loss_type = iou_reg_loss_type
+        self.test_topk_per_image = test_topk_per_image
+        input_shape = kargs['input_shape']
+        if isinstance(input_shape, int):  # some backward compatibility
+            input_shape = ShapeSpec(channels=input_shape)
+        
+        input_size = input_shape.channels * (input_shape.width or 1) * (input_shape.height or 1)
+        self.iou_pred = nn.Linear(input_size, 1)
+
+        self.up_loss = UPLoss(
+            self.num_classes,
+            sampling_metric=up_loss_sampling_metric,
+            topk=up_loss_topk,
+            alpha=up_loss_alpha
+        )
+        self.up_loss_start_iter = up_loss_start_iter
+        self.up_loss_weight = up_loss_weight
+
+        self.encoder = MLP(self.cls_score.in_features, ic_loss_out_dim)
+        self.ic_loss_loss = ICLoss(tau=ic_loss_queue_tau)
+        self.ic_loss_out_dim = ic_loss_out_dim
+        self.ic_loss_queue_size = ic_loss_queue_size
+        self.ic_loss_in_queue_size = ic_loss_in_queue_size
+        self.ic_loss_batch_iou_thr = ic_loss_batch_iou_thr
+        self.ic_loss_queue_iou_thr = ic_loss_queue_iou_thr
+        self.ic_loss_weight = ic_loss_weight
+
+        self.register_buffer('queue', torch.zeros(
+            self.num_known_classes, ic_loss_queue_size, ic_loss_out_dim))
+        self.register_buffer('queue_label', torch.empty(
+            self.num_known_classes, ic_loss_queue_size).fill_(-1).long())
+        self.register_buffer('queue_ptr', torch.zeros(
+            self.num_known_classes, dtype=torch.long))
+
+    @classmethod
+    def from_config(cls, cfg, input_shape):
+        ret = super().from_config(cfg, input_shape)
+        ret.update({
+            'num_known_classes': cfg.MODEL.ROI_HEADS.NUM_KNOWN_CLASSES,
+            "max_iters": cfg.SOLVER.MAX_ITER,
+
+            "up_loss_start_iter": cfg.UPLOSS.START_ITER,
+            "up_loss_sampling_metric": cfg.UPLOSS.SAMPLING_METRIC,
+            "up_loss_topk": cfg.UPLOSS.TOPK,
+            "up_loss_alpha": cfg.UPLOSS.ALPHA,
+            "up_loss_weight": cfg.UPLOSS.WEIGHT,
+
+            "ic_loss_out_dim": cfg.ICLOSS.OUT_DIM,
+            "ic_loss_queue_size": cfg.ICLOSS.QUEUE_SIZE,
+            "ic_loss_in_queue_size": cfg.ICLOSS.IN_QUEUE_SIZE,
+            "ic_loss_batch_iou_thr": cfg.ICLOSS.BATCH_IOU_THRESH,
+            "ic_loss_queue_iou_thr": cfg.ICLOSS.QUEUE_IOU_THRESH,
+            "ic_loss_queue_tau": cfg.ICLOSS.TEMPERATURE,
+            "ic_loss_weight": cfg.ICLOSS.WEIGHT,
+            
+            "box_smooth_l1_beta" : cfg.MODEL.ROI_BOX_HEAD.SMOOTH_L1_BETA,
+            "test_objectness_score_thresh" : cfg.MODEL.ROI_HEADS.OBJ_SCORE_THRESH_TEST,
+            "mean_type" : cfg.MODEL.ROI_HEADS.MEAN_TYPE,
+            "iou_smooth_l1_beta" : cfg.MODEL.ROI_BOX_HEAD.IOU_SMOOTH_L1_BETA,
+            "iou_reg_loss_type" : cfg.MODEL.ROI_BOX_HEAD.IOU_REG_LOSS_TYPE,
+            "loss_weight" : {"loss_box_reg": cfg.MODEL.ROI_BOX_HEAD.BBOX_REG_LOSS_WEIGHT,
+                            "loss_iou": cfg.MODEL.ROI_BOX_HEAD.IOU_REG_LOSS_WEIGHT},
+        })
+        return ret
+
+    def forward(self, feats):
+        # support shared & sepearte head
+        if isinstance(feats, tuple):
+            reg_x, cls_x = feats
+        else:
+            reg_x = cls_x = feats
+
+        if reg_x.dim() > 2:
+            reg_x = torch.flatten(reg_x, start_dim=1)
+            cls_x = torch.flatten(cls_x, start_dim=1)
+
+        x_norm = torch.norm(cls_x, p=2, dim=1).unsqueeze(1).expand_as(cls_x)
+        x_normalized = cls_x.div(x_norm + 1e-5)
+
+        # normalize weight
+        temp_norm = (
+            torch.norm(self.cls_score.weight.data, p=2, dim=1)
+            .unsqueeze(1)
+            .expand_as(self.cls_score.weight.data)
+        )
+        self.cls_score.weight.data = self.cls_score.weight.data.div(
+            temp_norm + 1e-5
+        )
+        cos_dist = self.cls_score(x_normalized)
+        scores = self.scale * cos_dist
+        
+        proposal_deltas = self.bbox_pred(reg_x)
+        pred_iou = self.iou_pred(reg_x).sigmoid()
+
+        # encode feature with MLP
+        mlp_feat = self.encoder(cls_x)
+
+        return scores, proposal_deltas, mlp_feat, pred_iou
+
+    def get_up_loss(self, scores, gt_classes):
+        # start up loss after several warmup iters
+        storage = get_event_storage()
+        if storage.iter > self.up_loss_start_iter:
+            loss_cls_up = self.up_loss(scores, gt_classes)
+        else:
+            loss_cls_up = scores.new_tensor(0.0)
+
+        return {"loss_cls_up": self.up_loss_weight * loss_cls_up}
+
+    def get_ic_loss(self, feat, gt_classes, ious):
+        # select foreground and iou > thr instance in a mini-batch
+        pos_inds = (ious > self.ic_loss_batch_iou_thr) & (
+            gt_classes != self.num_classes)
+        feat, gt_classes = feat[pos_inds], gt_classes[pos_inds]
+
+        queue = self.queue.reshape(-1, self.ic_loss_out_dim)
+        queue_label = self.queue_label.reshape(-1)
+        queue_inds = queue_label != -1  # filter empty queue
+        queue, queue_label = queue[queue_inds], queue_label[queue_inds]
+
+        loss_ic_loss = self.ic_loss_loss(feat, gt_classes, queue, queue_label)
+        # loss decay
+        storage = get_event_storage()
+        decay_weight = 1.0 - storage.iter / self.max_iters
+        return {"loss_cls_ic": self.ic_loss_weight * decay_weight * loss_ic_loss}
+
+    @torch.no_grad()
+    def _dequeue_and_enqueue(self, feat, gt_classes, ious, iou_thr=0.7):
+        # 1. gather variable
+        feat = self.concat_all_gather(feat)
+        gt_classes = self.concat_all_gather(gt_classes)
+        ious = self.concat_all_gather(ious)
+        # 2. filter by iou and obj, remove bg
+        keep = (ious > iou_thr) & (gt_classes != self.num_classes)
+        feat, gt_classes = feat[keep], gt_classes[keep]
+
+        for i in range(self.num_known_classes):
+            ptr = int(self.queue_ptr[i])
+            cls_ind = gt_classes == i
+            cls_feat, cls_gt_classes = feat[cls_ind], gt_classes[cls_ind]
+            # 3. sort by similarity, low sim ranks first
+            cls_queue = self.queue[i, self.queue_label[i] != -1]
+            _, sim_inds = F.cosine_similarity(
+                cls_feat[:, None], cls_queue[None, :], dim=-1).mean(dim=1).sort()
+            top_sim_inds = sim_inds[:self.ic_loss_in_queue_size]
+            cls_feat, cls_gt_classes = cls_feat[top_sim_inds], cls_gt_classes[top_sim_inds]
+            # 4. in queue
+            batch_size = cls_feat.size(
+                0) if ptr + cls_feat.size(0) <= self.ic_loss_queue_size else self.ic_loss_queue_size - ptr
+            self.queue[i, ptr:ptr+batch_size] = cls_feat[:batch_size]
+            self.queue_label[i, ptr:ptr + batch_size] = cls_gt_classes[:batch_size]
+
+            ptr = ptr + batch_size if ptr + batch_size < self.ic_loss_queue_size else 0
+            self.queue_ptr[i] = ptr
+
+    @torch.no_grad()
+    def concat_all_gather(self, tensor):
+        world_size = comm.get_world_size()
+        # single GPU, directly return the tensor
+        if world_size == 1:
+            return tensor
+        # multiple GPUs, gather tensors
+        tensors_gather = [torch.ones_like(tensor) for _ in range(world_size)]
+        torch.distributed.all_gather(tensors_gather, tensor, async_op=False)
+        output = torch.cat(tensors_gather, dim=0)
+        return output
+
+    def losses(self, predictions, proposals, losses: dict, input_features=None):
+        """
+        Args:
+            predictions: return values of :meth:`forward()`.
+            proposals (list[Instances]): proposals that match the features that were used
+                to compute predictions. The fields ``proposal_boxes``, ``gt_boxes``,
+                ``gt_classes`` are expected.
+
+        Returns:
+            Dict[str, Tensor]: dict of losses
+        """
+        scores, proposal_deltas, mlp_feat, pred_iou = predictions
+        # parse classification outputs
+        gt_classes = (
+            cat([p.gt_classes for p in proposals], dim=0) if len(
+                proposals) else torch.empty(0)
+        )
+        gt_iou = (
+            cat([p.iou for p in proposals], dim=0) if len(proposals) else torch.empty(0)
+        )
+        _log_classification_stats(scores, gt_classes)
+
+        # parse box regression outputs
+        if len(proposals):
+            proposal_boxes = cat(
+                [p.proposal_boxes.tensor for p in proposals], dim=0)  # Nx4
+            assert not proposal_boxes.requires_grad, "Proposals should not require gradients!"
+            # If "gt_boxes" does not exist, the proposals must be all negative and
+            # should not be included in regression loss computation.
+            # Here we just use proposal_boxes as an arbitrary placeholder because its
+            # value won't be used in self.box_reg_loss().
+            gt_boxes = cat(
+                [(p.gt_boxes if p.has("gt_boxes")
+                  else p.proposal_boxes).tensor for p in proposals],
+                dim=0,
+            )
+        else:
+            proposal_boxes = gt_boxes = torch.empty(
+                (0, 4), device=proposal_deltas.device)
+
+        losses = {
+            "loss_cls_ce": cross_entropy(scores, gt_classes, reduction="mean"),
+            "loss_box_reg": self.box_reg_loss(
+                proposal_boxes, gt_boxes, proposal_deltas, gt_classes
+            ),
+            "loss_iou": self.iou_loss(pred_iou, gt_iou, gt_classes),
+        }
+
+        # up loss
+        losses.update(self.get_up_loss(scores, gt_classes))
+
+        ious = cat([p.iou for p in proposals], dim=0)
+        # we first store feats in the queue, then cmopute loss
+        self._dequeue_and_enqueue(
+            mlp_feat, gt_classes, ious, iou_thr=self.ic_loss_queue_iou_thr)
+        losses.update(self.get_ic_loss(mlp_feat, gt_classes, ious))
+
+        return {k: v * self.loss_weight.get(k, 1.0) for k, v in losses.items()}
+
+    def iou_loss(self, pred_iou, gt_iou, gt_classes):
+        """
+        IoU regression loss.
+
+        Args: 
+            pred_iou (Tensor): shape (#images * num_samples, 1), IoU prediction
+            gt_iou (list[Tensor]): length #images list, element i is length num_samples Tensor containing the ground truth IoU
+            gt_classes (Tensor): length #images * num_samples, the gt class label of each proposal
+        
+        Returns:
+            Tensor: IoU loss
+        """
+        fg_inds = nonzero_tuple((gt_classes >= 0) & (gt_classes < self.num_classes))[0]
+        fg_pred_iou = pred_iou.squeeze()[fg_inds]
+        fg_gt_iou = gt_iou[fg_inds]
+        loss_iou = smooth_l1_loss(fg_pred_iou, fg_gt_iou, beta=self.iou_smooth_l1_beta, reduction='sum')
+        
+        return loss_iou / max(gt_classes.numel(), 1.0)
+
+@ROI_BOX_OUTPUT_LAYERS_REGISTRY.register()
 class PROSERFastRCNNOutputLayers(CosineFastRCNNOutputLayers):
     """PROSER
     """
@@ -615,6 +899,7 @@ class DropoutFastRCNNOutputLayers(CosineFastRCNNOutputLayers):
             self.test_score_thresh,
             self.test_nms_thresh,
             self.test_topk_per_image,
+            self.num_classes - 1,
         )
 
     def predict_probs(
@@ -879,6 +1164,283 @@ class SIRENOpenDetFastRCNNOutputLayers(CosineFastRCNNOutputLayers):
         losses.update(self.get_ic_loss(mlp_feat, gt_classes, ious))
 
         return losses
+
+@ROI_BOX_OUTPUT_LAYERS_REGISTRY.register()
+class SIRENCFRPNOpenDetFastRCNNOutputLayers(CosineFastRCNNOutputLayers):
+    @configurable
+    def __init__(
+        self,
+        *args,
+        test_objectness_score_thresh: float = 0.0,
+        test_topk_per_image: int = 100,
+        mean_type: str = "geometric",
+        box_smooth_l1_beta: float = 0.0,
+        iou_smooth_l1_beta: float = 0.0,
+        iou_reg_loss_type: str = "smooth_l1",
+        num_known_classes,
+        max_iters,
+        up_loss_start_iter,
+        up_loss_sampling_metric,
+        up_loss_topk,
+        up_loss_alpha,
+        up_loss_weight,
+        ic_loss_out_dim,
+        ic_loss_queue_size,
+        ic_loss_in_queue_size,
+        ic_loss_batch_iou_thr,
+        ic_loss_queue_iou_thr,
+        ic_loss_queue_tau,
+        ic_loss_weight,
+        **kargs,
+    ):
+        super().__init__(*args, **kargs)
+        self.num_known_classes = num_known_classes
+        self.max_iters = max_iters
+        
+        self.test_objectness_score_thresh = test_objectness_score_thresh
+        self.mean_type = mean_type
+        self.box_smooth_l1_beta = box_smooth_l1_beta
+        self.iou_smooth_l1_beta = iou_smooth_l1_beta
+        self.iou_reg_loss_type = iou_reg_loss_type
+        self.test_topk_per_image = test_topk_per_image
+        input_shape = kargs['input_shape']
+        if isinstance(input_shape, int):  # some backward compatibility
+            input_shape = ShapeSpec(channels=input_shape)
+        input_size = input_shape.channels * (input_shape.width or 1) * (input_shape.height or 1)
+        self.iou_pred = nn.Linear(input_size, 1)
+
+        self.up_loss = UPLoss(
+            self.num_classes,
+            sampling_metric=up_loss_sampling_metric,
+            topk=up_loss_topk,
+            alpha=up_loss_alpha,
+        )
+        self.up_loss_start_iter = up_loss_start_iter
+        self.up_loss_weight = up_loss_weight
+
+        self.encoder = MLP(self.cls_score.in_features, ic_loss_out_dim)
+        self.ic_loss_loss = ICLoss(tau=ic_loss_queue_tau)
+        self.ic_loss_out_dim = ic_loss_out_dim
+        self.ic_loss_queue_size = ic_loss_queue_size
+        self.ic_loss_in_queue_size = ic_loss_in_queue_size
+        self.ic_loss_batch_iou_thr = ic_loss_batch_iou_thr
+        self.ic_loss_queue_iou_thr = ic_loss_queue_iou_thr
+        self.ic_loss_weight = ic_loss_weight
+
+        self.register_buffer(
+            "queue",
+            torch.zeros(self.num_known_classes, ic_loss_queue_size, ic_loss_out_dim),
+        )
+        self.register_buffer(
+            "queue_label",
+            torch.empty(self.num_known_classes, ic_loss_queue_size).fill_(-1).long(),
+        )
+        self.register_buffer(
+            "queue_ptr", torch.zeros(self.num_known_classes, dtype=torch.long)
+        )
+
+    @classmethod
+    def from_config(cls, cfg, input_shape):
+        ret = super().from_config(cfg, input_shape)
+        ret.update(
+            {
+                "num_known_classes": cfg.MODEL.ROI_HEADS.NUM_KNOWN_CLASSES,
+                "max_iters": cfg.SOLVER.MAX_ITER,
+                "up_loss_start_iter": cfg.UPLOSS.START_ITER,
+                "up_loss_sampling_metric": cfg.UPLOSS.SAMPLING_METRIC,
+                "up_loss_topk": cfg.UPLOSS.TOPK,
+                "up_loss_alpha": cfg.UPLOSS.ALPHA,
+                "up_loss_weight": cfg.UPLOSS.WEIGHT,
+                "ic_loss_out_dim": cfg.ICLOSS.OUT_DIM,
+                "ic_loss_queue_size": cfg.ICLOSS.QUEUE_SIZE,
+                "ic_loss_in_queue_size": cfg.ICLOSS.IN_QUEUE_SIZE,
+                "ic_loss_batch_iou_thr": cfg.ICLOSS.BATCH_IOU_THRESH,
+                "ic_loss_queue_iou_thr": cfg.ICLOSS.QUEUE_IOU_THRESH,
+                "ic_loss_queue_tau": cfg.ICLOSS.TEMPERATURE,
+                "ic_loss_weight": cfg.ICLOSS.WEIGHT,
+                "box_smooth_l1_beta" : cfg.MODEL.ROI_BOX_HEAD.SMOOTH_L1_BETA,
+                "test_objectness_score_thresh" : cfg.MODEL.ROI_HEADS.OBJ_SCORE_THRESH_TEST,
+                "mean_type" : cfg.MODEL.ROI_HEADS.MEAN_TYPE,
+                "iou_smooth_l1_beta" : cfg.MODEL.ROI_BOX_HEAD.IOU_SMOOTH_L1_BETA,
+                "iou_reg_loss_type" : cfg.MODEL.ROI_BOX_HEAD.IOU_REG_LOSS_TYPE,
+                "loss_weight" : {
+                    "loss_box_reg": cfg.MODEL.ROI_BOX_HEAD.BBOX_REG_LOSS_WEIGHT,
+                    "loss_iou": cfg.MODEL.ROI_BOX_HEAD.IOU_REG_LOSS_WEIGHT
+                },
+            }
+        )
+        return ret
+
+    def forward(self, feats):
+        # support shared & sepearte head
+        if isinstance(feats, tuple):
+            reg_x, cls_x = feats
+        else:
+            reg_x = cls_x = feats
+
+        if reg_x.dim() > 2:
+            reg_x = torch.flatten(reg_x, start_dim=1)
+            cls_x = torch.flatten(cls_x, start_dim=1)
+
+        x_norm = torch.norm(cls_x, p=2, dim=1).unsqueeze(1).expand_as(cls_x)
+        x_normalized = cls_x.div(x_norm + 1e-5)
+
+        # normalize weight
+        temp_norm = (
+            torch.norm(self.cls_score.weight.data, p=2, dim=1)
+            .unsqueeze(1)
+            .expand_as(self.cls_score.weight.data)
+        )
+        self.cls_score.weight.data = self.cls_score.weight.data.div(temp_norm + 1e-5)
+        cos_dist = self.cls_score(x_normalized)
+        scores = self.scale * cos_dist
+        proposal_deltas = self.bbox_pred(reg_x)
+        
+        pred_iou = self.iou_pred(reg_x).sigmoid()
+
+        # encode feature with MLP
+        mlp_feat = self.encoder(cls_x)
+
+        return scores, proposal_deltas, mlp_feat, pred_iou
+
+    def get_up_loss(self, scores, gt_classes):
+        # start up loss after several warmup iters
+        storage = get_event_storage()
+        if storage.iter > self.up_loss_start_iter:
+            loss_cls_up = self.up_loss(scores, gt_classes)
+        else:
+            loss_cls_up = scores.new_tensor(0.0)
+
+        return {"loss_cls_up": self.up_loss_weight * loss_cls_up}
+
+    def get_ic_loss(self, feat, gt_classes, ious):
+        # select foreground and iou > thr instance in a mini-batch
+        pos_inds = (ious > self.ic_loss_batch_iou_thr) & (
+            gt_classes != self.num_classes
+        )  # self.num_classes: background class
+        feat, gt_classes = feat[pos_inds], gt_classes[pos_inds]
+
+        queue = self.queue.reshape(-1, self.ic_loss_out_dim)
+        queue_label = self.queue_label.reshape(-1)
+        queue_inds = queue_label != -1  # filter empty queue
+        queue, queue_label = queue[queue_inds], queue_label[queue_inds]
+
+        loss_ic_loss = self.ic_loss_loss(feat, gt_classes, queue, queue_label)
+        # loss decay
+        storage = get_event_storage()
+        decay_weight = 1.0 - storage.iter / self.max_iters
+        return {"loss_cls_ic": self.ic_loss_weight * decay_weight * loss_ic_loss}
+
+    @torch.no_grad()
+    def _dequeue_and_enqueue(self, feat, gt_classes, ious, iou_thr=0.7):
+        # 1. gather variable
+        feat = self.concat_all_gather(feat)  # for multi gpus sync
+        gt_classes = self.concat_all_gather(gt_classes)
+        ious = self.concat_all_gather(ious)
+        # 2. filter by iou and obj, remove bg
+        keep = (ious > iou_thr) & (gt_classes != self.num_classes)
+        feat, gt_classes = feat[keep], gt_classes[keep]
+
+        for i in range(self.num_known_classes):
+            ptr = int(self.queue_ptr[i])
+            cls_ind = gt_classes == i
+            cls_feat, cls_gt_classes = feat[cls_ind], gt_classes[cls_ind]
+            # 3. sort by similarity, low sim ranks first
+            cls_queue = self.queue[i, self.queue_label[i] != -1]
+            _, sim_inds = (
+                F.cosine_similarity(cls_feat[:, None], cls_queue[None, :], dim=-1)
+                .mean(dim=1)
+                .sort()
+            )
+            top_sim_inds = sim_inds[: self.ic_loss_in_queue_size]  # topk
+            cls_feat, cls_gt_classes = (
+                cls_feat[top_sim_inds],
+                cls_gt_classes[top_sim_inds],
+            )
+            # 4. in queue
+            batch_size = (
+                cls_feat.size(0)
+                if ptr + cls_feat.size(0) <= self.ic_loss_queue_size
+                else self.ic_loss_queue_size - ptr
+            )
+            self.queue[i, ptr : ptr + batch_size] = cls_feat[:batch_size]
+            self.queue_label[i, ptr : ptr + batch_size] = cls_gt_classes[:batch_size]
+
+            ptr = ptr + batch_size if ptr + batch_size < self.ic_loss_queue_size else 0
+            self.queue_ptr[i] = ptr
+
+    @torch.no_grad()
+    def concat_all_gather(self, tensor):
+        world_size = comm.get_world_size()
+        # single GPU, directly return the tensor
+        if world_size == 1:
+            return tensor
+        # multiple GPUs, gather tensors
+        tensors_gather = [torch.ones_like(tensor) for _ in range(world_size)]
+        torch.distributed.all_gather(tensors_gather, tensor, async_op=False)
+        output = torch.cat(tensors_gather, dim=0)
+        return output
+
+    def losses(self, predictions, proposals, losses: dict, input_features=None):
+        """
+        Args:
+            predictions: return values of :meth:`forward()`.
+            proposals (list[Instances]): proposals that match the features that were used
+                to compute predictions. The fields ``proposal_boxes``, ``gt_boxes``,
+                ``gt_classes`` are expected.
+
+        Returns:
+            Dict[str, Tensor]: dict of losses
+        """
+        scores, proposal_deltas, mlp_feat, pred_iou = predictions  # added mlp_feat
+        # parse classification outputs
+        gt_classes = (
+            cat([p.gt_classes for p in proposals], dim=0)
+            if len(proposals)
+            else torch.empty(0)
+        )
+        gt_iou = (
+            cat([p.iou for p in proposals], dim=0) if len(proposals) else torch.empty(0)
+        )
+        _log_classification_stats(scores, gt_classes)
+
+        # parse box regression outputs
+        if len(proposals):  # here len = batch size
+            proposal_boxes = cat(
+                [p.proposal_boxes.tensor for p in proposals], dim=0
+            )  # Nx4, now we get all proposals.
+            assert (
+                not proposal_boxes.requires_grad
+            ), "Proposals should not require gradients!"
+            gt_boxes = cat(
+                [(p.gt_boxes if p.has("gt_boxes")
+                  else p.proposal_boxes).tensor for p in proposals],
+                dim=0,
+            )
+        else:
+            proposal_boxes = gt_boxes = torch.empty(
+                (0, 4), device=proposal_deltas.device
+            )
+            
+        losses = {
+            "loss_cls_ce": cross_entropy(scores, gt_classes, reduction="mean"),
+            "loss_box_reg": self.box_reg_loss(
+                proposal_boxes, gt_boxes, proposal_deltas, gt_classes
+            ),
+            "loss_iou": self.iou_loss(pred_iou, gt_iou, gt_classes),
+        }
+
+        # up loss
+        losses.update(self.get_up_loss(scores, gt_classes))
+
+        ious = cat([p.iou for p in proposals], dim=0)
+        # we first store feats in the queue, then cmopute loss
+        self._dequeue_and_enqueue(
+            mlp_feat, gt_classes, ious, iou_thr=self.ic_loss_queue_iou_thr
+        )
+        losses.update(self.get_ic_loss(mlp_feat, gt_classes, ious))
+
+        return {k: v * self.loss_weight.get(k, 1.0) for k, v in losses.items()}
 
 
 @ROI_BOX_OUTPUT_LAYERS_REGISTRY.register()

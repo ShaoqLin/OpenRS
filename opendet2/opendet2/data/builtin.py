@@ -5,7 +5,9 @@ from .dota_dior import (register_dota_dior, register_dota, register_dior7,
                     register_dior7_3, register_dior17, register_dior17_3,
                     register_dior7_3_set1, register_dior7_3_set2, register_dior7_3_set3, 
                     register_dior7_3_set4, register_dior7_set1 ,register_dior7_set2,
-                    register_dior7_set3, register_dior7_set4, register_dota_dior4)
+                    register_dior7_set3, register_dior7_set4, register_dota_dior4,
+                    register_dota_dior_chimeny, register_dota_dior_dam, register_dota_dior_stadium,
+                    register_dota_dior_windmill)
 from .fair1m_mar20 import (register_fair1m, register_fair1m_mar20, register_mar20)
 from detectron2.data import MetadataCatalog
 
@@ -35,8 +37,8 @@ def register_all_fair1m_mar20(root):
         # DOTA_DIOR_openset
         ("fair1m_val_mar20_train_10_20", "fair1m_mar20", "fair1m_val_mar20_train_0_10"),
         ("fair1m_val_mar20_train_10_30", "fair1m_mar20", "fair1m_val_mar20_train_0_20"),
-        ("fair1m_val1024_airplane_mar20_train_10_20", "fair1m_mar20", "FAIR1m_val1024_airplane_mar20_train_0_10"),
-        ("fair1m_val1024_airplane_mar20_train_10_30", "fair1m_mar20", "FAIR1m_val1024_airplane_mar20_train_0_20"),
+        ("fair1m_val1024_airplane_mar20_test_10_20", "fair1m_mar20", "FAIR1m_val1024_airplane_mar20_train_0_10"),
+        ("fair1m_val1024_airplane_mar20_test_10_30", "fair1m_mar20", "FAIR1m_val1024_airplane_mar20_train_0_20"),
     ]
     for name, dirname, split in SPLITS:
         year = 2007 if "2007" in name else 2012
@@ -262,7 +264,46 @@ def register_all_train_dior7_set4(root):
         year = 2007 if "2007" in name else 2012
         register_dior7_set4(name, os.path.join(root, dirname), split, year)
         MetadataCatalog.get(name).evaluator_type = "pascal_voc"
-    
+        
+def register_all_dota_dior_chimney(root):
+    SPLITS = [ 
+        # DOTA_DIOR_openset
+        ("DOTA_val1024_DIOR_test_chimney", "dota_dior", "DOTA_val1024_DIOR_train_chimney"),
+    ]
+    for name, dirname, split in SPLITS:
+        year = 2007 if "2007" in name else 2012
+        register_dota_dior_chimeny(name, os.path.join(root, dirname), split, year)
+        MetadataCatalog.get(name).evaluator_type = "pascal_voc"
+        
+def register_all_dota_dior_dam(root):
+    SPLITS = [ 
+        # DOTA_DIOR_openset
+        ("DOTA_val1024_DIOR_test_dam", "dota_dior", "DOTA_val1024_DIOR_train_dam"),
+    ]
+    for name, dirname, split in SPLITS:
+        year = 2007 if "2007" in name else 2012
+        register_dota_dior_dam(name, os.path.join(root, dirname), split, year)
+        MetadataCatalog.get(name).evaluator_type = "pascal_voc"
+        
+def register_all_dota_dior_stadium(root):
+    SPLITS = [ 
+        # DOTA_DIOR_openset
+        ("DOTA_val1024_DIOR_test_stadium", "dota_dior", "DOTA_val1024_DIOR_train_stadium"),
+    ]
+    for name, dirname, split in SPLITS:
+        year = 2007 if "2007" in name else 2012
+        register_dota_dior_stadium(name, os.path.join(root, dirname), split, year)
+        MetadataCatalog.get(name).evaluator_type = "pascal_voc"
+        
+def register_all_dota_dior_windmill(root):
+    SPLITS = [ 
+        # DOTA_DIOR_openset
+        ("DOTA_val1024_DIOR_test_windmill", "dota_dior", "DOTA_val1024_DIOR_train_windmill"),
+    ]
+    for name, dirname, split in SPLITS:
+        year = 2007 if "2007" in name else 2012
+        register_dota_dior_windmill(name, os.path.join(root, dirname), split, year)
+        MetadataCatalog.get(name).evaluator_type = "pascal_voc"
 
 if __name__.endswith(".builtin"):
     # Register them all under "./datasets"
@@ -296,4 +337,9 @@ if __name__.endswith(".builtin"):
     register_all_mar20(_root)
     
     register_all_dota_dior4(_root)
+    
+    register_all_dota_dior_dam(_root)
+    register_all_dota_dior_windmill(_root)
+    register_all_dota_dior_chimney(_root)
+    register_all_dota_dior_stadium(_root)
     

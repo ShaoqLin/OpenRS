@@ -1,0 +1,40 @@
+_BASE_: "../Base-RCNN-FPN-OPENDET.yaml"
+MODEL:
+  WEIGHTS: "detectron2://ImageNetPretrained/MSRA/R-50.pkl"
+  RESNETS:
+    DEPTH: 50
+  ROI_HEADS:
+    NUM_CLASSES: 31
+    NUM_KNOWN_CLASSES: 10
+    NAME: "SIRENOpenSetStandardROIHeads"
+  ROI_BOX_HEAD:
+    OUTPUT_LAYERS: "SIRENOpenDetFastRCNNOutputLayers"
+DATASETS:
+  TRAIN: ('fair1m_train1024_airplane',)
+  TEST: ('fair1m_val1024_airplane',
+        'fair1m_val1024_airplane_mar20_test_10_20',
+        'fair1m_val1024_airplane_mar20_test_10_30')
+  VAL: 'fair1m_val1024_airplane'
+DATALOADER:
+  NUM_WORKERS: 8
+INPUT:
+  MIN_SIZE_TRAIN: (1024, )
+  MAX_SIZE_TRAIN: 20000
+  MAX_SIZE_TEST: 20000 
+  MIN_SIZE_TEST: 1024
+TEST:
+  EVAL_PERIOD: 3000
+SOLVER:
+  IMS_PER_BATCH: 16
+  BASE_LR: 0.01
+  STEPS: (6000, 8250)
+  MAX_ITER: 9000
+  WARMUP_ITERS: 100
+  CHECKPOINT_PERIOD: 5000
+  AMP:
+    ENABLED: True
+
+SIREN:
+  LOSS_WEIGHT: 0.3
+  PROJECTION_DIM: 64
+# UPLOSS.WEIGHT: former two are 0.5, the last is 1.0

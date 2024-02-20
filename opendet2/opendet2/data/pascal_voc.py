@@ -4,6 +4,7 @@
 import numpy as np
 import os
 import xml.etree.ElementTree as ET
+from lxml import etree
 from typing import List, Tuple, Union
 
 from detectron2.data import DatasetCatalog, MetadataCatalog
@@ -45,7 +46,8 @@ def load_voc_instances(dirname: str, split: str, class_names: Union[List[str], T
             jpeg_file = os.path.join(dirname, "JPEGImages", fileid + ".jpg")
 
         with PathManager.open(anno_file) as f:
-            tree = ET.parse(f)
+            # tree = ET.parse(f)
+            tree = etree.parse(f)
 
         r = {
             "file_name": jpeg_file,

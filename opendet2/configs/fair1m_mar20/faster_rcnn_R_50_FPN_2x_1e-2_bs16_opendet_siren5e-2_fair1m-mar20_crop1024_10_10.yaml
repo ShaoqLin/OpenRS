@@ -6,11 +6,15 @@ MODEL:
   ROI_HEADS:
     NUM_CLASSES: 31
     NUM_KNOWN_CLASSES: 10
+    NAME: "SIRENOpenSetStandardROIHeads"
+  ROI_BOX_HEAD:
+    OUTPUT_LAYERS: "SIRENOpenDetFastRCNNOutputLayers"
 DATASETS:
   TRAIN: ('fair1m_train1024_airplane',)
   TEST: ('fair1m_val1024_airplane',
-        'fair1m_val1024_airplane_mar20_train_10_20',
-        'fair1m_val1024_airplane_mar20_train_10_30')
+        'fair1m_val1024_airplane_mar20_test_10_20',
+        'fair1m_val1024_airplane_mar20_test_10_30')
+  VAL: 'fair1m_val1024_airplane'
 DATALOADER:
   NUM_WORKERS: 8
 INPUT:
@@ -19,28 +23,18 @@ INPUT:
   MAX_SIZE_TEST: 20000 
   MIN_SIZE_TEST: 1024
 TEST:
-  EVAL_PERIOD: 1500
+  EVAL_PERIOD: 3000
 SOLVER:
   IMS_PER_BATCH: 16
   BASE_LR: 0.01
-  STEPS: (24000, 33000)
-  MAX_ITER: 36000
+  STEPS: (6000, 8250)
+  MAX_ITER: 9000
   WARMUP_ITERS: 100
-  CHECKPOINT_PERIOD: 1500
+  CHECKPOINT_PERIOD: 5000
   AMP:
     ENABLED: True
-UPLOSS:
-  START_ITER: 100
-  SAMPLING_METRIC: "min_score"
-  TOPK: 3
-  ALPHA: 1.0
-  WEIGHT: 1.0
-ICLOSS:
-  OUT_DIM: 128
-  QUEUE_SIZE: 256
-  IN_QUEUE_SIZE: 16
-  BATCH_IOU_THRESH: 0.5
-  QUEUE_IOU_THRESH: 0.7
-  TEMPERATURE: 0.1
-  WEIGHT: 1.0
+
+SIREN:
+  LOSS_WEIGHT: 0.05
+  PROJECTION_DIM: 64
 # UPLOSS.WEIGHT: former two are 0.5, the last is 1.0

@@ -1,0 +1,32 @@
+_BASE_: "../Base-RCNN-FPN-OPENDET.yaml"
+MODEL:
+  WEIGHTS: "detectron2://ImageNetPretrained/MSRA/R-50.pkl"
+  RESNETS:
+    DEPTH: 50
+  ROI_HEADS:
+    NAME: "DropoutStandardROIHeads"
+    NUM_CLASSES: 15
+    NUM_KNOWN_CLASSES: 10
+  ROI_BOX_HEAD:
+    OUTPUT_LAYERS: "DropoutFastRCNNOutputLayers" # baseline use a simple cosine FRCNN
+DATASETS:
+  TRAIN: ('DOTA_train1024',)
+  TEST: ('dota_dior_10_14_test',)
+  VAL: 'DOTA_val1024'
+INPUT:
+  MIN_SIZE_TRAIN: (1024, )
+  MAX_SIZE_TRAIN: 20000
+  MIN_SIZE_TEST: 800
+TEST:
+  EVAL_PERIOD: 2000
+SOLVER:
+  IMS_PER_BATCH: 16
+  BASE_LR: 0.001
+  STEPS: (17600, 24200)
+  MAX_ITER: 26400
+  WARMUP_ITERS: 100
+  CHECKPOINT_PERIOD: 2000
+  AMP:
+    ENABLED: True
+
+# UPLOSS.WEIGHT: former two are 0.5, the last is 1.0

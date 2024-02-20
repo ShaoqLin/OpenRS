@@ -78,7 +78,7 @@ T4_CLASS_NAMES = [
 ]
 
 DIOR_4NOVEL_CLASS_NAMES=[
-    'chimney', 'dam', 'stadium', 'windmill'
+    'trainstation', # , 'dam', 'stadium', 'windmill'
 ]
 
 VOC_COCO_CLASS_NAMES = tuple(itertools.chain(VOC_CLASS_NAMES, T2_CLASS_NAMES, T3_CLASS_NAMES, T4_CLASS_NAMES))

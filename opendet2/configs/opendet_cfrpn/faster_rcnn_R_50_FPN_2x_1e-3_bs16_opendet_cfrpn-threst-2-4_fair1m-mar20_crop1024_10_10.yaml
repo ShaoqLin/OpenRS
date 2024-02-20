@@ -1,0 +1,51 @@
+_BASE_: "../Base-RCNN-FPN-OPENDET.yaml"
+MODEL:
+  WEIGHTS: "detectron2://ImageNetPretrained/MSRA/R-50.pkl"
+  RESNETS:
+    DEPTH: 50
+  ANCHOR_GENERATOR:
+    ASPECT_RATIOS: [[1.0]]
+  PROPOSAL_GENERATOR:
+    NAME: "ClsFreeRPN"
+  RPN:
+    HEAD_NAME: "ClsFreeRPNHead"
+    BBOX_REG_LOSS_TYPE: "iou"
+    BBOX_REG_LOSS_WEIGHT: 0.5
+    POST_NMS_TOPK_TRAIN: 2000
+    IOU_THRESHOLDS_OBJECTNESS: [0.2, 0.4]
+    POSITIVE_FRACTION_OBJECTNESS: 1.0
+    CTR_REG_LOSS_WEIGHT: 0.5
+    NMS_THRESH: 1.0
+    NMS_THRESH_TEST: 1.0
+  ROI_HEADS:
+    NUM_CLASSES: 31
+    NUM_KNOWN_CLASSES: 10
+  ROI_BOX_HEAD:
+    OUTPUT_LAYERS: "CFRPNOpenDetFastRCNNOutputLayers"
+
+DATASETS:
+  TRAIN: ('fair1m_train1024_airplane',)
+  TEST: ('fair1m_val1024_airplane',
+        'fair1m_val1024_airplane_mar20_test_10_20',
+        'fair1m_val1024_airplane_mar20_test_10_30')
+  VAL: 'DOTA_val1024'
+DATALOADER:
+  NUM_WORKERS: 8
+INPUT:
+  MIN_SIZE_TRAIN: (1024, )
+  MAX_SIZE_TRAIN: 20000
+  MAX_SIZE_TEST: 20000 
+  MIN_SIZE_TEST: 1024
+TEST:
+  EVAL_PERIOD: 1500
+SOLVER:
+  IMS_PER_BATCH: 16
+  BASE_LR: 0.001
+  STEPS: (6000, 8250)
+  MAX_ITER: 9000
+  WARMUP_ITERS: 100
+  CHECKPOINT_PERIOD: 1500
+  AMP:
+    ENABLED: True
+
+# UPLOSS.WEIGHT: former two are 0.5, the last is 1.0
