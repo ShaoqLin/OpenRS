@@ -1441,6 +1441,25 @@ class SIRENCFRPNOpenDetFastRCNNOutputLayers(CosineFastRCNNOutputLayers):
         losses.update(self.get_ic_loss(mlp_feat, gt_classes, ious))
 
         return {k: v * self.loss_weight.get(k, 1.0) for k, v in losses.items()}
+    
+    def iou_loss(self, pred_iou, gt_iou, gt_classes):
+        """
+        IoU regression loss.
+
+        Args: 
+            pred_iou (Tensor): shape (#images * num_samples, 1), IoU prediction
+            gt_iou (list[Tensor]): length #images list, element i is length num_samples Tensor containing the ground truth IoU
+            gt_classes (Tensor): length #images * num_samples, the gt class label of each proposal
+        
+        Returns:
+            Tensor: IoU loss
+        """
+        fg_inds = nonzero_tuple((gt_classes >= 0) & (gt_classes < self.num_classes))[0]
+        fg_pred_iou = pred_iou.squeeze()[fg_inds]
+        fg_gt_iou = gt_iou[fg_inds]
+        loss_iou = smooth_l1_loss(fg_pred_iou, fg_gt_iou, beta=self.iou_smooth_l1_beta, reduction='sum')
+        
+        return loss_iou / max(gt_classes.numel(), 1.0)
 
 
 @ROI_BOX_OUTPUT_LAYERS_REGISTRY.register()
